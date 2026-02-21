@@ -1,0 +1,6102 @@
+[
+  {
+    "episode": 7401,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          67.44114613813696,
+          91.47656823878789
+        ],
+        "confidence": 0.9999964063090842,
+        "avg_error": 6.095857016463757e-06,
+        "avg_progress": 1.8134264256008948e-06,
+        "total_steps": 740200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233908.95279846605,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          37.20181553833038,
+          67.53247615411101
+        ],
+        "confidence": 0.9999999808187423,
+        "avg_error": 6.351077652677617e-09,
+        "avg_progress": 2.869368709301767e-09,
+        "total_steps": 740200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 226757.07551804907,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          60.503786502368,
+          13.30984109314521
+        ],
+        "confidence": 0.9999999964824557,
+        "avg_error": 8.254694261466966e-10,
+        "avg_progress": 2.498930756766882e-10,
+        "total_steps": 740200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 232859.64491641647,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7402,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          7.5388865082979635,
+          43.8987128550456
+        ],
+        "confidence": 0.9999999127074204,
+        "avg_error": 4.0834643932896594e-08,
+        "avg_progress": 9.710738968493615e-09,
+        "total_steps": 740300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233940.02780366372,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          75.78008232903298,
+          63.75711347522309
+        ],
+        "confidence": 0.9999999994735845,
+        "avg_error": 2.310956107032247e-10,
+        "avg_progress": 6.599627719316992e-11,
+        "total_steps": 740300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 226789.17551828668,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          18.515663865946834,
+          36.09051820712568
+        ],
+        "confidence": 0.9999999998399681,
+        "avg_error": 1.088859412357035e-10,
+        "avg_progress": 2.8210542235562742e-11,
+        "total_steps": 740300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 232891.14491709723,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7403,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          39.50587682290788,
+          34.49827534176748
+        ],
+        "confidence": 0.9999999973161787,
+        "avg_error": 4.0430247483236317e-10,
+        "avg_progress": 6.189076681706318e-11,
+        "total_steps": 740400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233971.4878040908,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          94.61683199806853,
+          45.70400949473333
+        ],
+        "confidence": 0.9999999989040685,
+        "avg_error": 4.2400002051024013e-10,
+        "avg_progress": 1.243779301773884e-10,
+        "total_steps": 740400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 226820.19551853827,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          19.12126823517275,
+          37.533409573454634
+        ],
+        "confidence": 0.9999999999038951,
+        "avg_error": 9.695410221194357e-11,
+        "avg_progress": 2.714620073868135e-11,
+        "total_steps": 740400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 232923.19491724097,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7404,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          27.121010335792676,
+          16.86460539383026
+        ],
+        "confidence": 0.9999999997694777,
+        "avg_error": 1.393144237124555e-10,
+        "avg_progress": 2.7855537147736254e-11,
+        "total_steps": 740500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234003.33780411145,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          24.995150964900688,
+          27.159640451132574
+        ],
+        "confidence": 0.9999999990804028,
+        "avg_error": 3.6447727544408616e-10,
+        "avg_progress": 8.57854849656281e-11,
+        "total_steps": 740500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 226850.39051863924,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          54.59535519026906,
+          19.594290693510402
+        ],
+        "confidence": 0.9999999998928074,
+        "avg_error": 7.900335212418507e-11,
+        "avg_progress": 1.5161410148178956e-11,
+        "total_steps": 740500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 232954.9449172627,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7405,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          65.05482294579454,
+          31.99951116652747
+        ],
+        "confidence": 0.9999999954947224,
+        "avg_error": 6.281503583949188e-09,
+        "avg_progress": 1.1798740207069614e-09,
+        "total_steps": 740600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234034.8128041601,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          27.844203604720576,
+          98.26697632598199
+        ],
+        "confidence": 0.9999999998944584,
+        "avg_error": 7.944384265018422e-11,
+        "avg_progress": 3.0090105060387454e-11,
+        "total_steps": 740600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 226881.1905186497,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          58.096278007438684,
+          25.267644345150856
+        ],
+        "confidence": 0.9999999996326262,
+        "avg_error": 4.560526595254188e-10,
+        "avg_progress": 1.0562337116049036e-10,
+        "total_steps": 740600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 232984.16491729065,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7406,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          67.52591301061632,
+          46.0749527394448
+        ],
+        "confidence": 0.9999999999015461,
+        "avg_error": 3.349755091364148e-11,
+        "avg_progress": 8.06801886583941e-12,
+        "total_steps": 740700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234066.91280431906,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          0.2965464023149025,
+          38.85151115106095
+        ],
+        "confidence": 0.9999999999816738,
+        "avg_error": 1.2300039166444204e-11,
+        "avg_progress": 3.035435303718609e-12,
+        "total_steps": 740700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 226913.34051867752,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          56.95951106247844,
+          0.1958719172989305
+        ],
+        "confidence": 0.9999998544770567,
+        "avg_error": 2.0874282968819102e-07,
+        "avg_progress": 7.823684091690098e-08,
+        "total_steps": 740700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233012.4556332138,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7407,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          42.53400237315209,
+          30.282390400199446
+        ],
+        "confidence": 0.9999999999106387,
+        "avg_error": 8.794393737548977e-11,
+        "avg_progress": 2.4126750423902886e-11,
+        "total_steps": 740800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234098.61280462332,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          92.26135499795274,
+          22.80548494205759
+        ],
+        "confidence": 0.9999999999689436,
+        "avg_error": 3.275590554005503e-11,
+        "avg_progress": 5.592318361863357e-12,
+        "total_steps": 740800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 226945.37551889004,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          0.9287447836520641,
+          7.80099252007561
+        ],
+        "confidence": 0.9999999865048896,
+        "avg_error": 6.667282592687229e-09,
+        "avg_progress": 2.4059594760927892e-09,
+        "total_steps": 740800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233044.28063425902,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7408,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          4.17933728178113,
+          9.94592670353336
+        ],
+        "confidence": 0.9999999995594905,
+        "avg_error": 5.492989292588124e-10,
+        "avg_progress": 2.967433056222379e-10,
+        "total_steps": 740900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234130.86280470557,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          35.32141898483616,
+          47.0069791434445
+        ],
+        "confidence": 0.9999999999485543,
+        "avg_error": 5.901148094483722e-11,
+        "avg_progress": 1.050923549572591e-11,
+        "total_steps": 740900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 226977.4755189321,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          97.46936714579405,
+          25.52081183390854
+        ],
+        "confidence": 0.9999999911208949,
+        "avg_error": 9.754770505243648e-09,
+        "avg_progress": 2.484663727542191e-09,
+        "total_steps": 740900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233075.50563452285,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7409,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          7.248194370239659,
+          4.242902063944058
+        ],
+        "confidence": 0.9999999999033347,
+        "avg_error": 9.747256855818787e-11,
+        "avg_progress": 1.794789074305303e-11,
+        "total_steps": 741000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234162.48781137413,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          11.072760944121399,
+          49.16910484004951
+        ],
+        "confidence": 0.9999999999103133,
+        "avg_error": 9.370440656047974e-11,
+        "avg_progress": 1.798644618661305e-11,
+        "total_steps": 741000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227007.69552211888,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          33.359329549873195,
+          99.42393278920542
+        ],
+        "confidence": 0.9999995789105277,
+        "avg_error": 2.4722312019775927e-07,
+        "avg_progress": 5.221700192237222e-08,
+        "total_steps": 741000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233106.6556521038,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7410,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          26.088783891695257,
+          83.65204967360238
+        ],
+        "confidence": 0.9999999936963312,
+        "avg_error": 6.460462942392553e-10,
+        "avg_progress": 1.6675356095952055e-10,
+        "total_steps": 741100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234194.31281406706,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          30.973148114808737,
+          17.132796266142634
+        ],
+        "confidence": 0.9999999999204308,
+        "avg_error": 8.76324924084515e-11,
+        "avg_progress": 2.990597023494468e-11,
+        "total_steps": 741100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227038.7305234102,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          92.51956887943955,
+          69.13010747692917
+        ],
+        "confidence": 0.999999873795785,
+        "avg_error": 1.3407688452815593e-07,
+        "avg_progress": 4.8833260102298937e-08,
+        "total_steps": 741100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233134.84851600864,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7411,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          70.26176334007337,
+          3.5377820642714255
+        ],
+        "confidence": 0.9999999998562696,
+        "avg_error": 8.36821073373073e-11,
+        "avg_progress": 2.749240436000777e-11,
+        "total_steps": 741200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234226.26281418686,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          16.007606701889145,
+          46.702736501419594
+        ],
+        "confidence": 0.9999999996594632,
+        "avg_error": 4.366470025829461e-10,
+        "avg_progress": 1.6141199973840336e-10,
+        "total_steps": 741200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227069.6155234153,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          74.58686187093483,
+          63.213433026766495
+        ],
+        "confidence": 0.9999999802071414,
+        "avg_error": 1.138867788963438e-08,
+        "avg_progress": 1.9745383772473703e-09,
+        "total_steps": 741200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233166.8985167726,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7412,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          91.25503231552426,
+          88.39642730476416
+        ],
+        "confidence": 0.9999999999207777,
+        "avg_error": 9.006380814746695e-11,
+        "avg_progress": 1.896908602416758e-11,
+        "total_steps": 741300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234257.43781420996,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          6.553398109465888,
+          14.344508376354113
+        ],
+        "confidence": 0.9999999998992186,
+        "avg_error": 7.557642896921513e-11,
+        "avg_progress": 2.7812668487725568e-11,
+        "total_steps": 741300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227100.52552342508,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          94.3891439080091,
+          6.06696675596956
+        ],
+        "confidence": 0.999999999091014,
+        "avg_error": 6.249311283734737e-10,
+        "avg_progress": 2.706798875318217e-10,
+        "total_steps": 741300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233199.14851683032,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7413,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          61.333032373554374,
+          55.17579952401829
+        ],
+        "confidence": 0.9999999999509517,
+        "avg_error": 3.586106901883046e-11,
+        "avg_progress": 8.078331016278529e-12,
+        "total_steps": 741400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234288.77281421135,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          4.7896246811803,
+          80.87939151464553
+        ],
+        "confidence": 0.9999999985837432,
+        "avg_error": 7.915100026789635e-10,
+        "avg_progress": 2.5620531737824415e-10,
+        "total_steps": 741400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227132.3755235361,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          13.814717875752834,
+          67.47633875312039
+        ],
+        "confidence": 0.9999999998487257,
+        "avg_error": 1.0632737416221838e-10,
+        "avg_progress": 1.965347277282925e-11,
+        "total_steps": 741400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233231.3985168904,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7414,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          4.094223383576008,
+          76.31933314623438
+        ],
+        "confidence": 0.9999999998913546,
+        "avg_error": 1.1208033737220014e-10,
+        "avg_progress": 2.2944924779610964e-11,
+        "total_steps": 741500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234320.3228142166,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          49.17941484112315,
+          96.29499553522042
+        ],
+        "confidence": 0.9999999879955807,
+        "avg_error": 8.93752704067552e-09,
+        "avg_progress": 2.2002439981072543e-09,
+        "total_steps": 741500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227162.31052374834,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          36.4774652347715,
+          58.411263412346045
+        ],
+        "confidence": 0.9999999999611443,
+        "avg_error": 3.237431564148685e-11,
+        "avg_progress": 9.600952064620083e-12,
+        "total_steps": 741500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233263.44851695496,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7415,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          16.180155507407648,
+          46.386013923816904
+        ],
+        "confidence": 0.9999999997673096,
+        "avg_error": 2.2938677693429277e-10,
+        "avg_progress": 4.7753100779202026e-11,
+        "total_steps": 741600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234351.80781424858,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          37.44495035592446,
+          22.31807977779046
+        ],
+        "confidence": 0.9999999776136398,
+        "avg_error": 3.974949791540894e-08,
+        "avg_progress": 1.135908913596495e-08,
+        "total_steps": 741600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227194.08552403524,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          50.98068694911868,
+          92.23336557541502
+        ],
+        "confidence": 0.999999999914578,
+        "avg_error": 9.702765335975471e-11,
+        "avg_progress": 3.4114603763429893e-11,
+        "total_steps": 741600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233295.49851704662,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7416,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          2.4785408927670005,
+          88.21194540204628
+        ],
+        "confidence": 0.9999999996202172,
+        "avg_error": 3.830089870260345e-10,
+        "avg_progress": 1.6003220554283714e-10,
+        "total_steps": 741700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234382.78281428426,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          72.47427122800272,
+          44.508469625678515
+        ],
+        "confidence": 0.9999999808807356,
+        "avg_error": 1.9693661756914338e-08,
+        "avg_progress": 6.693443366234675e-09,
+        "total_steps": 741700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227224.62052439124,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          65.1452990069446,
+          68.0243848147418
+        ],
+        "confidence": 0.9999999999848301,
+        "avg_error": 1.3472622290792297e-11,
+        "avg_progress": 3.793542465834604e-12,
+        "total_steps": 741700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233323.49137427125,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7417,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          97.79368788021996,
+          54.89565343342912
+        ],
+        "confidence": 0.9999999931229138,
+        "avg_error": 9.402444800521436e-09,
+        "avg_progress": 3.8355347342644565e-09,
+        "total_steps": 741800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234414.68281439313,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          44.042418589858244,
+          56.824585092483844
+        ],
+        "confidence": 0.9999999948385414,
+        "avg_error": 2.4385447466857003e-09,
+        "avg_progress": 9.035850540017876e-10,
+        "total_steps": 741800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227255.9955246697,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          5.662831823231656,
+          45.440946562226415
+        ],
+        "confidence": 0.9999999999372583,
+        "avg_error": 6.659220206511884e-11,
+        "avg_progress": 2.284972090010884e-11,
+        "total_steps": 741800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233355.89137434252,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7418,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          53.754169830672055,
+          11.80369353214472
+        ],
+        "confidence": 0.9999999949583646,
+        "avg_error": 4.634558203875372e-09,
+        "avg_progress": 1.5082934956556216e-09,
+        "total_steps": 741900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234446.88281517616,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          69.47117117982782,
+          60.22379374726549
+        ],
+        "confidence": 0.9999996957223455,
+        "avg_error": 3.7814144739911624e-07,
+        "avg_progress": 1.178146209923625e-07,
+        "total_steps": 741900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": true,
+        "total_reward": 227286.80552850474,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          53.70186150834655,
+          75.65048663530669
+        ],
+        "confidence": 0.9999999999783242,
+        "avg_error": 1.7702531953343868e-11,
+        "avg_progress": 4.918739005509154e-12,
+        "total_steps": 741900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233388.09137550695,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7419,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          75.93853152989769,
+          61.18047730873107
+        ],
+        "confidence": 0.9999999530426622,
+        "avg_error": 2.7692811244151018e-08,
+        "avg_progress": 1.550155848129009e-08,
+        "total_steps": 742000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234476.592819795,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          39.71305500633639,
+          4.771975293056698
+        ],
+        "confidence": 0.9999999773908747,
+        "avg_error": 5.497830224410194e-09,
+        "avg_progress": 1.8868577922326326e-09,
+        "total_steps": 742000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227318.90553303986,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          12.845064357088447,
+          91.7290161504062
+        ],
+        "confidence": 0.999999999967854,
+        "avg_error": 2.1217992684022247e-11,
+        "avg_progress": 6.095299308686575e-12,
+        "total_steps": 742000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233419.841375511,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7420,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          19.75390950806981,
+          33.32818538810871
+        ],
+        "confidence": 0.9999999737529559,
+        "avg_error": 3.2946001193856486e-08,
+        "avg_progress": 1.4223318367534431e-08,
+        "total_steps": 742100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234508.3178207523,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          0.12573751383172294,
+          87.9494640854509
+        ],
+        "confidence": 0.9999999904607234,
+        "avg_error": 8.567643122736612e-10,
+        "avg_progress": 2.0028567693231025e-10,
+        "total_steps": 742100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227348.9355365896,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          19.328314941089232,
+          92.26777528459792
+        ],
+        "confidence": 0.9999999999524529,
+        "avg_error": 4.5145018192499495e-11,
+        "avg_progress": 8.37524121236055e-12,
+        "total_steps": 742100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233451.36637574833,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7421,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          1.2765665080454909,
+          70.6173853695851
+        ],
+        "confidence": 0.999999982657197,
+        "avg_error": 1.3332885639982805e-08,
+        "avg_progress": 4.7878240039267436e-09,
+        "total_steps": 742200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234540.467860308,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          59.895667537496195,
+          17.41552071406008
+        ],
+        "confidence": 0.9999999866121791,
+        "avg_error": 6.261018692388376e-09,
+        "avg_progress": 1.8086867670241702e-09,
+        "total_steps": 742200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227378.38053901965,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          30.231259755859412,
+          85.38358439144798
+        ],
+        "confidence": 0.9999973831658211,
+        "avg_error": 1.0282979275189063e-06,
+        "avg_progress": 2.1221522104042378e-07,
+        "total_steps": 742200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233482.37645935718,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7422,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          68.44176001039564,
+          24.442321345350535
+        ],
+        "confidence": 0.9999999981539779,
+        "avg_error": 1.2674540930679434e-09,
+        "avg_progress": 3.3216918243761386e-10,
+        "total_steps": 742300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234571.6778611199,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          47.29703235343736,
+          67.97962212426246
+        ],
+        "confidence": 0.9999999971584707,
+        "avg_error": 7.438301571904837e-10,
+        "avg_progress": 2.6571471550829175e-10,
+        "total_steps": 742300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227409.7305396383,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          85.12345566244284,
+          43.81296134557175
+        ],
+        "confidence": 0.9999999678325283,
+        "avg_error": 1.16172764075273e-08,
+        "avg_progress": 2.63853181525775e-09,
+        "total_steps": 742300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233512.1764605731,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7423,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          14.56237961553866,
+          74.05511031309543
+        ],
+        "confidence": 0.9999999992735913,
+        "avg_error": 5.199472991046505e-10,
+        "avg_progress": 1.5909220468790508e-10,
+        "total_steps": 742400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234601.58786115513,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          60.588865974539786,
+          63.49930560979699
+        ],
+        "confidence": 0.999999957347743,
+        "avg_error": 1.3164483725347509e-08,
+        "avg_progress": 4.845601320191406e-09,
+        "total_steps": 742400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227440.37554211283,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          47.59096797472816,
+          23.486996291067612
+        ],
+        "confidence": 0.9999999991975511,
+        "avg_error": 3.546756457972755e-10,
+        "avg_progress": 9.875041756535197e-11,
+        "total_steps": 742400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233544.27646095064,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7424,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          66.10763602809604,
+          21.665612446882236
+        ],
+        "confidence": 0.9999999990566917,
+        "avg_error": 8.893106383245364e-10,
+        "avg_progress": 2.7051560644308914e-10,
+        "total_steps": 742500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234632.53786118847,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          64.37833256110336,
+          33.74314950284483
+        ],
+        "confidence": 0.9999999991978014,
+        "avg_error": 5.146432578706506e-10,
+        "avg_progress": 1.7130155696709616e-10,
+        "total_steps": 742500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227471.4355421521,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          62.620920606805015,
+          20.00700832658073
+        ],
+        "confidence": 0.9999999996520612,
+        "avg_error": 2.8131834015066026e-10,
+        "avg_progress": 7.964516060554594e-11,
+        "total_steps": 742500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233574.47646097746,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7425,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          42.40180528526969,
+          3.3503771103682425
+        ],
+        "confidence": 0.9999999213327868,
+        "avg_error": 5.726535245997866e-08,
+        "avg_progress": 1.5877058956448308e-08,
+        "total_steps": 742600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234663.8728641664,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          97.30331772846856,
+          3.2240178190346285
+        ],
+        "confidence": 0.9999999998984406,
+        "avg_error": 9.177399829668476e-11,
+        "avg_progress": 1.9414944478490792e-11,
+        "total_steps": 742600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227502.68554307005,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          22.848815634929224,
+          27.871929085162535
+        ],
+        "confidence": 0.9999999996844271,
+        "avg_error": 3.115437172129809e-10,
+        "avg_progress": 7.584167807661579e-11,
+        "total_steps": 742600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233606.02646217195,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7426,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          67.89836308495185,
+          43.09541129102669
+        ],
+        "confidence": 0.9999999917752058,
+        "avg_error": 7.656223921514994e-09,
+        "avg_progress": 2.981617819308724e-09,
+        "total_steps": 742700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234694.8478645335,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          65.74253331230531,
+          79.19285576976837
+        ],
+        "confidence": 0.9999999999386838,
+        "avg_error": 3.402368317639848e-11,
+        "avg_progress": 1.0470310079016554e-11,
+        "total_steps": 742700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227533.34554311197,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          89.16226127881191,
+          52.21011388062459
+        ],
+        "confidence": 0.9999999997709732,
+        "avg_error": 2.516429988431296e-10,
+        "avg_progress": 6.07125655738977e-11,
+        "total_steps": 742700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233635.38646230818,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7427,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          69.22694759511197,
+          6.852231331961434
+        ],
+        "confidence": 0.9999999921129606,
+        "avg_error": 6.082153203301743e-09,
+        "avg_progress": 2.2887761796930308e-09,
+        "total_steps": 742800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234727.0478649905,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          44.34954240616911,
+          68.31746598215571
+        ],
+        "confidence": 0.9999999978528205,
+        "avg_error": 1.1924461751355865e-09,
+        "avg_progress": 2.9613109187032194e-10,
+        "total_steps": 742800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227564.55554327538,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          55.43241834909307,
+          91.73093564114404
+        ],
+        "confidence": 0.9999999997405699,
+        "avg_error": 3.318305977217939e-10,
+        "avg_progress": 8.46182117431038e-11,
+        "total_steps": 742800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233664.87146253025,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7428,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          26.425071243820028,
+          66.86621800318503
+        ],
+        "confidence": 0.9999999983208497,
+        "avg_error": 1.4849880866640853e-09,
+        "avg_progress": 2.860874773191746e-10,
+        "total_steps": 742900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234758.37286509134,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          52.22366908788621,
+          99.6518044228635
+        ],
+        "confidence": 0.9999999982794671,
+        "avg_error": 1.079540715154259e-09,
+        "avg_progress": 4.11639969333244e-10,
+        "total_steps": 742900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227595.58054341236,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          68.81357806933377,
+          53.21705852253044
+        ],
+        "confidence": 0.9999999997782438,
+        "avg_error": 2.3623422835961083e-10,
+        "avg_progress": 4.2169943578751476e-11,
+        "total_steps": 742900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233696.77146258144,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7429,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          23.125445904080166,
+          53.10324251319042
+        ],
+        "confidence": 0.99999998443745,
+        "avg_error": 1.0927791960213539e-08,
+        "avg_progress": 2.7480705488969193e-09,
+        "total_steps": 743000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234789.18286607927,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          60.39170809799192,
+          18.795143487536052
+        ],
+        "confidence": 0.9999999866757658,
+        "avg_error": 1.9314152188698584e-08,
+        "avg_progress": 8.054230504761506e-09,
+        "total_steps": 743000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227627.88054363756,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          10.447216980523422,
+          6.0954653283124
+        ],
+        "confidence": 0.9999999763490133,
+        "avg_error": 1.834115870291697e-08,
+        "avg_progress": 4.943144649161013e-09,
+        "total_steps": 743000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233727.67146335193,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7430,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          73.31560133804057,
+          17.55158538318642
+        ],
+        "confidence": 0.999999887658337,
+        "avg_error": 9.494923691732993e-08,
+        "avg_progress": 1.3244356722452721e-08,
+        "total_steps": 743100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234820.09286857885,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          65.89678771647091,
+          87.83739520231698
+        ],
+        "confidence": 0.9999999987975635,
+        "avg_error": 8.694967412736787e-10,
+        "avg_progress": 2.0856069510299947e-10,
+        "total_steps": 743100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227659.98054434004,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          85.78037370598037,
+          23.214390917195743
+        ],
+        "confidence": 0.9999999891571445,
+        "avg_error": 4.800440112084914e-09,
+        "avg_progress": 8.150793262551304e-10,
+        "total_steps": 743100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233758.75646549527,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7431,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          57.1264592622034,
+          29.318612532169055
+        ],
+        "confidence": 0.9999999399863116,
+        "avg_error": 6.437269037817827e-08,
+        "avg_progress": 1.4115167079609137e-08,
+        "total_steps": 743200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234845.89287034742,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          8.39518083814336,
+          21.76169440645458
+        ],
+        "confidence": 0.9999999970063722,
+        "avg_error": 3.2878568867467097e-09,
+        "avg_progress": 1.2249055214574866e-09,
+        "total_steps": 743200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227692.18054459192,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          90.48934366927864,
+          80.51086979865173
+        ],
+        "confidence": 0.9999999996505747,
+        "avg_error": 1.9138130975815403e-10,
+        "avg_progress": 4.8560483065229756e-11,
+        "total_steps": 743200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233791.00646552353,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7432,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          43.917310929190165,
+          38.7358784374032
+        ],
+        "confidence": 0.9999998142259597,
+        "avg_error": 1.1954825493987186e-07,
+        "avg_progress": 4.211551436483774e-08,
+        "total_steps": 743300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234877.8778796888,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          18.73505042596399,
+          99.08212642293799
+        ],
+        "confidence": 0.9999999983532255,
+        "avg_error": 1.4080222959789168e-09,
+        "avg_progress": 3.57650675741894e-10,
+        "total_steps": 743300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227724.330548054,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          80.73706190982756,
+          88.99297034548047
+        ],
+        "confidence": 0.9999999545609988,
+        "avg_error": 3.902753811235726e-08,
+        "avg_progress": 1.9441793530639016e-08,
+        "total_steps": 743300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233822.3664670686,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7433,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          4.550513073476907,
+          25.79590602941363
+        ],
+        "confidence": 0.9999999865742631,
+        "avg_error": 9.477578633010353e-09,
+        "avg_progress": 2.53941174754857e-09,
+        "total_steps": 743400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234908.10288075786,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          45.71720208515124,
+          14.668142491341115
+        ],
+        "confidence": 0.9999999857322549,
+        "avg_error": 1.6824856474695336e-08,
+        "avg_progress": 4.9755012054841785e-09,
+        "total_steps": 743400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227755.6905485881,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          83.11607721155201,
+          86.3190192342218
+        ],
+        "confidence": 0.9999999985353437,
+        "avg_error": 6.142258743291329e-10,
+        "avg_progress": 1.3492130745973442e-10,
+        "total_steps": 743400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233852.42146751692,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7434,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          25.179371052143992,
+          50.69307472136305
+        ],
+        "confidence": 0.9999999990491001,
+        "avg_error": 7.923468325898852e-10,
+        "avg_progress": 3.3549070188598763e-10,
+        "total_steps": 743500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234940.20288235432,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          28.20253080251109,
+          72.80286236381212
+        ],
+        "confidence": 0.9999999351366856,
+        "avg_error": 3.2116505810364514e-08,
+        "avg_progress": 8.203913992588241e-09,
+        "total_steps": 743500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": true,
+        "total_reward": 227785.86055475273,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          68.38860963349805,
+          86.34978895373214
+        ],
+        "confidence": 0.9999999998098886,
+        "avg_error": 2.012044671498292e-10,
+        "avg_progress": 2.8955026917798498e-11,
+        "total_steps": 743500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233883.59646943255,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7435,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          21.7913460777672,
+          40.596762624727006
+        ],
+        "confidence": 0.9999999723371776,
+        "avg_error": 2.76744030747178e-08,
+        "avg_progress": 3.589542968418513e-11,
+        "total_steps": 743600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": true,
+        "total_reward": 234970.29288260534,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          49.83990807722036,
+          72.36470995119015
+        ],
+        "confidence": 0.9999999834556349,
+        "avg_error": 8.311096799662466e-09,
+        "avg_progress": 3.2064599198022846e-09,
+        "total_steps": 743600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227816.98555617596,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          49.732044571653574,
+          65.23224430920273
+        ],
+        "confidence": 0.9999999998601444,
+        "avg_error": 1.3419696118233127e-10,
+        "avg_progress": 3.0291344779720395e-11,
+        "total_steps": 743600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233913.02646948825,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7436,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          35.091608550467214,
+          2.170192796061855
+        ],
+        "confidence": 0.9999998958077939,
+        "avg_error": 1.316990173805266e-07,
+        "avg_progress": 5.1174128579134505e-08,
+        "total_steps": 743700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235000.62789238628,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          74.20686091384735,
+          31.043924469682622
+        ],
+        "confidence": 0.999999999706614,
+        "avg_error": 1.8507376429999224e-10,
+        "avg_progress": 5.7687998475386415e-11,
+        "total_steps": 743700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227848.59555811645,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          4.278148270907494,
+          29.459323970825366
+        ],
+        "confidence": 0.9999999999037221,
+        "avg_error": 9.6869396358501e-11,
+        "avg_progress": 1.4302478819339104e-11,
+        "total_steps": 743700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233944.37646949344,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7437,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          47.831709947821935,
+          5.625760497589141
+        ],
+        "confidence": 0.9999999982928195,
+        "avg_error": 3.0780931137286414e-10,
+        "avg_progress": 8.348508759303818e-11,
+        "total_steps": 743800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235033.07789266572,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          41.0142854632646,
+          2.1026834941760484
+        ],
+        "confidence": 0.9999999999562115,
+        "avg_error": 4.5750890879589503e-11,
+        "avg_progress": 1.1086875514876304e-11,
+        "total_steps": 743800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227879.00555818656,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          30.412758688329475,
+          3.6301624207944627
+        ],
+        "confidence": 0.9999999996634688,
+        "avg_error": 3.5001630344089206e-10,
+        "avg_progress": 8.807462814619526e-11,
+        "total_steps": 743800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 233975.5514695705,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7438,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          75.39641182829736,
+          25.45930205011068
+        ],
+        "confidence": 0.9999999999155309,
+        "avg_error": 4.541013181799669e-11,
+        "avg_progress": 1.1171509117086087e-11,
+        "total_steps": 743900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235064.05289267152,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          32.73246685760245,
+          62.62372561572866
+        ],
+        "confidence": 0.9999999999548833,
+        "avg_error": 4.831752697595504e-11,
+        "avg_progress": 1.3047320602393997e-11,
+        "total_steps": 743900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227909.2905581904,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          11.914446568536448,
+          67.93179094882467
+        ],
+        "confidence": 0.9999999994407365,
+        "avg_error": 7.161232884467239e-10,
+        "avg_progress": 2.668890913826161e-10,
+        "total_steps": 743900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234007.37646957923,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7439,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          26.36148829015876,
+          70.90165678495242
+        ],
+        "confidence": 0.9999999996417731,
+        "avg_error": 4.317432400306742e-10,
+        "avg_progress": 1.2825195462931593e-10,
+        "total_steps": 744000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235095.95289267864,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          67.28129972759356,
+          80.28603271716142
+        ],
+        "confidence": 0.9999999985595033,
+        "avg_error": 2.2352803781544585e-09,
+        "avg_progress": 7.486968468806144e-10,
+        "total_steps": 744000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 227939.6155582207,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          98.16758031797498,
+          1.3802126967769368
+        ],
+        "confidence": 0.9999999996715774,
+        "avg_error": 1.51544978302387e-10,
+        "avg_progress": 3.888970846743778e-11,
+        "total_steps": 744000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234038.53646960563,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7440,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          72.58494323130883,
+          68.0400597390856
+        ],
+        "confidence": 0.9999999999010771,
+        "avg_error": 5.0526288708496733e-11,
+        "avg_progress": 9.300114497956535e-12,
+        "total_steps": 744100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235127.90289268945,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          24.966795008817797,
+          32.99594505781066
+        ],
+        "confidence": 0.9999999856110184,
+        "avg_error": 1.5720070176139522e-08,
+        "avg_progress": 7.087523945514817e-09,
+        "total_steps": 744100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": true,
+        "total_reward": 227971.6655584067,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          65.5204108906686,
+          35.12393562653219
+        ],
+        "confidence": 0.9999999996707771,
+        "avg_error": 3.373382469196162e-10,
+        "avg_progress": 5.72945614563114e-11,
+        "total_steps": 744100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234070.63646962514,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7441,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          71.6924325450788,
+          14.617427355795584
+        ],
+        "confidence": 0.9999999999825842,
+        "avg_error": 1.8054543385499777e-11,
+        "avg_progress": 4.765407794933563e-12,
+        "total_steps": 744200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235158.88789369058,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          62.138492647862364,
+          85.04824692614247
+        ],
+        "confidence": 0.9999999074472993,
+        "avg_error": 9.069105040282466e-08,
+        "avg_progress": 2.7373643085581988e-08,
+        "total_steps": 744200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228001.29556082503,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          30.854833927600083,
+          14.995202469999427
+        ],
+        "confidence": 0.9999998023253676,
+        "avg_error": 2.8942082366256725e-07,
+        "avg_progress": 1.2892737402125932e-07,
+        "total_steps": 744200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234102.23647421345,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7442,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          51.25089379763813,
+          46.58191930008964
+        ],
+        "confidence": 0.9999999623622837,
+        "avg_error": 3.315343646281832e-08,
+        "avg_progress": 6.678752639821539e-09,
+        "total_steps": 744300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235189.7978971881,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          84.10950214478841,
+          99.96198832509111
+        ],
+        "confidence": 0.9999999922546207,
+        "avg_error": 2.9774153476047616e-09,
+        "avg_progress": 9.418296698093798e-10,
+        "total_steps": 744300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228031.46556189653,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          32.11848802068157,
+          9.009778819631862
+        ],
+        "confidence": 0.9999999911484991,
+        "avg_error": 3.895676478626875e-09,
+        "avg_progress": 9.731241229493648e-10,
+        "total_steps": 744300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234134.26147493432,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7443,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          34.77961328218491,
+          81.06781243512155
+        ],
+        "confidence": 0.9999999903292872,
+        "avg_error": 9.19356358645984e-09,
+        "avg_progress": 9.20937253540144e-11,
+        "total_steps": 744400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": true,
+        "total_reward": 235221.6328972566,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          16.282185258599355,
+          37.94302000267648
+        ],
+        "confidence": 0.999999999617129,
+        "avg_error": 3.7365201141503767e-10,
+        "avg_progress": 7.33209798431389e-11,
+        "total_steps": 744400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228063.2005619717,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          57.66999641514073,
+          3.055682704396176
+        ],
+        "confidence": 0.9999999865018347,
+        "avg_error": 1.7416704967132546e-08,
+        "avg_progress": 6.893313742040163e-09,
+        "total_steps": 744400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234164.12147526763,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7444,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          64.38435198616139,
+          36.8173246161347
+        ],
+        "confidence": 0.9999999350486654,
+        "avg_error": 2.019360123561853e-08,
+        "avg_progress": 8.198455869745657e-09,
+        "total_steps": 744500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235252.3429143037,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          54.15754170644078,
+          93.61187982997997
+        ],
+        "confidence": 0.9999999986177726,
+        "avg_error": 1.7406239130601797e-09,
+        "avg_progress": 6.292658449869037e-10,
+        "total_steps": 744500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228095.40056844198,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          24.009592983644325,
+          22.389008712222278
+        ],
+        "confidence": 0.9999999985482689,
+        "avg_error": 5.882503296972264e-10,
+        "avg_progress": 1.923233759748566e-10,
+        "total_steps": 744500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234195.29648292274,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7445,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          18.076480021581943,
+          72.77697983731309
+        ],
+        "confidence": 0.9999999878975203,
+        "avg_error": 8.422303632293904e-09,
+        "avg_progress": 1.4737461029312727e-09,
+        "total_steps": 744600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235284.44291473317,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          29.74629234589746,
+          47.16492878628341
+        ],
+        "confidence": 0.9999999989077577,
+        "avg_error": 8.359909792199361e-10,
+        "avg_progress": 3.992121661022807e-10,
+        "total_steps": 744600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228125.92056852148,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          43.21932903199938,
+          90.90190258080796
+        ],
+        "confidence": 0.9999999995547216,
+        "avg_error": 5.018778295728943e-10,
+        "avg_progress": 9.483932250642369e-11,
+        "total_steps": 744600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234224.76648303054,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7446,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          19.585005725110904,
+          55.52310838939022
+        ],
+        "confidence": 0.9999999990724607,
+        "avg_error": 5.354151670633467e-10,
+        "avg_progress": 1.1254468537669204e-10,
+        "total_steps": 744700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235316.59291484545,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          47.97555765699643,
+          65.57192479533975
+        ],
+        "confidence": 0.9999999989768865,
+        "avg_error": 1.253179574001173e-09,
+        "avg_progress": 2.9741914486791643e-10,
+        "total_steps": 744700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228158.02056855112,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          32.19213557262549,
+          42.377822213713046
+        ],
+        "confidence": 0.999999998996244,
+        "avg_error": 7.177625618859373e-10,
+        "avg_progress": 1.1149667161758359e-10,
+        "total_steps": 744700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234256.3914831187,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7447,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          71.79354567852909,
+          33.47684665252579
+        ],
+        "confidence": 0.9999999998554504,
+        "avg_error": 1.421138888860196e-10,
+        "avg_progress": 4.0324847454253907e-11,
+        "total_steps": 744800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235348.89291510842,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          37.31473367943049,
+          36.119838629278675
+        ],
+        "confidence": 0.9999999811445043,
+        "avg_error": 1.3127761544495797e-08,
+        "avg_progress": 2.03660137643169e-09,
+        "total_steps": 744800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": true,
+        "total_reward": 228188.16056933056,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          11.786672703057661,
+          44.28702726708626
+        ],
+        "confidence": 0.9999999998649415,
+        "avg_error": 1.076475584019243e-10,
+        "avg_progress": 1.799267332347476e-11,
+        "total_steps": 744800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234284.136483273,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7448,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          94.27796473842068,
+          26.435367643591746
+        ],
+        "confidence": 0.9999999998842877,
+        "avg_error": 1.1139486052330616e-10,
+        "avg_progress": 3.048545391820534e-11,
+        "total_steps": 744900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235381.19291893195,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          21.799963593449206,
+          79.2561505983236
+        ],
+        "confidence": 0.9999998810741488,
+        "avg_error": 1.035433434992683e-07,
+        "avg_progress": 3.242802222302999e-08,
+        "total_steps": 744900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228220.11057618918,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          98.31754889346219,
+          11.197919079110562
+        ],
+        "confidence": 0.9999999370502766,
+        "avg_error": 4.4716514713272204e-08,
+        "avg_progress": 1.5113620088769152e-08,
+        "total_steps": 744900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234316.0114900052,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7449,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          73.24253885351433,
+          63.78858482407155
+        ],
+        "confidence": 0.9999999999158399,
+        "avg_error": 9.121976247278285e-11,
+        "avg_progress": 2.4801218023728923e-11,
+        "total_steps": 745000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235410.4629209734,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          15.769372063140509,
+          53.70272615490843
+        ],
+        "confidence": 0.9999998858504143,
+        "avg_error": 7.763893439260983e-08,
+        "avg_progress": 2.4279417587536045e-08,
+        "total_steps": 745000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228251.39558751482,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          50.03872575715637,
+          50.89740440458439
+        ],
+        "confidence": 0.9999998326406218,
+        "avg_error": 8.554865278398438e-08,
+        "avg_progress": 4.0197572381828195e-08,
+        "total_steps": 745000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234348.11149862793,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7450,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          44.753760985433956,
+          41.97192548139043
+        ],
+        "confidence": 0.9999999999749726,
+        "avg_error": 1.8608608577663777e-11,
+        "avg_progress": 6.859354338868695e-12,
+        "total_steps": 745100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235439.89792117433,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          34.387681645624454,
+          62.16024371353278
+        ],
+        "confidence": 0.9999999982322896,
+        "avg_error": 3.1491557764273816e-10,
+        "avg_progress": 8.813549959296729e-11,
+        "total_steps": 745100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228282.0655878817,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          65.03147711719107,
+          68.36596893929556
+        ],
+        "confidence": 0.9999999833275361,
+        "avg_error": 1.209400342094824e-08,
+        "avg_progress": 6.2859003557846904e-09,
+        "total_steps": 745100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234378.97149939268,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7451,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          49.988612088989555,
+          39.39994701682994
+        ],
+        "confidence": 0.999999999920418,
+        "avg_error": 9.491193664334929e-11,
+        "avg_progress": 3.388979843282902e-11,
+        "total_steps": 745200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235471.54792126274,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          74.35445694536278,
+          99.6076401052673
+        ],
+        "confidence": 0.9999999860952307,
+        "avg_error": 1.1689760581745645e-08,
+        "avg_progress": 3.2815840711464263e-09,
+        "total_steps": 745200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228312.91558819995,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          38.89317682613196,
+          89.97420568192399
+        ],
+        "confidence": 0.9999999974945571,
+        "avg_error": 2.1172465336505296e-09,
+        "avg_progress": 1.1315496706298944e-09,
+        "total_steps": 745200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234409.8064995343,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7452,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          63.87386086452352,
+          5.00915241450069
+        ],
+        "confidence": 0.9999999997271408,
+        "avg_error": 2.6586535056827287e-10,
+        "avg_progress": 5.846772163642377e-11,
+        "total_steps": 745300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235503.69792127746,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          72.00647205106836,
+          46.460884672846475
+        ],
+        "confidence": 0.9999999986479113,
+        "avg_error": 5.17940644539916e-10,
+        "avg_progress": 1.1606038768929849e-10,
+        "total_steps": 745300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228343.030588328,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          16.383685047877194,
+          58.962127165049864
+        ],
+        "confidence": 0.9999999998398093,
+        "avg_error": 1.360266836669677e-10,
+        "avg_progress": 2.5652416302257562e-11,
+        "total_steps": 745300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234441.73149957848,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7453,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          12.951724043915931,
+          9.620445010623115
+        ],
+        "confidence": 0.9999999993125278,
+        "avg_error": 7.943777111801831e-10,
+        "avg_progress": 2.147711796601781e-10,
+        "total_steps": 745400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235535.6479212889,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          95.36206464854396,
+          44.29695861645912
+        ],
+        "confidence": 0.9999999998829396,
+        "avg_error": 1.17043675793016e-10,
+        "avg_progress": 3.696794086127664e-11,
+        "total_steps": 745400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228374.93058833585,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          72.29493392356952,
+          52.99019675002566
+        ],
+        "confidence": 0.9999999999160308,
+        "avg_error": 8.051015600724077e-11,
+        "avg_progress": 2.564455882890504e-11,
+        "total_steps": 745400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234473.93149958167,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7454,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          78.05511399969322,
+          66.14400378781747
+        ],
+        "confidence": 0.9999999972915291,
+        "avg_error": 3.0608313938973453e-09,
+        "avg_progress": 9.004642975707355e-10,
+        "total_steps": 745500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235563.84792132542,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          62.99782973783864,
+          96.54606465846992
+        ],
+        "confidence": 0.9999999999556745,
+        "avg_error": 4.517076660631725e-11,
+        "avg_progress": 1.074549659321744e-11,
+        "total_steps": 745500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228405.75058835157,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          27.11266782302519,
+          56.989993069121596
+        ],
+        "confidence": 0.9999999998948047,
+        "avg_error": 8.36297441887679e-11,
+        "avg_progress": 1.6898394055581133e-11,
+        "total_steps": 745500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234505.58149958638,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7455,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          20.433309319688206,
+          82.72421278867238
+        ],
+        "confidence": 0.9999999193901817,
+        "avg_error": 3.951953706504696e-08,
+        "avg_progress": 9.360434738425738e-09,
+        "total_steps": 745600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235595.32292591408,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          36.274597611720765,
+          30.55056114657428
+        ],
+        "confidence": 0.9999999999512708,
+        "avg_error": 4.0656132974103976e-11,
+        "avg_progress": 9.583910921817651e-12,
+        "total_steps": 745600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228436.7005884277,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          15.072668952761305,
+          47.034597242468195
+        ],
+        "confidence": 0.999999999906396,
+        "avg_error": 1.1179891925422459e-10,
+        "avg_progress": 2.9738080227492694e-11,
+        "total_steps": 745600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234537.83150113645,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7456,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          6.6071005998115595,
+          36.26521305034112
+        ],
+        "confidence": 0.9999996957997075,
+        "avg_error": 2.612807751489754e-07,
+        "avg_progress": 8.058362617191506e-08,
+        "total_steps": 745700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235626.23293544762,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          65.8749814313409,
+          23.636287639367225
+        ],
+        "confidence": 0.9999999999495777,
+        "avg_error": 5.673300110947688e-11,
+        "avg_progress": 1.7479804929887433e-11,
+        "total_steps": 745700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228467.05559129157,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          57.193978315817176,
+          63.944484365030476
+        ],
+        "confidence": 0.9999999995893439,
+        "avg_error": 5.0447573687884e-10,
+        "avg_progress": 1.0093849436842994e-10,
+        "total_steps": 745700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234569.50650115227,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7457,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          3.1732828490340808,
+          83.56353542136034
+        ],
+        "confidence": 0.9999999869968397,
+        "avg_error": 4.266192804580626e-09,
+        "avg_progress": 1.4681231508273385e-09,
+        "total_steps": 745800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235657.95793826564,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          13.631885240026605,
+          65.28938197724503
+        ],
+        "confidence": 0.9999999999775021,
+        "avg_error": 2.2415706834102988e-11,
+        "avg_progress": 5.110429917784542e-12,
+        "total_steps": 745800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228497.7805916978,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          17.748670977696364,
+          69.43898841677868
+        ],
+        "confidence": 0.9999999672810705,
+        "avg_error": 3.711614826595877e-08,
+        "avg_progress": 1.2458665410441938e-08,
+        "total_steps": 745800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234600.9915044294,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7458,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          54.49927128930358,
+          43.654377941522284
+        ],
+        "confidence": 0.9999999997688773,
+        "avg_error": 9.602197162394965e-11,
+        "avg_progress": 1.475746642942699e-11,
+        "total_steps": 745900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235690.00794042335,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          23.830364258395505,
+          87.28680464426479
+        ],
+        "confidence": 0.9999999999397381,
+        "avg_error": 6.949518495391605e-11,
+        "avg_progress": 1.4413982334093855e-11,
+        "total_steps": 745900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228529.40559322885,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          72.78474642985626,
+          32.80973484640258
+        ],
+        "confidence": 0.9999997990164289,
+        "avg_error": 1.7013117101782881e-07,
+        "avg_progress": 2.8715984257132732e-08,
+        "total_steps": 745900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234631.7765095625,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7459,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          11.310006617996066,
+          39.174785139737
+        ],
+        "confidence": 0.9999999997021327,
+        "avg_error": 2.6638925960942306e-10,
+        "avg_progress": 7.812250325811565e-11,
+        "total_steps": 746000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235721.83294056772,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          26.705976487294194,
+          66.82565336034276
+        ],
+        "confidence": 0.9999999988463909,
+        "avg_error": 1.4202833228948996e-09,
+        "avg_progress": 3.7587416651385654e-10,
+        "total_steps": 746000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228561.08059388143,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          65.35659193195536,
+          56.91633404721216
+        ],
+        "confidence": 0.9999999852447219,
+        "avg_error": 3.0603523271111043e-09,
+        "avg_progress": 1.0026626362513725e-09,
+        "total_steps": 746000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234660.8615162677,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7460,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          34.99109861258083,
+          29.871994351554704
+        ],
+        "confidence": 0.9999999995155547,
+        "avg_error": 3.6523582561120984e-10,
+        "avg_progress": 9.137726478258834e-11,
+        "total_steps": 746100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235753.80794113578,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          21.331735028062283,
+          51.44124797493555
+        ],
+        "confidence": 0.9999999321447083,
+        "avg_error": 5.5344927929468215e-08,
+        "avg_progress": 1.880906754792022e-08,
+        "total_steps": 746100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228592.15559608315,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          88.72660009100743,
+          59.65882581237298
+        ],
+        "confidence": 0.9999999978409921,
+        "avg_error": 1.4703415623928962e-09,
+        "avg_progress": 5.260382573979428e-10,
+        "total_steps": 746100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234692.9615165862,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7461,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          42.908741785171884,
+          62.92701036045041
+        ],
+        "confidence": 0.9999999999633667,
+        "avg_error": 2.6928858492050734e-11,
+        "avg_progress": 8.743419660159347e-12,
+        "total_steps": 746200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235785.6579414353,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          57.424278323205186,
+          26.30088944585782
+        ],
+        "confidence": 0.999999883366819,
+        "avg_error": 1.210463844714127e-07,
+        "avg_progress": 3.950504403604782e-08,
+        "total_steps": 746200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228624.30559958777,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          40.67183415947301,
+          5.192009429691922
+        ],
+        "confidence": 0.9999999990523163,
+        "avg_error": 4.697356392746599e-10,
+        "avg_progress": 1.8422898762082695e-10,
+        "total_steps": 746200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234724.58651737645,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7462,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          59.83158639255704,
+          91.80426034383414
+        ],
+        "confidence": 0.9999999999671819,
+        "avg_error": 3.072052707706052e-11,
+        "avg_progress": 8.717002900754389e-12,
+        "total_steps": 746300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235817.75794159892,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          2.1503451772342856,
+          17.25062032955033
+        ],
+        "confidence": 0.9999998854456902,
+        "avg_error": 1.3803879976848067e-07,
+        "avg_progress": 4.378163733775864e-08,
+        "total_steps": 746300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228655.34060220176,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          56.937018580655206,
+          26.689283403264213
+        ],
+        "confidence": 0.9999999991117031,
+        "avg_error": 8.187547168025944e-10,
+        "avg_progress": 1.2911122587722091e-10,
+        "total_steps": 746300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234754.86151761323,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7463,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          98.135107686679,
+          57.50446263332293
+        ],
+        "confidence": 0.999999999544436,
+        "avg_error": 6.64588181362169e-10,
+        "avg_progress": 1.593289240126028e-10,
+        "total_steps": 746400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235849.02794163392,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          44.21119061200693,
+          43.11000271728457
+        ],
+        "confidence": 0.9999999985462424,
+        "avg_error": 1.261780445752092e-10,
+        "avg_progress": 4.021949526894497e-11,
+        "total_steps": 746400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228687.44060250337,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          53.13757921844629,
+          65.73501096029432
+        ],
+        "confidence": 0.9999999994120938,
+        "avg_error": 5.058240781091739e-10,
+        "avg_progress": 1.866683658341417e-10,
+        "total_steps": 746400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234785.29651763337,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7464,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          73.85802056404907,
+          19.957299658156856
+        ],
+        "confidence": 0.9999999981241172,
+        "avg_error": 1.0433150413047266e-09,
+        "avg_progress": 2.6130373559363207e-10,
+        "total_steps": 746500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235879.65297554556,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          78.81856377958165,
+          89.30305184431552
+        ],
+        "confidence": 0.9999999999345248,
+        "avg_error": 5.599559531332954e-11,
+        "avg_progress": 1.970798003958496e-11,
+        "total_steps": 746500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228717.80063002152,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          97.49605542259613,
+          35.774845718202826
+        ],
+        "confidence": 0.9999940892517551,
+        "avg_error": 9.082446628116969e-06,
+        "avg_progress": 3.3335620309493662e-06,
+        "total_steps": 746500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234816.59658815528,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7465,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          74.29249008675953,
+          69.59472923760335
+        ],
+        "confidence": 0.9999997337280493,
+        "avg_error": 2.5535373424645515e-07,
+        "avg_progress": 5.6561006545052805e-08,
+        "total_steps": 746600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235909.3879815499,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          9.86971844028055,
+          40.22669232472387
+        ],
+        "confidence": 0.9999996202413506,
+        "avg_error": 5.018881363838545e-07,
+        "avg_progress": 1.770388355026853e-07,
+        "total_steps": 746600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228749.95063425932,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          0.3764391152068782,
+          54.75959807394719
+        ],
+        "confidence": 0.9999999338235576,
+        "avg_error": 1.7205250585350385e-09,
+        "avg_progress": 3.80331879878959e-10,
+        "total_steps": 746600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234847.72159797486,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7466,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          85.07199530234108,
+          69.44921048007043
+        ],
+        "confidence": 0.9999999006450577,
+        "avg_error": 5.080401788148947e-08,
+        "avg_progress": 1.676119634197448e-08,
+        "total_steps": 746700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235941.03798687158,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          87.32533478667914,
+          35.87987094752768
+        ],
+        "confidence": 0.999999988732299,
+        "avg_error": 1.6460243973392962e-09,
+        "avg_progress": 4.0623205910250705e-10,
+        "total_steps": 746700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228781.77563771937,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          33.938766732149276,
+          48.57362425908721
+        ],
+        "confidence": 0.9999999995242229,
+        "avg_error": 5.941717304801253e-11,
+        "avg_progress": 1.76418826162289e-11,
+        "total_steps": 746700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234878.9215979902,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7467,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          16.459360637588304,
+          63.75948343433066
+        ],
+        "confidence": 0.9999994144512431,
+        "avg_error": 6.231311346027723e-07,
+        "avg_progress": 1.2500697650352776e-07,
+        "total_steps": 746800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235972.9629963733,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          71.06153195254633,
+          43.17252493143211
+        ],
+        "confidence": 0.9999999998857828,
+        "avg_error": 3.477879958850572e-11,
+        "avg_progress": 1.4169944080946739e-11,
+        "total_steps": 746800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228812.9756377726,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          65.37242969107419,
+          95.66792464627204
+        ],
+        "confidence": 0.9999999999739657,
+        "avg_error": 1.9239565301164274e-11,
+        "avg_progress": 3.718148250224374e-12,
+        "total_steps": 746800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234909.25659951256,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7468,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          41.74085701866879,
+          59.22113477982347
+        ],
+        "confidence": 0.9999998284085293,
+        "avg_error": 1.331382319058605e-07,
+        "avg_progress": 5.486796990084031e-08,
+        "total_steps": 746900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236003.688008408,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          63.82254684657346,
+          52.51688349267275
+        ],
+        "confidence": 0.9999999766731048,
+        "avg_error": 1.808221206101024e-08,
+        "avg_progress": 2.6122256135963086e-09,
+        "total_steps": 746900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228844.70063970203,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          4.467271730910994,
+          59.728242757544294
+        ],
+        "confidence": 0.9999999999758878,
+        "avg_error": 2.8363386503837614e-11,
+        "avg_progress": 7.464805157472374e-12,
+        "total_steps": 746900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234937.42159990143,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7469,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          50.85232717563497,
+          26.61341948365542
+        ],
+        "confidence": 0.9999999900104795,
+        "avg_error": 1.91331226695457e-09,
+        "avg_progress": 3.5437931478199404e-10,
+        "total_steps": 747000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236034.4980097951,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          4.105858895080189,
+          0.926810156273163
+        ],
+        "confidence": 0.9999999760013426,
+        "avg_error": 2.604625496255286e-08,
+        "avg_progress": 1.3459218975442333e-08,
+        "total_steps": 747000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": true,
+        "total_reward": 228876.80064051753,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          24.38186236904808,
+          22.45362686045904
+        ],
+        "confidence": 0.999999999982816,
+        "avg_error": 1.5770788863202212e-11,
+        "avg_progress": 2.6512950878796947e-12,
+        "total_steps": 747000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234965.9316000258,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7470,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          32.304908686074725,
+          6.792646683070345
+        ],
+        "confidence": 0.999999999463956,
+        "avg_error": 3.8081844760951e-10,
+        "avg_progress": 7.412860464350857e-11,
+        "total_steps": 747100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236066.64800989593,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          35.79533153428059,
+          77.54127969216779
+        ],
+        "confidence": 0.9999999993616906,
+        "avg_error": 8.182056230460199e-11,
+        "avg_progress": 1.6859906873389895e-11,
+        "total_steps": 747100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228908.75064069533,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          78.33260468016158,
+          57.182883479671574
+        ],
+        "confidence": 0.999999999973219,
+        "avg_error": 1.9126780931646992e-11,
+        "avg_progress": 4.654674822662797e-12,
+        "total_steps": 747100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 234998.1816000325,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7471,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          72.88294849953228,
+          60.127526130168704
+        ],
+        "confidence": 0.9999999999418194,
+        "avg_error": 1.2726985665432317e-11,
+        "avg_progress": 2.5881673865711662e-12,
+        "total_steps": 747200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236094.0180099738,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          1.729846242719134,
+          37.010779688656356
+        ],
+        "confidence": 0.999999984427868,
+        "avg_error": 9.132906553244168e-09,
+        "avg_progress": 2.9175524995928014e-09,
+        "total_steps": 747200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228940.95064129942,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          85.97619636364789,
+          72.83925380834519
+        ],
+        "confidence": 0.9999999999408969,
+        "avg_error": 7.035961310103422e-11,
+        "avg_progress": 1.391723108284948e-11,
+        "total_steps": 747200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235029.3316000333,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7472,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          76.11202792471093,
+          5.169633900457839
+        ],
+        "confidence": 0.9999999880317662,
+        "avg_error": 1.702886270882331e-09,
+        "avg_progress": 2.5972872741419905e-10,
+        "total_steps": 747300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236126.3180118315,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          46.96735889937129,
+          1.8456073212247475
+        ],
+        "confidence": 0.9999999991364109,
+        "avg_error": 5.971153703432375e-10,
+        "avg_progress": 2.010072511215988e-10,
+        "total_steps": 747300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 228972.37564151865,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          69.48332806248355,
+          93.27250585243404
+        ],
+        "confidence": 0.9999999999089578,
+        "avg_error": 1.0374264051982163e-10,
+        "avg_progress": 3.175886203327094e-11,
+        "total_steps": 747300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235061.18160024565,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7473,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          46.556021987392086,
+          59.02178271812855
+        ],
+        "confidence": 0.999999915732325,
+        "avg_error": 1.0954833892240501e-07,
+        "avg_progress": 4.754838993092925e-08,
+        "total_steps": 747400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236158.01801284615,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          53.63783429887856,
+          54.37713827680349
+        ],
+        "confidence": 0.9999999998277755,
+        "avg_error": 1.6832665851451712e-10,
+        "avg_progress": 6.306703041747407e-11,
+        "total_steps": 747400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 229002.93564201068,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          89.39673116069453,
+          32.695142397458824
+        ],
+        "confidence": 0.9999997917166137,
+        "avg_error": 2.555300952167272e-07,
+        "avg_progress": 8.588685176391664e-08,
+        "total_steps": 747400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235090.53660333832,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7474,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          95.71923003684407,
+          71.69558541107347
+        ],
+        "confidence": 0.9999999946145298,
+        "avg_error": 1.9365313935759687e-09,
+        "avg_progress": 4.900242905891971e-10,
+        "total_steps": 747500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236190.01801343428,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          61.861132342337754,
+          41.77033958664376
+        ],
+        "confidence": 0.9999999998052045,
+        "avg_error": 1.9292514599755783e-10,
+        "avg_progress": 3.582550194003442e-11,
+        "total_steps": 747500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 229034.98564219847,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          10.955365038886356,
+          66.6846242246046
+        ],
+        "confidence": 0.9999999952814108,
+        "avg_error": 9.495114347557454e-10,
+        "avg_progress": 2.663994969065442e-10,
+        "total_steps": 747500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235121.52160392285,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7475,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          7.508317992523033,
+          36.43500959653619
+        ],
+        "confidence": 0.9999999998577517,
+        "avg_error": 8.050557130656611e-11,
+        "avg_progress": 1.970198067191564e-11,
+        "total_steps": 747600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236221.11801344762,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          65.37792958537557,
+          43.40500510883865
+        ],
+        "confidence": 0.9999999994100125,
+        "avg_error": 5.551383214230654e-10,
+        "avg_progress": 8.606591272997121e-11,
+        "total_steps": 747600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 229064.89564221355,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          94.59682810967603,
+          70.88409993913176
+        ],
+        "confidence": 0.9999999997579186,
+        "avg_error": 2.3839684410581484e-10,
+        "avg_progress": 7.821962869081212e-11,
+        "total_steps": 747600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235152.54160393096,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7476,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          98.935315323269,
+          51.63064207788079
+        ],
+        "confidence": 0.9999999999475466,
+        "avg_error": 3.9554586862833305e-11,
+        "avg_progress": 9.370246852741237e-12,
+        "total_steps": 747700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236252.69301363235,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          16.015013457343514,
+          38.466780895376644
+        ],
+        "confidence": 0.9999999630499605,
+        "avg_error": 5.027241982702435e-08,
+        "avg_progress": 2.05487626026013e-08,
+        "total_steps": 747700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 229096.89564292942,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          64.57829828946602,
+          51.48739932726136
+        ],
+        "confidence": 0.9999999999477314,
+        "avg_error": 4.649193504138727e-11,
+        "avg_progress": 1.402295345814819e-11,
+        "total_steps": 747700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235184.59160396046,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7477,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          62.78707432163593,
+          35.46959445750852
+        ],
+        "confidence": 0.9999999451378866,
+        "avg_error": 9.549372630094504e-08,
+        "avg_progress": 3.834575056770734e-08,
+        "total_steps": 747800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236283.753040176,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          75.46098107152929,
+          27.321566589790322
+        ],
+        "confidence": 0.9999995077256566,
+        "avg_error": 1.6775692230908134e-07,
+        "avg_progress": 5.973137788828353e-08,
+        "total_steps": 747800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 229127.09071032645,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          19.0936356862088,
+          27.15129880526338
+        ],
+        "confidence": 0.9999999999660729,
+        "avg_error": 2.3560319233756343e-11,
+        "avg_progress": 5.441131399608335e-12,
+        "total_steps": 747800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235216.32662173008,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7478,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          35.71524050012327,
+          27.902767974506233
+        ],
+        "confidence": 0.9999999698881977,
+        "avg_error": 2.6881703552028567e-08,
+        "avg_progress": 8.388978778306467e-09,
+        "total_steps": 747900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236315.6780413666,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          14.392116630836284,
+          35.745577058500814
+        ],
+        "confidence": 0.999999994622437,
+        "avg_error": 6.795197377007511e-10,
+        "avg_progress": 1.6282644121901057e-10,
+        "total_steps": 747900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 229159.09071123635,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          74.63331931641198,
+          23.369060290695344
+        ],
+        "confidence": 0.999999999965564,
+        "avg_error": 4.1666456396249886e-11,
+        "avg_progress": 1.394425859502224e-11,
+        "total_steps": 747900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235248.45162223576,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7479,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          10.133116721786706,
+          40.94907000808921
+        ],
+        "confidence": 0.9999999991466586,
+        "avg_error": 5.620892043478598e-10,
+        "avg_progress": 2.0375913178938277e-10,
+        "total_steps": 748000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236344.59804143454,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          31.151751733770055,
+          66.22511578878947
+        ],
+        "confidence": 0.9999999998319515,
+        "avg_error": 1.182649418500492e-10,
+        "avg_progress": 3.3036443632811216e-11,
+        "total_steps": 748000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 229191.44071124436,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          6.222706318811362,
+          31.84072924420721
+        ],
+        "confidence": 0.9999999999651665,
+        "avg_error": 3.3158919403655784e-11,
+        "avg_progress": 5.442709173977822e-12,
+        "total_steps": 748000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235279.66162226547,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7480,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          54.76261074148084,
+          48.39860266630828
+        ],
+        "confidence": 0.9999999691899467,
+        "avg_error": 3.850362775455196e-08,
+        "avg_progress": 1.6877725445008097e-08,
+        "total_steps": 748100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": true,
+        "total_reward": 236374.79304178304,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          47.141817797975335,
+          9.032036556189794
+        ],
+        "confidence": 0.9999999998601614,
+        "avg_error": 1.5500572145277224e-10,
+        "avg_progress": 4.477928756962957e-11,
+        "total_steps": 748100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 229221.3707112525,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          46.00730244466624,
+          95.72693265881719
+        ],
+        "confidence": 0.9999999999205841,
+        "avg_error": 8.184014698570108e-11,
+        "avg_progress": 2.7410183150999857e-11,
+        "total_steps": 748100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235311.7366222681,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7481,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          27.74545852827532,
+          78.18215514647493
+        ],
+        "confidence": 0.999999935266874,
+        "avg_error": 5.0103242443810814e-08,
+        "avg_progress": 1.955265602759937e-08,
+        "total_steps": 748200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236406.02804717605,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          8.082884713449374,
+          60.57356995090734
+        ],
+        "confidence": 0.9999999921972583,
+        "avg_error": 2.071422453009397e-09,
+        "avg_progress": 3.7896344118326654e-10,
+        "total_steps": 748200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 229252.47071333017,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          35.425310816707665,
+          55.27494102908385
+        ],
+        "confidence": 0.999999999954968,
+        "avg_error": 3.6237737940578164e-11,
+        "avg_progress": 9.792302689201615e-12,
+        "total_steps": 748200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235339.78662262432,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7482,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          59.47421343502468,
+          85.40699805928094
+        ],
+        "confidence": 0.9999998900118252,
+        "avg_error": 5.526257780275046e-08,
+        "avg_progress": 1.683085546488883e-08,
+        "total_steps": 748300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236438.05305323732,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          78.4305501960774,
+          61.07353494046333
+        ],
+        "confidence": 0.9999999461978268,
+        "avg_error": 5.253795478665779e-08,
+        "avg_progress": 1.8690687220157542e-08,
+        "total_steps": 748300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 229282.96571447398,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          2.541029604213051,
+          68.37366256055003
+        ],
+        "confidence": 0.9999999999556298,
+        "avg_error": 3.19525096485751e-11,
+        "avg_progress": 6.915723636119475e-12,
+        "total_steps": 748300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235368.97162293867,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7483,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          63.43545444543231,
+          29.83598428632996
+        ],
+        "confidence": 0.9999999965274942,
+        "avg_error": 2.014150543572235e-09,
+        "avg_progress": 7.108066274463809e-10,
+        "total_steps": 748400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236470.30305351477,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          67.90718403529965,
+          39.42930577932768
+        ],
+        "confidence": 0.9999999956810766,
+        "avg_error": 1.5119323848455934e-09,
+        "avg_progress": 4.698047395557126e-10,
+        "total_steps": 748400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 229315.26571482603,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          33.94475282579499,
+          34.6569476916318
+        ],
+        "confidence": 0.9999999999536067,
+        "avg_error": 5.5326453834991794e-11,
+        "avg_progress": 1.050875966107645e-11,
+        "total_steps": 748400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235399.9216229547,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7484,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          84.26934944074802,
+          93.66762018857209
+        ],
+        "confidence": 0.9999999494873776,
+        "avg_error": 4.227501375630993e-08,
+        "avg_progress": 2.0919046539447095e-08,
+        "total_steps": 748500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236502.4030556018,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          39.76934795791715,
+          68.7269520976831
+        ],
+        "confidence": 0.9999999499246357,
+        "avg_error": 4.557738026989e-08,
+        "avg_progress": 1.2485094380565442e-08,
+        "total_steps": 748500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 229345.66571618392,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          93.64454117205939,
+          34.30513650076293
+        ],
+        "confidence": 0.9999999999636268,
+        "avg_error": 3.472679006334689e-11,
+        "avg_progress": 8.592968741075179e-12,
+        "total_steps": 748500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235428.44162405678,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7485,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          91.68568601490507,
+          29.75589502680333
+        ],
+        "confidence": 0.9999998686692666,
+        "avg_error": 8.422589097278887e-08,
+        "avg_progress": 2.509452006194124e-08,
+        "total_steps": 748600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236534.6530619168,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          2.4616692264080484,
+          26.23560883146041
+        ],
+        "confidence": 0.9999999991633712,
+        "avg_error": 2.0260803625105073e-10,
+        "avg_progress": 4.6928574221061224e-11,
+        "total_steps": 748600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 229376.4757187326,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          83.33815909474826,
+          3.8520581660315827
+        ],
+        "confidence": 0.999999816690666,
+        "avg_error": 1.8853642735905396e-07,
+        "avg_progress": 7.007663569424948e-08,
+        "total_steps": 748600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235458.8766282289,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7486,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          43.398591906202256,
+          25.965566757085867
+        ],
+        "confidence": 0.9999999982158116,
+        "avg_error": 3.919850791178625e-10,
+        "avg_progress": 9.39412991840527e-11,
+        "total_steps": 748700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236567.00306218155,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          51.64477331488804,
+          58.35694229379294
+        ],
+        "confidence": 0.9999999999706832,
+        "avg_error": 1.644897790024913e-11,
+        "avg_progress": 6.534384621934008e-12,
+        "total_steps": 748700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 229407.56072256403,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          83.09180708650311,
+          94.61154842959974
+        ],
+        "confidence": 0.9999998426320568,
+        "avg_error": 8.69503740119626e-08,
+        "avg_progress": 3.020028387368256e-08,
+        "total_steps": 748700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235490.75164341906,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7487,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          2.589308869825345,
+          65.04032243850148
+        ],
+        "confidence": 0.9999999984497245,
+        "avg_error": 5.106069060623053e-10,
+        "avg_progress": 2.1727282265016079e-10,
+        "total_steps": 748800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236599.05306262925,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          78.40099940943547,
+          90.10769447153008
+        ],
+        "confidence": 0.9999999999593248,
+        "avg_error": 4.343030579265217e-11,
+        "avg_progress": 1.4929342137537384e-11,
+        "total_steps": 748800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 229439.61072266282,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          36.81427552908326,
+          88.90856525930278
+        ],
+        "confidence": 0.9999999971711155,
+        "avg_error": 1.0406642839133617e-09,
+        "avg_progress": 3.361209990893066e-10,
+        "total_steps": 748800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235519.7866438176,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7488,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          29.196354267090996,
+          41.75819491540351
+        ],
+        "confidence": 0.999999984613312,
+        "avg_error": 2.4772853119033046e-08,
+        "avg_progress": 1.2179429647110607e-08,
+        "total_steps": 748900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236628.6280628926,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          2.203663879830671,
+          17.329360010712918
+        ],
+        "confidence": 0.9999999999796093,
+        "avg_error": 1.417454198720386e-11,
+        "avg_progress": 3.449054128239204e-12,
+        "total_steps": 748900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 229471.64572268305,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          32.715439461674265,
+          10.823882253380972
+        ],
+        "confidence": 0.9999999990776492,
+        "avg_error": 1.0973990126339483e-09,
+        "avg_progress": 4.324302985136974e-10,
+        "total_steps": 748900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235550.29664396035,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7489,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          56.25325557592407,
+          69.45078033851843
+        ],
+        "confidence": 0.9999999859313806,
+        "avg_error": 1.0720195686708677e-08,
+        "avg_progress": 3.3427792756057784e-09,
+        "total_steps": 749000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236658.23306331466,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          23.170266466966154,
+          80.58424461128499
+        ],
+        "confidence": 0.9999999999364624,
+        "avg_error": 7.728587362101913e-11,
+        "avg_progress": 2.0421847633095292e-11,
+        "total_steps": 749000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 229503.0057227293,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          98.0740902867008,
+          2.0692362110079046
+        ],
+        "confidence": 0.9999999998855353,
+        "avg_error": 6.787644469923027e-11,
+        "avg_progress": 1.8614362178384635e-11,
+        "total_steps": 749000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235581.50664396532,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7490,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          92.92185165791635,
+          24.2018333386809
+        ],
+        "confidence": 0.9999999234032407,
+        "avg_error": 3.821941829684761e-08,
+        "avg_progress": 1.0177521225784857e-08,
+        "total_steps": 749100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236689.51806756124,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          1.6782312129946888,
+          8.448431491040012
+        ],
+        "confidence": 0.9999999999538796,
+        "avg_error": 3.946833068702027e-11,
+        "avg_progress": 7.330818938000583e-12,
+        "total_steps": 749100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 229534.8807243255,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          75.92862890914294,
+          8.722790985425767
+        ],
+        "confidence": 0.9999999303917526,
+        "avg_error": 1.2436820640004953e-07,
+        "avg_progress": 5.1267141998323494e-08,
+        "total_steps": 749100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235608.49450390766,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7491,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          42.6004266391095,
+          4.75551532505547
+        ],
+        "confidence": 0.9999999944527687,
+        "avg_error": 3.0432924180701092e-09,
+        "avg_progress": 1.0828884788871563e-09,
+        "total_steps": 749200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236721.61806781383,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          37.36443652948398,
+          12.88937372665626
+        ],
+        "confidence": 0.9999999999776905,
+        "avg_error": 1.6907000625898673e-11,
+        "avg_progress": 3.938370289613413e-12,
+        "total_steps": 749200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 229566.00572438407,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          91.8756250208142,
+          69.55962563542795
+        ],
+        "confidence": 0.9999999940701706,
+        "avg_error": 2.7522905232668647e-09,
+        "avg_progress": 9.536122724806972e-10,
+        "total_steps": 749200,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235640.594504667,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7492,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          20.482187373828296,
+          16.086867866447236
+        ],
+        "confidence": 0.9999999991930606,
+        "avg_error": 4.668344294467274e-10,
+        "avg_progress": 1.0661086874419468e-10,
+        "total_steps": 749300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236753.66806787564,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          34.15936938674702,
+          78.01316148081897
+        ],
+        "confidence": 0.9999999999514851,
+        "avg_error": 5.610691824337044e-11,
+        "avg_progress": 1.164008594373156e-11,
+        "total_steps": 749300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 229596.45072439825,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          5.12371376588699,
+          57.81906931698387
+        ],
+        "confidence": 0.9999999993712824,
+        "avg_error": 3.822807584374921e-10,
+        "avg_progress": 1.3219362410277213e-10,
+        "total_steps": 749300,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235670.72950470002,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7493,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          6.589503339051873,
+          89.4931294216473
+        ],
+        "confidence": 0.9999999999385006,
+        "avg_error": 2.3971485148439887e-11,
+        "avg_progress": 8.147087453454215e-12,
+        "total_steps": 749400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236784.3780680442,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          91.04057713493944,
+          96.98476147089737
+        ],
+        "confidence": 0.9999999941263622,
+        "avg_error": 7.364829281153451e-10,
+        "avg_progress": 1.6400415539519208e-10,
+        "total_steps": 749400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 229626.57072551484,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          19.115568663956992,
+          2.37998319652651
+        ],
+        "confidence": 0.9999999990312158,
+        "avg_error": 9.484261473402533e-10,
+        "avg_progress": 2.7494553717088974e-10,
+        "total_steps": 749400,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235701.82950504747,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7494,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          43.96698106498256,
+          59.43598057819939
+        ],
+        "confidence": 0.9999999999407373,
+        "avg_error": 5.01273780297018e-11,
+        "avg_progress": 8.18252627113325e-12,
+        "total_steps": 749500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236816.72806804662,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          59.308153280270105,
+          3.0282614769172937
+        ],
+        "confidence": 0.9999999997313217,
+        "avg_error": 1.61047100828704e-10,
+        "avg_progress": 5.110910843847405e-11,
+        "total_steps": 749500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 229657.35572552623,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          78.7765588295704,
+          33.13089120497318
+        ],
+        "confidence": 0.999999999778766,
+        "avg_error": 1.8200062811002393e-10,
+        "avg_progress": 3.746477329757969e-11,
+        "total_steps": 749500,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235732.55450505848,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7495,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          35.09003956581489,
+          97.20698125236419
+        ],
+        "confidence": 0.9999999999369709,
+        "avg_error": 7.238503147571907e-11,
+        "avg_progress": 1.2596015203092393e-11,
+        "total_steps": 749600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236849.02806805543,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          27.810455081180564,
+          97.36705135294066
+        ],
+        "confidence": 0.9999999999622764,
+        "avg_error": 3.834365698215936e-11,
+        "avg_progress": 9.828984414567143e-12,
+        "total_steps": 749600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 229688.85572552957,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          43.53953413002952,
+          22.21522509172449
+        ],
+        "confidence": 0.9999999987579258,
+        "avg_error": 1.8961437711628725e-09,
+        "avg_progress": 8.191059205908679e-10,
+        "total_steps": 749600,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235758.94736222443,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7496,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          69.79775607425287,
+          8.191222083871708
+        ],
+        "confidence": 0.999999999937178,
+        "avg_error": 6.552028242873264e-11,
+        "avg_progress": 1.057329050702105e-11,
+        "total_steps": 749700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236880.80306813796,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          89.06033476115046,
+          68.39147243520964
+        ],
+        "confidence": 0.9999999898413163,
+        "avg_error": 8.40439344784727e-09,
+        "avg_progress": 1.4785995317012634e-09,
+        "total_steps": 749700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 229720.50572572768,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          89.73245909617373,
+          73.58070166446177
+        ],
+        "confidence": 0.9999999933785451,
+        "avg_error": 6.2245362364432564e-09,
+        "avg_progress": 2.7924540846324676e-09,
+        "total_steps": 749700,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235790.15736239433,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7497,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          35.48884991538648,
+          33.71877783020348
+        ],
+        "confidence": 0.9999999999438445,
+        "avg_error": 5.1799902041349544e-11,
+        "avg_progress": 1.1460243518057744e-11,
+        "total_steps": 749800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236913.00306902797,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          40.06016759164771,
+          27.753177155514777
+        ],
+        "confidence": 0.9999999668283348,
+        "avg_error": 1.2769258939115957e-08,
+        "avg_progress": 2.24612581867234e-09,
+        "total_steps": 749800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 229751.66573150386,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          85.7801003749417,
+          16.43676949692687
+        ],
+        "confidence": 0.999999989832331,
+        "avg_error": 5.731429364441709e-09,
+        "avg_progress": 1.7981829913971126e-09,
+        "total_steps": 749800,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235820.14236594236,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7498,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          86.26555055254494,
+          41.59000879606411
+        ],
+        "confidence": 0.9999994244134524,
+        "avg_error": 7.597685005578115e-08,
+        "avg_progress": 1.2074713318099839e-08,
+        "total_steps": 749900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236942.48813245975,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          43.6206252488292,
+          0.06909059238853388
+        ],
+        "confidence": 0.9999999994145945,
+        "avg_error": 3.434625681086878e-10,
+        "avg_progress": 9.056958655273561e-11,
+        "total_steps": 749900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 229783.86573556805,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          92.19161111090321,
+          41.36088784276541
+        ],
+        "confidence": 0.9999999993632894,
+        "avg_error": 5.445444963003698e-10,
+        "avg_progress": 1.1529449617242449e-10,
+        "total_steps": 749900,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235848.63239733572,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7499,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          42.11810150890577,
+          55.63497116292095
+        ],
+        "confidence": 0.9999999935178959,
+        "avg_error": 1.8972343335255105e-09,
+        "avg_progress": 4.864102814972071e-10,
+        "total_steps": 750000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 236974.58813290574,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          16.22833043783035,
+          70.89173862735612
+        ],
+        "confidence": 0.9999999893593087,
+        "avg_error": 5.4903276647255694e-09,
+        "avg_progress": 2.103649116014239e-09,
+        "total_steps": 750000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 229815.2257368644,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          59.226443601715914,
+          56.902987536741364
+        ],
+        "confidence": 0.9999999971015306,
+        "avg_error": 3.2936856353416034e-09,
+        "avg_progress": 8.672045748170377e-10,
+        "total_steps": 750000,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235880.28239751369,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  },
+  {
+    "episode": 7500,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          7.115089214884193,
+          38.33511693494326
+        ],
+        "confidence": 0.9999999996212958,
+        "avg_error": 3.2985690637254984e-10,
+        "avg_progress": 8.833034095823144e-11,
+        "total_steps": 750100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 237006.4381329643,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          91.7591842684011,
+          41.830563260866555
+        ],
+        "confidence": 0.999999989143891,
+        "avg_error": 1.0422000475129866e-08,
+        "avg_progress": 1.8428656656244157e-10,
+        "total_steps": 750100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": true,
+        "total_reward": 229846.71073693855,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          18.929225551490234,
+          77.54622604773283
+        ],
+        "confidence": 0.9999999817004713,
+        "avg_error": 1.4862467523357737e-08,
+        "avg_progress": 4.919765173028168e-09,
+        "total_steps": 750100,
+        "vocab_size": 0,
+        "is_learning": 0,
+        "is_exploring": false,
+        "total_reward": 235911.10739793966,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      }
+    },
+    "language": {
+      "total_teaching_events": 0,
+      "total_naming_tests": 0,
+      "naming_accuracy": 0.0,
+      "recent_accuracy": 0.0
+    }
+  }
+]

@@ -1,0 +1,2452 @@
+[
+  {
+    "episode": 3451,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          74.39649809853911,
+          61.649991154909486
+        ],
+        "confidence": 0.8625821898018275,
+        "avg_error": 0.13721031695604324,
+        "avg_progress": 0.037842773646116254,
+        "total_steps": 345200,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106033.7125199146
+      },
+      "1": {
+        "position": [
+          80.62103557480064,
+          33.41662222552043
+        ],
+        "confidence": 0.8564823128027959,
+        "avg_error": 0.15183381363749504,
+        "avg_progress": 0.03480577729642391,
+        "total_steps": 345200,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 98743.59945781199
+      },
+      "2": {
+        "position": [
+          68.83116544190005,
+          36.31180562310006
+        ],
+        "confidence": 0.8891354912689766,
+        "avg_error": 0.11555420896038412,
+        "avg_progress": 0.03409367138519883,
+        "total_steps": 345200,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 105115.12744050406
+      }
+    }
+  },
+  {
+    "episode": 3452,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          64.63954617744707,
+          53.98543801967138
+        ],
+        "confidence": 0.8605982090343798,
+        "avg_error": 0.1432185934856534,
+        "avg_progress": 0.021368681266903878,
+        "total_steps": 345300,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106066.66740786991
+      },
+      "1": {
+        "position": [
+          20.825872086579864,
+          14.636084658110832
+        ],
+        "confidence": 0.8752090281848951,
+        "avg_error": 0.12289783973246812,
+        "avg_progress": 0.03328415602445602,
+        "total_steps": 345300,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 98775.65515178967
+      },
+      "2": {
+        "position": [
+          77.05675423917761,
+          19.574783877173033
+        ],
+        "confidence": 0.8652651711532309,
+        "avg_error": 0.13706444054841996,
+        "avg_progress": 0.02658911272883415,
+        "total_steps": 345300,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 105148.49348728103
+      }
+    }
+  },
+  {
+    "episode": 3453,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          71.75922650894836,
+          72.92577309983517
+        ],
+        "confidence": 0.8620106405456932,
+        "avg_error": 0.1407590202987194,
+        "avg_progress": 0.02343834899365902,
+        "total_steps": 345400,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106101.15239853047
+      },
+      "1": {
+        "position": [
+          56.023435810409126,
+          21.387364427059453
+        ],
+        "confidence": 0.8572277012350162,
+        "avg_error": 0.14954928290098907,
+        "avg_progress": 0.05707654673606157,
+        "total_steps": 345400,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 98808.83371192926
+      },
+      "2": {
+        "position": [
+          16.672221909841355,
+          44.45923740312068
+        ],
+        "confidence": 0.8772220854680165,
+        "avg_error": 0.11720351595431566,
+        "avg_progress": 0.019946091435849668,
+        "total_steps": 345400,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 105182.09691322349
+      }
+    }
+  },
+  {
+    "episode": 3454,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          54.53625157590858,
+          85.14274187364168
+        ],
+        "confidence": 0.8657709735650115,
+        "avg_error": 0.13581109046936035,
+        "avg_progress": 0.026227932795882224,
+        "total_steps": 345500,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106136.29625655427
+      },
+      "1": {
+        "position": [
+          76.2086138585309,
+          77.1157514500256
+        ],
+        "confidence": 0.8874308027456373,
+        "avg_error": 0.11985657140612602,
+        "avg_progress": 0.03621242344379425,
+        "total_steps": 345500,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 98844.84113838643
+      },
+      "2": {
+        "position": [
+          19.64367806679391,
+          83.2539185988499
+        ],
+        "confidence": 0.8746863322873437,
+        "avg_error": 0.12602269221097231,
+        "avg_progress": 0.018417609855532646,
+        "total_steps": 345500,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 105214.66504360251
+      }
+    }
+  },
+  {
+    "episode": 3455,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          36.02528514966295,
+          20.523574285752034
+        ],
+        "confidence": 0.8829072092459896,
+        "avg_error": 0.10986369736492634,
+        "avg_progress": 0.02706066779792309,
+        "total_steps": 345600,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106172.34025758476
+      },
+      "1": {
+        "position": [
+          63.02802406139986,
+          32.02836767134822
+        ],
+        "confidence": 0.8941027922403405,
+        "avg_error": 0.10505894329398871,
+        "avg_progress": 0.01579363327473402,
+        "total_steps": 345600,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 98879.89647614323
+      },
+      "2": {
+        "position": [
+          32.696071109388726,
+          33.697215927076854
+        ],
+        "confidence": 0.8907503775279509,
+        "avg_error": 0.1046314274892211,
+        "avg_progress": 0.020011737197637557,
+        "total_steps": 345600,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": true,
+        "total_reward": 105247.18386903786
+      }
+    }
+  },
+  {
+    "episode": 3456,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          49.8246008975147,
+          32.42042440912874
+        ],
+        "confidence": 0.8779987513292847,
+        "avg_error": 0.11473069749772549,
+        "avg_progress": 0.04019115567207336,
+        "total_steps": 345700,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": true,
+        "total_reward": 106205.60954820484
+      },
+      "1": {
+        "position": [
+          13.070697419386676,
+          94.05200949150452
+        ],
+        "confidence": 0.877224466356632,
+        "avg_error": 0.11840111147612334,
+        "avg_progress": 0.03304620012640953,
+        "total_steps": 345700,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 98914.14046223118
+      },
+      "2": {
+        "position": [
+          23.166024790291672,
+          98.75054273623958
+        ],
+        "confidence": 0.9178863387265859,
+        "avg_error": 0.07729444792494178,
+        "avg_progress": 0.025853028800338507,
+        "total_steps": 345700,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 105282.94545664784
+      }
+    }
+  },
+  {
+    "episode": 3457,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          94.45076021232455,
+          8.830760348382057
+        ],
+        "confidence": 0.8834857223713196,
+        "avg_error": 0.10509514138102531,
+        "avg_progress": 0.03986610136926174,
+        "total_steps": 345800,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106239.27832696526
+      },
+      "1": {
+        "position": [
+          11.436778855008583,
+          75.98752876401218
+        ],
+        "confidence": 0.8826285884009436,
+        "avg_error": 0.11047944780439138,
+        "avg_progress": 0.020182799734175205,
+        "total_steps": 345800,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 98944.30723312957
+      },
+      "2": {
+        "position": [
+          49.255151537840774,
+          85.49721237062465
+        ],
+        "confidence": 0.8884184348751567,
+        "avg_error": 0.10965755991637707,
+        "avg_progress": 0.027923131361603737,
+        "total_steps": 345800,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 105319.3089194665
+      }
+    }
+  },
+  {
+    "episode": 3458,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          58.43059015239206,
+          36.829605001339374
+        ],
+        "confidence": 0.868637522229568,
+        "avg_error": 0.12451446205377578,
+        "avg_progress": 0.03890997432172298,
+        "total_steps": 345900,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106273.74807382778
+      },
+      "1": {
+        "position": [
+          60.975214212147534,
+          4.064170336710561
+        ],
+        "confidence": 0.890255946157392,
+        "avg_error": 0.1084533181041479,
+        "avg_progress": 0.033917521685361864,
+        "total_steps": 345900,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 98977.11998948878
+      },
+      "2": {
+        "position": [
+          62.300951700381646,
+          44.943329104109566
+        ],
+        "confidence": 0.8900742925270599,
+        "avg_error": 0.10382572459056974,
+        "avg_progress": 0.01884542740881443,
+        "total_steps": 345900,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 105354.53139132874
+      }
+    }
+  },
+  {
+    "episode": 3459,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          92.1884243990503,
+          39.02839861238269
+        ],
+        "confidence": 0.896703485414524,
+        "avg_error": 0.10115211885422468,
+        "avg_progress": 0.03939186092466116,
+        "total_steps": 346000,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106309.15309801266
+      },
+      "1": {
+        "position": [
+          74.88606121025772,
+          48.79667616476959
+        ],
+        "confidence": 0.8817979511054274,
+        "avg_error": 0.1165455000475049,
+        "avg_progress": 0.030820339918136597,
+        "total_steps": 346000,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99011.3306585819
+      },
+      "2": {
+        "position": [
+          64.22236401191861,
+          62.192471427916786
+        ],
+        "confidence": 0.906334560326808,
+        "avg_error": 0.09177757170982659,
+        "avg_progress": 0.0311471423599869,
+        "total_steps": 346000,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 105390.06813793113
+      }
+    }
+  },
+  {
+    "episode": 3460,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          89.13846151272918,
+          78.10554532475054
+        ],
+        "confidence": 0.8791090784702849,
+        "avg_error": 0.11854170151054859,
+        "avg_progress": 0.02515139803290367,
+        "total_steps": 346100,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": true,
+        "total_reward": 106342.91685141114
+      },
+      "1": {
+        "position": [
+          29.949083505696166,
+          36.24062589470262
+        ],
+        "confidence": 0.9042726343457429,
+        "avg_error": 0.08772408729419112,
+        "avg_progress": 0.028099660761654377,
+        "total_steps": 346100,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99044.19699465646
+      },
+      "2": {
+        "position": [
+          81.96207923830436,
+          23.943834932282
+        ],
+        "confidence": 0.9004785006595369,
+        "avg_error": 0.1054780307225883,
+        "avg_progress": 0.03768147891387343,
+        "total_steps": 346100,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 105423.69938368406
+      }
+    }
+  },
+  {
+    "episode": 3461,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          56.04949271811492,
+          41.073895393057676
+        ],
+        "confidence": 0.8986863043485521,
+        "avg_error": 0.09708549715578556,
+        "avg_progress": 0.04207111522555351,
+        "total_steps": 346200,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106367.06599353657
+      },
+      "1": {
+        "position": [
+          41.68070206234769,
+          13.406680164296802
+        ],
+        "confidence": 0.9034590564429555,
+        "avg_error": 0.10060875359922647,
+        "avg_progress": 0.029385657981038094,
+        "total_steps": 346200,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99080.83084073217
+      },
+      "2": {
+        "position": [
+          62.74467461167666,
+          71.46355244657347
+        ],
+        "confidence": 0.8896988852274763,
+        "avg_error": 0.10221066446974873,
+        "avg_progress": 0.023306192364543676,
+        "total_steps": 346200,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 105456.8199377313
+      }
+    }
+  },
+  {
+    "episode": 3462,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          72.72275387509939,
+          37.78513917228233
+        ],
+        "confidence": 0.883700623708837,
+        "avg_error": 0.1098937913775444,
+        "avg_progress": 0.04933915250003338,
+        "total_steps": 346300,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106400.18821231752
+      },
+      "1": {
+        "position": [
+          13.821575030680535,
+          76.14304938231567
+        ],
+        "confidence": 0.8769329345790641,
+        "avg_error": 0.11877257172018289,
+        "avg_progress": 0.04076608382165432,
+        "total_steps": 346300,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99116.79103705444
+      },
+      "2": {
+        "position": [
+          74.2087943760568,
+          94.04600288292681
+        ],
+        "confidence": 0.9226220646775831,
+        "avg_error": 0.0740266788750887,
+        "avg_progress": 0.02552215838804841,
+        "total_steps": 346300,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 105489.51751521
+      }
+    }
+  },
+  {
+    "episode": 3463,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          6.343820938193346,
+          86.19622639779365
+        ],
+        "confidence": 0.8842916431311181,
+        "avg_error": 0.10798528045415878,
+        "avg_progress": 0.02520928531885147,
+        "total_steps": 346400,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106434.99631355521
+      },
+      "1": {
+        "position": [
+          64.57377556665443,
+          37.149469748476974
+        ],
+        "confidence": 0.8760265986087098,
+        "avg_error": 0.11681335810571909,
+        "avg_progress": 0.022467577643692494,
+        "total_steps": 346400,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99150.18747920358
+      },
+      "2": {
+        "position": [
+          51.14321275833413,
+          55.67348044141892
+        ],
+        "confidence": 0.883359169086148,
+        "avg_error": 0.11566690439358354,
+        "avg_progress": 0.027428729087114335,
+        "total_steps": 346400,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 105524.24161912352
+      }
+    }
+  },
+  {
+    "episode": 3464,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          12.408226635919746,
+          16.64359546258217
+        ],
+        "confidence": 0.888339596570617,
+        "avg_error": 0.11638980070129037,
+        "avg_progress": 0.0363611220382154,
+        "total_steps": 346500,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106469.97271924498
+      },
+      "1": {
+        "position": [
+          61.80164688670938,
+          91.34914987751668
+        ],
+        "confidence": 0.8926477473257067,
+        "avg_error": 0.10245654731988907,
+        "avg_progress": 0.025829861313104628,
+        "total_steps": 346500,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99186.31074370805
+      },
+      "2": {
+        "position": [
+          41.2898587256542,
+          61.598744393572446
+        ],
+        "confidence": 0.8936212097939401,
+        "avg_error": 0.10257846089079976,
+        "avg_progress": 0.030937047861516475,
+        "total_steps": 346500,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 105557.81993521222
+      }
+    }
+  },
+  {
+    "episode": 3465,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          47.81499329432671,
+          69.63013415881268
+        ],
+        "confidence": 0.9143007264365091,
+        "avg_error": 0.08430829085409641,
+        "avg_progress": 0.04228296102955938,
+        "total_steps": 346600,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106501.37112586237
+      },
+      "1": {
+        "position": [
+          3.095377448328918,
+          9.425954811284086
+        ],
+        "confidence": 0.8861612451257006,
+        "avg_error": 0.12485988987609745,
+        "avg_progress": 0.033230471704155204,
+        "total_steps": 346600,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99218.19370655018
+      },
+      "2": {
+        "position": [
+          81.18117219208696,
+          51.67851589817157
+        ],
+        "confidence": 0.893058357439566,
+        "avg_error": 0.10798159493133426,
+        "avg_progress": 0.04412276828661561,
+        "total_steps": 346600,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 105593.74607414682
+      }
+    }
+  },
+  {
+    "episode": 3466,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          78.54253539166784,
+          74.14461716555697
+        ],
+        "confidence": 0.896203645259479,
+        "avg_error": 0.10178437205031514,
+        "avg_progress": 0.03649179171770811,
+        "total_steps": 346700,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106533.30030470688
+      },
+      "1": {
+        "position": [
+          66.9909382832335,
+          68.86219792977016
+        ],
+        "confidence": 0.8788756913250572,
+        "avg_error": 0.10949264261871576,
+        "avg_progress": 0.018959190137684344,
+        "total_steps": 346700,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99253.56031289011
+      },
+      "2": {
+        "position": [
+          84.4399470710838,
+          72.08382595518063
+        ],
+        "confidence": 0.8979347228981521,
+        "avg_error": 0.0938201654702425,
+        "avg_progress": 0.027196708228439094,
+        "total_steps": 346700,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 105629.75963217908
+      }
+    }
+  },
+  {
+    "episode": 3467,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          64.54639340274754,
+          42.7258225980771
+        ],
+        "confidence": 0.8808882244371301,
+        "avg_error": 0.1213386774994433,
+        "avg_progress": 0.02270170571282506,
+        "total_steps": 346800,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106566.90457182503
+      },
+      "1": {
+        "position": [
+          26.0008876667127,
+          53.83938105042607
+        ],
+        "confidence": 0.8951754561406065,
+        "avg_error": 0.10454797856509686,
+        "avg_progress": 0.02456967458128929,
+        "total_steps": 346800,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99286.61519031209
+      },
+      "2": {
+        "position": [
+          53.6871159210873,
+          39.27378679076284
+        ],
+        "confidence": 0.875389459970806,
+        "avg_error": 0.12764395028352737,
+        "avg_progress": 0.030543264374136923,
+        "total_steps": 346800,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 105665.60637857953
+      }
+    }
+  },
+  {
+    "episode": 3468,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          18.993486343635553,
+          86.05757789858527
+        ],
+        "confidence": 0.904072535786487,
+        "avg_error": 0.09358806442469358,
+        "avg_progress": 0.024100576341152192,
+        "total_steps": 346900,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106602.67568532919
+      },
+      "1": {
+        "position": [
+          6.081559782180378,
+          53.566327590991335
+        ],
+        "confidence": 0.8679080297916089,
+        "avg_error": 0.14362910576164722,
+        "avg_progress": 0.04454789273440838,
+        "total_steps": 346900,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99320.55794143544
+      },
+      "2": {
+        "position": [
+          50.82565160025611,
+          34.540529826901874
+        ],
+        "confidence": 0.866402159698671,
+        "avg_error": 0.13893231824040414,
+        "avg_progress": 0.020899827778339385,
+        "total_steps": 346900,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 105699.50431198078
+      }
+    }
+  },
+  {
+    "episode": 3469,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          86.95629427679144,
+          91.11226767904884
+        ],
+        "confidence": 0.8953338995660219,
+        "avg_error": 0.106174395699054,
+        "avg_progress": 0.03235643832013011,
+        "total_steps": 347000,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106636.57936267628
+      },
+      "1": {
+        "position": [
+          85.41431780928016,
+          59.57448308538548
+        ],
+        "confidence": 0.88391344206091,
+        "avg_error": 0.11181371100246906,
+        "avg_progress": 0.030065248534083367,
+        "total_steps": 347000,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99352.79799368654
+      },
+      "2": {
+        "position": [
+          76.23626821941559,
+          34.63334901186694
+        ],
+        "confidence": 0.8766134169717054,
+        "avg_error": 0.13545435201376677,
+        "avg_progress": 0.020808687061071397,
+        "total_steps": 347000,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 105734.30796049518
+      }
+    }
+  },
+  {
+    "episode": 3470,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          57.4904085031954,
+          76.38640990544455
+        ],
+        "confidence": 0.8951645324404426,
+        "avg_error": 0.09590550772845745,
+        "avg_progress": 0.0291994147002697,
+        "total_steps": 347100,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106671.89055480156
+      },
+      "1": {
+        "position": [
+          44.00875600950013,
+          64.82573542762717
+        ],
+        "confidence": 0.8803841112382179,
+        "avg_error": 0.12287508808076382,
+        "avg_progress": 0.031385686993598935,
+        "total_steps": 347100,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99386.74095563273
+      },
+      "2": {
+        "position": [
+          89.15059511898546,
+          47.57974361059226
+        ],
+        "confidence": 0.8834053257866508,
+        "avg_error": 0.1238922568038106,
+        "avg_progress": 0.02662484087049961,
+        "total_steps": 347100,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 105768.09067797098
+      }
+    }
+  },
+  {
+    "episode": 3471,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          50.89634213602993,
+          35.90078372811266
+        ],
+        "confidence": 0.8553761809755621,
+        "avg_error": 0.15393128748983145,
+        "avg_progress": 0.031136210449039935,
+        "total_steps": 347200,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106704.07957268877
+      },
+      "1": {
+        "position": [
+          51.64737223141748,
+          5.6367927249157646
+        ],
+        "confidence": 0.8841229923425074,
+        "avg_error": 0.12548873778432607,
+        "avg_progress": 0.02656832169741392,
+        "total_steps": 347200,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99422.91757603665
+      },
+      "2": {
+        "position": [
+          1.9116286471636812,
+          2.25529587124916
+        ],
+        "confidence": 0.8627623557050015,
+        "avg_error": 0.13840795513242482,
+        "avg_progress": 0.026274430193006994,
+        "total_steps": 347200,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 105801.3622733575
+      }
+    }
+  },
+  {
+    "episode": 3472,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          44.95248129892089,
+          35.33319104371451
+        ],
+        "confidence": 0.8496429671284245,
+        "avg_error": 0.1469305319711566,
+        "avg_progress": 0.02407752852886915,
+        "total_steps": 347300,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106737.8208849434
+      },
+      "1": {
+        "position": [
+          62.368774946964564,
+          76.32914164018719
+        ],
+        "confidence": 0.8797590304583058,
+        "avg_error": 0.12691548001021147,
+        "avg_progress": 0.033486947789788245,
+        "total_steps": 347300,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99455.79548837381
+      },
+      "2": {
+        "position": [
+          13.839899075051378,
+          10.076082873905392
+        ],
+        "confidence": 0.8800302493366413,
+        "avg_error": 0.12306685373187065,
+        "avg_progress": 0.02474847137928009,
+        "total_steps": 347300,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 105836.28726817893
+      }
+    }
+  },
+  {
+    "episode": 3473,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          19.64859732004936,
+          75.28812397024684
+        ],
+        "confidence": 0.8975231909626902,
+        "avg_error": 0.09487831108272075,
+        "avg_progress": 0.016725220531225205,
+        "total_steps": 347400,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106770.32113821841
+      },
+      "1": {
+        "position": [
+          61.127737028159245,
+          4.518581346645988
+        ],
+        "confidence": 0.89642529542864,
+        "avg_error": 0.09403115715831518,
+        "avg_progress": 0.02421692609786987,
+        "total_steps": 347400,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99487.34669089866
+      },
+      "2": {
+        "position": [
+          59.27779046659347,
+          29.647038248072676
+        ],
+        "confidence": 0.8731044698259672,
+        "avg_error": 0.126173772290349,
+        "avg_progress": 0.01876007132232189,
+        "total_steps": 347400,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 105869.80636203586
+      }
+    }
+  },
+  {
+    "episode": 3474,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          96.83475431497958,
+          55.63191780622269
+        ],
+        "confidence": 0.888148432447414,
+        "avg_error": 0.1088488302193582,
+        "avg_progress": 0.020382190216332675,
+        "total_steps": 347500,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106804.18382213409
+      },
+      "1": {
+        "position": [
+          57.904035016220874,
+          99.84424962698213
+        ],
+        "confidence": 0.8870934680169876,
+        "avg_error": 0.1180339653044939,
+        "avg_progress": 0.04050617776811123,
+        "total_steps": 347500,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99517.98705306137
+      },
+      "2": {
+        "position": [
+          4.455518254511119,
+          51.27196318449984
+        ],
+        "confidence": 0.8801143544173757,
+        "avg_error": 0.1233349960297346,
+        "avg_progress": 0.030812116339802742,
+        "total_steps": 347500,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 105901.5984412505
+      }
+    }
+  },
+  {
+    "episode": 3475,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          58.01751762836794,
+          68.33897229013445
+        ],
+        "confidence": 0.8827171734039162,
+        "avg_error": 0.12603690046817065,
+        "avg_progress": 0.028374408558011054,
+        "total_steps": 347600,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": true,
+        "total_reward": 106839.70497421328
+      },
+      "1": {
+        "position": [
+          27.167807704176056,
+          21.78781994925376
+        ],
+        "confidence": 0.8984223531202769,
+        "avg_error": 0.10497628320008516,
+        "avg_progress": 0.022200953774154188,
+        "total_steps": 347600,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99549.27282878714
+      },
+      "2": {
+        "position": [
+          48.84355865309898,
+          95.8426925613837
+        ],
+        "confidence": 0.8683299169899131,
+        "avg_error": 0.12754236683249473,
+        "avg_progress": 0.022266633808612823,
+        "total_steps": 347600,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 105936.11962086952
+      }
+    }
+  },
+  {
+    "episode": 3476,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          8.336697578819951,
+          56.34950194962636
+        ],
+        "confidence": 0.8730989694164357,
+        "avg_error": 0.1297362486831844,
+        "avg_progress": 0.031179115641862154,
+        "total_steps": 347700,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106875.10964115646
+      },
+      "1": {
+        "position": [
+          18.181068126308986,
+          6.77957847113035
+        ],
+        "confidence": 0.8898097093659181,
+        "avg_error": 0.11816579829901457,
+        "avg_progress": 0.027384047769010066,
+        "total_steps": 347700,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99581.60423656556
+      },
+      "2": {
+        "position": [
+          22.83084764076061,
+          94.07139909318224
+        ],
+        "confidence": 0.891317431080948,
+        "avg_error": 0.1034949205815792,
+        "avg_progress": 0.01859336197376251,
+        "total_steps": 347700,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 105969.7698479275
+      }
+    }
+  },
+  {
+    "episode": 3477,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          1.250469814669927,
+          72.38001572742476
+        ],
+        "confidence": 0.8888101160802596,
+        "avg_error": 0.10923067964613438,
+        "avg_progress": 0.02113285716623068,
+        "total_steps": 347800,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106907.32579451385
+      },
+      "1": {
+        "position": [
+          75.29144727752289,
+          31.483915571079507
+        ],
+        "confidence": 0.898017551382696,
+        "avg_error": 0.10254209842532873,
+        "avg_progress": 0.0178919306024909,
+        "total_steps": 347800,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99615.6664145501
+      },
+      "2": {
+        "position": [
+          62.69323622193055,
+          28.961430744405945
+        ],
+        "confidence": 0.8986731565902802,
+        "avg_error": 0.09727758895605802,
+        "avg_progress": 0.020493116788566114,
+        "total_steps": 347800,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106002.85532952644
+      }
+    }
+  },
+  {
+    "episode": 3478,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          73.01356209869358,
+          74.9759321121565
+        ],
+        "confidence": 0.8881544659269319,
+        "avg_error": 0.11657896470278502,
+        "avg_progress": 0.03177513964474201,
+        "total_steps": 347900,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106941.71511026927
+      },
+      "1": {
+        "position": [
+          91.29099188429966,
+          43.58484063963035
+        ],
+        "confidence": 0.9107632248247441,
+        "avg_error": 0.08640225464478135,
+        "avg_progress": 0.017704219091683626,
+        "total_steps": 347900,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99645.56206695273
+      },
+      "2": {
+        "position": [
+          96.11791612562607,
+          50.73422561156089
+        ],
+        "confidence": 0.9130247566165562,
+        "avg_error": 0.07560736080631614,
+        "avg_progress": 0.028115461859852076,
+        "total_steps": 347900,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": true,
+        "total_reward": 106037.26152014434
+      }
+    }
+  },
+  {
+    "episode": 3479,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          20.399500843341556,
+          46.61632141883129
+        ],
+        "confidence": 0.9165965067493259,
+        "avg_error": 0.0759499822743237,
+        "avg_progress": 0.022596343979239465,
+        "total_steps": 348000,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106976.17363333942
+      },
+      "1": {
+        "position": [
+          1.2612372956118207,
+          23.54593748903517
+        ],
+        "confidence": 0.8711190097973827,
+        "avg_error": 0.12552636116743088,
+        "avg_progress": 0.03597052991390228,
+        "total_steps": 348000,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99679.15516071644
+      },
+      "2": {
+        "position": [
+          44.32301816586339,
+          87.79875317687677
+        ],
+        "confidence": 0.9142604021894434,
+        "avg_error": 0.07470484953373671,
+        "avg_progress": 0.018968261405825616,
+        "total_steps": 348000,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106069.99023557075
+      }
+    }
+  },
+  {
+    "episode": 3480,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          15.580891188965879,
+          66.56108291441043
+        ],
+        "confidence": 0.8883422078719329,
+        "avg_error": 0.11074762344360352,
+        "avg_progress": 0.022436652891337873,
+        "total_steps": 348100,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 107010.86128177615
+      },
+      "1": {
+        "position": [
+          34.000440398053144,
+          80.10388047130422
+        ],
+        "confidence": 0.9038115965934491,
+        "avg_error": 0.08609918020665645,
+        "avg_progress": 0.02178612947463989,
+        "total_steps": 348100,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99713.15944050114
+      },
+      "2": {
+        "position": [
+          50.038963053189505,
+          34.20046625504875
+        ],
+        "confidence": 0.9206188445501782,
+        "avg_error": 0.08447723616845906,
+        "avg_progress": 0.020247274683788417,
+        "total_steps": 348100,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106102.97391498729
+      }
+    }
+  },
+  {
+    "episode": 3481,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          67.41236154420142,
+          53.27137534935649
+        ],
+        "confidence": 0.8594380561856447,
+        "avg_error": 0.15034834891557694,
+        "avg_progress": 0.04001363031566143,
+        "total_steps": 348200,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 107044.34233898406
+      },
+      "1": {
+        "position": [
+          77.50674802148679,
+          96.53905196279004
+        ],
+        "confidence": 0.9010463902684608,
+        "avg_error": 0.09773881044238805,
+        "avg_progress": 0.02320735212415457,
+        "total_steps": 348200,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99749.2863474206
+      },
+      "2": {
+        "position": [
+          99.13245927430143,
+          12.540871863231239
+        ],
+        "confidence": 0.8847003623464997,
+        "avg_error": 0.11552017778158188,
+        "avg_progress": 0.029599572718143462,
+        "total_steps": 348200,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106137.05492152073
+      }
+    }
+  },
+  {
+    "episode": 3482,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          85.16358192898176,
+          0.420035301435135
+        ],
+        "confidence": 0.8921877959465534,
+        "avg_error": 0.11842316929250955,
+        "avg_progress": 0.03678467553108931,
+        "total_steps": 348300,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 107079.6909974535
+      },
+      "1": {
+        "position": [
+          15.245157776338544,
+          22.791039465192398
+        ],
+        "confidence": 0.8973181836436891,
+        "avg_error": 0.09527269937098026,
+        "avg_progress": 0.01798293087631464,
+        "total_steps": 348300,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99781.65413780688
+      },
+      "2": {
+        "position": [
+          60.67691575773257,
+          8.676606181861203
+        ],
+        "confidence": 0.9027237817943776,
+        "avg_error": 0.08784598410129547,
+        "avg_progress": 0.02084648348391056,
+        "total_steps": 348300,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106170.97012733476
+      }
+    }
+  },
+  {
+    "episode": 3483,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          23.397442956243694,
+          36.86899172910512
+        ],
+        "confidence": 0.8797537473998251,
+        "avg_error": 0.12907249759882689,
+        "avg_progress": 0.028944133408367635,
+        "total_steps": 348400,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 107114.20514136532
+      },
+      "1": {
+        "position": [
+          21.78560974990586,
+          83.39358215128826
+        ],
+        "confidence": 0.8914286461962515,
+        "avg_error": 0.11323973573744298,
+        "avg_progress": 0.020529183000326155,
+        "total_steps": 348400,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99816.57238308535
+      },
+      "2": {
+        "position": [
+          21.048589061904423,
+          66.24394598953302
+        ],
+        "confidence": 0.8829946275816641,
+        "avg_error": 0.10946992672979831,
+        "avg_progress": 0.03181707002222538,
+        "total_steps": 348400,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106204.37029851068
+      }
+    }
+  },
+  {
+    "episode": 3484,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          12.137721942537567,
+          5.894401896630299
+        ],
+        "confidence": 0.8533944453510226,
+        "avg_error": 0.15238424446433782,
+        "avg_progress": 0.04381518717855215,
+        "total_steps": 348500,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 107146.99112765212
+      },
+      "1": {
+        "position": [
+          98.3812793672589,
+          36.356902491756074
+        ],
+        "confidence": 0.8939768341145364,
+        "avg_error": 0.10979462210088968,
+        "avg_progress": 0.027695605903863905,
+        "total_steps": 348500,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99851.44871224332
+      },
+      "2": {
+        "position": [
+          77.2463909977595,
+          21.850998492166838
+        ],
+        "confidence": 0.88345730625607,
+        "avg_error": 0.11337917353957891,
+        "avg_progress": 0.024260114319622515,
+        "total_steps": 348500,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106237.586671275
+      }
+    }
+  },
+  {
+    "episode": 3485,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          71.18597273238385,
+          7.191051085230427
+        ],
+        "confidence": 0.8926456966972305,
+        "avg_error": 0.10938597219064831,
+        "avg_progress": 0.02955775661394,
+        "total_steps": 348600,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 107181.80235851358
+      },
+      "1": {
+        "position": [
+          3.5650295951876245,
+          81.9809282902338
+        ],
+        "confidence": 0.8957597440113847,
+        "avg_error": 0.09568776432424783,
+        "avg_progress": 0.021233980357646943,
+        "total_steps": 348600,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99885.53708092094
+      },
+      "2": {
+        "position": [
+          60.145215339886335,
+          96.1425224101804
+        ],
+        "confidence": 0.8757430376054076,
+        "avg_error": 0.12432211507111787,
+        "avg_progress": 0.03358131479471922,
+        "total_steps": 348600,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106267.14453121663
+      }
+    }
+  },
+  {
+    "episode": 3486,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          35.93229848216619,
+          20.875514972422522
+        ],
+        "confidence": 0.8663472233805043,
+        "avg_error": 0.13973640091717243,
+        "avg_progress": 0.034189549088478086,
+        "total_steps": 348700,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 107214.88194455206
+      },
+      "1": {
+        "position": [
+          86.05983795803284,
+          22.77461517829417
+        ],
+        "confidence": 0.8793760579778735,
+        "avg_error": 0.11879024188965559,
+        "avg_progress": 0.025919255428016187,
+        "total_steps": 348700,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99919.40162096922
+      },
+      "2": {
+        "position": [
+          10.558531408494318,
+          66.14942146365888
+        ],
+        "confidence": 0.9117084824993099,
+        "avg_error": 0.09619023762643338,
+        "avg_progress": 0.026855709962546825,
+        "total_steps": 348700,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106300.0609406045
+      }
+    }
+  },
+  {
+    "episode": 3487,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          55.95064096879406,
+          90.31762394774066
+        ],
+        "confidence": 0.889352326634497,
+        "avg_error": 0.10037006288766862,
+        "avg_progress": 0.02857235912233591,
+        "total_steps": 348800,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 107249.69134252192
+      },
+      "1": {
+        "position": [
+          28.456021853948684,
+          60.88107451990137
+        ],
+        "confidence": 0.9190406978474736,
+        "avg_error": 0.07274850970134139,
+        "avg_progress": 0.02019222071394324,
+        "total_steps": 348800,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99955.29915184222
+      },
+      "2": {
+        "position": [
+          92.82623395891876,
+          31.7708426879489
+        ],
+        "confidence": 0.9024310347865289,
+        "avg_error": 0.09860503654927015,
+        "avg_progress": 0.013085241988301277,
+        "total_steps": 348800,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106333.25228131282
+      }
+    }
+  },
+  {
+    "episode": 3488,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          22.702287924055923,
+          26.884975475879372
+        ],
+        "confidence": 0.9039107543587823,
+        "avg_error": 0.08920217696577311,
+        "avg_progress": 0.02010066043585539,
+        "total_steps": 348900,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 107284.05305585495
+      },
+      "1": {
+        "position": [
+          1.1124904207635637,
+          51.87132911435042
+        ],
+        "confidence": 0.9133744472730931,
+        "avg_error": 0.08474373137578368,
+        "avg_progress": 0.02957012001425028,
+        "total_steps": 348900,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 99989.52348172691
+      },
+      "2": {
+        "position": [
+          21.75356921456394,
+          64.3016690694273
+        ],
+        "confidence": 0.9141533284830283,
+        "avg_error": 0.10045052981004118,
+        "avg_progress": 0.02965678246691823,
+        "total_steps": 348900,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106367.36978416661
+      }
+    }
+  },
+  {
+    "episode": 3489,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          93.39161411019973,
+          69.12049506907273
+        ],
+        "confidence": 0.9088623839317203,
+        "avg_error": 0.08438535910099745,
+        "avg_progress": 0.03725638650357723,
+        "total_steps": 349000,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 107317.63774153612
+      },
+      "1": {
+        "position": [
+          3.819361657564599,
+          1.189813006552285
+        ],
+        "confidence": 0.9179417342645748,
+        "avg_error": 0.08068997524678707,
+        "avg_progress": 0.03822813061997295,
+        "total_steps": 349000,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 100022.89184163709
+      },
+      "2": {
+        "position": [
+          47.17016989735697,
+          57.200529875648456
+        ],
+        "confidence": 0.904111305197664,
+        "avg_error": 0.10230976296588778,
+        "avg_progress": 0.029842858016490937,
+        "total_steps": 349000,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106400.06038315866
+      }
+    }
+  },
+  {
+    "episode": 3490,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          64.56243329204604,
+          31.206680934382135
+        ],
+        "confidence": 0.8978637539701925,
+        "avg_error": 0.10305165648460388,
+        "avg_progress": 0.01664792951196432,
+        "total_steps": 349100,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 107351.77281626668
+      },
+      "1": {
+        "position": [
+          8.400603788761998,
+          40.45397827472162
+        ],
+        "confidence": 0.907526465085576,
+        "avg_error": 0.08724409509450197,
+        "avg_progress": 0.02398324552923441,
+        "total_steps": 349100,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 100059.62125439908
+      },
+      "2": {
+        "position": [
+          34.56503076606505,
+          99.99466204443121
+        ],
+        "confidence": 0.8984471262351864,
+        "avg_error": 0.09825660046190024,
+        "avg_progress": 0.029499091394245624,
+        "total_steps": 349100,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106436.96678271069
+      }
+    }
+  },
+  {
+    "episode": 3491,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          6.550282035579187,
+          70.23764082488103
+        ],
+        "confidence": 0.8781124989920256,
+        "avg_error": 0.13142951317131518,
+        "avg_progress": 0.03000483363866806,
+        "total_steps": 349200,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 107383.87234340995
+      },
+      "1": {
+        "position": [
+          14.007799361755232,
+          4.580798662554102
+        ],
+        "confidence": 0.8876220613229575,
+        "avg_error": 0.10703915506601333,
+        "avg_progress": 0.03214493244886398,
+        "total_steps": 349200,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 100092.77869242751
+      },
+      "2": {
+        "position": [
+          36.05328304217831,
+          8.755742540499547
+        ],
+        "confidence": 0.8800396945406849,
+        "avg_error": 0.10754879582673312,
+        "avg_progress": 0.031335942260921,
+        "total_steps": 349200,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106469.47881204469
+      }
+    }
+  },
+  {
+    "episode": 3492,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          61.7676661023481,
+          79.51280112234619
+        ],
+        "confidence": 0.8711866773061568,
+        "avg_error": 0.12066934611648321,
+        "avg_progress": 0.028426613472402096,
+        "total_steps": 349300,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 107418.03878008584
+      },
+      "1": {
+        "position": [
+          38.118315094329006,
+          59.186601851086536
+        ],
+        "confidence": 0.8868871799359836,
+        "avg_error": 0.11524464376270771,
+        "avg_progress": 0.026112264953553677,
+        "total_steps": 349300,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 100127.97783579522
+      },
+      "2": {
+        "position": [
+          53.92495020891859,
+          5.538647623291965
+        ],
+        "confidence": 0.873179456337819,
+        "avg_error": 0.11358243711292744,
+        "avg_progress": 0.0216009259223938,
+        "total_steps": 349300,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106502.79965662154
+      }
+    }
+  },
+  {
+    "episode": 3493,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          35.61283192041344,
+          7.8112873082280885
+        ],
+        "confidence": 0.8774509593855171,
+        "avg_error": 0.1231441592797637,
+        "avg_progress": 0.023316693119704725,
+        "total_steps": 349400,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 107450.9929050029
+      },
+      "1": {
+        "position": [
+          70.67373189094309,
+          54.2672038112719
+        ],
+        "confidence": 0.8850796907920664,
+        "avg_error": 0.1384293431416154,
+        "avg_progress": 0.032235768437385556,
+        "total_steps": 349400,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 100162.97041554829
+      },
+      "2": {
+        "position": [
+          99.98744066095338,
+          21.822276990300892
+        ],
+        "confidence": 0.8982643210249933,
+        "avg_error": 0.10565435513854027,
+        "avg_progress": 0.01983543820679188,
+        "total_steps": 349400,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106538.63470650377
+      }
+    }
+  },
+  {
+    "episode": 3494,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          83.07644806215447,
+          11.188847861116848
+        ],
+        "confidence": 0.8838062795519253,
+        "avg_error": 0.11885657915845513,
+        "avg_progress": 0.0173705592751503,
+        "total_steps": 349500,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 107481.07049776266
+      },
+      "1": {
+        "position": [
+          37.123302051526835,
+          78.32475084275669
+        ],
+        "confidence": 0.8871878947616266,
+        "avg_error": 0.1088739089667797,
+        "avg_progress": 0.026789024472236633,
+        "total_steps": 349500,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 100193.6569092298
+      },
+      "2": {
+        "position": [
+          5.802778675911199,
+          6.34505091088019
+        ],
+        "confidence": 0.8944420904782924,
+        "avg_error": 0.11499932827427983,
+        "avg_progress": 0.024260435719043016,
+        "total_steps": 349500,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106571.49434110902
+      }
+    }
+  },
+  {
+    "episode": 3495,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          40.36916355633342,
+          71.21998749732074
+        ],
+        "confidence": 0.856056904559922,
+        "avg_error": 0.15135990232229232,
+        "avg_progress": 0.030285830795764922,
+        "total_steps": 349600,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 107512.41869354776
+      },
+      "1": {
+        "position": [
+          79.3630083236352,
+          4.722869578079894
+        ],
+        "confidence": 0.8805130251216449,
+        "avg_error": 0.12040979266166688,
+        "avg_progress": 0.025925005227327345,
+        "total_steps": 349600,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 100222.5914103278
+      },
+      "2": {
+        "position": [
+          50.580456666478085,
+          91.27046882831432
+        ],
+        "confidence": 0.8554816395673799,
+        "avg_error": 0.1460859641432762,
+        "avg_progress": 0.025088532827794552,
+        "total_steps": 349600,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106601.52320145437
+      }
+    }
+  },
+  {
+    "episode": 3496,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          44.719898582564085,
+          64.00993323287135
+        ],
+        "confidence": 0.8793877496197698,
+        "avg_error": 0.10464915260672569,
+        "avg_progress": 0.03829267621040344,
+        "total_steps": 349700,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 107547.94464734136
+      },
+      "1": {
+        "position": [
+          3.1335328134921383,
+          9.889189958787
+        ],
+        "confidence": 0.8755166208586705,
+        "avg_error": 0.12409524759277701,
+        "avg_progress": 0.03709263214841485,
+        "total_steps": 349700,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 100255.88436012538
+      },
+      "2": {
+        "position": [
+          82.59839373069818,
+          68.39777246139394
+        ],
+        "confidence": 0.8752911063997231,
+        "avg_error": 0.13868620954453945,
+        "avg_progress": 0.025469458475708962,
+        "total_steps": 349700,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106637.16091074422
+      }
+    }
+  },
+  {
+    "episode": 3497,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          74.35465107227145,
+          19.533782037719533
+        ],
+        "confidence": 0.8695323702253785,
+        "avg_error": 0.12206147611141205,
+        "avg_progress": 0.04119295366108418,
+        "total_steps": 349800,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 107581.73870148098
+      },
+      "1": {
+        "position": [
+          64.2173294720519,
+          65.9390964950434
+        ],
+        "confidence": 0.893605791327522,
+        "avg_error": 0.10957535393536091,
+        "avg_progress": 0.028835755586624146,
+        "total_steps": 349800,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 100290.07529598712
+      },
+      "2": {
+        "position": [
+          86.46301023138072,
+          24.39976071538642
+        ],
+        "confidence": 0.8753266913882467,
+        "avg_error": 0.1331134084612131,
+        "avg_progress": 0.03116670809686184,
+        "total_steps": 349800,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106671.71469077091
+      }
+    }
+  },
+  {
+    "episode": 3498,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          0.3121480721137715,
+          13.435807865343051
+        ],
+        "confidence": 0.8763310296148028,
+        "avg_error": 0.12671721801161767,
+        "avg_progress": 0.026238546520471574,
+        "total_steps": 349900,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 107614.8850858057
+      },
+      "1": {
+        "position": [
+          31.294992122416886,
+          34.593800844922185
+        ],
+        "confidence": 0.8829490840892307,
+        "avg_error": 0.11512972414493561,
+        "avg_progress": 0.023446249589323998,
+        "total_steps": 349900,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 100325.07229038035
+      },
+      "2": {
+        "position": [
+          20.331046487210642,
+          67.2817723414308
+        ],
+        "confidence": 0.9002711401653432,
+        "avg_error": 0.08393379524350167,
+        "avg_progress": 0.03284817961975932,
+        "total_steps": 349900,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106703.4871929374
+      }
+    }
+  },
+  {
+    "episode": 3499,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          23.117873599997097,
+          47.032688015781886
+        ],
+        "confidence": 0.8837658577611617,
+        "avg_error": 0.1135207936167717,
+        "avg_progress": 0.03610955029726028,
+        "total_steps": 350000,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": true,
+        "total_reward": 107648.00017750579
+      },
+      "1": {
+        "position": [
+          71.54765302413733,
+          18.93049074505852
+        ],
+        "confidence": 0.8711499448890264,
+        "avg_error": 0.13037636540830136,
+        "avg_progress": 0.012518518418073655,
+        "total_steps": 350000,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 100355.75643268327
+      },
+      "2": {
+        "position": [
+          97.18393314320349,
+          9.783094450749893
+        ],
+        "confidence": 0.8529734011540653,
+        "avg_error": 0.16090320535004138,
+        "avg_progress": 0.03122662603855133,
+        "total_steps": 350000,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106734.88819532577
+      }
+    }
+  },
+  {
+    "episode": 3500,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          60.10084075697155,
+          47.1491385642303
+        ],
+        "confidence": 0.8998948175090633,
+        "avg_error": 0.09625315079465509,
+        "avg_progress": 0.028116046637296676,
+        "total_steps": 350100,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 107680.2670077433
+      },
+      "1": {
+        "position": [
+          22.795125303955672,
+          13.773274516311943
+        ],
+        "confidence": 0.8794574653396235,
+        "avg_error": 0.11363687608391046,
+        "avg_progress": 0.03259587083011865,
+        "total_steps": 350100,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 100389.3528542035
+      },
+      "2": {
+        "position": [
+          96.43180532688541,
+          81.62070604340357
+        ],
+        "confidence": 0.9115265230303884,
+        "avg_error": 0.09612797163426876,
+        "avg_progress": 0.02446731962263584,
+        "total_steps": 350100,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 106768.03074936337
+      }
+    }
+  }
+]
