@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tail:2)",
+      "Bash(cd /c/Users/Johnathan/ClaudeResearch/curious_agents && python run.py --test 2>&)",
+      "Bash(cd /c/Users/Johnathan/ClaudeResearch/curious_agents && python -c \"\nimport torch, numpy as np, sys, os\nsys.path.insert\\(0, '.'\\)\nfrom training.trainer import Trainer, TrainerConfig\n\n# Quick resume test from the checkpoint we just wrote\nconfig = TrainerConfig\\(n_agents=2, n_episodes=55, steps_per_episode=10,\n                       stage_1_episodes=20, stage_2_episodes=40,\n                       log_freq=5, checkpoint_freq=55,\n                       log_dir='logs_test', checkpoint_dir='checkpoints_test'\\)\ntrainer = Trainer\\(config\\)\ntrainer.load_checkpoint\\('checkpoints_test/checkpoint_ep50.pt'\\)\nprint\\('Checkpoint loaded OK'\\)\nprint\\(f'  Episode: {trainer.current_episode}, Stage: {trainer.current_stage}'\\)\nfor agent in trainer.agents:\n    print\\(f'  Agent {agent.config.agent_id}: vocab={list\\(agent.vocabulary.keys\\(\\)\\)}'\\)\n    print\\(f'    naming_loss_history len={len\\(agent.naming_loss_history\\)}, disc_history len={len\\(agent.discrimination_loss_history\\)}'\\)\n    wm = trainer.teacher.word_memories.get\\(agent.config.agent_id, {}\\)\n    for word, mem in wm.items\\(\\):\n        print\\(f'    {word}: buf_len={len\\(mem.buffer\\)}, write_pos={mem.write_pos}, grounded={mem.grounded}'\\)\n\" 2>&1)",
+      "Bash(cd /c/Users/Johnathan/ClaudeResearch/curious_agents && python analyze_run.py --log-dir logs_test --every 2 2>&1)",
+      "Bash(cd /c/Users/Johnathan/ClaudeResearch/curious_agents && python -c \"\nimport sys; sys.path.insert\\(0, '.'\\)\nfrom analysis.visualizer import TrainingVisualizer\nimport inspect\nsrc = inspect.getsource\\(TrainingVisualizer.render_dashboard\\)\nassert 'ax_naming_acc' in src and 'ax_lang_loss' in src\nprint\\('Visualizer OK: 6-panel layout confirmed'\\)\nprint\\('Methods:', [m for m in dir\\(TrainingVisualizer\\) if m.startswith\\('plot_'\\)]\\)\n\" 2>&1)"
+    ]
+  }
+}

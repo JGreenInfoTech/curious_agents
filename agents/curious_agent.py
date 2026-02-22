@@ -83,11 +83,17 @@ class AgentConfig:
     
     # Meta-cognition (Phase 1: simple version)
     confidence_smooth: float = 0.95 # EMA smoothing for confidence tracking
-    
+
+    # Language-shaped encoder (Phase 2+)
+    # n_object_classes must match N_OBJECT_CLASSES in training/language_grounding.py
+    n_object_classes: int = 10          # One class per word in the full vocabulary
+    naming_loss_weight: float = 0.1     # Encoder alignment: pull state → word prototype
+    discrimination_loss_weight: float = 0.2  # Auxiliary classifier: state → class label
+
     # World
     world_size: float = 100.0
     perception_radius: float = 30.0
-    
+
     # Identity
     agent_id: int = 0
     name: str = "agent_0"
@@ -153,6 +159,18 @@ class CuriousAgent(nn.Module):
             nn.Linear(config.hidden_dim // 2, 1),
         )
         
+        # ===== DISCRIMINATION HEAD (Auxiliary Object Classifier) =====
+        # Takes internal state → object class logits.
+        # Trained with cross-entropy as a parallel objective alongside curiosity.
+        # Forces the encoder to produce class-separable representations without
+        # replacing or disrupting the forward model / policy gradient flow.
+        # Gradients flow through encoder via a dedicated language_optimizer.
+        self.discrimination_head = nn.Sequential(
+            nn.Linear(config.internal_state_dim, config.hidden_dim // 2),
+            nn.GELU(),
+            nn.Linear(config.hidden_dim // 2, config.n_object_classes),
+        )
+
         # ===== OBSERVABLE STATE (what others can see about me) =====
         # A small "expression" vector that leaks some internal state
         # Think of it as body language / facial expression
@@ -187,13 +205,17 @@ class CuriousAgent(nn.Module):
         
         # Vocabulary (for language grounding — starts empty)
         self.vocabulary: Dict[str, np.ndarray] = {}
+
+        # Language loss tracking
+        self.naming_loss_history: List[float] = []
+        self.discrimination_loss_history: List[float] = []
         
         # Set up optimizers
         self._setup_optimizers()
     
     def _setup_optimizers(self):
-        """Separate optimizers for policy vs forward model."""
-        # Policy + value learn from reward signal
+        """Three separate optimizers for three separate learning signals."""
+        # Policy + value learn from intrinsic reward (REINFORCE)
         policy_params = list(self.encoder.parameters()) + \
                         list(self.policy.parameters()) + \
                         list(self.value_head.parameters()) + \
@@ -201,10 +223,19 @@ class CuriousAgent(nn.Module):
         self.policy_optimizer = torch.optim.Adam(
             policy_params, lr=self.config.learning_rate
         )
-        
+
         # Forward model learns from prediction error (self-supervised)
         self.forward_model_optimizer = torch.optim.Adam(
             self.forward_model.parameters(), lr=self.config.forward_model_lr
+        )
+
+        # Language losses shape encoder + discrimination head via supervised signal.
+        # Encoder params are shared with policy_optimizer — each optimizer manages
+        # its own zero_grad/step cycle so they don't interfere with each other.
+        language_params = list(self.encoder.parameters()) + \
+                          list(self.discrimination_head.parameters())
+        self.language_optimizer = torch.optim.Adam(
+            language_params, lr=self.config.learning_rate
         )
     
     # =========================================================================
@@ -409,6 +440,99 @@ class CuriousAgent(nn.Module):
         return loss.item()
     
     # =========================================================================
+    # Language Loss Training (Naming + Discrimination — parallel objectives)
+    # =========================================================================
+
+    def train_language_losses(self, word: str, class_idx: int) -> Tuple[float, float]:
+        """
+        Train naming alignment loss and discrimination loss in a single backward pass.
+
+        Naming loss (MSE):
+          Pulls current encoder output toward the stored word prototype.
+          When the agent sees an apple and is told "apple", the encoding
+          should converge toward the prototype averaged across prior apple
+          sightings. This makes representations consistent across contexts.
+
+        Discrimination loss (cross-entropy):
+          Auxiliary classifier: internal_state → object class prediction.
+          Forces the encoder to produce class-separable representations.
+          The discrimination_head is a separate small network — its gradients
+          flow through the shared encoder but the head itself isn't used for
+          policy decisions or curiosity computation.
+
+        Both losses share language_optimizer (encoder + discrimination_head).
+        Policy and forward-model optimizers are unaffected.
+
+        Args:
+            word: the word that was just taught (must exist in self.vocabulary
+                  for naming loss to fire; discrimination loss only needs class_idx)
+            class_idx: integer class label (from WORD_CLASS_MAP); -1 to skip discrimination
+
+        Returns:
+            (naming_loss_value, discrimination_loss_value) as plain floats for logging.
+        """
+        if self.internal_state is None:
+            return 0.0, 0.0
+
+        has_loss = False
+        total_loss = None
+        naming_val = 0.0
+        disc_val = 0.0
+
+        # --- Naming alignment loss ---
+        # Only fires once the word has a stable prototype in vocabulary.
+        if word in self.vocabulary:
+            prototype = torch.FloatTensor(self.vocabulary[word]).unsqueeze(0)
+            naming_loss = F.mse_loss(self.internal_state, prototype)
+            total_loss = self.config.naming_loss_weight * naming_loss
+            naming_val = naming_loss.item()
+            has_loss = True
+
+        # --- Discrimination loss ---
+        # Fires whenever a valid class index is provided.
+        if 0 <= class_idx < self.config.n_object_classes:
+            logits = self.discrimination_head(self.internal_state)
+            label = torch.tensor([class_idx])
+            disc_loss = F.cross_entropy(logits, label)
+            weighted = self.config.discrimination_loss_weight * disc_loss
+            total_loss = weighted if total_loss is None else total_loss + weighted
+            disc_val = disc_loss.item()
+            has_loss = True
+
+        if has_loss:
+            self.language_optimizer.zero_grad()
+            total_loss.backward()
+            torch.nn.utils.clip_grad_norm_(
+                list(self.encoder.parameters()) + list(self.discrimination_head.parameters()),
+                1.0,
+            )
+            self.language_optimizer.step()
+
+        self.naming_loss_history.append(naming_val)
+        self.discrimination_loss_history.append(disc_val)
+        return naming_val, disc_val
+
+    def get_predicted_class(self, class_names: Optional[List[str]] = None) -> Optional[str]:
+        """
+        What object class does the discrimination head currently predict?
+
+        Args:
+            class_names: optional list mapping class index → name
+                         (e.g. ALL_OBJECT_CLASSES from language_grounding).
+                         If None, returns the raw index as a string.
+        Returns:
+            predicted class name/index, or None if no internal state.
+        """
+        if self.internal_state is None:
+            return None
+        with torch.no_grad():
+            logits = self.discrimination_head(self.internal_state)
+            idx = torch.argmax(logits, dim=-1).item()
+        if class_names and 0 <= idx < len(class_names):
+            return class_names[idx]
+        return str(idx)
+
+    # =========================================================================
     # Policy Training (REINFORCE with baseline)
     # =========================================================================
     
@@ -556,6 +680,9 @@ class CuriousAgent(nn.Module):
         recent_errors = self.prediction_error_history[-recent_n:] if self.prediction_error_history else [0]
         recent_progress = self.learning_progress_history[-recent_n:] if self.learning_progress_history else [0]
         
+        recent_naming = self.naming_loss_history[-recent_n:] if self.naming_loss_history else [0.0]
+        recent_disc = self.discrimination_loss_history[-recent_n:] if self.discrimination_loss_history else [0.0]
+
         return {
             'confidence': self.confidence,
             'avg_recent_error': np.mean(recent_errors),
@@ -563,8 +690,10 @@ class CuriousAgent(nn.Module):
             'total_steps': self.total_steps,
             'vocabulary_size': len(self.vocabulary),
             'is_learning': np.mean(recent_progress) > 0.001,  # Actively improving?
-            'is_exploring': (len(set(self.action_history[-10:])) > 2 
+            'is_exploring': (len(set(self.action_history[-10:])) > 2
                            if len(self.action_history) >= 10 else True),
+            'avg_naming_loss': float(np.mean(recent_naming)),
+            'avg_discrimination_loss': float(np.mean(recent_disc)),
         }
     
     def __repr__(self):
@@ -636,6 +765,12 @@ def apply_structured_initialization(agent: CuriousAgent, seed: int = 42):
         # --- Expression: small random (like subtle facial features) ---
         nn.init.xavier_normal_(agent.expression_projection.weight, gain=0.2)
         nn.init.zeros_(agent.expression_projection.bias)
+
+        # --- Discrimination head: moderate init (will be trained from scratch) ---
+        for layer in agent.discrimination_head:
+            if isinstance(layer, nn.Linear):
+                nn.init.xavier_normal_(layer.weight, gain=0.5)
+                nn.init.zeros_(layer.bias)
     
     return agent
 

@@ -10,7 +10,7 @@ This is part of a larger research program studying emergent cognition, communica
 
 **Status (Feb 2026)**:
 - Phase 1 (curiosity & exploration): ✅ Complete — 5000 episodes trained, agents develop stable internal representations
-- Phase 2 (language grounding): ✅ Code complete — ostensive teaching system integrated, ready for training
+- Phase 2 (language grounding): ✅ Active — ostensive teaching with encoder-shaping losses: naming alignment, discrimination head, circular-buffer vocabulary
 
 ## Architecture
 
@@ -25,11 +25,13 @@ This is part of a larger research program studying emergent cognition, communica
 - **Perception encoder**: 129D flat perception → 64D internal state (NormedLinear + GELU + Tanh)
 - **Forward model**: Predicts next internal state from (state, action). Self-supervised. Core of curiosity.
 - **Policy**: REINFORCE with value baseline. Selects from 5 actions (move N/S/E/W, stay)
+- **Discrimination head**: Small auxiliary classifier (64D → 32D → 10 classes). Parallel objective alongside curiosity — forces encoder to produce class-separable representations without disrupting the forward model or policy.
 - **Intrinsic reward**: `max(0, prev_error - curr_error)` — only positive, approach-only
 - **Helping bonus**: Reward when nearby agents' prediction errors decrease
 - **Proto-metacognition**: Confidence tracker (EMA of prediction accuracy)
-- **Language grounding**: Vocabulary dict mapping words → internal states (ostensive learning, Phase 2)
+- **Language grounding**: Vocabulary backed by circular-buffer prototypes (ostensive learning, Phase 2)
 - **Structured initialization**: Biologically-inspired weight init (not random noise)
+- **Three optimizers**: `policy_optimizer` (encoder+policy+value+expression), `forward_model_optimizer`, `language_optimizer` (encoder+discrimination head) — each manages its own gradient cycle
 
 ### Training (`training/trainer.py`)
 - Multi-agent coordination with helping radius
@@ -38,9 +40,16 @@ This is part of a larger research program studying emergent cognition, communica
 - Checkpointing and metrics logging
 
 ### Visualization (`analysis/visualizer.py`)
-- 4-panel matplotlib dashboard: world map, prediction errors, learning progress, confidence
+- 6-panel matplotlib dashboard (2×3 grid):
+  - Row 1: world map, prediction errors, **naming accuracy** (Phase 2)
+  - Row 2: learning progress, confidence, **language losses** — naming + discrimination (Phase 2)
 - Trajectory plots
-- Post-hoc analysis from checkpoints
+- Post-hoc analysis from checkpoints (`plot_from_checkpoint`)
+
+### Analysis (`analyze_run.py`)
+- Tabular summary from JSON log files across all episodes
+- Two sections: `core` (error, progress, confidence, reward) and `lang` (vocab, naming accuracy, naming loss, discrimination loss)
+- CLI flags: `--log-dir`, `--ep-min`, `--every N`, `--section [all|core|lang]`
 
 ## Quick Start
 
@@ -77,24 +86,63 @@ python run.py --resume checkpoints/checkpoint_ep500.pt  # Resume from checkpoint
 --checkpoint-dir  Checkpoint directory (default: checkpoints)
 ```
 
+## Reviewing Training Runs
+
+### During training
+Console output every 50 episodes shows confidence, error, learning progress, vocab size, and naming accuracy per agent.
+
+### After training — tabular
+```bash
+python analyze_run.py                        # Full summary + all metrics
+python analyze_run.py --section lang         # Language/Phase 2 metrics only
+python analyze_run.py --section core         # Curiosity/reward metrics only
+python analyze_run.py --every 100            # Every 100th episode
+python analyze_run.py --ep-min 500           # Skip warmup, start from ep 500
+```
+
+### After training — visual
+```bash
+python run.py --visualize --viz-freq 100     # Save dashboard PNGs during training
+```
+Or post-hoc from any checkpoint:
+```python
+from analysis.visualizer import TrainingVisualizer
+viz = TrainingVisualizer(n_agents=3)
+viz.plot_from_checkpoint('checkpoints/checkpoint_ep1000.pt', metrics_dir='logs')
+```
+
 ## What to Watch For
 
-1. **Prediction error curves** — Should decrease as forward model improves
-2. **Learning progress** — Peaks when agents find novel, learnable patterns; drops when environment is mastered
-3. **Confidence** — Rises with prediction accuracy; interesting if it plateaus or drops at stage transitions
+1. **Prediction error** — Should fall then plateau; spikes at stage transitions are healthy
+2. **Learning progress** — Positive means actively learning; near-zero means mastered or incomprehensible
+3. **Confidence** — Rises with prediction accuracy; dips at stage transitions then recovers
 4. **Exploration patterns** — Do agents move toward unexplored regions? Do they revisit?
 5. **Helping behavior** — Do agents cluster near confused peers? (Stage 2+)
+6. **Naming accuracy** — Should rise as vocab builds; plateau may mean encoder needs more shaping
+7. **Discrimination loss** — Should fall from ~2.3 (random) as encoder becomes class-separable
+8. **Naming loss** — Should fall as encoder output converges toward stable per-word prototypes
 
 ## Reward Architecture (Critical Design Choice)
 
 ```
-reward = max(0, prev_error - curr_error)  +  helping_bonus  +  exploration_bonus
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^     ^^^^^^^^^^^^      ^^^^^^^^^^^^^^^^^
-         Curiosity: learning progress         Others learn      Anti-stagnation
-         (ONLY positive)                      near you          (tiny constant)
+reward = max(0, prev_error - curr_error)  +  helping_bonus  +  exploration_bonus  +  naming_bonus
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^     ^^^^^^^^^^^^      ^^^^^^^^^^^^^^^^^     ^^^^^^^^^^^^
+         Curiosity: learning progress         Others learn      Anti-stagnation       Correct naming
+         (ONLY positive)                      near you          (tiny constant)       of nearby object
 ```
 
 **No negative signal anywhere.** Confusion is neutral information, not suffering.
+
+### Language Loss Architecture (Encoder Shaping — separate from reward)
+
+On each teaching event, once a word is grounded, two auxiliary losses fire through `language_optimizer`:
+
+```
+naming_loss       = MSE(encoder_output, word_prototype) × 0.1
+discrimination_loss = CrossEntropy(discrimination_head(encoder_output), class_idx) × 0.2
+```
+
+These shape the encoder's representation space without touching the curiosity or policy gradient.
 
 ## Project Structure
 ```
@@ -167,7 +215,7 @@ curious_agents/
 | Phase | Status | Description |
 |-------|--------|-------------|
 | 1: Curiosity & Exploration | ✅ Complete | Forward model, REINFORCE policy, confidence tracking |
-| 2: Language Grounding | ✅ Code complete | Ostensive teaching (point-and-name), vocabulary emergence |
+| 2: Language Grounding | ✅ Active | Ostensive teaching; circular-buffer vocabulary; naming loss + discrimination head shape encoder |
 | 3: Multi-Agent Communication | 🔮 Planned | Agent-to-agent word use, referential games |
 | 4: Meta-Cognition | 🔮 Planned | Hierarchical self-modeling, awareness of awareness |
 | 5: Conversation | 🔮 Planned | Human-agent dialogue grounded in shared perception |
@@ -192,6 +240,10 @@ Designed for modest hardware:
 | Temperature | Decays 2.0 → 0.3 over training | High early exploration, gradually exploiting learned structure |
 | Initialization | Structured (not random) | Forward model starts near-identity, policy biased toward movement. Biological bootstrap |
 | Episode reset | Randomize positions, clear visits | Prevents path-dependent ruts. Each episode is a fresh exploration |
+| Word memory | Circular buffer (8 slots) | Fixed-size ring evicts oldest observations. Prototype = mean(buffer). Protects against early-training staleness diluting the running average indefinitely. |
+| Naming loss | MSE(state, prototype) via language_optimizer | Shapes encoder to produce consistent representations across multiple sightings of the same object. Separate from policy gradient. |
+| Discrimination head | Auxiliary CE classifier, parallel to curiosity | Forces class-separable internal representations without coupling to reward. Gradients flow through shared encoder via dedicated language_optimizer. |
+| Three optimizers | policy / forward_model / language | Each learning signal (reward, prediction error, language supervision) operates in its own gradient cycle. Shared encoder params updated by all three safely. |
 
 ## Theoretical Foundations
 

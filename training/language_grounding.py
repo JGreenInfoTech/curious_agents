@@ -25,6 +25,20 @@ from typing import Dict, List, Optional, Tuple, Any
 from dataclasses import dataclass, field
 
 
+# =============================================================================
+# Object Class Registry
+# =============================================================================
+
+# All teachable object classes — must stay consistent with OBJECT_LIBRARY in world.py.
+# Index position == class label passed to the discrimination head.
+ALL_OBJECT_CLASSES: List[str] = [
+    'apple', 'rock', 'ball', 'flower',
+    'banana', 'cat', 'dog', 'water', 'fire', 'book',
+]
+N_OBJECT_CLASSES: int = len(ALL_OBJECT_CLASSES)
+WORD_CLASS_MAP: Dict[str, int] = {word: idx for idx, word in enumerate(ALL_OBJECT_CLASSES)}
+
+
 @dataclass
 class TeachingConfig:
     """Hyperparameters for the ostensive teaching system."""
@@ -41,6 +55,11 @@ class TeachingConfig:
     # Vocabulary refresh: re-encode stored words periodically
     # (encoder weights change during training, staling old encodings)
     refresh_interval_episodes: int = 100
+
+    # Circular buffer depth for word memories (exposures per word slot)
+    # Each word keeps the most recent `vocab_buffer_size` internal-state snapshots.
+    # Averaged into a prototype — more robust to context variation than a single snapshot.
+    vocab_buffer_size: int = 8
 
     # Naming reward: small approach-only bonus when agent names correctly
     naming_reward: float = 0.3
@@ -66,37 +85,53 @@ TEACHING_CURRICULUM = {
 @dataclass
 class WordMemory:
     """
-    Multi-exposure word memory.
+    Multi-exposure word memory with circular buffer.
 
-    Rather than storing a single snapshot, we accumulate multiple
-    internal-state observations and average them. This creates a
-    more robust, prototype-like representation — similar to how
-    humans form category prototypes from multiple exemplars.
+    Maintains a fixed-size ring buffer of the most recent internal-state
+    observations. The prototype is the mean over all buffered states.
+
+    Advantages over a simple running sum:
+      - Old, stale observations are automatically evicted as new ones arrive
+      - Memory footprint is bounded (buffer_size * state_dim floats)
+      - Prototype adapts to context variation: seeing "apple" in different
+        lighting / positions updates the buffer rather than infinitely
+        diluting a cumulative average
     """
     word: str
     base_name: str                              # Object library key (e.g., "apple")
-    exposures: int = 0
-    state_accumulator: Optional[np.ndarray] = None  # Running sum of internal states
-    grounded: bool = False                      # Has enough exposures?
+    buffer_size: int = 8                        # Maximum buffered observations
+    buffer: List[np.ndarray] = field(default_factory=list)  # Ring buffer entries
+    write_pos: int = 0                          # Next write index (cycles mod buffer_size)
+    exposures: int = 0                          # Total lifetime exposures (unbounded)
+    grounded: bool = False                      # Has reached min_exposures threshold?
     last_refresh_episode: int = 0
 
     @property
     def prototype(self) -> Optional[np.ndarray]:
-        """Average internal state across all exposures."""
-        if self.exposures == 0 or self.state_accumulator is None:
+        """Mean internal state across all buffered observations."""
+        if not self.buffer:
             return None
-        return self.state_accumulator / self.exposures
+        return np.mean(self.buffer, axis=0)
 
     def add_exposure(self, internal_state: np.ndarray):
-        """Add a new observation of this word's referent."""
-        if self.state_accumulator is None:
-            self.state_accumulator = np.zeros_like(internal_state)
-        self.state_accumulator += internal_state
+        """
+        Insert a new observation into the ring buffer.
+
+        When the buffer has space, appends. Once full, overwrites the
+        oldest entry at write_pos, cycling around the buffer.
+        """
+        state_copy = internal_state.copy()
+        if len(self.buffer) < self.buffer_size:
+            self.buffer.append(state_copy)
+        else:
+            self.buffer[self.write_pos] = state_copy
+        self.write_pos = (self.write_pos + 1) % self.buffer_size
         self.exposures += 1
 
     def reset_for_refresh(self):
-        """Clear accumulated states for re-grounding with updated encoder."""
-        self.state_accumulator = None
+        """Clear buffer for re-grounding with updated encoder weights."""
+        self.buffer = []
+        self.write_pos = 0
         self.exposures = 0
         self.grounded = False
 
@@ -215,27 +250,33 @@ class OstensiveTeacher:
                 self.word_memories[aid][base_name] = WordMemory(
                     word=base_name,
                     base_name=base_name,
+                    buffer_size=self.config.vocab_buffer_size,
                 )
 
             memory = self.word_memories[aid][base_name]
             memory.add_exposure(internal_state)
 
-            # Check if word is now grounded (enough exposures)
-            if (memory.exposures >= self.config.min_exposures_to_ground
-                    and not memory.grounded):
-                memory.grounded = True
-                # Write the prototype into the agent's vocabulary
+            # Once enough exposures accumulate, ground the word and train language losses
+            if memory.exposures >= self.config.min_exposures_to_ground:
+                if not memory.grounded:
+                    memory.grounded = True
+                    self.teaching_events.append({
+                        'episode': episode,
+                        'agent_id': aid,
+                        'word': base_name,
+                        'exposures': memory.exposures,
+                        'event': 'grounded',
+                    })
+
+                # Update vocabulary with latest circular-buffer prototype
                 agent.vocabulary[base_name] = memory.prototype.copy()
-                self.teaching_events.append({
-                    'episode': episode,
-                    'agent_id': aid,
-                    'word': base_name,
-                    'exposures': memory.exposures,
-                    'event': 'grounded',
-                })
-            elif memory.grounded:
-                # Already grounded — update the prototype (continuous refinement)
-                agent.vocabulary[base_name] = memory.prototype.copy()
+
+                # --- Language loss training ---
+                # Naming loss: pull current encoding toward word prototype.
+                # Discrimination loss: train auxiliary classifier (state → class).
+                # Both shape the encoder without disrupting curiosity dynamics.
+                class_idx = WORD_CLASS_MAP.get(base_name, -1)
+                agent.train_language_losses(base_name, class_idx)
 
     def test_naming(self, agents, env, stage: int, episode: int) -> List[Dict]:
         """

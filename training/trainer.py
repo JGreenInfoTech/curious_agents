@@ -295,6 +295,8 @@ class Trainer:
                 'is_learning': report['is_learning'],
                 'is_exploring': report['is_exploring'],
                 'total_reward': agent.total_reward,
+                'avg_naming_loss': report['avg_naming_loss'],
+                'avg_discrimination_loss': report['avg_discrimination_loss'],
             }
         
         # Language grounding metrics
@@ -361,6 +363,8 @@ class Trainer:
                 'prediction_error_history': agent.prediction_error_history[-100:],
                 'learning_progress_history': agent.learning_progress_history[-100:],
                 'confidence_history': agent.confidence_history[-100:],
+                'naming_loss_history': agent.naming_loss_history[-100:],
+                'discrimination_loss_history': agent.discrimination_loss_history[-100:],
             }
         
         # Save teacher state (word memories, test history)
@@ -375,9 +379,9 @@ class Trainer:
                 teacher_state['word_memories'][aid][word] = {
                     'word': mem.word,
                     'base_name': mem.base_name,
+                    'buffer': [s.tolist() for s in mem.buffer],
+                    'write_pos': mem.write_pos,
                     'exposures': mem.exposures,
-                    'state_accumulator': (mem.state_accumulator.tolist() 
-                                         if mem.state_accumulator is not None else None),
                     'grounded': mem.grounded,
                     'last_refresh_episode': mem.last_refresh_episode,
                 }
@@ -421,7 +425,9 @@ class Trainer:
             aid = agent.config.agent_id
             if aid in checkpoint['agents']:
                 data = checkpoint['agents'][aid]
-                agent.load_state_dict(data['state_dict'])
+                # strict=False: gracefully handles checkpoints saved before the
+                # discrimination_head was added (missing keys get default init).
+                agent.load_state_dict(data['state_dict'], strict=False)
                 agent.position = np.array(data['position'])
                 agent.confidence = data['confidence']
                 agent.total_steps = data['total_steps']
@@ -429,13 +435,15 @@ class Trainer:
                 agent.vocabulary = {
                     k: np.array(v) for k, v in data['vocabulary'].items()
                 }
-        
+                agent.naming_loss_history = data.get('naming_loss_history', [])
+                agent.discrimination_loss_history = data.get('discrimination_loss_history', [])
+
         # Restore teacher state if available
         if 'teacher' in checkpoint:
             ts = checkpoint['teacher']
             self.teacher.teaching_events = ts.get('teaching_events', [])
             self.teacher.naming_tests = ts.get('naming_tests', [])
-            
+
             from training.language_grounding import WordMemory
             for aid_str, memories in ts.get('word_memories', {}).items():
                 aid = int(aid_str) if isinstance(aid_str, str) else aid_str
@@ -444,14 +452,24 @@ class Trainer:
                     mem = WordMemory(
                         word=mem_data['word'],
                         base_name=mem_data['base_name'],
+                        buffer_size=self.teaching_config.vocab_buffer_size,
                     )
                     mem.exposures = mem_data['exposures']
-                    mem.state_accumulator = (
-                        np.array(mem_data['state_accumulator'])
-                        if mem_data['state_accumulator'] is not None else None
-                    )
                     mem.grounded = mem_data['grounded']
                     mem.last_refresh_episode = mem_data['last_refresh_episode']
+
+                    # Backward-compatible: new checkpoints have 'buffer',
+                    # old ones have 'state_accumulator' (cumulative sum).
+                    if 'buffer' in mem_data:
+                        mem.buffer = [np.array(s) for s in mem_data['buffer']]
+                        mem.write_pos = mem_data.get('write_pos', 0)
+                    elif (mem_data.get('state_accumulator') is not None
+                          and mem.exposures > 0):
+                        # Reconstruct a single-entry buffer from the old average
+                        avg = np.array(mem_data['state_accumulator']) / mem.exposures
+                        mem.buffer = [avg]
+                        mem.write_pos = 1 % mem.buffer_size
+
                     self.teacher.word_memories[aid][word] = mem
         
         # Restore environment for the current stage

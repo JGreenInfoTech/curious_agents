@@ -25,16 +25,16 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 class TrainingVisualizer:
     """
     Real-time(ish) visualization of agent training.
-    
-    Layout:
-    ┌──────────────────┬────────────────┐
-    │   World Map       │  Prediction    │
-    │   (agent+object   │  Error Curves  │
-    │    positions)     │                │
-    ├──────────────────┼────────────────┤
-    │   Learning        │  Confidence &  │
-    │   Progress        │  Meta-Cognition│
-    └──────────────────┴────────────────┘
+
+    Layout (2 rows × 3 columns):
+    ┌──────────────────┬────────────────┬─────────────────┐
+    │   World Map       │  Prediction    │  Naming         │
+    │   (agent+object   │  Error Curves  │  Accuracy       │
+    │    positions)     │                │  (Phase 2)      │
+    ├──────────────────┼────────────────┼─────────────────┤
+    │   Learning        │  Confidence &  │  Language Losses│
+    │   Progress        │  Meta-Cognition│  (naming + disc)│
+    └──────────────────┴────────────────┴─────────────────┘
     """
     
     def __init__(self, world_size: float = 100.0, n_agents: int = 3):
@@ -177,6 +177,68 @@ class TrainingVisualizer:
         ax.legend(fontsize=8, loc='lower right')
         ax.grid(True, alpha=0.3)
     
+    def plot_naming_accuracy(self, ax, metrics_history: List[Dict]):
+        """Naming accuracy per agent and global average over time (Phase 2)."""
+        ax.clear()
+        ax.set_title('Naming Accuracy', fontsize=12, fontweight='bold')
+        ax.set_xlabel('Episode')
+        ax.set_ylabel('Accuracy')
+        ax.set_ylim(0, 1)
+
+        if not metrics_history:
+            return
+
+        episodes = [m['episode'] for m in metrics_history]
+
+        # Per-agent accuracy
+        for aid in range(self.n_agents):
+            acc = []
+            for m in metrics_history:
+                d = m['agents'].get(aid, m['agents'].get(str(aid), {}))
+                acc.append(d.get('naming_accuracy', 0.0))
+            color = self.agent_colors[aid % len(self.agent_colors)]
+            ax.plot(episodes, acc, color=color, alpha=0.7,
+                    label=f'Agent {aid}', linewidth=1.5)
+
+        # Global accuracy from language block
+        global_acc = [m.get('language', {}).get('naming_accuracy', 0.0)
+                      for m in metrics_history]
+        ax.plot(episodes, global_acc, color='white', alpha=0.9,
+                label='Global', linewidth=2, linestyle='--')
+
+        ax.axhline(y=0.5, color='gray', linestyle=':', alpha=0.4)
+        ax.legend(fontsize=8, loc='lower right')
+        ax.grid(True, alpha=0.3)
+
+    def plot_language_losses(self, ax, metrics_history: List[Dict]):
+        """Naming loss and discrimination loss per agent over time (Phase 2)."""
+        ax.clear()
+        ax.set_title('Language Losses (naming + discrimination)', fontsize=11, fontweight='bold')
+        ax.set_xlabel('Episode')
+        ax.set_ylabel('Loss')
+
+        if not metrics_history:
+            return
+
+        episodes = [m['episode'] for m in metrics_history]
+
+        for aid in range(self.n_agents):
+            naming_vals = []
+            disc_vals = []
+            for m in metrics_history:
+                d = m['agents'].get(aid, m['agents'].get(str(aid), {}))
+                naming_vals.append(d.get('avg_naming_loss', 0.0))
+                disc_vals.append(d.get('avg_discrimination_loss', 0.0))
+
+            color = self.agent_colors[aid % len(self.agent_colors)]
+            ax.plot(episodes, naming_vals, color=color, alpha=0.8,
+                    label=f'A{aid} naming', linewidth=1.5, linestyle='-')
+            ax.plot(episodes, disc_vals, color=color, alpha=0.4,
+                    label=f'A{aid} disc', linewidth=1.5, linestyle=':')
+
+        ax.legend(fontsize=7, loc='upper right', ncol=2)
+        ax.grid(True, alpha=0.3)
+
     def render_dashboard(self, env_state: Dict, agent_positions: Dict,
                          metrics_history: List[Dict],
                          save_path: Optional[str] = None):
@@ -185,17 +247,20 @@ class TrainingVisualizer:
         
         Call this periodically during training for visual monitoring.
         """
-        fig = plt.figure(figsize=(14, 10))
+        fig = plt.figure(figsize=(20, 10))
         fig.patch.set_facecolor('#0d1117')
-        gs = GridSpec(2, 2, figure=fig, hspace=0.3, wspace=0.3)
-        
-        ax_world = fig.add_subplot(gs[0, 0])
-        ax_errors = fig.add_subplot(gs[0, 1])
-        ax_progress = fig.add_subplot(gs[1, 0])
+        gs = GridSpec(2, 3, figure=fig, hspace=0.35, wspace=0.3)
+
+        ax_world      = fig.add_subplot(gs[0, 0])
+        ax_errors     = fig.add_subplot(gs[0, 1])
+        ax_naming_acc = fig.add_subplot(gs[0, 2])
+        ax_progress   = fig.add_subplot(gs[1, 0])
         ax_confidence = fig.add_subplot(gs[1, 1])
-        
+        ax_lang_loss  = fig.add_subplot(gs[1, 2])
+
         # Style all axes
-        for ax in [ax_world, ax_errors, ax_progress, ax_confidence]:
+        for ax in [ax_world, ax_errors, ax_naming_acc,
+                   ax_progress, ax_confidence, ax_lang_loss]:
             ax.set_facecolor('#161b22')
             ax.tick_params(colors='white', labelsize=8)
             ax.xaxis.label.set_color('white')
@@ -203,11 +268,13 @@ class TrainingVisualizer:
             ax.title.set_color('white')
             for spine in ax.spines.values():
                 spine.set_color('#30363d')
-        
+
         self.plot_world(ax_world, env_state, agent_positions)
         self.plot_prediction_errors(ax_errors, metrics_history)
+        self.plot_naming_accuracy(ax_naming_acc, metrics_history)
         self.plot_learning_progress(ax_progress, metrics_history)
         self.plot_confidence(ax_confidence, metrics_history)
+        self.plot_language_losses(ax_lang_loss, metrics_history)
         
         # Suptitle
         episode = metrics_history[-1]['episode'] if metrics_history else 0
