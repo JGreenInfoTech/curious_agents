@@ -1,96 +1,2446 @@
 [
   {
-    "episode": 5476,
+    "episode": 5451,
     "stage": 3,
     "temperature": 0.3,
     "agents": {
       "0": {
         "position": [
-          88.85635758849625,
-          71.44599854411157
+          97.29957248915017,
+          36.702822433037255
         ],
-        "confidence": 0.8460646714708517,
-        "avg_error": 0.1442798726260662,
-        "avg_progress": 0.04550588317215443,
-        "total_steps": 547800,
+        "confidence": 0.897864583202274,
+        "avg_error": 0.09684776701033115,
+        "avg_progress": 0.027038663811981677,
+        "total_steps": 545400,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 175272.118952968,
+        "total_reward": 174418.87047136453,
         "words_known": [
+          "rock",
           "banana",
           "apple",
-          "rock",
-          "cat",
-          "flower",
-          "ball",
-          "dog",
-          "book",
           "water",
-          "fire"
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.35
+        "naming_accuracy": 0.3
       },
       "1": {
         "position": [
-          52.170263414565284,
-          21.97445590524096
+          61.79042520148582,
+          68.74222482025873
         ],
-        "confidence": 0.8884730142149041,
-        "avg_error": 0.10712143499404192,
-        "avg_progress": 0.025345406495034695,
-        "total_steps": 547800,
+        "confidence": 0.8964298618997488,
+        "avg_error": 0.11386917848140002,
+        "avg_progress": 0.027048199065029623,
+        "total_steps": 545400,
         "vocab_size": 10,
         "is_learning": 1,
-        "is_exploring": false,
-        "total_reward": 168029.16924449935,
+        "is_exploring": true,
+        "total_reward": 167314.03181416378,
         "words_known": [
-          "banana",
           "dog",
           "apple",
           "water",
+          "banana",
           "rock",
-          "flower",
           "cat",
-          "ball",
+          "fire",
           "book",
-          "fire"
+          "flower",
+          "ball"
         ],
-        "naming_accuracy": 0.35
+        "naming_accuracy": 0.5
       },
       "2": {
         "position": [
-          22.31866072086322,
-          90.91746824025594
+          24.469721117274275,
+          55.281887528024015
         ],
-        "confidence": 0.8861592474821085,
-        "avg_error": 0.11404022630304098,
-        "avg_progress": 0.02850023526698351,
-        "total_steps": 547800,
+        "confidence": 0.9054390109166793,
+        "avg_error": 0.08940343484282494,
+        "avg_progress": 0.023319101706147195,
+        "total_steps": 545400,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 173352.2620508739,
+        "total_reward": 172770.17233641402,
         "words_known": [
-          "banana",
           "apple",
-          "fire",
+          "banana",
           "rock",
           "cat",
           "dog",
+          "water",
+          "flower",
+          "fire",
           "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.55
+      }
+    },
+    "language": {
+      "total_teaching_events": 42,
+      "total_naming_tests": 3522,
+      "naming_accuracy": 0.4835320840431573,
+      "recent_accuracy": 0.44
+    }
+  },
+  {
+    "episode": 5452,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          96.73201990577745,
+          9.524285487557414
+        ],
+        "confidence": 0.859036670282098,
+        "avg_error": 0.14547524489462377,
+        "avg_progress": 0.030414436385035513,
+        "total_steps": 545500,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 174452.6941257152,
+        "words_known": [
+          "rock",
+          "banana",
+          "apple",
+          "water",
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.3
+      },
+      "1": {
+        "position": [
+          26.456371747668015,
+          92.8348517692294
+        ],
+        "confidence": 0.9059752256436725,
+        "avg_error": 0.08582750707864761,
+        "avg_progress": 0.0264129389077425,
+        "total_steps": 545500,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 167345.80412373063,
+        "words_known": [
+          "dog",
+          "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
+          "fire",
           "book",
           "flower",
-          "water"
+          "ball"
+        ],
+        "naming_accuracy": 0.55
+      },
+      "2": {
+        "position": [
+          86.28744801631206,
+          17.114304418945864
+        ],
+        "confidence": 0.8726997505698284,
+        "avg_error": 0.13199607506394387,
+        "avg_progress": 0.030576690286397933,
+        "total_steps": 545500,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 172802.6628789742,
+        "words_known": [
+          "apple",
+          "banana",
+          "rock",
+          "cat",
+          "dog",
+          "water",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.35
+      }
+    },
+    "language": {
+      "total_teaching_events": 42,
+      "total_naming_tests": 3540,
+      "naming_accuracy": 0.4827683615819209,
+      "recent_accuracy": 0.34
+    }
+  },
+  {
+    "episode": 5453,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          62.29461075033019,
+          80.45626958831753
+        ],
+        "confidence": 0.880946157629521,
+        "avg_error": 0.11610183455049991,
+        "avg_progress": 0.03331461735069752,
+        "total_steps": 545600,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 174487.2407983003,
+        "words_known": [
+          "rock",
+          "banana",
+          "apple",
+          "water",
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.3
+      },
+      "1": {
+        "position": [
+          66.97009745958381,
+          51.920117877732466
+        ],
+        "confidence": 0.9102486352462458,
+        "avg_error": 0.075914890691638,
+        "avg_progress": 0.02141282120719552,
+        "total_steps": 545600,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 167380.44920251094,
+        "words_known": [
+          "dog",
+          "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
+          "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.4
+      },
+      "2": {
+        "position": [
+          42.066096047148804,
+          94.37311764507598
+        ],
+        "confidence": 0.8911453494977465,
+        "avg_error": 0.11478125099092722,
+        "avg_progress": 0.02437884025275707,
+        "total_steps": 545600,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 172833.1124664527,
+        "words_known": [
+          "apple",
+          "banana",
+          "rock",
+          "cat",
+          "dog",
+          "water",
+          "flower",
+          "fire",
+          "ball",
+          "book"
         ],
         "naming_accuracy": 0.5
       }
     },
     "language": {
       "total_teaching_events": 42,
-      "total_naming_tests": 6390,
-      "naming_accuracy": 0.4447574334898279,
-      "recent_accuracy": 0.36
+      "total_naming_tests": 3555,
+      "naming_accuracy": 0.48270042194092827,
+      "recent_accuracy": 0.4
+    }
+  },
+  {
+    "episode": 5454,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          21.59804861522413,
+          86.49508061734959
+        ],
+        "confidence": 0.9036697623810303,
+        "avg_error": 0.08737698523327708,
+        "avg_progress": 0.02980796219781041,
+        "total_steps": 545700,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 174521.30085567906,
+        "words_known": [
+          "rock",
+          "banana",
+          "apple",
+          "water",
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.25
+      },
+      "1": {
+        "position": [
+          65.21186883145319,
+          86.49296225383465
+        ],
+        "confidence": 0.8810414677223212,
+        "avg_error": 0.1263255575671792,
+        "avg_progress": 0.0408520745113492,
+        "total_steps": 545700,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 167415.6712183422,
+        "words_known": [
+          "dog",
+          "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
+          "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.4
+      },
+      "2": {
+        "position": [
+          79.47237432449866,
+          7.783556729912121
+        ],
+        "confidence": 0.8930751135063107,
+        "avg_error": 0.09788941461592912,
+        "avg_progress": 0.02668326795101166,
+        "total_steps": 545700,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 172864.2826435039,
+        "words_known": [
+          "apple",
+          "banana",
+          "rock",
+          "cat",
+          "dog",
+          "water",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.5
+      }
+    },
+    "language": {
+      "total_teaching_events": 42,
+      "total_naming_tests": 3568,
+      "naming_accuracy": 0.4823430493273543,
+      "recent_accuracy": 0.4
+    }
+  },
+  {
+    "episode": 5455,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          39.558526579366486,
+          58.82675084613645
+        ],
+        "confidence": 0.8862307547967021,
+        "avg_error": 0.11414033779874444,
+        "avg_progress": 0.055861572828143836,
+        "total_steps": 545800,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 174556.519015895,
+        "words_known": [
+          "rock",
+          "banana",
+          "apple",
+          "water",
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.25
+      },
+      "1": {
+        "position": [
+          25.60418603171098,
+          18.68722336150303
+        ],
+        "confidence": 0.9003157950200616,
+        "avg_error": 0.10017070556059479,
+        "avg_progress": 0.031571006216108796,
+        "total_steps": 545800,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 167449.06976088954,
+        "words_known": [
+          "dog",
+          "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
+          "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.35
+      },
+      "2": {
+        "position": [
+          67.72310681936463,
+          63.27349250693061
+        ],
+        "confidence": 0.9094076187447899,
+        "avg_error": 0.0809588283766061,
+        "avg_progress": 0.02746865232475102,
+        "total_steps": 545800,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 172899.56651303841,
+        "words_known": [
+          "apple",
+          "banana",
+          "rock",
+          "cat",
+          "dog",
+          "water",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.6
+      }
+    },
+    "language": {
+      "total_teaching_events": 42,
+      "total_naming_tests": 3585,
+      "naming_accuracy": 0.4825662482566248,
+      "recent_accuracy": 0.46
+    }
+  },
+  {
+    "episode": 5456,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          24.460863175248676,
+          35.424190517319346
+        ],
+        "confidence": 0.8778914758602704,
+        "avg_error": 0.12515147253870965,
+        "avg_progress": 0.024020941182971,
+        "total_steps": 545900,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 174590.48569722308,
+        "words_known": [
+          "rock",
+          "banana",
+          "apple",
+          "water",
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.4
+      },
+      "1": {
+        "position": [
+          54.940148732572496,
+          97.82841663320534
+        ],
+        "confidence": 0.9118792714877652,
+        "avg_error": 0.08980723759159445,
+        "avg_progress": 0.03443776182830334,
+        "total_steps": 545900,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 167476.84789931972,
+        "words_known": [
+          "dog",
+          "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
+          "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.45
+      },
+      "2": {
+        "position": [
+          47.8544208117718,
+          8.31804760979346
+        ],
+        "confidence": 0.8922268239696948,
+        "avg_error": 0.10857056975364685,
+        "avg_progress": 0.025298521481454374,
+        "total_steps": 545900,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 172929.74156879113,
+        "words_known": [
+          "apple",
+          "banana",
+          "rock",
+          "cat",
+          "dog",
+          "water",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.5
+      }
+    },
+    "language": {
+      "total_teaching_events": 42,
+      "total_naming_tests": 3604,
+      "naming_accuracy": 0.4827968923418424,
+      "recent_accuracy": 0.48
+    }
+  },
+  {
+    "episode": 5457,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          60.02448816054512,
+          36.26276542887423
+        ],
+        "confidence": 0.8612828192386985,
+        "avg_error": 0.13803666587918997,
+        "avg_progress": 0.04456439334899187,
+        "total_steps": 546000,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 174620.7683371849,
+        "words_known": [
+          "rock",
+          "banana",
+          "apple",
+          "water",
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.4
+      },
+      "1": {
+        "position": [
+          13.281025276910398,
+          42.779581052126574
+        ],
+        "confidence": 0.896547126041689,
+        "avg_error": 0.10984316598623992,
+        "avg_progress": 0.031691423431038854,
+        "total_steps": 546000,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 167511.1873541633,
+        "words_known": [
+          "dog",
+          "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
+          "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.75
+      },
+      "2": {
+        "position": [
+          87.42089324227494,
+          59.05663251595962
+        ],
+        "confidence": 0.8890369505569516,
+        "avg_error": 0.10698357443325221,
+        "avg_progress": 0.03786737858317792,
+        "total_steps": 546000,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 172964.96361063048,
+        "words_known": [
+          "apple",
+          "banana",
+          "rock",
+          "cat",
+          "dog",
+          "water",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.5
+      }
+    },
+    "language": {
+      "total_teaching_events": 42,
+      "total_naming_tests": 3623,
+      "naming_accuracy": 0.48357714601159263,
+      "recent_accuracy": 0.56
+    }
+  },
+  {
+    "episode": 5458,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          81.59906760020192,
+          76.47093295912333
+        ],
+        "confidence": 0.9057713632487657,
+        "avg_error": 0.08088478529825807,
+        "avg_progress": 0.027375155594199896,
+        "total_steps": 546100,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 174655.3405599803,
+        "words_known": [
+          "rock",
+          "banana",
+          "apple",
+          "water",
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.3
+      },
+      "1": {
+        "position": [
+          47.28932147953154,
+          60.706720335567226
+        ],
+        "confidence": 0.8859056906640022,
+        "avg_error": 0.1149906212463975,
+        "avg_progress": 0.042284924909472464,
+        "total_steps": 546100,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 167544.64142323146,
+        "words_known": [
+          "dog",
+          "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
+          "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.75
+      },
+      "2": {
+        "position": [
+          58.93473638741172,
+          42.60400917819287
+        ],
+        "confidence": 0.8803820711930435,
+        "avg_error": 0.12802009657025337,
+        "avg_progress": 0.042957790195941925,
+        "total_steps": 546100,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 172998.4760994422,
+        "words_known": [
+          "apple",
+          "banana",
+          "rock",
+          "cat",
+          "dog",
+          "water",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.55
+      }
+    },
+    "language": {
+      "total_teaching_events": 42,
+      "total_naming_tests": 3630,
+      "naming_accuracy": 0.4837465564738292,
+      "recent_accuracy": 0.58
+    }
+  },
+  {
+    "episode": 5459,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          13.670791230177514,
+          70.82207179125346
+        ],
+        "confidence": 0.9074183352511839,
+        "avg_error": 0.08845802368596196,
+        "avg_progress": 0.037119653169065715,
+        "total_steps": 546200,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 174690.05438838477,
+        "words_known": [
+          "rock",
+          "banana",
+          "apple",
+          "water",
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.3
+      },
+      "1": {
+        "position": [
+          36.53703628732755,
+          0.7146227013778059
+        ],
+        "confidence": 0.932693203175147,
+        "avg_error": 0.06723223263397812,
+        "avg_progress": 0.027556942030787467,
+        "total_steps": 546200,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 167578.6970841903,
+        "words_known": [
+          "dog",
+          "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
+          "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.6
+      },
+      "2": {
+        "position": [
+          31.06918210067451,
+          92.71043658046125
+        ],
+        "confidence": 0.9095968473977594,
+        "avg_error": 0.08451637905091047,
+        "avg_progress": 0.0251566456630826,
+        "total_steps": 546200,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 173032.5020784165,
+        "words_known": [
+          "apple",
+          "banana",
+          "rock",
+          "cat",
+          "dog",
+          "water",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.5
+      }
+    },
+    "language": {
+      "total_teaching_events": 42,
+      "total_naming_tests": 3640,
+      "naming_accuracy": 0.48296703296703297,
+      "recent_accuracy": 0.52
+    }
+  },
+  {
+    "episode": 5460,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          55.78622177545803,
+          76.35999045220012
+        ],
+        "confidence": 0.9028094948079052,
+        "avg_error": 0.08795393798500299,
+        "avg_progress": 0.03922474049031734,
+        "total_steps": 546300,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 174726.0217833134,
+        "words_known": [
+          "rock",
+          "banana",
+          "apple",
+          "water",
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.35
+      },
+      "1": {
+        "position": [
+          61.03648679033719,
+          16.351192249458535
+        ],
+        "confidence": 0.9026789743071223,
+        "avg_error": 0.09078606679104269,
+        "avg_progress": 0.023854956822469832,
+        "total_steps": 546300,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 167614.2438825875,
+        "words_known": [
+          "dog",
+          "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
+          "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.65
+      },
+      "2": {
+        "position": [
+          37.25376067005219,
+          83.47587949239828
+        ],
+        "confidence": 0.9170416603305814,
+        "avg_error": 0.08214178942143917,
+        "avg_progress": 0.02814436536282301,
+        "total_steps": 546300,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 173065.82229775333,
+        "words_known": [
+          "apple",
+          "banana",
+          "rock",
+          "cat",
+          "dog",
+          "water",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.5
+      }
+    },
+    "language": {
+      "total_teaching_events": 42,
+      "total_naming_tests": 3649,
+      "naming_accuracy": 0.48314606741573035,
+      "recent_accuracy": 0.52
+    }
+  },
+  {
+    "episode": 5461,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          18.936857194082478,
+          96.34794578620898
+        ],
+        "confidence": 0.8734468610637879,
+        "avg_error": 0.14571952940896155,
+        "avg_progress": 0.05084314169362188,
+        "total_steps": 546400,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 174761.11932066223,
+        "words_known": [
+          "rock",
+          "banana",
+          "apple",
+          "water",
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.35
+      },
+      "1": {
+        "position": [
+          7.743903385195281,
+          4.188151171534827
+        ],
+        "confidence": 0.9013410139477004,
+        "avg_error": 0.10449843592941761,
+        "avg_progress": 0.026348563097417354,
+        "total_steps": 546400,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 167649.22001012063,
+        "words_known": [
+          "dog",
+          "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
+          "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.65
+      },
+      "2": {
+        "position": [
+          20.65210805081874,
+          39.018063570613705
+        ],
+        "confidence": 0.8709885289152219,
+        "avg_error": 0.1323476219549775,
+        "avg_progress": 0.02958331573754549,
+        "total_steps": 546400,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 173097.1850058836,
+        "words_known": [
+          "apple",
+          "banana",
+          "rock",
+          "cat",
+          "dog",
+          "water",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.55
+      }
+    },
+    "language": {
+      "total_teaching_events": 42,
+      "total_naming_tests": 3660,
+      "naming_accuracy": 0.48360655737704916,
+      "recent_accuracy": 0.54
+    }
+  },
+  {
+    "episode": 5462,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          82.11938764007184,
+          54.82773746149954
+        ],
+        "confidence": 0.8823808427494516,
+        "avg_error": 0.10856836400926113,
+        "avg_progress": 0.037878592684865,
+        "total_steps": 546500,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 174797.555214578,
+        "words_known": [
+          "rock",
+          "banana",
+          "apple",
+          "water",
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.3
+      },
+      "1": {
+        "position": [
+          91.99731946436204,
+          80.05474892719583
+        ],
+        "confidence": 0.8921850763817869,
+        "avg_error": 0.09674825333058834,
+        "avg_progress": 0.02997310757637024,
+        "total_steps": 546500,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 167685.76048504226,
+        "words_known": [
+          "dog",
+          "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
+          "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.45
+      },
+      "2": {
+        "position": [
+          15.456539320494215,
+          43.437837830126114
+        ],
+        "confidence": 0.8711090776272815,
+        "avg_error": 0.12945231944322586,
+        "avg_progress": 0.02076394185423851,
+        "total_steps": 546500,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 173131.2262409243,
+        "words_known": [
+          "apple",
+          "banana",
+          "rock",
+          "cat",
+          "dog",
+          "water",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.5
+      }
+    },
+    "language": {
+      "total_teaching_events": 42,
+      "total_naming_tests": 3675,
+      "naming_accuracy": 0.48272108843537415,
+      "recent_accuracy": 0.42
+    }
+  },
+  {
+    "episode": 5463,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          88.69837244430053,
+          21.28106558875014
+        ],
+        "confidence": 0.8682957796184365,
+        "avg_error": 0.1438009654171765,
+        "avg_progress": 0.03701610332354903,
+        "total_steps": 546600,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 174832.55749356147,
+        "words_known": [
+          "rock",
+          "banana",
+          "apple",
+          "water",
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.35
+      },
+      "1": {
+        "position": [
+          86.87066391986455,
+          45.575879025044
+        ],
+        "confidence": 0.9049551726036882,
+        "avg_error": 0.09406750556081533,
+        "avg_progress": 0.020941701345145704,
+        "total_steps": 546600,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 167720.12947946458,
+        "words_known": [
+          "dog",
+          "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
+          "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.35
+      },
+      "2": {
+        "position": [
+          74.71882135189121,
+          45.987350738504944
+        ],
+        "confidence": 0.8732086250945854,
+        "avg_error": 0.12968764966353774,
+        "avg_progress": 0.022354770731180907,
+        "total_steps": 546600,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 173166.9202400224,
+        "words_known": [
+          "apple",
+          "banana",
+          "rock",
+          "cat",
+          "dog",
+          "water",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.45
+      }
+    },
+    "language": {
+      "total_teaching_events": 42,
+      "total_naming_tests": 3690,
+      "naming_accuracy": 0.4823848238482385,
+      "recent_accuracy": 0.44
+    }
+  },
+  {
+    "episode": 5464,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          0.9293667170121722,
+          47.50955304666178
+        ],
+        "confidence": 0.8785439432566627,
+        "avg_error": 0.12160061076283454,
+        "avg_progress": 0.028812215477228165,
+        "total_steps": 546700,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 174861.50843165853,
+        "words_known": [
+          "rock",
+          "banana",
+          "apple",
+          "water",
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.45
+      },
+      "1": {
+        "position": [
+          41.897665723602856,
+          58.715455914665256
+        ],
+        "confidence": 0.8752736149042889,
+        "avg_error": 0.1241021690890193,
+        "avg_progress": 0.039252502098679545,
+        "total_steps": 546700,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 167749.16195448296,
+        "words_known": [
+          "dog",
+          "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
+          "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.3
+      },
+      "2": {
+        "position": [
+          6.810561018087185,
+          86.32417723065825
+        ],
+        "confidence": 0.8839661442207825,
+        "avg_error": 0.12327315183356405,
+        "avg_progress": 0.024918573256582022,
+        "total_steps": 546700,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 173197.00419142106,
+        "words_known": [
+          "apple",
+          "banana",
+          "rock",
+          "cat",
+          "dog",
+          "water",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.45
+      }
+    },
+    "language": {
+      "total_teaching_events": 42,
+      "total_naming_tests": 3699,
+      "naming_accuracy": 0.48202216815355503,
+      "recent_accuracy": 0.4
+    }
+  },
+  {
+    "episode": 5465,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          76.5999672673953,
+          59.8028304890874
+        ],
+        "confidence": 0.8715292367393588,
+        "avg_error": 0.12525453083217145,
+        "avg_progress": 0.030032260343432426,
+        "total_steps": 546800,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 174896.72961466538,
+        "words_known": [
+          "rock",
+          "banana",
+          "apple",
+          "water",
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.45
+      },
+      "1": {
+        "position": [
+          67.89783042090838,
+          8.439598883016913
+        ],
+        "confidence": 0.8982226413275352,
+        "avg_error": 0.09583630003035068,
+        "avg_progress": 0.017326135747134687,
+        "total_steps": 546800,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 167783.268696494,
+        "words_known": [
+          "dog",
+          "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
+          "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.35
+      },
+      "2": {
+        "position": [
+          24.37541542361133,
+          28.75386798934015
+        ],
+        "confidence": 0.8653969607625517,
+        "avg_error": 0.13107028994709252,
+        "avg_progress": 0.03131066653877497,
+        "total_steps": 546800,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 173228.30219753395,
+        "words_known": [
+          "apple",
+          "banana",
+          "rock",
+          "cat",
+          "dog",
+          "water",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.5
+      }
+    },
+    "language": {
+      "total_teaching_events": 42,
+      "total_naming_tests": 3711,
+      "naming_accuracy": 0.4823497709512261,
+      "recent_accuracy": 0.4
+    }
+  },
+  {
+    "episode": 5466,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          21.26434732726608,
+          64.57693722372389
+        ],
+        "confidence": 0.884248066763407,
+        "avg_error": 0.12393819410353898,
+        "avg_progress": 0.03705193009227514,
+        "total_steps": 546900,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 174930.94162588983,
+        "words_known": [
+          "rock",
+          "banana",
+          "apple",
+          "water",
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.5
+      },
+      "1": {
+        "position": [
+          65.44021790939958,
+          82.03894997166107
+        ],
+        "confidence": 0.9061795896725571,
+        "avg_error": 0.09401935692876577,
+        "avg_progress": 0.028257699869573116,
+        "total_steps": 546900,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 167816.6427718632,
+        "words_known": [
+          "dog",
+          "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
+          "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.25
+      },
+      "2": {
+        "position": [
+          40.53811293941334,
+          20.985372967919474
+        ],
+        "confidence": 0.8597518574918115,
+        "avg_error": 0.1426190597936511,
+        "avg_progress": 0.023177313432097436,
+        "total_steps": 546900,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 173260.21749692858,
+        "words_known": [
+          "apple",
+          "banana",
+          "rock",
+          "cat",
+          "dog",
+          "water",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.6
+      }
+    },
+    "language": {
+      "total_teaching_events": 42,
+      "total_naming_tests": 3725,
+      "naming_accuracy": 0.48241610738255036,
+      "recent_accuracy": 0.46
+    }
+  },
+  {
+    "episode": 5467,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          34.386052096566544,
+          52.90487030983232
+        ],
+        "confidence": 0.856620677205117,
+        "avg_error": 0.1523711446672678,
+        "avg_progress": 0.025442980602383612,
+        "total_steps": 547000,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 174964.75157915568,
+        "words_known": [
+          "rock",
+          "banana",
+          "apple",
+          "water",
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.45
+      },
+      "1": {
+        "position": [
+          82.2027503809561,
+          45.34989853946371
+        ],
+        "confidence": 0.8679962075629545,
+        "avg_error": 0.1385325402021408,
+        "avg_progress": 0.020591209456324578,
+        "total_steps": 547000,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 167847.2461510627,
+        "words_known": [
+          "dog",
+          "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
+          "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.3
+      },
+      "2": {
+        "position": [
+          10.758399051081398,
+          42.98372267109728
+        ],
+        "confidence": 0.8618767507460634,
+        "avg_error": 0.148610532656312,
+        "avg_progress": 0.02169441506266594,
+        "total_steps": 547000,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 173291.91156717704,
+        "words_known": [
+          "apple",
+          "banana",
+          "rock",
+          "cat",
+          "dog",
+          "water",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.4
+      }
+    },
+    "language": {
+      "total_teaching_events": 42,
+      "total_naming_tests": 3740,
+      "naming_accuracy": 0.48155080213903745,
+      "recent_accuracy": 0.42
+    }
+  },
+  {
+    "episode": 5468,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          77.47574294840442,
+          86.05201117791196
+        ],
+        "confidence": 0.8760512190276531,
+        "avg_error": 0.11126199960708619,
+        "avg_progress": 0.030586163699626922,
+        "total_steps": 547100,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 174998.16746960208,
+        "words_known": [
+          "rock",
+          "banana",
+          "apple",
+          "water",
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.45
+      },
+      "1": {
+        "position": [
+          11.946219815826908,
+          6.386145569807894
+        ],
+        "confidence": 0.896860011304977,
+        "avg_error": 0.10665820706635713,
+        "avg_progress": 0.019222227856516838,
+        "total_steps": 547100,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 167876.7655404449,
+        "words_known": [
+          "dog",
+          "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
+          "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.45
+      },
+      "2": {
+        "position": [
+          78.4548221708255,
+          25.293497445760075
+        ],
+        "confidence": 0.8581493503665656,
+        "avg_error": 0.1450556620955467,
+        "avg_progress": 0.022093500941991806,
+        "total_steps": 547100,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 173318.90929024428,
+        "words_known": [
+          "apple",
+          "banana",
+          "rock",
+          "cat",
+          "dog",
+          "water",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.45
+      }
+    },
+    "language": {
+      "total_teaching_events": 42,
+      "total_naming_tests": 3758,
+      "naming_accuracy": 0.48137307078233105,
+      "recent_accuracy": 0.4
+    }
+  },
+  {
+    "episode": 5469,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          28.41987826754523,
+          91.56234855296952
+        ],
+        "confidence": 0.8825370961767278,
+        "avg_error": 0.11374897547066212,
+        "avg_progress": 0.02984488531947136,
+        "total_steps": 547200,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 175033.4613653468,
+        "words_known": [
+          "rock",
+          "banana",
+          "apple",
+          "water",
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.4
+      },
+      "1": {
+        "position": [
+          43.390222386678516,
+          43.44485376030316
+        ],
+        "confidence": 0.8694572994545856,
+        "avg_error": 0.12612614780664444,
+        "avg_progress": 0.029966112971305848,
+        "total_steps": 547200,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 167912.60747298994,
+        "words_known": [
+          "dog",
+          "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
+          "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.4
+      },
+      "2": {
+        "position": [
+          35.330373077325106,
+          14.993874243971163
+        ],
+        "confidence": 0.8792645865008207,
+        "avg_error": 0.11086649876087903,
+        "avg_progress": 0.021696866117417814,
+        "total_steps": 547200,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 173350.81835277335,
+        "words_known": [
+          "apple",
+          "banana",
+          "rock",
+          "cat",
+          "dog",
+          "water",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.3
+      }
+    },
+    "language": {
+      "total_teaching_events": 42,
+      "total_naming_tests": 3770,
+      "naming_accuracy": 0.4806366047745358,
+      "recent_accuracy": 0.34
+    }
+  },
+  {
+    "episode": 5470,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          64.83319415687839,
+          62.11538382099478
+        ],
+        "confidence": 0.8790040007367358,
+        "avg_error": 0.13360040839761494,
+        "avg_progress": 0.019812705181539058,
+        "total_steps": 547300,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 175067.850744045,
+        "words_known": [
+          "rock",
+          "banana",
+          "apple",
+          "water",
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.3
+      },
+      "1": {
+        "position": [
+          0.7331938780278904,
+          43.095290435904744
+        ],
+        "confidence": 0.8660087366762447,
+        "avg_error": 0.14064787644892932,
+        "avg_progress": 0.022071597538888453,
+        "total_steps": 547300,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 167946.1361407819,
+        "words_known": [
+          "dog",
+          "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
+          "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.4
+      },
+      "2": {
+        "position": [
+          7.297579393617795,
+          94.6774576791189
+        ],
+        "confidence": 0.8641081078293852,
+        "avg_error": 0.13814631924033166,
+        "avg_progress": 0.01680435538291931,
+        "total_steps": 547300,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 173384.88213344844,
+        "words_known": [
+          "apple",
+          "banana",
+          "rock",
+          "cat",
+          "dog",
+          "water",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.4
+      }
+    },
+    "language": {
+      "total_teaching_events": 42,
+      "total_naming_tests": 3787,
+      "naming_accuracy": 0.4800633747029311,
+      "recent_accuracy": 0.34
+    }
+  },
+  {
+    "episode": 5471,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          81.5028167488516,
+          39.21460913599198
+        ],
+        "confidence": 0.8664916382784489,
+        "avg_error": 0.1421806901693344,
+        "avg_progress": 0.03386116102337837,
+        "total_steps": 547400,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 175104.3520785073,
+        "words_known": [
+          "rock",
+          "banana",
+          "apple",
+          "water",
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.35
+      },
+      "1": {
+        "position": [
+          3.335052819223705,
+          31.813188809725546
+        ],
+        "confidence": 0.8711128957996184,
+        "avg_error": 0.1364814020693302,
+        "avg_progress": 0.035090305656194684,
+        "total_steps": 547400,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 167979.7629677233,
+        "words_known": [
+          "dog",
+          "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
+          "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.35
+      },
+      "2": {
+        "position": [
+          50.192025312778185,
+          49.37399759549547
+        ],
+        "confidence": 0.862703425556209,
+        "avg_error": 0.14224301278591156,
+        "avg_progress": 0.021798811852931976,
+        "total_steps": 547400,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 173420.50050766108,
+        "words_known": [
+          "apple",
+          "banana",
+          "rock",
+          "cat",
+          "dog",
+          "water",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.4
+      }
+    },
+    "language": {
+      "total_teaching_events": 42,
+      "total_naming_tests": 3800,
+      "naming_accuracy": 0.48,
+      "recent_accuracy": 0.38
+    }
+  },
+  {
+    "episode": 5472,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          44.312131972259664,
+          36.04813489625906
+        ],
+        "confidence": 0.8594551538816483,
+        "avg_error": 0.14348988234996796,
+        "avg_progress": 0.02992285043001175,
+        "total_steps": 547500,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 175140.77402397376,
+        "words_known": [
+          "rock",
+          "banana",
+          "apple",
+          "water",
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.35
+      },
+      "1": {
+        "position": [
+          40.65862995153826,
+          33.165102423496364
+        ],
+        "confidence": 0.8890692020581854,
+        "avg_error": 0.11552655622363091,
+        "avg_progress": 0.03388428092002869,
+        "total_steps": 547500,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 168016.62115097683,
+        "words_known": [
+          "dog",
+          "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
+          "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.4
+      },
+      "2": {
+        "position": [
+          36.52265903091305,
+          43.61427733897389
+        ],
+        "confidence": 0.8723397742156279,
+        "avg_error": 0.12043373305350542,
+        "avg_progress": 0.029629522748291493,
+        "total_steps": 547500,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 173454.3850228246,
+        "words_known": [
+          "apple",
+          "banana",
+          "rock",
+          "cat",
+          "dog",
+          "water",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.35
+      }
+    },
+    "language": {
+      "total_teaching_events": 42,
+      "total_naming_tests": 3809,
+      "naming_accuracy": 0.47991598844841166,
+      "recent_accuracy": 0.38
+    }
+  },
+  {
+    "episode": 5473,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          29.842499495671547,
+          31.785283116156933
+        ],
+        "confidence": 0.8647292046472909,
+        "avg_error": 0.13891370724886656,
+        "avg_progress": 0.03934421055018902,
+        "total_steps": 547600,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 175174.11291403096,
+        "words_known": [
+          "rock",
+          "banana",
+          "apple",
+          "water",
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.35
+      },
+      "1": {
+        "position": [
+          36.53141219452169,
+          94.00775951007009
+        ],
+        "confidence": 0.8947588796785108,
+        "avg_error": 0.10822258647531272,
+        "avg_progress": 0.01982025746256113,
+        "total_steps": 547600,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 168052.19093940427,
+        "words_known": [
+          "dog",
+          "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
+          "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.4
+      },
+      "2": {
+        "position": [
+          0.4622574404939428,
+          15.65058526359202
+        ],
+        "confidence": 0.8839909291594623,
+        "avg_error": 0.12011931110173464,
+        "avg_progress": 0.017130439542233943,
+        "total_steps": 547600,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 173485.08315595897,
+        "words_known": [
+          "apple",
+          "banana",
+          "rock",
+          "cat",
+          "dog",
+          "water",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.55
+      }
+    },
+    "language": {
+      "total_teaching_events": 42,
+      "total_naming_tests": 3826,
+      "naming_accuracy": 0.48013591217982227,
+      "recent_accuracy": 0.46
+    }
+  },
+  {
+    "episode": 5474,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          79.5799763459983,
+          63.645515325440314
+        ],
+        "confidence": 0.8792819425043422,
+        "avg_error": 0.11695936173200608,
+        "avg_progress": 0.03643358312547207,
+        "total_steps": 547700,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 175205.96596196538,
+        "words_known": [
+          "rock",
+          "banana",
+          "apple",
+          "water",
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.35
+      },
+      "1": {
+        "position": [
+          3.3637134853335056,
+          96.96103983058042
+        ],
+        "confidence": 0.9002390206854464,
+        "avg_error": 0.10240068333223462,
+        "avg_progress": 0.03885240685194731,
+        "total_steps": 547700,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 168086.78238041073,
+        "words_known": [
+          "dog",
+          "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
+          "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.6
+      },
+      "2": {
+        "position": [
+          25.363855293832984,
+          72.4189178876161
+        ],
+        "confidence": 0.9030605678864172,
+        "avg_error": 0.08980465028434992,
+        "avg_progress": 0.03302249144762755,
+        "total_steps": 547700,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 173519.76050751406,
+        "words_known": [
+          "apple",
+          "banana",
+          "rock",
+          "cat",
+          "dog",
+          "water",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.55
+      }
+    },
+    "language": {
+      "total_teaching_events": 42,
+      "total_naming_tests": 3841,
+      "naming_accuracy": 0.4806040093725592,
+      "recent_accuracy": 0.52
+    }
+  },
+  {
+    "episode": 5475,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          7.831595621302284,
+          0.6524902406649531
+        ],
+        "confidence": 0.8766157627485839,
+        "avg_error": 0.12152476850897073,
+        "avg_progress": 0.03245209753513336,
+        "total_steps": 547800,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 175237.44446387587,
+        "words_known": [
+          "rock",
+          "banana",
+          "apple",
+          "water",
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.35
+      },
+      "1": {
+        "position": [
+          76.26052428043033,
+          32.27326731968226
+        ],
+        "confidence": 0.876445712069367,
+        "avg_error": 0.1274268299341202,
+        "avg_progress": 0.018205718137323856,
+        "total_steps": 547800,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 168118.50774759083,
+        "words_known": [
+          "dog",
+          "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
+          "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.55
+      },
+      "2": {
+        "position": [
+          77.10586933208381,
+          22.884448043440997
+        ],
+        "confidence": 0.872019496052957,
+        "avg_error": 0.13279119748622178,
+        "avg_progress": 0.027201027236878873,
+        "total_steps": 547800,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": true,
+        "total_reward": 173554.6660519492,
+        "words_known": [
+          "apple",
+          "banana",
+          "rock",
+          "cat",
+          "dog",
+          "water",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.6
+      }
+    },
+    "language": {
+      "total_teaching_events": 42,
+      "total_naming_tests": 3853,
+      "naming_accuracy": 0.4804048793148196,
+      "recent_accuracy": 0.52
+    }
+  },
+  {
+    "episode": 5476,
+    "stage": 3,
+    "temperature": 0.3,
+    "agents": {
+      "0": {
+        "position": [
+          3.8563575884962518,
+          86.44599854411157
+        ],
+        "confidence": 0.8948370826723574,
+        "avg_error": 0.10516934739425779,
+        "avg_progress": 0.046507899090647696,
+        "total_steps": 547900,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 175270.70597581624,
+        "words_known": [
+          "rock",
+          "banana",
+          "apple",
+          "water",
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.35
+      },
+      "1": {
+        "position": [
+          27.170263414565284,
+          36.97445590524096
+        ],
+        "confidence": 0.8867202547635424,
+        "avg_error": 0.12009257841855288,
+        "avg_progress": 0.034920882992446424,
+        "total_steps": 547900,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 168152.50745749375,
+        "words_known": [
+          "dog",
+          "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
+          "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.45
+      },
+      "2": {
+        "position": [
+          17.31866072086322,
+          95.91746824025594
+        ],
+        "confidence": 0.9073741097307834,
+        "avg_error": 0.09751712884753942,
+        "avg_progress": 0.02840383304283023,
+        "total_steps": 547900,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 173583.3570906894,
+        "words_known": [
+          "apple",
+          "banana",
+          "rock",
+          "cat",
+          "dog",
+          "water",
+          "flower",
+          "fire",
+          "ball",
+          "book"
+        ],
+        "naming_accuracy": 0.6
+      }
+    },
+    "language": {
+      "total_teaching_events": 42,
+      "total_naming_tests": 3864,
+      "naming_accuracy": 0.4805900621118012,
+      "recent_accuracy": 0.54
     }
   },
   {
@@ -100,91 +2450,91 @@
     "agents": {
       "0": {
         "position": [
-          79.30231096491224,
-          41.893505986002154
+          94.30231096491224,
+          46.893505986002154
         ],
-        "confidence": 0.8833540391147913,
-        "avg_error": 0.11775201838463545,
-        "avg_progress": 0.025916045345366002,
-        "total_steps": 547900,
+        "confidence": 0.8780776995016872,
+        "avg_error": 0.13003194481134414,
+        "avg_progress": 0.03231478780508042,
+        "total_steps": 548000,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 175307.3359129293,
+        "total_reward": 175304.39939546946,
         "words_known": [
+          "rock",
           "banana",
           "apple",
-          "rock",
-          "cat",
-          "flower",
-          "ball",
-          "dog",
-          "book",
           "water",
-          "fire"
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.25
+        "naming_accuracy": 0.4
       },
       "1": {
         "position": [
-          66.42337700008216,
-          97.43707341935871
+          51.423377000082155,
+          22.43707341935871
         ],
-        "confidence": 0.8858664314865791,
-        "avg_error": 0.12607480566948653,
-        "avg_progress": 0.033717655763030055,
-        "total_steps": 547900,
+        "confidence": 0.8778107899914891,
+        "avg_error": 0.1256402786821127,
+        "avg_progress": 0.020643451437354087,
+        "total_steps": 548000,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 168058.43895258193,
+        "total_reward": 168187.51380843774,
         "words_known": [
-          "banana",
           "dog",
           "apple",
           "water",
+          "banana",
           "rock",
-          "flower",
           "cat",
-          "ball",
+          "fire",
           "book",
-          "fire"
+          "flower",
+          "ball"
         ],
-        "naming_accuracy": 0.25
+        "naming_accuracy": 0.6
       },
       "2": {
         "position": [
-          86.38504296034459,
-          97.95804320714794
+          91.38504296034459,
+          12.958043207147945
         ],
-        "confidence": 0.9125816903961735,
-        "avg_error": 0.07576835444197058,
-        "avg_progress": 0.02571173058822751,
-        "total_steps": 547900,
+        "confidence": 0.8756254364898227,
+        "avg_error": 0.12761021368205547,
+        "avg_progress": 0.021865304186940195,
+        "total_steps": 548000,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 173382.93083730742,
+        "total_reward": 173613.3631595256,
         "words_known": [
-          "banana",
           "apple",
-          "fire",
+          "banana",
           "rock",
           "cat",
           "dog",
-          "ball",
-          "book",
+          "water",
           "flower",
-          "water"
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.4
+        "naming_accuracy": 0.65
       }
     },
     "language": {
       "total_teaching_events": 42,
-      "total_naming_tests": 6406,
-      "naming_accuracy": 0.44411489228847956,
-      "recent_accuracy": 0.26
+      "total_naming_tests": 3879,
+      "naming_accuracy": 0.4815674142820314,
+      "recent_accuracy": 0.6
     }
   },
   {
@@ -194,91 +2544,91 @@
     "agents": {
       "0": {
         "position": [
-          24.99145649527054,
-          43.493073778292164
+          94.99145649527054,
+          13.493073778292164
         ],
-        "confidence": 0.8788339887855082,
-        "avg_error": 0.12162077222019434,
-        "avg_progress": 0.03039842713624239,
-        "total_steps": 548000,
+        "confidence": 0.8535744800348998,
+        "avg_error": 0.14578506480902434,
+        "avg_progress": 0.028129965998232365,
+        "total_steps": 548100,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 175337.99373903876,
+        "total_reward": 175338.85417822946,
         "words_known": [
+          "rock",
           "banana",
           "apple",
-          "rock",
-          "cat",
-          "flower",
-          "ball",
-          "dog",
-          "book",
           "water",
-          "fire"
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.35
+        "naming_accuracy": 0.3
       },
       "1": {
         "position": [
-          12.84886727264957,
-          64.14099118897211
+          87.84886727264957,
+          89.14099118897211
         ],
-        "confidence": 0.8651283442403246,
-        "avg_error": 0.13207863848656415,
-        "avg_progress": 0.035936292819678785,
-        "total_steps": 548000,
+        "confidence": 0.9031837260696309,
+        "avg_error": 0.09695065384730697,
+        "avg_progress": 0.03433349998667836,
+        "total_steps": 548100,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 168089.17706910046,
+        "total_reward": 168223.02368699794,
         "words_known": [
-          "banana",
           "dog",
           "apple",
           "water",
+          "banana",
           "rock",
-          "flower",
           "cat",
-          "ball",
+          "fire",
           "book",
-          "fire"
+          "flower",
+          "ball"
         ],
-        "naming_accuracy": 0.1
+        "naming_accuracy": 0.45
       },
       "2": {
         "position": [
-          6.999277396582556,
-          32.76859456997123
+          86.99927739658256,
+          22.768594569971228
         ],
-        "confidence": 0.9066267514920375,
-        "avg_error": 0.0955936960875988,
-        "avg_progress": 0.01921186428517103,
-        "total_steps": 548000,
+        "confidence": 0.8722279716053265,
+        "avg_error": 0.13770928122103215,
+        "avg_progress": 0.02515181303024292,
+        "total_steps": 548100,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 173414.22648643024,
+        "total_reward": 173646.27702404986,
         "words_known": [
-          "banana",
           "apple",
-          "fire",
+          "banana",
           "rock",
           "cat",
           "dog",
-          "ball",
-          "book",
+          "water",
           "flower",
-          "water"
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.45
+        "naming_accuracy": 0.7
       }
     },
     "language": {
       "total_teaching_events": 42,
-      "total_naming_tests": 6428,
-      "naming_accuracy": 0.44368388301182327,
-      "recent_accuracy": 0.26
+      "total_naming_tests": 3893,
+      "naming_accuracy": 0.4811199589005908,
+      "recent_accuracy": 0.54
     }
   },
   {
@@ -288,91 +2638,91 @@
     "agents": {
       "0": {
         "position": [
-          56.53314045021499,
-          3.409294798481369
+          31.533140450214987,
+          88.40929479848137
         ],
-        "confidence": 0.8671398252903757,
-        "avg_error": 0.12678385246545076,
-        "avg_progress": 0.032734714448451996,
-        "total_steps": 548100,
+        "confidence": 0.8723320010541128,
+        "avg_error": 0.13129487745463847,
+        "avg_progress": 0.033561019040644166,
+        "total_steps": 548200,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 175371.91297693152,
+        "total_reward": 175374.2406194591,
         "words_known": [
+          "rock",
           "banana",
           "apple",
-          "rock",
-          "cat",
-          "flower",
-          "ball",
-          "dog",
-          "book",
           "water",
-          "fire"
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
         ],
         "naming_accuracy": 0.35
       },
       "1": {
         "position": [
-          36.0863216134986,
-          8.378128465281037
+          56.0863216134986,
+          78.37812846528104
         ],
-        "confidence": 0.867330427179711,
-        "avg_error": 0.13456347333267332,
-        "avg_progress": 0.018949232529848814,
-        "total_steps": 548100,
+        "confidence": 0.8811723706088577,
+        "avg_error": 0.12023756448179483,
+        "avg_progress": 0.03639078792184591,
+        "total_steps": 548200,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 168122.68103932866,
+        "total_reward": 168256.2642266974,
         "words_known": [
-          "banana",
           "dog",
           "apple",
           "water",
+          "banana",
           "rock",
-          "flower",
           "cat",
-          "ball",
+          "fire",
           "book",
-          "fire"
+          "flower",
+          "ball"
         ],
-        "naming_accuracy": 0.1
+        "naming_accuracy": 0.45
       },
       "2": {
         "position": [
-          23.40310065813061,
-          48.48271678386919
+          98.40310065813061,
+          23.482716783869193
         ],
-        "confidence": 0.878845012039552,
-        "avg_error": 0.1334729790687561,
-        "avg_progress": 0.035050676017999646,
-        "total_steps": 548100,
+        "confidence": 0.887391156141101,
+        "avg_error": 0.12119399532675743,
+        "avg_progress": 0.01688449867069721,
+        "total_steps": 548200,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 173446.90882281345,
+        "total_reward": 173680.47798963447,
         "words_known": [
-          "banana",
           "apple",
-          "fire",
+          "banana",
           "rock",
           "cat",
           "dog",
-          "ball",
-          "book",
+          "water",
           "flower",
-          "water"
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.5
+        "naming_accuracy": 0.7
       }
     },
     "language": {
       "total_teaching_events": 42,
-      "total_naming_tests": 6439,
-      "naming_accuracy": 0.4437024382668116,
-      "recent_accuracy": 0.32
+      "total_naming_tests": 3909,
+      "naming_accuracy": 0.480685597339473,
+      "recent_accuracy": 0.5
     }
   },
   {
@@ -382,91 +2732,91 @@
     "agents": {
       "0": {
         "position": [
-          43.70769401781713,
-          57.359654086148595
+          28.707694017817133,
+          42.359654086148595
         ],
-        "confidence": 0.876659228278737,
-        "avg_error": 0.1225373050197959,
-        "avg_progress": 0.03980935756117106,
-        "total_steps": 548200,
+        "confidence": 0.864865203796495,
+        "avg_error": 0.14221207201480865,
+        "avg_progress": 0.03157145194709301,
+        "total_steps": 548300,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 175405.85722822126,
+        "total_reward": 175407.98987558627,
         "words_known": [
+          "rock",
           "banana",
           "apple",
-          "rock",
-          "cat",
-          "flower",
-          "ball",
-          "dog",
-          "book",
           "water",
-          "fire"
-        ],
-        "naming_accuracy": 0.3
-      },
-      "1": {
-        "position": [
-          2.7462083237259804,
-          41.342840240153535
-        ],
-        "confidence": 0.8813068784404586,
-        "avg_error": 0.12316885069012642,
-        "avg_progress": 0.022650250047445298,
-        "total_steps": 548200,
-        "vocab_size": 10,
-        "is_learning": 1,
-        "is_exploring": true,
-        "total_reward": 168153.3289016365,
-        "words_known": [
-          "banana",
-          "dog",
-          "apple",
-          "water",
-          "rock",
-          "flower",
           "cat",
+          "dog",
+          "flower",
+          "fire",
           "ball",
-          "book",
-          "fire"
+          "book"
         ],
         "naming_accuracy": 0.2
       },
-      "2": {
+      "1": {
         "position": [
-          49.06208240755234,
-          98.44305251660995
+          7.7462083237259804,
+          56.342840240153535
         ],
-        "confidence": 0.8982989877145117,
-        "avg_error": 0.09373090267181397,
-        "avg_progress": 0.02657069033011794,
-        "total_steps": 548200,
+        "confidence": 0.8857253021465114,
+        "avg_error": 0.1149564360268414,
+        "avg_progress": 0.02739656260237098,
+        "total_steps": 548300,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 173479.186651615,
+        "total_reward": 168286.49157224456,
         "words_known": [
-          "banana",
+          "dog",
           "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
           "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.5
+      },
+      "2": {
+        "position": [
+          54.06208240755234,
+          3.4430525166099457
+        ],
+        "confidence": 0.8935046039612585,
+        "avg_error": 0.10487214587628842,
+        "avg_progress": 0.018912648037075996,
+        "total_steps": 548300,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 173708.92014957927,
+        "words_known": [
+          "apple",
+          "banana",
           "rock",
           "cat",
           "dog",
-          "ball",
-          "book",
+          "water",
           "flower",
-          "water"
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.4
+        "naming_accuracy": 0.45
       }
     },
     "language": {
       "total_teaching_events": 42,
-      "total_naming_tests": 6457,
-      "naming_accuracy": 0.44308502400495586,
-      "recent_accuracy": 0.3
+      "total_naming_tests": 3927,
+      "naming_accuracy": 0.479755538579068,
+      "recent_accuracy": 0.32
     }
   },
   {
@@ -476,91 +2826,91 @@
     "agents": {
       "0": {
         "position": [
-          29.090370900922238,
-          29.993120299860138
+          14.090370900922238,
+          14.993120299860138
         ],
-        "confidence": 0.8873200537686867,
-        "avg_error": 0.1081209123134613,
-        "avg_progress": 0.02260889336466789,
-        "total_steps": 548300,
+        "confidence": 0.8595226760494292,
+        "avg_error": 0.14862127657979726,
+        "avg_progress": 0.032048006914556025,
+        "total_steps": 548400,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 175437.6867897812,
+        "total_reward": 175443.12881339656,
         "words_known": [
+          "rock",
           "banana",
           "apple",
-          "rock",
-          "cat",
-          "flower",
-          "ball",
-          "dog",
-          "book",
           "water",
-          "fire"
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.4
+        "naming_accuracy": 0.2
       },
       "1": {
         "position": [
           97.90843399474942,
           76.75322353424355
         ],
-        "confidence": 0.8894735195790574,
-        "avg_error": 0.11127453800290824,
-        "avg_progress": 0.023921230621635915,
-        "total_steps": 548300,
+        "confidence": 0.8947922565032757,
+        "avg_error": 0.10875167269259692,
+        "avg_progress": 0.028580355830490588,
+        "total_steps": 548400,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 168188.34643375172,
+        "total_reward": 168321.9165584744,
         "words_known": [
-          "banana",
           "dog",
           "apple",
           "water",
+          "banana",
           "rock",
-          "flower",
           "cat",
-          "ball",
+          "fire",
           "book",
-          "fire"
+          "flower",
+          "ball"
         ],
-        "naming_accuracy": 0.3
+        "naming_accuracy": 0.45
       },
       "2": {
         "position": [
-          58.31458602542668,
-          21.045084288100654
+          38.31458602542668,
+          1.0450842881006537
         ],
-        "confidence": 0.8901580495554129,
-        "avg_error": 0.1120712360367179,
-        "avg_progress": 0.03506616428494454,
-        "total_steps": 548300,
+        "confidence": 0.8798836936616572,
+        "avg_error": 0.11761666461825371,
+        "avg_progress": 0.026330874860286714,
+        "total_steps": 548400,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 173512.40442927313,
+        "total_reward": 173743.1706780484,
         "words_known": [
-          "banana",
           "apple",
-          "fire",
+          "banana",
           "rock",
           "cat",
           "dog",
-          "ball",
-          "book",
+          "water",
           "flower",
-          "water"
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.4
+        "naming_accuracy": 0.55
       }
     },
     "language": {
       "total_teaching_events": 42,
-      "total_naming_tests": 6467,
-      "naming_accuracy": 0.44317303231792177,
-      "recent_accuracy": 0.34
+      "total_naming_tests": 3942,
+      "naming_accuracy": 0.47995941146626075,
+      "recent_accuracy": 0.38
     }
   },
   {
@@ -570,91 +2920,91 @@
     "agents": {
       "0": {
         "position": [
-          45.784045586511326,
-          32.497076805070506
+          5.784045586511326,
+          82.4970768050705
         ],
-        "confidence": 0.8590426525597236,
-        "avg_error": 0.1391495421528816,
-        "avg_progress": 0.02641053721308708,
-        "total_steps": 548400,
+        "confidence": 0.8510615789124836,
+        "avg_error": 0.16392832025885581,
+        "avg_progress": 0.0560505960136652,
+        "total_steps": 548500,
         "vocab_size": 10,
         "is_learning": 1,
-        "is_exploring": true,
-        "total_reward": 175471.83723857906,
+        "is_exploring": false,
+        "total_reward": 175473.92184314888,
         "words_known": [
+          "rock",
           "banana",
           "apple",
-          "rock",
-          "cat",
-          "flower",
-          "ball",
-          "dog",
-          "book",
           "water",
-          "fire"
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
         ],
         "naming_accuracy": 0.2
       },
       "1": {
         "position": [
-          27.306928569168164,
-          65.96297568890688
+          12.306928569168164,
+          80.96297568890688
         ],
-        "confidence": 0.8926735299537284,
-        "avg_error": 0.09815891925245523,
-        "avg_progress": 0.02858793195337057,
-        "total_steps": 548400,
+        "confidence": 0.8951869443461168,
+        "avg_error": 0.10398329459130765,
+        "avg_progress": 0.020279639586806297,
+        "total_steps": 548500,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 168222.9144967294,
+        "total_reward": 168354.81661726028,
         "words_known": [
-          "banana",
           "dog",
           "apple",
           "water",
+          "banana",
           "rock",
-          "flower",
           "cat",
-          "ball",
+          "fire",
           "book",
-          "fire"
+          "flower",
+          "ball"
         ],
-        "naming_accuracy": 0.3
+        "naming_accuracy": 0.4
       },
       "2": {
         "position": [
-          25.722498645869877,
-          97.48353741558596
+          10.722498645869877,
+          82.48353741558596
         ],
-        "confidence": 0.8948495785379438,
-        "avg_error": 0.10475650522857904,
-        "avg_progress": 0.025771727412939073,
-        "total_steps": 548400,
+        "confidence": 0.8992844960223417,
+        "avg_error": 0.0972729440778494,
+        "avg_progress": 0.018175506591796876,
+        "total_steps": 548500,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 173543.31917218302,
+        "total_reward": 173773.50811096976,
         "words_known": [
-          "banana",
           "apple",
-          "fire",
+          "banana",
           "rock",
           "cat",
           "dog",
-          "ball",
-          "book",
+          "water",
           "flower",
-          "water"
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.3
+        "naming_accuracy": 0.5
       }
     },
     "language": {
       "total_teaching_events": 42,
-      "total_naming_tests": 6492,
-      "naming_accuracy": 0.4422365988909427,
-      "recent_accuracy": 0.26
+      "total_naming_tests": 3952,
+      "naming_accuracy": 0.479251012145749,
+      "recent_accuracy": 0.34
     }
   },
   {
@@ -664,91 +3014,91 @@
     "agents": {
       "0": {
         "position": [
-          51.33076388395996,
-          1.2454766046759573
+          41.33076388395996,
+          91.24547660467596
         ],
-        "confidence": 0.8975323723191024,
-        "avg_error": 0.09405918568372726,
-        "avg_progress": 0.033800719492137435,
-        "total_steps": 548500,
+        "confidence": 0.8743621898391005,
+        "avg_error": 0.12925573699176313,
+        "avg_progress": 0.022322411462664605,
+        "total_steps": 548600,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 175508.2362054402,
+        "total_reward": 175508.1432043707,
         "words_known": [
+          "rock",
           "banana",
           "apple",
-          "rock",
-          "cat",
-          "flower",
-          "ball",
-          "dog",
-          "book",
           "water",
-          "fire"
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.15
+        "naming_accuracy": 0.3
       },
       "1": {
         "position": [
-          28.53387931468403,
-          37.78481690409049
+          23.53387931468403,
+          32.78481690409049
         ],
-        "confidence": 0.8915396527469599,
-        "avg_error": 0.11108446717262269,
-        "avg_progress": 0.019922686740756035,
-        "total_steps": 548500,
+        "confidence": 0.896627760980088,
+        "avg_error": 0.0916398350149393,
+        "avg_progress": 0.019130783528089522,
+        "total_steps": 548600,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 168253.56531782242,
+        "total_reward": 168388.1086095212,
         "words_known": [
-          "banana",
           "dog",
           "apple",
           "water",
+          "banana",
           "rock",
-          "flower",
           "cat",
-          "ball",
+          "fire",
           "book",
-          "fire"
+          "flower",
+          "ball"
         ],
-        "naming_accuracy": 0.35
+        "naming_accuracy": 0.3
       },
       "2": {
         "position": [
-          60.75669505960019,
-          88.33496196404401
+          75.75669505960019,
+          93.33496196404401
         ],
-        "confidence": 0.9210903878987913,
-        "avg_error": 0.07278093593195081,
-        "avg_progress": 0.025851865112781525,
-        "total_steps": 548500,
+        "confidence": 0.8890821635111443,
+        "avg_error": 0.1018025666475296,
+        "avg_progress": 0.013066726177930832,
+        "total_steps": 548600,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 173573.24982943296,
+        "total_reward": 173804.2817174051,
         "words_known": [
-          "banana",
           "apple",
-          "fire",
+          "banana",
           "rock",
           "cat",
           "dog",
-          "ball",
-          "book",
+          "water",
           "flower",
-          "water"
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.35
+        "naming_accuracy": 0.45
       }
     },
     "language": {
       "total_teaching_events": 42,
-      "total_naming_tests": 6508,
-      "naming_accuracy": 0.4419176398279041,
-      "recent_accuracy": 0.3
+      "total_naming_tests": 3969,
+      "naming_accuracy": 0.47845804988662133,
+      "recent_accuracy": 0.32
     }
   },
   {
@@ -758,91 +3108,91 @@
     "agents": {
       "0": {
         "position": [
-          55.32574400404906,
-          46.10569239453804
+          80.32574400404906,
+          61.10569239453804
         ],
-        "confidence": 0.878412882881521,
-        "avg_error": 0.11783709060400724,
-        "avg_progress": 0.024311060644686223,
-        "total_steps": 548600,
+        "confidence": 0.8854505995945087,
+        "avg_error": 0.11663485765457153,
+        "avg_progress": 0.027062656730413436,
+        "total_steps": 548700,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 175542.92979682243,
+        "total_reward": 175543.02618222308,
         "words_known": [
+          "rock",
           "banana",
           "apple",
-          "rock",
-          "cat",
-          "flower",
-          "ball",
-          "dog",
-          "book",
           "water",
-          "fire"
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.2
+        "naming_accuracy": 0.35
       },
       "1": {
         "position": [
-          94.10665551959954,
-          50.31841237445788
+          34.10665551959954,
+          10.318412374457878
         ],
-        "confidence": 0.8898802843649256,
-        "avg_error": 0.10619610100984574,
-        "avg_progress": 0.011350500211119652,
-        "total_steps": 548600,
-        "vocab_size": 10,
-        "is_learning": 1,
-        "is_exploring": true,
-        "total_reward": 168287.8952040985,
-        "words_known": [
-          "banana",
-          "dog",
-          "apple",
-          "water",
-          "rock",
-          "flower",
-          "cat",
-          "ball",
-          "book",
-          "fire"
-        ],
-        "naming_accuracy": 0.25
-      },
-      "2": {
-        "position": [
-          35.92848596608543,
-          16.958992105822162
-        ],
-        "confidence": 0.8735231139916354,
-        "avg_error": 0.11511450614780187,
-        "avg_progress": 0.033056619204580785,
-        "total_steps": 548600,
+        "confidence": 0.8746977443885559,
+        "avg_error": 0.12561880722641944,
+        "avg_progress": 0.012323790043592454,
+        "total_steps": 548700,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 173609.02461113894,
+        "total_reward": 168420.67797059685,
         "words_known": [
-          "banana",
+          "dog",
           "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
           "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.35
+      },
+      "2": {
+        "position": [
+          50.92848596608543,
+          31.958992105822162
+        ],
+        "confidence": 0.8898010942608959,
+        "avg_error": 0.10582490228116512,
+        "avg_progress": 0.01809311956167221,
+        "total_steps": 548700,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": true,
+        "total_reward": 173839.35691928098,
+        "words_known": [
+          "apple",
+          "banana",
           "rock",
           "cat",
           "dog",
-          "ball",
-          "book",
+          "water",
           "flower",
-          "water"
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.45
+        "naming_accuracy": 0.3
       }
     },
     "language": {
       "total_teaching_events": 42,
-      "total_naming_tests": 6529,
-      "naming_accuracy": 0.44141522438351966,
-      "recent_accuracy": 0.3
+      "total_naming_tests": 3984,
+      "naming_accuracy": 0.4784136546184739,
+      "recent_accuracy": 0.34
     }
   },
   {
@@ -855,88 +3205,88 @@
           41.048055913618114,
           28.53382739657063
         ],
-        "confidence": 0.8529243221879348,
-        "avg_error": 0.14358419142663478,
-        "avg_progress": 0.040803934633731845,
-        "total_steps": 548700,
+        "confidence": 0.8668954592818862,
+        "avg_error": 0.14935497120022773,
+        "avg_progress": 0.025494202971458435,
+        "total_steps": 548800,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 175575.85528420145,
+        "total_reward": 175575.96959275106,
         "words_known": [
+          "rock",
           "banana",
           "apple",
-          "rock",
-          "cat",
-          "flower",
-          "ball",
-          "dog",
-          "book",
           "water",
-          "fire"
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.2
+        "naming_accuracy": 0.45
       },
       "1": {
         "position": [
           79.69345922531596,
-          20.905245880699013
+          30.905245880699013
         ],
-        "confidence": 0.8853171859916042,
-        "avg_error": 0.11168192643672228,
-        "avg_progress": 0.03180473912507296,
-        "total_steps": 548700,
+        "confidence": 0.8934506527770795,
+        "avg_error": 0.10865622591227293,
+        "avg_progress": 0.019990025274455547,
+        "total_steps": 548800,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 168317.52583762922,
+        "total_reward": 168451.97741758975,
         "words_known": [
-          "banana",
           "dog",
           "apple",
           "water",
+          "banana",
           "rock",
-          "flower",
           "cat",
-          "ball",
+          "fire",
           "book",
-          "fire"
+          "flower",
+          "ball"
         ],
-        "naming_accuracy": 0.35
+        "naming_accuracy": 0.3
       },
       "2": {
         "position": [
-          87.58354459397759,
-          79.01569802326496
+          67.58354459397759,
+          59.01569802326496
         ],
-        "confidence": 0.8811573382877468,
-        "avg_error": 0.11752903331071138,
-        "avg_progress": 0.0333290820941329,
-        "total_steps": 548700,
+        "confidence": 0.9085837789635778,
+        "avg_error": 0.09084933288395405,
+        "avg_progress": 0.02438826095312834,
+        "total_steps": 548800,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 173638.43834077453,
+        "total_reward": 173872.5619773634,
         "words_known": [
-          "banana",
           "apple",
-          "fire",
+          "banana",
           "rock",
           "cat",
           "dog",
-          "ball",
-          "book",
+          "water",
           "flower",
-          "water"
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.6
+        "naming_accuracy": 0.3
       }
     },
     "language": {
       "total_teaching_events": 42,
-      "total_naming_tests": 6538,
-      "naming_accuracy": 0.4417252982563475,
-      "recent_accuracy": 0.36
+      "total_naming_tests": 3998,
+      "naming_accuracy": 0.4777388694347174,
+      "recent_accuracy": 0.32
     }
   },
   {
@@ -946,91 +3296,91 @@
     "agents": {
       "0": {
         "position": [
-          33.575614085409725,
-          79.24129694117059
+          48.575614085409725,
+          94.24129694117059
         ],
-        "confidence": 0.876125847331373,
-        "avg_error": 0.12635524161159992,
-        "avg_progress": 0.026763447374105454,
-        "total_steps": 548800,
+        "confidence": 0.8696508074467154,
+        "avg_error": 0.13892759587615727,
+        "avg_progress": 0.03711195085197687,
+        "total_steps": 548900,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 175610.35290713338,
+        "total_reward": 175608.21462138288,
         "words_known": [
+          "rock",
           "banana",
           "apple",
-          "rock",
-          "cat",
-          "flower",
-          "ball",
-          "dog",
-          "book",
           "water",
-          "fire"
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.15
+        "naming_accuracy": 0.55
       },
       "1": {
         "position": [
-          34.716255639559705,
-          94.27597896632443
+          14.716255639559705,
+          4.2759789663244305
         ],
-        "confidence": 0.8844017782326147,
-        "avg_error": 0.11762913316488266,
-        "avg_progress": 0.04025593549013138,
-        "total_steps": 548800,
+        "confidence": 0.8843165303583786,
+        "avg_error": 0.11260722484439611,
+        "avg_progress": 0.019003614224493502,
+        "total_steps": 548900,
         "vocab_size": 10,
         "is_learning": 1,
-        "is_exploring": false,
-        "total_reward": 168349.71582681075,
+        "is_exploring": true,
+        "total_reward": 168486.93662607114,
         "words_known": [
-          "banana",
           "dog",
           "apple",
           "water",
+          "banana",
           "rock",
-          "flower",
           "cat",
-          "ball",
+          "fire",
           "book",
-          "fire"
+          "flower",
+          "ball"
         ],
         "naming_accuracy": 0.3
       },
       "2": {
         "position": [
-          94.44527046128808,
-          72.19099240350934
+          79.44527046128808,
+          57.19099240350934
         ],
-        "confidence": 0.8734767857591956,
-        "avg_error": 0.12217491548508405,
-        "avg_progress": 0.025448133796453477,
-        "total_steps": 548800,
+        "confidence": 0.9115538173856957,
+        "avg_error": 0.09059739485383034,
+        "avg_progress": 0.019469768926501273,
+        "total_steps": 548900,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 173668.87520086012,
+        "total_reward": 173903.66892529972,
         "words_known": [
-          "banana",
           "apple",
-          "fire",
+          "banana",
           "rock",
           "cat",
           "dog",
-          "ball",
-          "book",
+          "water",
           "flower",
-          "water"
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.5
+        "naming_accuracy": 0.35
       }
     },
     "language": {
       "total_teaching_events": 42,
-      "total_naming_tests": 6549,
-      "naming_accuracy": 0.44128874637349214,
-      "recent_accuracy": 0.32
+      "total_naming_tests": 4013,
+      "naming_accuracy": 0.4781958634438076,
+      "recent_accuracy": 0.44
     }
   },
   {
@@ -1040,91 +3390,91 @@
     "agents": {
       "0": {
         "position": [
-          55.042596240026896,
-          81.67285901843726
+          85.0425962400269,
+          11.672859018437258
         ],
-        "confidence": 0.8649843837287363,
-        "avg_error": 0.1432047626003623,
-        "avg_progress": 0.040533273853361605,
-        "total_steps": 548900,
+        "confidence": 0.8580021586627014,
+        "avg_error": 0.1355126790702343,
+        "avg_progress": 0.027490200847387312,
+        "total_steps": 549000,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 175643.53740071674,
+        "total_reward": 175638.87101351158,
         "words_known": [
+          "rock",
           "banana",
           "apple",
-          "rock",
-          "cat",
-          "flower",
-          "ball",
-          "dog",
-          "book",
           "water",
-          "fire"
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.15
+        "naming_accuracy": 0.6
       },
       "1": {
         "position": [
-          36.19341952188029,
-          45.43462131868627
+          16.193419521880287,
+          75.43462131868627
         ],
-        "confidence": 0.8837110471823284,
-        "avg_error": 0.11776583474129439,
-        "avg_progress": 0.02076347600668669,
-        "total_steps": 548900,
+        "confidence": 0.9023765322421349,
+        "avg_error": 0.09393983837217093,
+        "avg_progress": 0.01900581121444702,
+        "total_steps": 549000,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 168380.57389312983,
+        "total_reward": 168520.11850766122,
         "words_known": [
-          "banana",
           "dog",
           "apple",
           "water",
+          "banana",
           "rock",
-          "flower",
           "cat",
-          "ball",
+          "fire",
           "book",
-          "fire"
+          "flower",
+          "ball"
         ],
-        "naming_accuracy": 0.3
+        "naming_accuracy": 0.35
       },
       "2": {
         "position": [
-          6.867122045463461,
-          41.90537312833932
+          21.86712204546346,
+          66.90537312833932
         ],
-        "confidence": 0.8832314990472585,
-        "avg_error": 0.11878279130905867,
-        "avg_progress": 0.021801341138780118,
-        "total_steps": 548900,
+        "confidence": 0.8888221364734723,
+        "avg_error": 0.10099187223240733,
+        "avg_progress": 0.027289332915097476,
+        "total_steps": 549000,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 173700.93578969652,
+        "total_reward": 173937.18543680786,
         "words_known": [
-          "banana",
           "apple",
-          "fire",
+          "banana",
           "rock",
           "cat",
           "dog",
-          "ball",
-          "book",
+          "water",
           "flower",
-          "water"
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.55
+        "naming_accuracy": 0.4
       }
     },
     "language": {
       "total_teaching_events": 42,
-      "total_naming_tests": 6559,
-      "naming_accuracy": 0.44107333434974844,
-      "recent_accuracy": 0.34
+      "total_naming_tests": 4025,
+      "naming_accuracy": 0.4782608695652174,
+      "recent_accuracy": 0.46
     }
   },
   {
@@ -1134,91 +3484,91 @@
     "agents": {
       "0": {
         "position": [
-          89.9415419734344,
-          61.6356364201408
+          79.9415419734344,
+          51.6356364201408
         ],
-        "confidence": 0.8860748434173996,
-        "avg_error": 0.10784072447568178,
-        "avg_progress": 0.028214479982852935,
-        "total_steps": 549000,
+        "confidence": 0.8926156559264385,
+        "avg_error": 0.11392822340130807,
+        "avg_progress": 0.03568742563948035,
+        "total_steps": 549100,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 175675.72576553066,
+        "total_reward": 175673.36201235137,
         "words_known": [
+          "rock",
           "banana",
           "apple",
-          "rock",
-          "cat",
-          "flower",
-          "ball",
-          "dog",
-          "book",
           "water",
-          "fire"
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.1
+        "naming_accuracy": 0.5
       },
       "1": {
         "position": [
-          57.13471744552919,
-          32.42383096943425
+          52.13471744552919,
+          37.42383096943425
         ],
-        "confidence": 0.8895738451550871,
-        "avg_error": 0.103011423535645,
-        "avg_progress": 0.028369561955332755,
-        "total_steps": 549000,
+        "confidence": 0.8951667291010251,
+        "avg_error": 0.10262080915272236,
+        "avg_progress": 0.023587862588465215,
+        "total_steps": 549100,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 168413.1920043418,
+        "total_reward": 168554.4297195996,
         "words_known": [
-          "banana",
           "dog",
           "apple",
           "water",
+          "banana",
           "rock",
-          "flower",
           "cat",
-          "ball",
+          "fire",
           "book",
-          "fire"
+          "flower",
+          "ball"
         ],
-        "naming_accuracy": 0.25
+        "naming_accuracy": 0.3
       },
       "2": {
         "position": [
-          43.16233196529571,
-          47.96933600770123
+          23.162331965295706,
+          17.96933600770123
         ],
-        "confidence": 0.8680188153535641,
-        "avg_error": 0.13443288300186396,
-        "avg_progress": 0.026348539255559446,
-        "total_steps": 549000,
+        "confidence": 0.8842914142341862,
+        "avg_error": 0.1198766266927123,
+        "avg_progress": 0.022314095683395863,
+        "total_steps": 549100,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 173727.00769110094,
+        "total_reward": 173968.20919693907,
         "words_known": [
-          "banana",
           "apple",
-          "fire",
+          "banana",
           "rock",
           "cat",
           "dog",
-          "ball",
-          "book",
+          "water",
           "flower",
-          "water"
+          "fire",
+          "ball",
+          "book"
         ],
         "naming_accuracy": 0.5
       }
     },
     "language": {
       "total_teaching_events": 42,
-      "total_naming_tests": 6571,
-      "naming_accuracy": 0.44072439506924366,
-      "recent_accuracy": 0.3
+      "total_naming_tests": 4040,
+      "naming_accuracy": 0.4777227722772277,
+      "recent_accuracy": 0.46
     }
   },
   {
@@ -1228,91 +3578,91 @@
     "agents": {
       "0": {
         "position": [
-          35.78587298332323,
-          70.09407713389236
+          50.78587298332323,
+          75.09407713389236
         ],
-        "confidence": 0.8852906786363195,
-        "avg_error": 0.10162964947521687,
-        "avg_progress": 0.0189530435949564,
-        "total_steps": 549100,
+        "confidence": 0.8673123780372052,
+        "avg_error": 0.13343209717422724,
+        "avg_progress": 0.034610247053205964,
+        "total_steps": 549200,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 175703.71086510978,
+        "total_reward": 175702.3103423843,
         "words_known": [
+          "rock",
           "banana",
           "apple",
-          "rock",
-          "cat",
-          "flower",
-          "ball",
-          "dog",
-          "book",
           "water",
-          "fire"
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.2
+        "naming_accuracy": 0.45
       },
       "1": {
         "position": [
-          0.7183822123073185,
-          80.0503294545574
+          60.71838221230732,
+          30.0503294545574
         ],
-        "confidence": 0.8991627184895808,
-        "avg_error": 0.09381450563669205,
-        "avg_progress": 0.01914685182273388,
-        "total_steps": 549100,
+        "confidence": 0.894343341538864,
+        "avg_error": 0.09451254401355982,
+        "avg_progress": 0.018455761857330798,
+        "total_steps": 549200,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 168447.13716687096,
+        "total_reward": 168588.63480014057,
         "words_known": [
-          "banana",
           "dog",
           "apple",
           "water",
+          "banana",
           "rock",
-          "flower",
           "cat",
-          "ball",
+          "fire",
           "book",
-          "fire"
+          "flower",
+          "ball"
         ],
-        "naming_accuracy": 0.25
+        "naming_accuracy": 0.4
       },
       "2": {
         "position": [
-          30.04037579815251,
+          20.04037579815251,
           66.62742633910469
         ],
-        "confidence": 0.8822261974899125,
-        "avg_error": 0.11925685349851847,
-        "avg_progress": 0.020841236039996148,
-        "total_steps": 549100,
+        "confidence": 0.8810602136307011,
+        "avg_error": 0.11461747847497464,
+        "avg_progress": 0.027171893045306206,
+        "total_steps": 549200,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 173758.78756519407,
+        "total_reward": 173998.0175661682,
         "words_known": [
-          "banana",
           "apple",
-          "fire",
+          "banana",
           "rock",
           "cat",
           "dog",
-          "ball",
-          "book",
+          "water",
           "flower",
-          "water"
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.45
+        "naming_accuracy": 0.55
       }
     },
     "language": {
       "total_teaching_events": 42,
-      "total_naming_tests": 6583,
-      "naming_accuracy": 0.44052863436123346,
-      "recent_accuracy": 0.32
+      "total_naming_tests": 4052,
+      "naming_accuracy": 0.4777887462981244,
+      "recent_accuracy": 0.46
     }
   },
   {
@@ -1322,91 +3672,91 @@
     "agents": {
       "0": {
         "position": [
-          36.69769070720238,
-          26.168746385658736
+          16.697690707202383,
+          6.168746385658736
         ],
-        "confidence": 0.8634096843648752,
-        "avg_error": 0.14040776956826448,
-        "avg_progress": 0.02874064464122057,
-        "total_steps": 549200,
+        "confidence": 0.8886143061701722,
+        "avg_error": 0.10086753461509942,
+        "avg_progress": 0.02721110787242651,
+        "total_steps": 549300,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 175736.62813880396,
+        "total_reward": 175736.19975981434,
         "words_known": [
+          "rock",
           "banana",
           "apple",
-          "rock",
-          "cat",
-          "flower",
-          "ball",
-          "dog",
-          "book",
           "water",
-          "fire"
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
         ],
         "naming_accuracy": 0.25
       },
       "1": {
         "position": [
-          31.355198820722563,
-          46.96096935726783
+          46.35519882072256,
+          51.96096935726783
         ],
-        "confidence": 0.8871919432974874,
-        "avg_error": 0.11248000860214233,
-        "avg_progress": 0.027243749424815177,
-        "total_steps": 549200,
-        "vocab_size": 10,
-        "is_learning": 1,
-        "is_exploring": true,
-        "total_reward": 168483.0137395209,
-        "words_known": [
-          "banana",
-          "dog",
-          "apple",
-          "water",
-          "rock",
-          "flower",
-          "cat",
-          "ball",
-          "book",
-          "fire"
-        ],
-        "naming_accuracy": 0.25
-      },
-      "2": {
-        "position": [
-          18.216822745566702,
-          66.07983442545189
-        ],
-        "confidence": 0.8787927535734946,
-        "avg_error": 0.12620509304106237,
-        "avg_progress": 0.019447198323905467,
-        "total_steps": 549200,
+        "confidence": 0.892238456592411,
+        "avg_error": 0.10399515721946954,
+        "avg_progress": 0.018287208490073682,
+        "total_steps": 549300,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 173794.00828275684,
+        "total_reward": 168620.63789615713,
         "words_known": [
-          "banana",
+          "dog",
           "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
           "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.5
+      },
+      "2": {
+        "position": [
+          53.2168227455667,
+          91.07983442545189
+        ],
+        "confidence": 0.8633837302179662,
+        "avg_error": 0.1254416609182954,
+        "avg_progress": 0.03146064877510071,
+        "total_steps": 549300,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 174030.200392333,
+        "words_known": [
+          "apple",
+          "banana",
           "rock",
           "cat",
           "dog",
-          "ball",
-          "book",
+          "water",
           "flower",
-          "water"
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.5
+        "naming_accuracy": 0.4
       }
     },
     "language": {
       "total_teaching_events": 42,
-      "total_naming_tests": 6594,
-      "naming_accuracy": 0.44040036396724297,
-      "recent_accuracy": 0.3
+      "total_naming_tests": 4076,
+      "naming_accuracy": 0.4764474975466143,
+      "recent_accuracy": 0.32
     }
   },
   {
@@ -1416,91 +3766,91 @@
     "agents": {
       "0": {
         "position": [
-          49.44233689505249,
-          10.221280227041753
+          19.44233689505249,
+          70.22128022704175
         ],
-        "confidence": 0.8862958088223164,
-        "avg_error": 0.1080352608114481,
-        "avg_progress": 0.02131679095327854,
-        "total_steps": 549300,
+        "confidence": 0.8729057873664557,
+        "avg_error": 0.12713437490165233,
+        "avg_progress": 0.036175161600112915,
+        "total_steps": 549400,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 175764.8595425373,
+        "total_reward": 175771.47490224056,
         "words_known": [
+          "rock",
           "banana",
           "apple",
-          "rock",
-          "cat",
-          "flower",
-          "ball",
-          "dog",
-          "book",
           "water",
-          "fire"
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.35
+        "naming_accuracy": 0.3
       },
       "1": {
         "position": [
-          37.223796890269185,
-          7.6700019099358485
+          42.223796890269185,
+          12.670001909935849
         ],
-        "confidence": 0.8867644782596932,
-        "avg_error": 0.1058755349367857,
-        "avg_progress": 0.01774618960916996,
-        "total_steps": 549300,
+        "confidence": 0.8857458449250876,
+        "avg_error": 0.11843541022390128,
+        "avg_progress": 0.03237902279943228,
+        "total_steps": 549400,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 168516.37075035207,
+        "total_reward": 168654.19009834615,
         "words_known": [
-          "banana",
           "dog",
           "apple",
           "water",
+          "banana",
           "rock",
-          "flower",
           "cat",
-          "ball",
+          "fire",
           "book",
-          "fire"
+          "flower",
+          "ball"
         ],
-        "naming_accuracy": 0.25
+        "naming_accuracy": 0.4
       },
       "2": {
         "position": [
-          41.83066704893676,
-          99.7615715304731
+          61.83066704893676,
+          19.761571530473105
         ],
-        "confidence": 0.8881543958173327,
-        "avg_error": 0.10856258515268565,
-        "avg_progress": 0.029701846279203893,
-        "total_steps": 549300,
+        "confidence": 0.8944188045166342,
+        "avg_error": 0.10381860733032226,
+        "avg_progress": 0.025236978195607662,
+        "total_steps": 549400,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 173827.64788631618,
+        "total_reward": 174060.99057044668,
         "words_known": [
-          "banana",
           "apple",
-          "fire",
+          "banana",
           "rock",
           "cat",
           "dog",
-          "ball",
-          "book",
+          "water",
           "flower",
-          "water"
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.45
+        "naming_accuracy": 0.4
       }
     },
     "language": {
       "total_teaching_events": 42,
-      "total_naming_tests": 6615,
-      "naming_accuracy": 0.4403628117913832,
-      "recent_accuracy": 0.34
+      "total_naming_tests": 4084,
+      "naming_accuracy": 0.4764936336924584,
+      "recent_accuracy": 0.36
     }
   },
   {
@@ -1510,91 +3860,91 @@
     "agents": {
       "0": {
         "position": [
-          40.69026315970271,
-          82.03487581394789
+          5.69026315970271,
+          47.03487581394789
         ],
-        "confidence": 0.8867915572474657,
-        "avg_error": 0.11935940328985453,
-        "avg_progress": 0.028928356245160103,
-        "total_steps": 549400,
+        "confidence": 0.8811520391211294,
+        "avg_error": 0.11697553545236587,
+        "avg_progress": 0.029200516082346438,
+        "total_steps": 549500,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 175797.75108511696,
+        "total_reward": 175808.74081098769,
         "words_known": [
+          "rock",
           "banana",
           "apple",
-          "rock",
-          "cat",
-          "flower",
-          "ball",
-          "dog",
-          "book",
           "water",
-          "fire"
-        ],
-        "naming_accuracy": 0.4
-      },
-      "1": {
-        "position": [
-          2.0237232583496194,
-          32.609665060665264
-        ],
-        "confidence": 0.880878889163544,
-        "avg_error": 0.12644434869289398,
-        "avg_progress": 0.03238095305860043,
-        "total_steps": 549400,
-        "vocab_size": 10,
-        "is_learning": 1,
-        "is_exploring": true,
-        "total_reward": 168549.33194091928,
-        "words_known": [
-          "banana",
-          "dog",
-          "apple",
-          "water",
-          "rock",
-          "flower",
           "cat",
+          "dog",
+          "flower",
+          "fire",
           "ball",
-          "book",
-          "fire"
+          "book"
         ],
         "naming_accuracy": 0.35
       },
-      "2": {
+      "1": {
         "position": [
-          21.03151317505987,
-          69.2841981223736
+          7.023723258349619,
+          37.609665060665264
         ],
-        "confidence": 0.886290667702134,
-        "avg_error": 0.11608629822731018,
-        "avg_progress": 0.028649612329900265,
-        "total_steps": 549400,
+        "confidence": 0.901122199622706,
+        "avg_error": 0.1023860365152359,
+        "avg_progress": 0.01761808767914772,
+        "total_steps": 549500,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 173859.57172566908,
+        "total_reward": 168687.05192309426,
         "words_known": [
-          "banana",
+          "dog",
           "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
           "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.5
+      },
+      "2": {
+        "position": [
+          6.031513175059871,
+          54.284198122373596
+        ],
+        "confidence": 0.9132332584049968,
+        "avg_error": 0.08569543426856399,
+        "avg_progress": 0.026436804421246053,
+        "total_steps": 549500,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 174095.56431230556,
+        "words_known": [
+          "apple",
+          "banana",
           "rock",
           "cat",
           "dog",
-          "ball",
-          "book",
+          "water",
           "flower",
-          "water"
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.5
+        "naming_accuracy": 0.35
       }
     },
     "language": {
       "total_teaching_events": 42,
-      "total_naming_tests": 6629,
-      "naming_accuracy": 0.440337909186906,
-      "recent_accuracy": 0.42
+      "total_naming_tests": 4097,
+      "naming_accuracy": 0.47644618013180373,
+      "recent_accuracy": 0.38
     }
   },
   {
@@ -1604,91 +3954,91 @@
     "agents": {
       "0": {
         "position": [
-          46.54748036436672,
-          10.21677607764773
+          6.54748036436672,
+          80.21677607764772
         ],
-        "confidence": 0.878607930822317,
-        "avg_error": 0.11984935197979212,
-        "avg_progress": 0.030318521521985532,
-        "total_steps": 549500,
+        "confidence": 0.8653955912461683,
+        "avg_error": 0.1441180096939206,
+        "avg_progress": 0.029278849996626378,
+        "total_steps": 549600,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 175832.812104271,
+        "total_reward": 175843.48998569194,
         "words_known": [
+          "rock",
           "banana",
           "apple",
-          "rock",
-          "cat",
-          "flower",
-          "ball",
-          "dog",
-          "book",
           "water",
-          "fire"
-        ],
-        "naming_accuracy": 0.3
-      },
-      "1": {
-        "position": [
-          55.05490252620011,
-          81.7445049338545
-        ],
-        "confidence": 0.908735725561369,
-        "avg_error": 0.07869236022233964,
-        "avg_progress": 0.01827426701784134,
-        "total_steps": 549500,
-        "vocab_size": 10,
-        "is_learning": 1,
-        "is_exploring": false,
-        "total_reward": 168582.15186665073,
-        "words_known": [
-          "banana",
-          "dog",
-          "apple",
-          "water",
-          "rock",
-          "flower",
           "cat",
+          "dog",
+          "flower",
+          "fire",
           "ball",
-          "book",
-          "fire"
+          "book"
         ],
         "naming_accuracy": 0.35
       },
-      "2": {
+      "1": {
         "position": [
-          82.6110733396072,
-          70.20616282836386
+          45.05490252620011,
+          91.7445049338545
         ],
-        "confidence": 0.8884166137847435,
-        "avg_error": 0.12592771276831627,
-        "avg_progress": 0.017002334445714952,
-        "total_steps": 549500,
+        "confidence": 0.8964175265063705,
+        "avg_error": 0.10470412541180849,
+        "avg_progress": 0.022328044287860394,
+        "total_steps": 549600,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 173886.94409789125,
+        "total_reward": 168722.94534936018,
         "words_known": [
-          "banana",
+          "dog",
           "apple",
+          "water",
+          "banana",
+          "rock",
+          "cat",
           "fire",
+          "book",
+          "flower",
+          "ball"
+        ],
+        "naming_accuracy": 0.3
+      },
+      "2": {
+        "position": [
+          52.6110733396072,
+          50.20616282836386
+        ],
+        "confidence": 0.9034298351713943,
+        "avg_error": 0.08421537252143026,
+        "avg_progress": 0.0228769869543612,
+        "total_steps": 549600,
+        "vocab_size": 10,
+        "is_learning": 1,
+        "is_exploring": false,
+        "total_reward": 174129.71618403107,
+        "words_known": [
+          "apple",
+          "banana",
           "rock",
           "cat",
           "dog",
-          "ball",
-          "book",
+          "water",
           "flower",
-          "water"
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.5
+        "naming_accuracy": 0.35
       }
     },
     "language": {
       "total_teaching_events": 42,
-      "total_naming_tests": 6644,
-      "naming_accuracy": 0.44009632751354605,
-      "recent_accuracy": 0.4
+      "total_naming_tests": 4112,
+      "naming_accuracy": 0.47568093385214005,
+      "recent_accuracy": 0.36
     }
   },
   {
@@ -1698,91 +4048,91 @@
     "agents": {
       "0": {
         "position": [
-          42.69421543727073,
-          71.81035250952021
+          87.69421543727073,
+          16.81035250952022
         ],
-        "confidence": 0.8837016904740482,
-        "avg_error": 0.11621641255915165,
-        "avg_progress": 0.027866109274327755,
-        "total_steps": 549600,
+        "confidence": 0.8803767825935097,
+        "avg_error": 0.11868582330644131,
+        "avg_progress": 0.022825561091303827,
+        "total_steps": 549700,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 175868.30414465963,
+        "total_reward": 175875.59763095947,
         "words_known": [
+          "rock",
           "banana",
           "apple",
-          "rock",
-          "cat",
-          "flower",
-          "ball",
-          "dog",
-          "book",
           "water",
-          "fire"
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.3
+        "naming_accuracy": 0.4
       },
       "1": {
         "position": [
-          36.06744088143098,
-          21.68470519954296
+          91.06744088143098,
+          66.68470519954296
         ],
-        "confidence": 0.8934160621860557,
-        "avg_error": 0.10287884306162595,
-        "avg_progress": 0.024753409437835217,
-        "total_steps": 549600,
+        "confidence": 0.8960950031458221,
+        "avg_error": 0.1119356881827116,
+        "avg_progress": 0.0218459852039814,
+        "total_steps": 549700,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 168612.6329902263,
+        "total_reward": 168756.4541811924,
         "words_known": [
-          "banana",
           "dog",
           "apple",
           "water",
+          "banana",
           "rock",
-          "flower",
           "cat",
-          "ball",
+          "fire",
           "book",
-          "fire"
+          "flower",
+          "ball"
         ],
-        "naming_accuracy": 0.3
+        "naming_accuracy": 0.2
       },
       "2": {
         "position": [
-          32.393093761903,
-          61.26273282646336
+          42.393093761903,
+          71.26273282646336
         ],
-        "confidence": 0.8941680398679219,
-        "avg_error": 0.10077802920714021,
-        "avg_progress": 0.02743766298517585,
-        "total_steps": 549600,
+        "confidence": 0.8798747375621605,
+        "avg_error": 0.11749340388923883,
+        "avg_progress": 0.03139163088053465,
+        "total_steps": 549700,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 173920.11686974973,
+        "total_reward": 174160.51504440323,
         "words_known": [
-          "banana",
           "apple",
-          "fire",
+          "banana",
           "rock",
           "cat",
           "dog",
-          "ball",
-          "book",
+          "water",
           "flower",
-          "water"
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.65
+        "naming_accuracy": 0.3
       }
     },
     "language": {
       "total_teaching_events": 42,
-      "total_naming_tests": 6663,
-      "naming_accuracy": 0.44019210565811195,
-      "recent_accuracy": 0.42
+      "total_naming_tests": 4124,
+      "naming_accuracy": 0.4745392822502425,
+      "recent_accuracy": 0.3
     }
   },
   {
@@ -1793,90 +4143,90 @@
       "0": {
         "position": [
           97.2942847336724,
-          47.50292401407509
+          37.50292401407509
         ],
-        "confidence": 0.8651181375944182,
-        "avg_error": 0.14107567705214025,
-        "avg_progress": 0.025995056331157684,
-        "total_steps": 549700,
+        "confidence": 0.8596592266480422,
+        "avg_error": 0.14030164219439029,
+        "avg_progress": 0.05930445306003094,
+        "total_steps": 549800,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 175902.16338740982,
+        "total_reward": 175910.49317652275,
         "words_known": [
+          "rock",
           "banana",
           "apple",
-          "rock",
-          "cat",
-          "flower",
-          "ball",
-          "dog",
-          "book",
           "water",
-          "fire"
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.4
+        "naming_accuracy": 0.35
       },
       "1": {
         "position": [
-          76.72128722397346,
-          11.374123106462633
+          71.72128722397346,
+          16.374123106462633
         ],
-        "confidence": 0.8864002144323945,
-        "avg_error": 0.12319026049226522,
-        "avg_progress": 0.03388929478824139,
-        "total_steps": 549700,
+        "confidence": 0.8834504871382461,
+        "avg_error": 0.11231283638626337,
+        "avg_progress": 0.02502459045499563,
+        "total_steps": 549800,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 168647.8282740658,
+        "total_reward": 168790.23298550042,
         "words_known": [
-          "banana",
           "dog",
           "apple",
           "water",
+          "banana",
           "rock",
-          "flower",
           "cat",
-          "ball",
+          "fire",
           "book",
-          "fire"
+          "flower",
+          "ball"
         ],
-        "naming_accuracy": 0.5
+        "naming_accuracy": 0.4
       },
       "2": {
         "position": [
-          92.71399574265389,
-          75.01959564395341
+          2.7139957426538928,
+          85.01959564395341
         ],
-        "confidence": 0.8874876890609573,
-        "avg_error": 0.11639340147376061,
-        "avg_progress": 0.029100367799401283,
-        "total_steps": 549700,
+        "confidence": 0.8871504083834689,
+        "avg_error": 0.12017872780561448,
+        "avg_progress": 0.020707110315561293,
+        "total_steps": 549800,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 173954.8647290808,
+        "total_reward": 174192.34448232935,
         "words_known": [
-          "banana",
           "apple",
-          "fire",
+          "banana",
           "rock",
           "cat",
           "dog",
-          "ball",
-          "book",
+          "water",
           "flower",
-          "water"
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.55
+        "naming_accuracy": 0.3
       }
     },
     "language": {
       "total_teaching_events": 42,
-      "total_naming_tests": 6682,
-      "naming_accuracy": 0.4405866507033822,
-      "recent_accuracy": 0.48
+      "total_naming_tests": 4136,
+      "naming_accuracy": 0.4748549323017408,
+      "recent_accuracy": 0.34
     }
   },
   {
@@ -1886,91 +4236,91 @@
     "agents": {
       "0": {
         "position": [
-          36.28150428284252,
-          25.94179759375521
+          41.28150428284252,
+          30.94179759375521
         ],
-        "confidence": 0.8580338276229057,
-        "avg_error": 0.14329724330455065,
-        "avg_progress": 0.0419161481782794,
-        "total_steps": 549800,
+        "confidence": 0.884625115559247,
+        "avg_error": 0.11337561756372452,
+        "avg_progress": 0.023045894876122474,
+        "total_steps": 549900,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 175935.5759953189,
+        "total_reward": 175945.1224753821,
         "words_known": [
+          "rock",
           "banana",
           "apple",
-          "rock",
-          "cat",
-          "flower",
-          "ball",
-          "dog",
-          "book",
           "water",
-          "fire"
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.45
+        "naming_accuracy": 0.3
       },
       "1": {
         "position": [
-          12.194098957371438,
-          73.53448280965436
+          52.19409895737144,
+          43.534482809654364
         ],
-        "confidence": 0.9117930033717743,
-        "avg_error": 0.08518728325143457,
-        "avg_progress": 0.021650555450469254,
-        "total_steps": 549800,
+        "confidence": 0.8991674344607974,
+        "avg_error": 0.0969462102279067,
+        "avg_progress": 0.021898950077593328,
+        "total_steps": 549900,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 168680.89954492936,
+        "total_reward": 168818.43448362275,
         "words_known": [
-          "banana",
           "dog",
           "apple",
           "water",
+          "banana",
           "rock",
-          "flower",
           "cat",
-          "ball",
+          "fire",
           "book",
-          "fire"
+          "flower",
+          "ball"
         ],
         "naming_accuracy": 0.45
       },
       "2": {
         "position": [
-          16.289528959961316,
-          8.759133385064992
+          6.2895289599613164,
+          88.75913338506498
         ],
-        "confidence": 0.8914734431828166,
-        "avg_error": 0.11367465183138847,
-        "avg_progress": 0.023043778724968433,
-        "total_steps": 549800,
+        "confidence": 0.8863140314498285,
+        "avg_error": 0.13128870641812682,
+        "avg_progress": 0.02592733418568969,
+        "total_steps": 549900,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 173985.01008173008,
+        "total_reward": 174224.58032227334,
         "words_known": [
-          "banana",
           "apple",
-          "fire",
+          "banana",
           "rock",
           "cat",
           "dog",
-          "ball",
-          "book",
+          "water",
           "flower",
-          "water"
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.55
+        "naming_accuracy": 0.3
       }
     },
     "language": {
       "total_teaching_events": 42,
-      "total_naming_tests": 6697,
-      "naming_accuracy": 0.44019710318052857,
-      "recent_accuracy": 0.44
+      "total_naming_tests": 4145,
+      "naming_accuracy": 0.47430639324487334,
+      "recent_accuracy": 0.28
     }
   },
   {
@@ -1980,91 +4330,91 @@
     "agents": {
       "0": {
         "position": [
-          28.333662752036716,
-          20.279277271566833
+          43.333662752036716,
+          15.279277271566833
         ],
-        "confidence": 0.8695498315217187,
-        "avg_error": 0.12353218831121922,
-        "avg_progress": 0.01943659670650959,
-        "total_steps": 549900,
+        "confidence": 0.8880897436813291,
+        "avg_error": 0.11995634399354457,
+        "avg_progress": 0.034591646119952205,
+        "total_steps": 550000,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 175962.63532330067,
+        "total_reward": 175978.75772857704,
         "words_known": [
+          "rock",
           "banana",
           "apple",
-          "rock",
-          "cat",
-          "flower",
-          "ball",
-          "dog",
-          "book",
           "water",
-          "fire"
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.4
+        "naming_accuracy": 0.2
       },
       "1": {
         "position": [
-          20.01965703231481,
-          20.873032767911923
+          30.01965703231481,
+          10.873032767911923
         ],
-        "confidence": 0.8849381560649321,
-        "avg_error": 0.11382588092237711,
-        "avg_progress": 0.029150662757456303,
-        "total_steps": 549900,
+        "confidence": 0.8897062739472311,
+        "avg_error": 0.10479399114847184,
+        "avg_progress": 0.03169839158654213,
+        "total_steps": 550000,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 168714.98247182826,
+        "total_reward": 168850.89088869956,
         "words_known": [
-          "banana",
           "dog",
           "apple",
           "water",
+          "banana",
           "rock",
-          "flower",
           "cat",
-          "ball",
+          "fire",
           "book",
-          "fire"
+          "flower",
+          "ball"
         ],
-        "naming_accuracy": 0.4
+        "naming_accuracy": 0.35
       },
       "2": {
         "position": [
-          97.60347621852605,
-          68.05111828575302
+          12.603476218526055,
+          83.05111828575302
         ],
-        "confidence": 0.893027896105074,
-        "avg_error": 0.10546708116307854,
-        "avg_progress": 0.029685286339372396,
-        "total_steps": 549900,
+        "confidence": 0.8848478579261708,
+        "avg_error": 0.1163724628277123,
+        "avg_progress": 0.03218507235869765,
+        "total_steps": 550000,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 174019.37481153428,
+        "total_reward": 174256.97622681517,
         "words_known": [
-          "banana",
           "apple",
-          "fire",
+          "banana",
           "rock",
           "cat",
           "dog",
-          "ball",
-          "book",
+          "water",
           "flower",
-          "water"
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.5
+        "naming_accuracy": 0.3
       }
     },
     "language": {
       "total_teaching_events": 42,
-      "total_naming_tests": 6712,
-      "naming_accuracy": 0.43995828367103695,
-      "recent_accuracy": 0.4
+      "total_naming_tests": 4165,
+      "naming_accuracy": 0.4729891956782713,
+      "recent_accuracy": 0.28
     }
   },
   {
@@ -2074,91 +4424,91 @@
     "agents": {
       "0": {
         "position": [
-          43.245507224937086,
-          64.76245670059794
+          53.245507224937086,
+          84.76245670059794
         ],
-        "confidence": 0.8925372591735733,
-        "avg_error": 0.09442105945199727,
-        "avg_progress": 0.03151526674628258,
-        "total_steps": 550000,
+        "confidence": 0.8770676758358863,
+        "avg_error": 0.11506161130964757,
+        "avg_progress": 0.0389942491427064,
+        "total_steps": 550100,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 175994.82693595008,
+        "total_reward": 176007.3661265369,
         "words_known": [
+          "rock",
           "banana",
           "apple",
-          "rock",
-          "cat",
-          "flower",
-          "ball",
-          "dog",
-          "book",
           "water",
-          "fire"
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.45
+        "naming_accuracy": 0.2
       },
       "1": {
         "position": [
-          67.17855475131577,
-          76.11350064505685
+          82.17855475131577,
+          61.113500645056845
         ],
-        "confidence": 0.920312103418573,
-        "avg_error": 0.0767143964767456,
-        "avg_progress": 0.022438627295196058,
-        "total_steps": 550000,
+        "confidence": 0.8864173983508281,
+        "avg_error": 0.09869992267340422,
+        "avg_progress": 0.024326410703361036,
+        "total_steps": 550100,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 168748.9765837909,
+        "total_reward": 168884.88631303093,
         "words_known": [
-          "banana",
           "dog",
           "apple",
           "water",
+          "banana",
           "rock",
-          "flower",
           "cat",
-          "ball",
+          "fire",
           "book",
-          "fire"
+          "flower",
+          "ball"
         ],
-        "naming_accuracy": 0.45
+        "naming_accuracy": 0.3
       },
       "2": {
         "position": [
-          0.27285002224820687,
-          18.548043165805765
+          30.272850022248207,
+          58.548043165805765
         ],
-        "confidence": 0.8785386205293155,
-        "avg_error": 0.11619028374552727,
-        "avg_progress": 0.01668362244963646,
-        "total_steps": 550000,
+        "confidence": 0.8961534730920669,
+        "avg_error": 0.09128472153097392,
+        "avg_progress": 0.018934336863458155,
+        "total_steps": 550100,
         "vocab_size": 10,
         "is_learning": 1,
-        "is_exploring": false,
-        "total_reward": 174054.86567689833,
+        "is_exploring": true,
+        "total_reward": 174282.83624215858,
         "words_known": [
-          "banana",
           "apple",
-          "fire",
+          "banana",
           "rock",
           "cat",
           "dog",
-          "ball",
-          "book",
+          "water",
           "flower",
-          "water"
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.35
+        "naming_accuracy": 0.2
       }
     },
     "language": {
       "total_teaching_events": 42,
-      "total_naming_tests": 6726,
-      "naming_accuracy": 0.440083258994945,
-      "recent_accuracy": 0.36
+      "total_naming_tests": 4178,
+      "naming_accuracy": 0.4729535662996649,
+      "recent_accuracy": 0.34
     }
   },
   {
@@ -2168,91 +4518,91 @@
     "agents": {
       "0": {
         "position": [
-          70.15600039800665,
-          1.260767236047485
+          50.156000398006654,
+          81.26076723604749
         ],
-        "confidence": 0.8563004970331379,
-        "avg_error": 0.1439331214874983,
-        "avg_progress": 0.035260646045207976,
-        "total_steps": 550100,
+        "confidence": 0.8696740675294856,
+        "avg_error": 0.1300298308953643,
+        "avg_progress": 0.032544813863933084,
+        "total_steps": 550200,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 176025.4018532354,
+        "total_reward": 176040.1958253473,
         "words_known": [
+          "rock",
           "banana",
           "apple",
-          "rock",
-          "cat",
-          "flower",
-          "ball",
-          "dog",
-          "book",
           "water",
-          "fire"
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.4
+        "naming_accuracy": 0.3
       },
       "1": {
         "position": [
           17.01099410704468,
           39.3400558521105
         ],
-        "confidence": 0.8864687054988938,
-        "avg_error": 0.10908393040299416,
-        "avg_progress": 0.023834454268217085,
-        "total_steps": 550100,
+        "confidence": 0.897731700257359,
+        "avg_error": 0.10127151543274522,
+        "avg_progress": 0.01948734661564231,
+        "total_steps": 550200,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 168780.29677824088,
+        "total_reward": 168915.7856915828,
         "words_known": [
-          "banana",
           "dog",
           "apple",
           "water",
+          "banana",
           "rock",
-          "flower",
           "cat",
-          "ball",
+          "fire",
           "book",
-          "fire"
+          "flower",
+          "ball"
         ],
-        "naming_accuracy": 0.45
+        "naming_accuracy": 0.25
       },
       "2": {
         "position": [
-          40.931091711777924,
-          22.200855323640013
+          25.931091711777924,
+          17.200855323640013
         ],
-        "confidence": 0.8896441597175675,
-        "avg_error": 0.10405442174524068,
-        "avg_progress": 0.01735378373414278,
-        "total_steps": 550100,
+        "confidence": 0.8795516626509392,
+        "avg_error": 0.1245421526953578,
+        "avg_progress": 0.02180890031158924,
+        "total_steps": 550200,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 174087.2991479298,
+        "total_reward": 174316.61705230616,
         "words_known": [
-          "banana",
           "apple",
-          "fire",
+          "banana",
           "rock",
           "cat",
           "dog",
-          "ball",
-          "book",
+          "water",
           "flower",
-          "water"
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.35
+        "naming_accuracy": 0.15
       }
     },
     "language": {
       "total_teaching_events": 42,
-      "total_naming_tests": 6738,
-      "naming_accuracy": 0.44018996734936183,
-      "recent_accuracy": 0.42
+      "total_naming_tests": 4194,
+      "naming_accuracy": 0.47186456843109204,
+      "recent_accuracy": 0.26
     }
   },
   {
@@ -2263,90 +4613,90 @@
       "0": {
         "position": [
           46.31613841370556,
-          55.41433637207149
+          45.41433637207149
         ],
-        "confidence": 0.8843031949423082,
-        "avg_error": 0.11353910751640797,
-        "avg_progress": 0.03727610800415278,
-        "total_steps": 550200,
+        "confidence": 0.8483382084526979,
+        "avg_error": 0.15926695335656404,
+        "avg_progress": 0.02576159406453371,
+        "total_steps": 550300,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 176058.07812682266,
+        "total_reward": 176075.21171427297,
         "words_known": [
+          "rock",
           "banana",
           "apple",
-          "rock",
-          "cat",
-          "flower",
-          "ball",
-          "dog",
-          "book",
           "water",
-          "fire"
+          "cat",
+          "dog",
+          "flower",
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.35
+        "naming_accuracy": 0.4
       },
       "1": {
         "position": [
           55.65000725412554,
           72.85968097799815
         ],
-        "confidence": 0.9188099380425305,
-        "avg_error": 0.07740561943501234,
-        "avg_progress": 0.01618910413235426,
-        "total_steps": 550200,
+        "confidence": 0.8929553738908764,
+        "avg_error": 0.10906848888844252,
+        "avg_progress": 0.020020307414233683,
+        "total_steps": 550300,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 168811.25787967743,
+        "total_reward": 168948.6677976723,
         "words_known": [
-          "banana",
           "dog",
           "apple",
           "water",
+          "banana",
           "rock",
-          "flower",
           "cat",
-          "ball",
+          "fire",
           "book",
-          "fire"
+          "flower",
+          "ball"
         ],
-        "naming_accuracy": 0.45
+        "naming_accuracy": 0.25
       },
       "2": {
         "position": [
-          8.767138594919402,
-          95.63794969812606
+          58.7671385949194,
+          45.637949698126064
         ],
-        "confidence": 0.8898148681374852,
-        "avg_error": 0.10648631565272808,
-        "avg_progress": 0.03533490002155304,
-        "total_steps": 550200,
+        "confidence": 0.8583652561247828,
+        "avg_error": 0.1316142724826932,
+        "avg_progress": 0.023861671052873134,
+        "total_steps": 550300,
         "vocab_size": 10,
         "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 174117.49961929285,
+        "total_reward": 174352.67333778454,
         "words_known": [
-          "banana",
           "apple",
-          "fire",
+          "banana",
           "rock",
           "cat",
           "dog",
-          "ball",
-          "book",
+          "water",
           "flower",
-          "water"
+          "fire",
+          "ball",
+          "book"
         ],
-        "naming_accuracy": 0.35
+        "naming_accuracy": 0.15
       }
     },
     "language": {
       "total_teaching_events": 45,
-      "total_naming_tests": 6748,
-      "naming_accuracy": 0.4396858328393598,
-      "recent_accuracy": 0.38
+      "total_naming_tests": 4206,
+      "naming_accuracy": 0.4712315739419876,
+      "recent_accuracy": 0.28
     }
   }
 ]
