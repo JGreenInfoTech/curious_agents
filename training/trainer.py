@@ -146,6 +146,18 @@ class Trainer:
             self.env.setup_stage_3()
             self.current_stage = 3
             print("\n=== Stage 3: Dynamic environment (objects move) ===")
+        
+        # Safety: ensure environment is populated for current stage
+        # (guards against checkpoint resume with empty env)
+        if not self.env.objects and self.current_stage >= 1:
+            if self.current_stage >= 3:
+                self.env.setup_stage_3()
+            elif self.current_stage >= 2:
+                self.env.setup_stage_2()
+            else:
+                self.env.setup_stage_1()
+            print(f"  [Safety] Re-initialized environment for stage {self.current_stage}"
+                  f" ({len(self.env.objects)} objects)")
     
     def get_nearby_agents(self, agent: CuriousAgent) -> List[CuriousAgent]:
         """Find agents within helping radius."""
@@ -442,7 +454,17 @@ class Trainer:
                     mem.last_refresh_episode = mem_data['last_refresh_episode']
                     self.teacher.word_memories[aid][word] = mem
         
-        print(f"Resumed from episode {self.current_episode}")
+        # Restore environment for the current stage
+        # (env.__init__ starts with empty objects dict, so we must re-populate)
+        if self.current_stage >= 3:
+            self.env.setup_stage_3()
+        elif self.current_stage >= 2:
+            self.env.setup_stage_2()
+        elif self.current_stage >= 1:
+            self.env.setup_stage_1()
+        
+        print(f"Resumed from episode {self.current_episode}, stage {self.current_stage}")
+        print(f"  Environment restored: {len(self.env.objects)} objects")
         
         # Report vocabulary state
         for agent in self.agents:

@@ -1,6 +1,17 @@
 # Claude Session Guide — curious_agents Project
-
-**Last updated**: 2026-02-21  
+=== Journal Entry 2026-02-21T15:54:54.227614+00:00 ===
+2026-02-21-15-54-53-phase2-teaching-debug.txt
+[Debugging session investigating why OstensiveTeacher never fires during Phase 2 training (episodes 5000-8000). Traces through trainer.py curriculum management, load_checkpoint logic, and teaching system integration to identify why vocab_size=0 and total_teaching_events=0 despite agents being in Stage 3.]
+=== Journal Entry 2026-02-21T15:58:56.335634+00:00 ===
+2026-02-21-15-58-55-phase2-empty-env-bug.txt
+[Root cause analysis of Phase 2 training failure where agents learned zero vocabulary (vocab_size=0, teaching_events=0) during episodes 5000-8000. Traces through checkpoint resume logic to identify that environment objects list was never restored, leaving agents in an empty world.]
+=== Journal Entry 2026-02-22T15:38:14.501125+00:00 ===
+2026-02-22-15-38-13-phase2-empty-env-fix.txt
+[Bug fix implementation for Phase 2 training failure where environment objects were never restored from checkpoint, leaving agents in empty world for episodes 5000-8000. Contains root cause analysis, code fixes to trainer.py, and verification testing.]
+=== Journal Entry 2026-02-22T16:27:01.324588+00:00 ===
+2026-02-22-16-27-00-checkpoint-format-investigation.txt
+[Investigation of checkpoint data structure revealing agents stored as dict with state_dicts (not integers), environment objects present in all checkpoints, and teacher word_memories keyed by agent IDs. Confirms checkpoint data is intact - the bug was in load_checkpoint() never restoring env.objects from saved env_state.]
+**Last updated**: 2026-02-22  
 **Project root**: `C:\Users\Johnathan\ClaudeResearch\curious_agents\`  
 **Owner**: Johnathan (AI consciousness/emergence researcher)
 

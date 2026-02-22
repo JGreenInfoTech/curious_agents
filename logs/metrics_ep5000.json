@@ -9,46 +9,46 @@
           58.25109428271921,
           38.63632467779334
         ],
-        "confidence": 0.9991233297448763,
-        "avg_error": 3.2812634481160784e-05,
-        "avg_progress": 2.30773558087094e-05,
-        "total_steps": 500100,
+        "confidence": 0.8996664231211849,
+        "avg_error": 0.09886830942705274,
+        "avg_progress": 0.03520336328074336,
+        "total_steps": 500300,
         "vocab_size": 0,
-        "is_learning": 0,
+        "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 159423.05869833747,
+        "total_reward": 159492.8343310921,
         "words_known": [],
         "naming_accuracy": 0.0
       },
       "1": {
         "position": [
-          71.32669030698968,
-          23.810026551699323
+          66.32669030698968,
+          28.810026551699323
         ],
-        "confidence": 0.9989047989373905,
-        "avg_error": 3.3445991209646306e-05,
-        "avg_progress": 1.206878614539164e-05,
-        "total_steps": 500100,
+        "confidence": 0.9130864029513538,
+        "avg_error": 0.0801594169344753,
+        "avg_progress": 0.028306638216599823,
+        "total_steps": 500300,
         "vocab_size": 0,
-        "is_learning": 0,
+        "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 152200.64477313816,
+        "total_reward": 152271.73287948477,
         "words_known": [],
         "naming_accuracy": 0.0
       },
       "2": {
         "position": [
-          33.33129526356558,
-          94.19018256647986
+          48.33129526356558,
+          9.190182566479862
         ],
-        "confidence": 0.9992533470544536,
-        "avg_error": 2.041747466137167e-05,
-        "avg_progress": 1.5688039798078535e-05,
-        "total_steps": 500100,
+        "confidence": 0.9212268274725638,
+        "avg_error": 0.06694132026750595,
+        "avg_progress": 0.025264622666873036,
+        "total_steps": 500300,
         "vocab_size": 0,
-        "is_learning": 0,
+        "is_learning": 1,
         "is_exploring": false,
-        "total_reward": 158005.2693082561,
+        "total_reward": 158078.1037712111,
         "words_known": [],
         "naming_accuracy": 0.0
       }
