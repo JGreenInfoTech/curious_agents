@@ -81,6 +81,9 @@ class AgentConfig:
     learning_rate: float = 3e-4
     forward_model_lr: float = 1e-3  # Forward model learns faster (it needs to keep up)
     gamma: float = 0.95             # Discount factor
+    entropy_coeff: float = 0.05     # Entropy regularization: penalizes logit concentration,
+                                    # keeps utterance actions viable at low temperature
+                                    # (raised from 0.02 — gap was closing too slowly at 0.02)
     
     # Meta-cognition (Phase 1: simple version)
     confidence_smooth: float = 0.95 # EMA smoothing for confidence tracking
@@ -596,27 +599,37 @@ class CuriousAgent(nn.Module):
         
         policy_losses = []
         value_losses = []
-        
+        entropy_losses = []
+
         for exp in batch:
             state = exp['state']  # Detached snapshot
-            
+
             # Recompute log_prob from CURRENT policy (fresh graph)
             logits = self.policy(state)
             probs = F.softmax(logits, dim=-1)
             dist = torch.distributions.Categorical(probs)
             log_prob = dist.log_prob(torch.tensor(exp['action'])).squeeze()
-            
+
             # Value estimate (baseline)
             value = self.value_head(state)
             advantage = exp['reward'] - value.item()
-            
+
             # Policy gradient: push toward actions with positive advantage
             policy_losses.append(-log_prob * advantage)
-            
+
             # Value function loss
             value_losses.append(F.mse_loss(value, torch.tensor([[exp['reward']]])))
-        
-        total_loss = (torch.stack(policy_losses).sum() + 0.5 * torch.stack(value_losses).sum()) / batch_size
+
+            # Entropy bonus: subtract entropy from loss to penalize overconfident distributions.
+            # Prevents logits from concentrating so heavily on movement that utterance actions
+            # become unreachable (the bootstrapping deadlock observed in Phase 3 training).
+            entropy_losses.append(-self.config.entropy_coeff * dist.entropy())
+
+        total_loss = (
+            torch.stack(policy_losses).sum()
+            + 0.5 * torch.stack(value_losses).sum()
+            + torch.stack(entropy_losses).sum()
+        ) / batch_size
         
         self.policy_optimizer.zero_grad()
         total_loss.backward()

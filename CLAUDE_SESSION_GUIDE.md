@@ -22,6 +22,14 @@ Three features added to deepen language grounding:
 2. CIRCULAR-BUFFER VOCABULARY: WordMemory replaced cumulative sum with 8-slot ring buffer. write_pos cycles mod buffer_size; prototype = np.mean(buffer). Prevents early-training encodings from diluting later, more accurate ones. TeachingConfig.vocab_buffer_size=8.
 3. DISCRIMINATION HEAD: Linear(64→32)→GELU→Linear(32→10) auxiliary classifier. Cross-entropy loss × 0.2. Forces class-separable encoder representations. WORD_CLASS_MAP and ALL_OBJECT_CLASSES added to language_grounding.py. Separate language_optimizer covers encoder + head.
 Checkpoint format updated (buffer/write_pos replaces state_accumulator). Backward-compat load handles old format. state_dict loading now strict=False. Smoke test passes: 50ep, ~5ep/s, vocab grounds correctly, checkpoint round-trips cleanly.
+=== Journal Entry 2026-02-23 (Entropy regularization) ===
+Root cause analysis of utterance collapse revealed policy logit gap of ~1.3-1.6 between movement (+0.3 to +2.1) and utterances (~-0.9). Temperature floor fix alone insufficient — REINFORCE had already trained weights away from utterances over 2000 episodes.
+Fix: entropy regularization in update_policy() (curious_agent.py):
+  - Added entropy_coeff=0.02 to AgentConfig
+  - Added entropy_losses list in update_policy loop: -entropy_coeff * dist.entropy() per sample
+  - total_loss now includes entropy_losses.sum() alongside policy + value losses
+  - Subtracting entropy from loss = maximizing entropy = penalizing logit concentration
+  - At max entropy (log(15)≈2.7), contribution is ~0.054 per sample — small but persistent pressure against overconfidence
 === Journal Entry 2026-02-23 (Phase 3 utterance suppression fix) ===
 Two hyperparameter fixes after observing utterance collapse in Phase 3 training:
 At ep 1000, agents used utterances ~50% of steps. By ep 2000 (temp=0.300), utterances dropped to ~5% — policy went near-greedy and the -0.2 utterance init bias suppressed word emissions entirely.
@@ -287,6 +295,7 @@ python -c "import sys; sys.path.insert(0,'.'); from training.trainer import Trai
 11. **Utterance → "stay" mapping**: `execute_action(action >= n_actions)` sets `last_utterance_class` but does NOT move the agent. `compute_prediction_error` and `train_forward_model` both map `forward_action = min(action, n_actions-1)` so the forward model's one-hot dim stays at 5 (backward compatible).
 12. **Utterance perception is one step delayed in Phase 1**: `prev_utterances` (last step) is used for the FIRST perceive call (action decision). `step_utterances` (this step) is used for the SECOND perceive call (observation). This is realistic — agents decide what to say before observing simultaneous utterances.
 13. **Communicative reward requires trained discrimination heads**: `comm_reward` depends on `other.discrimination_head(other.internal_state)` returning a meaningful prediction. Early in training (random heads) it is near-zero. This is correct — the signal grows as Phase 2 grounding progresses.
+14. **Entropy regularization**: `update_policy()` includes `-entropy_coeff * dist.entropy()` per sample in the loss. This prevents REINFORCE from concentrating logits so heavily on movement that utterance actions become unreachable. Without it, by ep 2000 the logit gap was ~1.4 (movement ~+1.5, utterances ~-0.9), and utterance rate fell from 50% to 5% despite temperature=0.6. entropy_coeff=0.02 closed the gap ~0.2 units per 2000 eps — raised to 0.05 for faster recovery.
 
 ---
 
