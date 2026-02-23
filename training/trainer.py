@@ -24,7 +24,9 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from environment.world import StructuredEnvironment
 from agents.curious_agent import CuriousAgent, create_agent
-from training.language_grounding import OstensiveTeacher, TeachingConfig
+from training.language_grounding import (
+    OstensiveTeacher, TeachingConfig, N_OBJECT_CLASSES, ALL_OBJECT_CLASSES
+)
 
 
 @dataclass
@@ -42,11 +44,15 @@ class TrainerConfig:
     # Learning
     policy_update_freq: int = 10     # Update policy every N steps
     temperature_start: float = 2.0   # High exploration initially
-    temperature_end: float = 0.3     # Lower exploration later
+    temperature_end: float = 0.6     # Lower exploration later (floor raised for utterance viability)
     temperature_decay: float = 0.999 # Per-episode decay
     
     # Helping radius: agents must be within this distance to get helping reward
     helping_radius: float = 40.0
+
+    # Communicative reward: approach-only bonus when an agent's utterance aligns with
+    # a nearby agent's discrimination-head prediction (shared understanding signal).
+    communicative_reward: float = 0.5  # Raised from 0.2: needs to compete with movement at low temp
     
     # Logging
     log_freq: int = 50               # Log every N episodes
@@ -91,16 +97,21 @@ class Trainer:
             seed=config.seed
         )
         
-        # Create agents
-        perception_dim = self.env.get_perception_dim()
+        # Create agents — perception_dim includes N_OBJECT_CLASSES utterance slots (Phase 3)
+        perception_dim = self.env.get_perception_dim(n_utterance_classes=N_OBJECT_CLASSES)
         self.agents: List[CuriousAgent] = []
         for i in range(config.n_agents):
             agent = create_agent(
                 agent_id=i,
                 perception_dim=perception_dim,
+                n_utterance_classes=N_OBJECT_CLASSES,
                 seed=config.seed,
             )
             self.agents.append(agent)
+
+        # Track utterances from the previous step so agents can perceive them
+        # when deciding their NEXT action (one step delay — realistic communication).
+        self.prev_utterances: Dict[int, Optional[int]] = {}
         
         # Phase 2: Ostensive teacher for language grounding
         self.teaching_config = TeachingConfig()
@@ -122,7 +133,8 @@ class Trainer:
         os.makedirs(config.checkpoint_dir, exist_ok=True)
         
         print(f"Trainer initialized:")
-        print(f"  {config.n_agents} agents, {perception_dim}D perception")
+        print(f"  {config.n_agents} agents, {perception_dim}D perception "
+              f"(129 env + {N_OBJECT_CLASSES} utterance slots)")
         print(f"  Params per agent: {sum(p.numel() for p in self.agents[0].parameters()):,}")
         print(f"  Total params: {sum(p.numel() for a in self.agents for p in a.parameters()):,}")
         print(f"  Language grounding: ENABLED (Phase 2)")
@@ -159,6 +171,27 @@ class Trainer:
             print(f"  [Safety] Re-initialized environment for stage {self.current_stage}"
                   f" ({len(self.env.objects)} objects)")
     
+    def _build_utterance_slots(self, agent: CuriousAgent,
+                               utterances: Dict[int, Optional[int]]) -> np.ndarray:
+        """
+        Build utterance perception slots for one agent.
+
+        Returns a N_OBJECT_CLASSES-dimensional vector where slot[i] = 1.0 if any
+        nearby agent uttered word class i this step, 0.0 otherwise.
+        Uses helping_radius as the communication range.
+        """
+        slots = np.zeros(N_OBJECT_CLASSES)
+        for other in self.agents:
+            if other.config.agent_id == agent.config.agent_id:
+                continue
+            dist = np.linalg.norm(agent.position - other.position)
+            class_idx = utterances.get(other.config.agent_id)
+            if (dist <= self.config.helping_radius
+                    and class_idx is not None
+                    and 0 <= class_idx < N_OBJECT_CLASSES):
+                slots[class_idx] = min(1.0, slots[class_idx] + 1.0)
+        return slots
+
     def get_nearby_agents(self, agent: CuriousAgent) -> List[CuriousAgent]:
         """Find agents within helping radius."""
         nearby = []
@@ -173,68 +206,103 @@ class Trainer:
         """Execute one simulation step for all agents."""
         # Store pre-step prediction errors for helping reward
         prev_errors = {a.config.agent_id: a.current_prediction_error for a in self.agents}
-        
+
         actions = {}
         log_probs = {}
-        
+
         # --- Phase 1: All agents perceive and decide ---
+        # Include PREVIOUS step's utterances so agents know what was recently said
+        # when choosing their next action (one-step communication delay).
         for agent in self.agents:
-            perception = self.env.get_flat_perception(
+            base_perception = self.env.get_flat_perception(
                 position=tuple(agent.position),
                 perception_radius=self.config.perception_radius,
             )
+            utterance_slots = self._build_utterance_slots(agent, self.prev_utterances)
+            perception = np.concatenate([base_perception, utterance_slots])
             agent.perceive(perception)
             action, log_prob = agent.decide_action(temperature=self.temperature)
             actions[agent.config.agent_id] = action
             log_probs[agent.config.agent_id] = log_prob
-        
+
         # --- Phase 2: All agents execute actions ---
         for agent in self.agents:
             agent.execute_action(actions[agent.config.agent_id])
-        
+
+        # Capture THIS step's utterances (set by execute_action above)
+        step_utterances: Dict[int, Optional[int]] = {
+            a.config.agent_id: a.last_utterance_class for a in self.agents
+        }
+
         # --- Phase 3: Environment steps ---
         self.env.step()
-        
+
         # --- Phase 4: All agents perceive new state and compute prediction error ---
+        # Include THIS step's utterances so agents observe simultaneous communication.
         for agent in self.agents:
-            new_perception = self.env.get_flat_perception(
+            base_perception = self.env.get_flat_perception(
                 position=tuple(agent.position),
                 perception_radius=self.config.perception_radius,
             )
+            utterance_slots = self._build_utterance_slots(agent, step_utterances)
+            new_perception = np.concatenate([base_perception, utterance_slots])
             agent.perceive(new_perception)
             agent.compute_prediction_error(actions[agent.config.agent_id])
-        
+
         # --- Phase 5: Ostensive teaching (language grounding) ---
         # Teacher may "point and name" nearby objects for each agent
         self.teacher.teach_step(
             self.agents, self.env, self.current_stage, self.current_episode
         )
-        
+
         # --- Phase 6: Naming tests (passive) ---
         self.teacher.test_naming(
             self.agents, self.env, self.current_stage, self.current_episode
         )
-        
-        # --- Phase 7: Compute rewards (curiosity + helping + naming) ---
+
+        # --- Phase 6.5: Communicative reward ---
+        # Agent A said word W → reward A if a nearby agent B's discrimination head
+        # prediction agrees with W's class. This is an approach-only shared-understanding
+        # signal: A gets rewarded when its utterance is consistent with B's internal state.
+        step_comm_rewards: Dict[int, float] = {}
+        for agent in self.agents:
+            class_idx = step_utterances.get(agent.config.agent_id)
+            if class_idx is None or not (0 <= class_idx < N_OBJECT_CLASSES):
+                continue
+            comm_reward = 0.0
+            for other in self.get_nearby_agents(agent):
+                if other.internal_state is None:
+                    continue
+                with torch.no_grad():
+                    logits = other.discrimination_head(other.internal_state)
+                    other_pred = torch.argmax(logits, dim=-1).item()
+                if other_pred == class_idx:
+                    comm_reward += self.config.communicative_reward
+            if comm_reward > 0.0:
+                step_comm_rewards[agent.config.agent_id] = comm_reward
+
+        # --- Phase 7: Compute rewards (curiosity + helping + naming + communicative) ---
         for agent in self.agents:
             nearby = self.get_nearby_agents(agent)
-            
+
             if nearby:
                 others_prev = [prev_errors[o.config.agent_id] for o in nearby]
                 others_curr = [o.current_prediction_error for o in nearby]
             else:
                 others_prev = None
                 others_curr = None
-            
+
             reward = agent.compute_intrinsic_reward(
                 others_prev_errors=others_prev,
                 others_curr_errors=others_curr,
             )
-            
-            # Add naming reward (approach-only: 0.0 if can't name, positive if correct)
+
+            # Naming reward (approach-only: 0.0 if can't name, positive if correct)
             naming_reward = self.teacher.compute_naming_reward(agent, self.env)
-            reward += naming_reward
-            
+            # Communicative reward (approach-only: only fires when shared understanding confirmed)
+            comm_reward = step_comm_rewards.get(agent.config.agent_id, 0.0)
+            reward += naming_reward + comm_reward
+
             # Store experience
             agent.store_experience(
                 log_prob=log_probs[agent.config.agent_id],
@@ -242,18 +310,24 @@ class Trainer:
                 state=agent.internal_state,
                 action=actions[agent.config.agent_id],
             )
-        
+
         # --- Phase 8: Train forward models (every step) ---
         for agent in self.agents:
             agent.train_forward_model(actions[agent.config.agent_id])
+
+        # Update prev_utterances for next step (agents remember what was just said)
+        self.prev_utterances = step_utterances
     
     def run_episode(self, episode: int):
         """Run one full episode."""
         self.setup_curriculum(episode)
-        
+
         # Randomize agent positions each episode to prevent positional ruts
         for agent in self.agents:
             agent.reset_position(seed=episode * 100 + agent.config.agent_id)
+
+        # Clear utterance memory at episode boundary — no cross-episode communication
+        self.prev_utterances = {}
         
         for step in range(self.config.steps_per_episode):
             self.run_step()
@@ -419,15 +493,26 @@ class Trainer:
         
         self.current_episode = checkpoint['episode']
         self.current_stage = checkpoint['stage']
-        self.temperature = checkpoint['temperature']
+        # Respect the configured floor: if we raised temperature_end after a run, the
+        # resumed temperature should climb back up to the new floor, not stay at the old one.
+        self.temperature = max(checkpoint['temperature'], self.config.temperature_end)
         
         for agent in self.agents:
             aid = agent.config.agent_id
             if aid in checkpoint['agents']:
                 data = checkpoint['agents'][aid]
-                # strict=False: gracefully handles checkpoints saved before the
-                # discrimination_head was added (missing keys get default init).
-                agent.load_state_dict(data['state_dict'], strict=False)
+                # strict=False: handles checkpoints saved before the discrimination_head
+                # was added (missing keys get default init). A shape mismatch (e.g.
+                # Phase 2→3 encoder dim change 129→139) triggers a RuntimeError which
+                # we catch and fall back to structured initialization for that agent.
+                try:
+                    agent.load_state_dict(data['state_dict'], strict=False)
+                except RuntimeError:
+                    from agents.curious_agent import apply_structured_initialization
+                    print(f"  Warning: checkpoint architecture incompatible for agent {aid} "
+                          f"(perception_dim may have changed 129->139 for Phase 3). "
+                          f"Re-applying structured initialization.")
+                    apply_structured_initialization(agent, seed=self.config.seed + aid * 1000)
                 agent.position = np.array(data['position'])
                 agent.confidence = data['confidence']
                 agent.total_steps = data['total_steps']

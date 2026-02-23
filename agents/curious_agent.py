@@ -64,6 +64,7 @@ class AgentConfig:
     
     # Actions
     n_actions: int = 5              # move_north, move_south, move_east, move_west, stay
+    n_utterance_classes: int = 10   # One utterance action per vocabulary word (Phase 3)
     action_names: List[str] = field(default_factory=lambda: [
         'move_north', 'move_south', 'move_east', 'move_west', 'stay'
     ])
@@ -144,10 +145,13 @@ class CuriousAgent(nn.Module):
         
         # ===== POLICY (Action Selection) =====
         # Given internal state → action preferences (softmax probabilities)
+        # Total action space: n_actions (movement) + n_utterance_classes (word emissions)
+        # The forward model only uses movement actions; utterance actions expand policy only.
+        _total_actions = config.n_actions + config.n_utterance_classes
         self.policy = nn.Sequential(
             NormedLinear(config.internal_state_dim, config.hidden_dim // 2),
             nn.GELU(),
-            nn.Linear(config.hidden_dim // 2, config.n_actions),
+            nn.Linear(config.hidden_dim // 2, _total_actions),
             # No final activation — we'll use softmax at decision time
         )
         
@@ -205,6 +209,9 @@ class CuriousAgent(nn.Module):
         
         # Vocabulary (for language grounding — starts empty)
         self.vocabulary: Dict[str, np.ndarray] = {}
+
+        # Last utterance this step: class index (0-9) or None if agent moved/stayed
+        self.last_utterance_class: Optional[int] = None
 
         # Language loss tracking
         self.naming_loss_history: List[float] = []
@@ -279,29 +286,41 @@ class CuriousAgent(nn.Module):
     
     def execute_action(self, action: int) -> np.ndarray:
         """
-        Execute movement action. Returns new position.
-        
-        Actions: 0=north, 1=south, 2=east, 3=west, 4=stay
+        Execute movement or utterance action. Returns new position.
+
+        Actions 0-3: movement (north/south/east/west)
+        Action 4:    stay
+        Actions 5+:  utterance — emit word at class index (action - n_actions); no movement
         """
         step = self.config.move_step
-        
-        if action == 0:    # North
-            self.position[1] += step
-        elif action == 1:  # South
-            self.position[1] -= step
-        elif action == 2:  # East
-            self.position[0] += step
-        elif action == 3:  # West
-            self.position[0] -= step
-        # action == 4: stay
-        
-        # Toroidal wrapping — world has no edges
-        self.position[0] %= self.config.world_size
-        self.position[1] %= self.config.world_size
-        
+
+        if action < self.config.n_actions:
+            # Movement action — clear any previous utterance
+            self.last_utterance_class = None
+
+            if action == 0:    # North
+                self.position[1] += step
+            elif action == 1:  # South
+                self.position[1] -= step
+            elif action == 2:  # East
+                self.position[0] += step
+            elif action == 3:  # West
+                self.position[0] -= step
+            # action == 4: stay (no position change)
+
+            # Toroidal wrapping — world has no edges
+            self.position[0] %= self.config.world_size
+            self.position[1] %= self.config.world_size
+        else:
+            # Utterance action — no movement, emit a word
+            word_idx = action - self.config.n_actions
+            self.last_utterance_class = (
+                word_idx if word_idx < self.config.n_utterance_classes else None
+            )
+
         self.action_history.append(action)
         self.position_history.append(tuple(self.position.copy()))
-        
+
         return self.position.copy()
     
     def reset_position(self, seed: Optional[int] = None):
@@ -324,15 +343,17 @@ class CuriousAgent(nn.Module):
         """
         if self.prev_internal_state is None:
             return 0.0
-        
-        # One-hot encode the action
+
+        # Map utterance actions to "stay" for forward model — utterances don't move the agent,
+        # so the physical forward model only needs to distinguish movement directions.
+        forward_action = action if action < self.config.n_actions else (self.config.n_actions - 1)
         action_onehot = torch.zeros(1, self.config.n_actions)
-        action_onehot[0, action] = 1.0
-        
+        action_onehot[0, forward_action] = 1.0
+
         # What did I predict would happen?
         forward_input = torch.cat([self.prev_internal_state, action_onehot], dim=-1)
         predicted_next = self.forward_model(forward_input)
-        
+
         # What actually happened?
         actual_next = self.internal_state.detach()
         
@@ -387,7 +408,8 @@ class CuriousAgent(nn.Module):
             helping_reward *= self.config.helping_weight
         
         # --- Exploration: small bonus for movement ---
-        moved = (len(self.action_history) > 0 and self.action_history[-1] != 4)
+        # Only actions 0-3 are movements; 4=stay, 5+=utterance (no physical displacement)
+        moved = (len(self.action_history) > 0 and self.action_history[-1] < 4)
         exploration_reward = self.config.exploration_bonus if moved else 0.0
         
         # --- Novelty: reward for visiting less-seen grid cells ---
@@ -422,10 +444,12 @@ class CuriousAgent(nn.Module):
         """
         if self.prev_internal_state is None:
             return 0.0
-        
+
+        # Map utterance actions to "stay" — same as in compute_prediction_error
+        forward_action = action if action < self.config.n_actions else (self.config.n_actions - 1)
         action_onehot = torch.zeros(1, self.config.n_actions)
-        action_onehot[0, action] = 1.0
-        
+        action_onehot[0, forward_action] = 1.0
+
         forward_input = torch.cat([self.prev_internal_state.detach(), action_onehot], dim=-1)
         predicted_next = self.forward_model(forward_input)
         actual_next = self.internal_state.detach()
@@ -625,7 +649,8 @@ class CuriousAgent(nn.Module):
             'recent_prediction_error': self.current_prediction_error,
             'expression': expression.detach().numpy(),
             'last_action': self.action_history[-1] if self.action_history else None,
-            'learning_rate': self.learning_progress_history[-1] 
+            'last_utterance_class': self.last_utterance_class,  # None if moved/stayed
+            'learning_rate': self.learning_progress_history[-1]
                            if self.learning_progress_history else 0.0,
         }
     
@@ -749,9 +774,14 @@ def apply_structured_initialization(agent: CuriousAgent, seed: int = 42):
                 nn.init.zeros_(layer.linear.bias)
             elif isinstance(layer, nn.Linear):
                 nn.init.zeros_(layer.weight)
-                # Slight bias toward movement (actions 0-3) over staying (action 4)
-                bias = torch.tensor([0.1, 0.1, 0.1, 0.1, -0.1])
-                layer.bias.copy_(bias[:agent.config.n_actions])
+                # Movement bias: encourage movement (0-3), discourage stay (4),
+                # slightly discourage utterances (5+) so agents explore first
+                total_actions = agent.config.n_actions + agent.config.n_utterance_classes
+                movement_bias = torch.tensor([0.1, 0.1, 0.1, 0.1, -0.1])
+                utterance_bias = torch.full((agent.config.n_utterance_classes,), -0.2)
+                full_bias = torch.cat([movement_bias[:agent.config.n_actions],
+                                       utterance_bias])[:total_actions]
+                layer.bias.copy_(full_bias)
         
         # --- Value head: start at zero ---
         for layer in agent.value_head:
@@ -775,13 +805,14 @@ def apply_structured_initialization(agent: CuriousAgent, seed: int = 42):
     return agent
 
 
-def create_agent(agent_id: int = 0, 
-                 perception_dim: int = 129,
+def create_agent(agent_id: int = 0,
+                 perception_dim: int = 139,  # 129 base + 10 utterance slots
+                 n_utterance_classes: int = 10,
                  seed: int = 42,
                  position: Optional[Tuple[float, float]] = None) -> CuriousAgent:
     """
     Factory: create a new agent with structured initialization.
-    
+
     Each agent gets a unique seed so they develop differently
     (like siblings with the same genes but different experiences).
     """
@@ -789,6 +820,7 @@ def create_agent(agent_id: int = 0,
         agent_id=agent_id,
         name=f"agent_{agent_id}",
         perception_dim=perception_dim,
+        n_utterance_classes=n_utterance_classes,
     )
     
     agent = CuriousAgent(config)

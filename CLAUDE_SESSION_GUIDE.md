@@ -22,7 +22,22 @@ Three features added to deepen language grounding:
 2. CIRCULAR-BUFFER VOCABULARY: WordMemory replaced cumulative sum with 8-slot ring buffer. write_pos cycles mod buffer_size; prototype = np.mean(buffer). Prevents early-training encodings from diluting later, more accurate ones. TeachingConfig.vocab_buffer_size=8.
 3. DISCRIMINATION HEAD: Linear(64→32)→GELU→Linear(32→10) auxiliary classifier. Cross-entropy loss × 0.2. Forces class-separable encoder representations. WORD_CLASS_MAP and ALL_OBJECT_CLASSES added to language_grounding.py. Separate language_optimizer covers encoder + head.
 Checkpoint format updated (buffer/write_pos replaces state_accumulator). Backward-compat load handles old format. state_dict loading now strict=False. Smoke test passes: 50ep, ~5ep/s, vocab grounds correctly, checkpoint round-trips cleanly.
-**Last updated**: 2026-02-22  
+=== Journal Entry 2026-02-23 (Phase 3 utterance suppression fix) ===
+Two hyperparameter fixes after observing utterance collapse in Phase 3 training:
+At ep 1000, agents used utterances ~50% of steps. By ep 2000 (temp=0.300), utterances dropped to ~5% — policy went near-greedy and the -0.2 utterance init bias suppressed word emissions entirely.
+Root cause: (1) temp floor 0.3 too low for stochastic utterances; (2) comm_reward 0.2 too small to compete with movement at low temp.
+Fixes in TrainerConfig (trainer.py):
+  - temperature_end: 0.3 → 0.6  (keeps utterance actions statistically viable)
+  - communicative_reward: 0.2 → 0.5  (gives utterances enough expected value at exploitation regime)
+  - load_checkpoint now uses max(checkpoint_temp, config.temperature_end) so a raised floor takes effect on resume without needing to edit the checkpoint.
+=== Journal Entry 2026-02-23 (Phase 3 multi-agent communication) ===
+Three features added for agent-to-agent word communication:
+1. UTTERANCE ACTIONS: Policy expanded from 5 to 15 outputs (5 movement + 10 word emissions). Actions 5-14 = emit word at class index (action-5). execute_action() handles these — no movement, sets last_utterance_class. Forward model still only uses 5D movement one-hot (utterance → "stay" mapping). Policy bias init discourages utterances early (-0.2) so agents explore before talking.
+2. WORD PERCEPTION SLOTS: perception_dim 129→139 (10 utterance slots appended). Trainer._build_utterance_slots() scans nearby agents for utterances within helping_radius and sets slot[class_idx]=1.0. Phase 1 perceive uses prev_utterances (last step, so agents know what was said when deciding next action). Phase 4 perceive uses step_utterances (current step, simultaneous communication). prev_utterances resets at episode boundary.
+3. COMMUNICATIVE REWARD: Phase 6.5 in run_step. When agent A emits word with class_idx C, scan nearby agents' discrimination_head predictions. If B predicts class C, A gets +0.2 (communicative_reward in TrainerConfig). Approach-only — fires only when shared understanding confirmed by B's internal state. Near-zero early in training, rises as discrimination heads converge.
+Checkpoint compat: loading old ep0-999 checkpoints will hit RuntimeError (encoder shape 129→139). load_checkpoint now wraps state_dict load in try/except, falls back to apply_structured_initialization for incompatible agents with a clear warning.
+Smoke test: 50ep, 4.3ep/s, 139D perception confirmed, vocab grounds correctly, utterance actions in action_history.
+**Last updated**: 2026-02-23
 **Project root**: `C:\Users\Johnathan\ClaudeResearch\curious_agents\`  
 **Owner**: Johnathan (AI consciousness/emergence researcher)
 
@@ -41,10 +56,12 @@ A multi-phase research program building curiosity-driven neural agents from scra
 | Phase | Status | Description |
 |-------|--------|-------------|
 | 1: Curiosity & Exploration | ✅ Complete (ep 0-5000) | Forward model, REINFORCE policy, confidence tracking |
-| 2: Language Grounding | ✅ Active | Ostensive teaching; circular-buffer vocabulary; naming loss + discrimination head |
-| 3: Multi-Agent Communication | 🔮 Future | Agent-to-agent word use, referential games |
-| 4: Meta-Cognition | 🔮 Future | Hierarchical self-modeling, awareness of awareness |
-| 5: Conversation | 🔮 Future | Human-agent dialogue grounded in shared perception |
+| 2: Language Grounding | ✅ Complete | Ostensive teaching; circular-buffer vocabulary; naming loss + discrimination head |
+| 3: Multi-Agent Communication | ✅ Active | Utterance actions (15-action space); word perception slots (139D); communicative reward |
+| 3.5: Property Vocabulary | 🔮 Next | Ground property words from 15D property vector; prerequisite for grammar |
+| 4: Grammar / Compositionality | 🔮 Planned | 2-word utterances; referential games; disambiguation tasks |
+| 5: Meta-Cognition | 🔮 Planned | Hierarchical self-modeling, awareness of awareness |
+| 6: Conversation | 🔮 Planned | Human-agent dialogue grounded in shared perception |
 
 ---
 
@@ -81,27 +98,33 @@ A multi-phase research program building curiosity-driven neural agents from scra
 
 ### Agent (`CuriousAgent`)
 ```
-Perception (129D flat) → Encoder (3× NormedLinear+GELU → 64D Tanh)
-                        → Forward Model (state+action → predicted next state)  [forward_model_optimizer]
-                        → Policy (state → 5 action logits, softmax)            [policy_optimizer]
-                        → Value Head (state → scalar baseline)                  [policy_optimizer]
-                        → Expression (state → 8D "body language")               [policy_optimizer]
-                        → Discrimination Head (state → 10 class logits)        [language_optimizer]
+Perception (139D flat) → Encoder (3× NormedLinear+GELU → 64D Tanh)
+  129D env + 10D words                                          |
+                        → Forward Model (state + 5D move-onehot → predicted next state)  [forward_model_optimizer]
+                        → Policy (state → 15 action logits, softmax)                     [policy_optimizer]
+                              5 movement + 10 utterance actions (word class 0-9)
+                        → Value Head (state → scalar baseline)                            [policy_optimizer]
+                        → Expression (state → 8D "body language")                         [policy_optimizer]
+                        → Discrimination Head (state → 10 class logits)                  [language_optimizer]
                                                     ↑
                               naming loss (MSE) also flows through encoder via [language_optimizer]
 ```
-- **~90K params** per agent, 3 agents = ~270K total
-- **5 actions**: north, south, east, west, stay
+- **~92K params** per agent (up from ~86K — policy output layer expanded 5→15)
+- **15 actions**: north, south, east, west, stay, say_word_0 ... say_word_9
+- **Utterance actions**: action >= n_actions (5) → no movement, sets `last_utterance_class = action - 5`
+- **Forward model**: utterance actions → mapped to "stay" (action 4) before one-hot encoding
 - **3 optimizers**: `policy_optimizer`, `forward_model_optimizer`, `language_optimizer` (encoder shared between policy and language, each manages its own zero_grad/step)
 - **Vocabulary**: `dict[str, np.ndarray]` mapping words → circular-buffer prototype vectors
-- **Key methods**: `perceive()`, `decide_action()`, `compute_prediction_error()`, `compute_intrinsic_reward()`, `learn_word()`, `try_to_name()`, `store_experience()`, `update_policy()`, `train_forward_model()`, `train_language_losses(word, class_idx)`, `get_predicted_class()`
+- **Key methods**: `perceive()`, `decide_action()`, `execute_action()`, `compute_prediction_error()`, `compute_intrinsic_reward()`, `learn_word()`, `try_to_name()`, `store_experience()`, `update_policy()`, `train_forward_model()`, `train_language_losses(word, class_idx)`, `get_predicted_class()`
 
 ### Environment (`StructuredEnvironment`)
 - 100×100 toroidal world
 - Objects have 15D property vectors (color RGB, size, shape, animate, edible, dangerous, warm, soft, bright, noisy, complexity, familiarity)
 - 10 object types: apple, banana, cat, dog, rock, fire, water, flower, ball, book
 - `get_flat_perception()` returns 129D vector (8 max objects × 16 features + 1 count)
+- `get_perception_dim(n_utterance_classes=N)` returns 129+N (trainer passes N=10)
 - 3 curriculum stages: simple (4 obj) → complex (8 obj) → dynamic (spawn/despawn/shift)
+- **Trainer appends 10D utterance slots** to get full 139D perception — `get_flat_perception()` itself is unchanged
 
 ### Teaching System (`OstensiveTeacher` + `WordMemory`)
 - Probabilistic teaching: each step, may "point and name" a nearby object
@@ -117,10 +140,13 @@ Perception (129D flat) → Encoder (3× NormedLinear+GELU → 64D Tanh)
 ```
 total_reward = curiosity_reward     (max(0, prev_error - curr_error))
              + helping_reward       (others' error reduction when nearby)
-             + exploration_bonus    (0.1 if moved)
+             + exploration_bonus    (0.1 if moved — action < 4 only)
              + naming_reward        (0.3 if correctly named nearby object)
+             + comm_reward          (0.5 × count of nearby agents whose discrimination
+                                     prediction agrees with current utterance class)
 ```
 **Never negative.** Worst case = 0.
+`comm_reward` is computed in Phase 6.5 of `run_step` and added to the step reward passed to `store_experience`. It is NOT added to `agent.total_reward` (same pattern as naming_reward — minor tracking inconsistency, doesn't affect training).
 
 ---
 
@@ -139,15 +165,17 @@ Desktop Commander:start_search  searchType=content  pattern="def compute_intrins
 
 ### Rule 2: Know the key line ranges (approximate)
 
-**trainer.py** (~470 lines):
-- Lines 1-60: Imports, TrainerConfig dataclass
-- Lines 60-130: `Trainer.__init__()` (agents, env, teacher creation)
-- Lines 130-240: `run_step()` (the per-step loop — phases 1-8)
-- Lines 240-280: `run_episode()` (episode wrapper, vocab refresh)
-- Lines 280-330: `collect_metrics()`, `log_metrics()`
-- Lines 330-380: `save_checkpoint()`
-- Lines 380-450: `load_checkpoint()`
-- Lines 450-470: `train()` (main loop entry point)
+**trainer.py** (~570 lines after Phase 3):
+- Lines 1-65: Imports (now includes N_OBJECT_CLASSES, ALL_OBJECT_CLASSES), TrainerConfig (now includes communicative_reward)
+- Lines 65-150: `Trainer.__init__()` (perception_dim uses n_utterance_classes, prev_utterances dict)
+- Lines 150-175: `_build_utterance_slots()` helper
+- Lines 175-195: `get_nearby_agents()`
+- Lines 195-320: `run_step()` (phases 1-8 + 6.5 communicative reward; utterance tracking in phases 1+2+4)
+- Lines 320-355: `run_episode()` (now resets prev_utterances at start)
+- Lines 355-410: `collect_metrics()`, `log_metrics()`
+- Lines 410-460: `save_checkpoint()`
+- Lines 460-545: `load_checkpoint()` (try/except for shape mismatch)
+- Lines 545-570: `train()` (main loop entry point)
 
 **curious_agent.py** (~750 lines after Phase 2 additions):
 - Lines 1-50: Docstring, imports, NormedLinear
@@ -252,10 +280,13 @@ python -c "import sys; sys.path.insert(0,'.'); from training.trainer import Trai
 4. **Vocabulary refresh**: Re-encode words as encoder evolves. The teacher handles this automatically.
 5. **Three separate optimizers**: `policy_optimizer` (encoder+policy+value+expression), `forward_model_optimizer`, `language_optimizer` (encoder+discrimination_head). Each calls its own `zero_grad()`/`step()` — they can share encoder params safely because they never run concurrent backward passes.
 6. **Naming loss fires only on grounded words**: `train_language_losses` checks `word in self.vocabulary` before computing naming MSE. No prototype = no naming loss, but discrimination loss still fires.
-7. **Structured initialization**: Agents get biological-style weight init, not random. See `apply_structured_initialization()` — discrimination head included.
+7. **Structured initialization**: Agents get biological-style weight init, not random. See `apply_structured_initialization()` — discrimination head + utterance bias init included.
 8. **store_experience() signature**: `(log_prob, reward, state, action=None)` — 4 params, action is optional.
 9. **load_state_dict strict=False**: Allows loading pre-discrimination-head checkpoints cleanly. Keep this.
 10. **n_object_classes must match N_OBJECT_CLASSES**: `AgentConfig.n_object_classes = 10` must stay in sync with `ALL_OBJECT_CLASSES` in `language_grounding.py`. If curriculum changes, update both.
+11. **Utterance → "stay" mapping**: `execute_action(action >= n_actions)` sets `last_utterance_class` but does NOT move the agent. `compute_prediction_error` and `train_forward_model` both map `forward_action = min(action, n_actions-1)` so the forward model's one-hot dim stays at 5 (backward compatible).
+12. **Utterance perception is one step delayed in Phase 1**: `prev_utterances` (last step) is used for the FIRST perceive call (action decision). `step_utterances` (this step) is used for the SECOND perceive call (observation). This is realistic — agents decide what to say before observing simultaneous utterances.
+13. **Communicative reward requires trained discrimination heads**: `comm_reward` depends on `other.discrimination_head(other.internal_state)` returning a meaningful prediction. Early in training (random heads) it is near-zero. This is correct — the signal grows as Phase 2 grounding progresses.
 
 ---
 
@@ -264,9 +295,10 @@ python -c "import sys; sys.path.insert(0,'.'); from training.trainer import Trai
 - **PowerShell**: Use `;` not `&&` to chain commands
 - **sys.path**: The trainer already does `sys.path.insert(0, ...)` — don't duplicate
 - **Checkpoint format (updated Feb 2026)**: `WordMemory` serializes as `{'buffer': [[...], ...], 'write_pos': int, 'exposures': int, 'grounded': bool, ...}`. The old `state_accumulator` key no longer exists in new checkpoints. `load_checkpoint` handles both formats for backward compat.
-- **Checkpoint loading**: Uses `strict=False` so old checkpoints (without `discrimination_head` weights) load cleanly — those head weights get structured init instead.
-- **Perception dim**: 129 = 8 max objects × (1 distance + 15 properties) + 1 object count. If you change max_objects or property count, this cascades everywhere.
-- **Temperature**: Decays per-episode via `temp *= decay`. Starts at 2.0, ends at 0.3. This controls exploration vs exploitation in action selection.
+- **Checkpoint loading**: Uses `strict=False` so old checkpoints (without `discrimination_head` weights) load cleanly. A shape mismatch (e.g. Phase 2→3 migration where encoder changed 129→139) raises RuntimeError — `load_checkpoint` catches this and re-applies `apply_structured_initialization` for that agent with a printed warning.
+- **Phase 2→3 checkpoint break**: Old ep0-999 checkpoints have encoder input dim 129; Phase 3 uses 139. Loading those will trigger the RuntimeError fallback above — agents start fresh but the run continues. Start a new run for clean Phase 3 training.
+- **Perception dim**: 139 = 129 base + 10 utterance slots. Base: 8 max objects × (1 distance + 15 properties) + 1 count. Utterance slots: appended by trainer, NOT by `get_flat_perception()`. If you change max_objects or property count, update both the base calc and the 139 default in `create_agent`.
+- **Temperature**: Decays per-episode via `temp *= decay`. Starts at 2.0, floor now 0.6 (raised from 0.3 — 0.3 caused utterances to collapse to ~5% at late training as policy went near-greedy). `load_checkpoint` uses `max(checkpoint_temp, config.temperature_end)` so resumed runs respect the new floor.
 - **language_optimizer backward timing**: `train_language_losses()` is called from `OstensiveTeacher.teach_step()` inside `run_step()`, after the second `perceive()` call. At that point `agent.internal_state` still has a live computation graph. The backward call there consumes the graph — `train_forward_model()` called later uses `.detach()` so there's no conflict.
 - **Discrimination head class count**: If you add objects to the curriculum beyond the current 10, add them to `ALL_OBJECT_CLASSES` in `language_grounding.py` AND update `AgentConfig.n_object_classes`. Out-of-sync values will cause silent mismatch (discrimination head produces wrong number of logits).
 

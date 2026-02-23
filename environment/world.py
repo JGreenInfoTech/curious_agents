@@ -379,9 +379,15 @@ class StructuredEnvironment:
         
         return flat
     
-    def get_perception_dim(self, max_objects: int = 8) -> int:
-        """Total dimension of flattened perception vector."""
-        return max_objects * (1 + PROPERTY_DIM) + 1
+    def get_perception_dim(self, max_objects: int = 8, n_utterance_classes: int = 0) -> int:
+        """Total dimension of flattened perception vector.
+
+        Args:
+            n_utterance_classes: number of word-emission slots appended by the trainer
+                                 for agent-to-agent communication (Phase 3). Default 0
+                                 keeps backward compatibility.
+        """
+        return max_objects * (1 + PROPERTY_DIM) + 1 + n_utterance_classes
     
     # ---- World Dynamics ----
     

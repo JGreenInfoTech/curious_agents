@@ -10,7 +10,8 @@ This is part of a larger research program studying emergent cognition, communica
 
 **Status (Feb 2026)**:
 - Phase 1 (curiosity & exploration): ✅ Complete — 5000 episodes trained, agents develop stable internal representations
-- Phase 2 (language grounding): ✅ Active — ostensive teaching with encoder-shaping losses: naming alignment, discrimination head, circular-buffer vocabulary
+- Phase 2 (language grounding): ✅ Complete — ostensive teaching with encoder-shaping losses: naming alignment, discrimination head, circular-buffer vocabulary
+- Phase 3 (multi-agent communication): ✅ Active — utterance actions (word emission), word perception slots, communicative reward
 
 ## Architecture
 
@@ -22,12 +23,14 @@ This is part of a larger research program studying emergent cognition, communica
 - Agents perceive structured properties, not pixels
 
 ### Agent (`agents/curious_agent.py`)
-- **Perception encoder**: 129D flat perception → 64D internal state (NormedLinear + GELU + Tanh)
-- **Forward model**: Predicts next internal state from (state, action). Self-supervised. Core of curiosity.
-- **Policy**: REINFORCE with value baseline. Selects from 5 actions (move N/S/E/W, stay)
+- **Perception encoder**: 139D flat perception → 64D internal state (NormedLinear + GELU + Tanh)
+  - 129D environment perception + 10D utterance slots (nearby agents' word emissions)
+- **Forward model**: Predicts next internal state from (state, movement-action). Self-supervised. Core of curiosity. Utterance actions map to "stay" for forward model purposes.
+- **Policy**: REINFORCE with value baseline. Selects from **15 actions**: move N/S/E/W, stay, + 10 word-emission actions (one per vocabulary class)
 - **Discrimination head**: Small auxiliary classifier (64D → 32D → 10 classes). Parallel objective alongside curiosity — forces encoder to produce class-separable representations without disrupting the forward model or policy.
 - **Intrinsic reward**: `max(0, prev_error - curr_error)` — only positive, approach-only
 - **Helping bonus**: Reward when nearby agents' prediction errors decrease
+- **Communicative reward**: Reward when agent's word emission matches a nearby agent's discrimination-head prediction (shared understanding signal, Phase 3)
 - **Proto-metacognition**: Confidence tracker (EMA of prediction accuracy)
 - **Language grounding**: Vocabulary backed by circular-buffer prototypes (ostensive learning, Phase 2)
 - **Structured initialization**: Biologically-inspired weight init (not random noise)
@@ -121,14 +124,18 @@ viz.plot_from_checkpoint('checkpoints/checkpoint_ep1000.pt', metrics_dir='logs')
 6. **Naming accuracy** — Should rise as vocab builds; plateau may mean encoder needs more shaping
 7. **Discrimination loss** — Should fall from ~2.3 (random) as encoder becomes class-separable
 8. **Naming loss** — Should fall as encoder output converges toward stable per-word prototypes
+9. **Utterance actions** — Do agents begin emitting words? Early training: mostly movement. Later: word emissions should increase as vocabulary grounds and communicative reward starts firing
+10. **Communicative reward** — Fires when agent A's utterance class matches nearby agent B's discrimination prediction. Near-zero early (heads untrained), should rise as shared representations converge
 
 ## Reward Architecture (Critical Design Choice)
 
 ```
-reward = max(0, prev_error - curr_error)  +  helping_bonus  +  exploration_bonus  +  naming_bonus
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^     ^^^^^^^^^^^^      ^^^^^^^^^^^^^^^^^     ^^^^^^^^^^^^
-         Curiosity: learning progress         Others learn      Anti-stagnation       Correct naming
-         (ONLY positive)                      near you          (tiny constant)       of nearby object
+reward = max(0, prev_error - curr_error)  +  helping_bonus  +  exploration_bonus  +  naming_bonus  +  comm_bonus
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^     ^^^^^^^^^^^^      ^^^^^^^^^^^^^^^^^     ^^^^^^^^^^^^     ^^^^^^^^^^
+         Curiosity: learning progress         Others learn      Anti-stagnation       Correct naming   Utterance
+         (ONLY positive)                      near you          (tiny constant)       of nearby obj    aligns with
+                                                                                                       nearby agent's
+                                                                                                       internal state
 ```
 
 **No negative signal anywhere.** Confusion is neutral information, not suffering.
@@ -215,10 +222,12 @@ curious_agents/
 | Phase | Status | Description |
 |-------|--------|-------------|
 | 1: Curiosity & Exploration | ✅ Complete | Forward model, REINFORCE policy, confidence tracking |
-| 2: Language Grounding | ✅ Active | Ostensive teaching; circular-buffer vocabulary; naming loss + discrimination head shape encoder |
-| 3: Multi-Agent Communication | 🔮 Planned | Agent-to-agent word use, referential games |
-| 4: Meta-Cognition | 🔮 Planned | Hierarchical self-modeling, awareness of awareness |
-| 5: Conversation | 🔮 Planned | Human-agent dialogue grounded in shared perception |
+| 2: Language Grounding | ✅ Complete | Ostensive teaching; circular-buffer vocabulary; naming loss + discrimination head shape encoder |
+| 3: Multi-Agent Communication | ✅ Active | Utterance actions (15-action space); word perception slots (139D); communicative reward |
+| 3.5: Property Vocabulary | 🔮 Next | Ground property words ("big", "hot", "bright") from 15D property vector; prerequisite for grammar |
+| 4: Grammar / Compositionality | 🔮 Planned | 2-word utterances; referential games; disambiguation tasks |
+| 5: Meta-Cognition | 🔮 Planned | Hierarchical self-modeling, awareness of awareness |
+| 6: Conversation | 🔮 Planned | Human-agent dialogue grounded in shared perception |
 
 ## Hardware
 
@@ -237,13 +246,17 @@ Designed for modest hardware:
 | Policy update | REINFORCE with recomputed log-probs | Avoids stale gradient references when policy weights change between collection and update |
 | World topology | Toroidal (wrapping) | No corners or walls to get stuck against. Every direction is explorable |
 | Novelty bonus | Visit-count grid (10×10) | Coarse spatial novelty prevents revisiting same spots. Clears each episode |
-| Temperature | Decays 2.0 → 0.3 over training | High early exploration, gradually exploiting learned structure |
+| Temperature | Decays 2.0 → 0.6 over training (floor raised from 0.3) | High early exploration, gradually exploiting learned structure. Floor of 0.6 keeps utterance actions viable at late training — at 0.3 the greedy policy suppressed word emissions entirely. |
 | Initialization | Structured (not random) | Forward model starts near-identity, policy biased toward movement. Biological bootstrap |
 | Episode reset | Randomize positions, clear visits | Prevents path-dependent ruts. Each episode is a fresh exploration |
 | Word memory | Circular buffer (8 slots) | Fixed-size ring evicts oldest observations. Prototype = mean(buffer). Protects against early-training staleness diluting the running average indefinitely. |
 | Naming loss | MSE(state, prototype) via language_optimizer | Shapes encoder to produce consistent representations across multiple sightings of the same object. Separate from policy gradient. |
 | Discrimination head | Auxiliary CE classifier, parallel to curiosity | Forces class-separable internal representations without coupling to reward. Gradients flow through shared encoder via dedicated language_optimizer. |
 | Three optimizers | policy / forward_model / language | Each learning signal (reward, prediction error, language supervision) operates in its own gradient cycle. Shared encoder params updated by all three safely. |
+| Utterance actions | Policy outputs 15 logits (5 movement + 10 words) | Expands action space without touching forward model architecture. Utterances map to "stay" for the physical forward model — only movement matters for world prediction. |
+| Word perception slots | 10D appended to 139D flat perception | Nearby utterances appear as extra perception channels. Phase 1 perceive includes last step's utterances (deciding what to say next). Phase 4 perceive includes this step's (observing simultaneous communication). |
+| Communicative reward | `+0.5` when utterance class matches nearby agent's discrimination prediction (raised from 0.2) | Approach-only shared-understanding signal. Raised from 0.2: at low temperature the policy becomes near-greedy and 0.2 was insufficient to compete with movement rewards. 0.5 gives utterances enough expected value to remain in the policy's action distribution. |
+| Utterance bias init | −0.2 for all utterance actions | Discourages random word emissions during early exploration. Agents move first, talk later as reward signal for utterances becomes meaningful. |
 
 ## Theoretical Foundations
 

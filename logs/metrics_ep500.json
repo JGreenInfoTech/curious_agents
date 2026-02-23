@@ -6,46 +6,79 @@
     "agents": {
       "0": {
         "position": [
-          22.593529798008873,
-          96.1932596223007
+          17.593529798008873,
+          46.1932596223007
         ],
-        "confidence": 0.957427482558792,
-        "avg_error": 0.028958806465379894,
-        "avg_progress": 0.02788480760063976,
+        "confidence": 0.888961160861734,
+        "avg_error": 0.09258308439748361,
+        "avg_progress": 0.10778640541248023,
         "total_steps": 45200,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10293.610080103716
+        "total_reward": 12078.69795521957,
+        "avg_naming_loss": 0.002118628681637347,
+        "avg_discrimination_loss": 0.0001424683301593177,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          74.94922852993551,
-          5.241808612007386
+          29.94922852993551,
+          75.24180861200739
         ],
-        "confidence": 0.9674552038074815,
-        "avg_error": 0.034010362534900196,
-        "avg_progress": 0.023912204752559774,
+        "confidence": 0.957533685211808,
+        "avg_error": 0.008718026208225638,
+        "avg_progress": 0.0018449509399943054,
         "total_steps": 45200,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10265.058152292022
+        "total_reward": 12095.222951450958,
+        "avg_naming_loss": 0.0007611090482896543,
+        "avg_discrimination_loss": 0.00018991145261679777,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          89.74349818225113,
-          8.023916538264942
+          39.74349818225112,
+          43.02391653826494
         ],
-        "confidence": 0.9432833981951994,
-        "avg_error": 0.058341294366982765,
-        "avg_progress": 0.04070505608979147,
+        "confidence": 0.996052473308572,
+        "avg_error": 0.0013903677114285528,
+        "avg_progress": 0.0001987292373087257,
         "total_steps": 45200,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 10274.690249207857
+        "total_reward": 12064.661457907161,
+        "avg_naming_loss": 0.0004718245920685149,
+        "avg_discrimination_loss": 0.00010440952464705334,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4472,
+      "naming_accuracy": 0.9955277280858676,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -55,46 +88,79 @@
     "agents": {
       "0": {
         "position": [
-          79.37657241160215,
-          29.380058390563377
+          69.37657241160215,
+          14.380058390563377
         ],
-        "confidence": 0.9716122426863512,
-        "avg_error": 0.019030607271997724,
-        "avg_progress": 0.00021551326499320568,
+        "confidence": 0.9938390001375937,
+        "avg_error": 0.00323642652365379,
+        "avg_progress": 0.00044934662291780115,
         "total_steps": 45300,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 10314.394029672156
+        "total_reward": 12106.736312994228,
+        "avg_naming_loss": 0.002118628681637347,
+        "avg_discrimination_loss": 0.0001424683301593177,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          12.387578738853946,
-          68.33024652385272
+          37.38757873885395,
+          28.330246523852722
         ],
-        "confidence": 0.8888653191915226,
-        "avg_error": 0.09338447940535843,
-        "avg_progress": 0.034000799898058175,
+        "confidence": 0.9581997024195168,
+        "avg_error": 0.0033689765259623528,
+        "avg_progress": 0.001010842238611076,
         "total_steps": 45300,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10287.08470146409
+        "total_reward": 12120.937718707133,
+        "avg_naming_loss": 0.0008139059127643122,
+        "avg_discrimination_loss": 0.00018826670639100486,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          46.93580272619123,
-          70.37571353953327
+          56.93580272619123,
+          95.37571353953327
         ],
-        "confidence": 0.9639284258408627,
-        "avg_error": 0.018062592402566226,
-        "avg_progress": 0.010108247201424092,
+        "confidence": 0.9066708136301027,
+        "avg_error": 0.10949582260218449,
+        "avg_progress": 0.05139996583457105,
         "total_steps": 45300,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10297.007592856848
+        "total_reward": 12095.16296628662,
+        "avg_naming_loss": 0.0008673681419168134,
+        "avg_discrimination_loss": 9.755591454450042e-05,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4476,
+      "naming_accuracy": 0.9955317247542449,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -104,46 +170,79 @@
     "agents": {
       "0": {
         "position": [
-          11.377453214895297,
-          56.15928821584684
+          91.3774532148953,
+          66.15928821584684
         ],
-        "confidence": 0.9574687674299169,
-        "avg_error": 0.03541084628086537,
-        "avg_progress": 0.012053138785995543,
+        "confidence": 0.950932469567827,
+        "avg_error": 0.09370773655828088,
+        "avg_progress": 0.05125523511087522,
         "total_steps": 45400,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10339.920110118068
+        "total_reward": 12133.480740831395,
+        "avg_naming_loss": 0.0019690178101882338,
+        "avg_discrimination_loss": 0.00016296306166623252,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          51.719051365276755,
-          56.36024681849284
+          16.719051365276762,
+          71.36024681849284
         ],
-        "confidence": 0.9348920996391654,
-        "avg_error": 0.05412436907645315,
-        "avg_progress": 0.03004735007416457,
+        "confidence": 0.7059091275268679,
+        "avg_error": 0.35208209690172226,
+        "avg_progress": 0.20692682170774787,
         "total_steps": 45400,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10313.954987964242
+        "total_reward": 12151.879953971764,
+        "avg_naming_loss": 0.000530876799575708,
+        "avg_discrimination_loss": 0.00016420882238890044,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          0.14983754249810488,
-          96.77523966143869
+          90.1498375424981,
+          41.77523966143869
         ],
-        "confidence": 0.9251496743721259,
-        "avg_error": 0.06147617241367698,
-        "avg_progress": 0.01746060512959957,
+        "confidence": 0.8848610050582482,
+        "avg_error": 0.09732922040857375,
+        "avg_progress": 0.09044328131712973,
         "total_steps": 45400,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10321.107313533203
+        "total_reward": 12124.902569396532,
+        "avg_naming_loss": 0.0025298770053268525,
+        "avg_discrimination_loss": 0.00012705311091849581,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4491,
+      "naming_accuracy": 0.995546648853262,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -154,45 +253,78 @@
       "0": {
         "position": [
           79.30549064404005,
-          48.04337353027485
+          73.04337353027485
         ],
-        "confidence": 0.9537047408453958,
-        "avg_error": 0.05768109255222953,
-        "avg_progress": 0.022030645479026133,
+        "confidence": 0.8180969175026666,
+        "avg_error": 0.14231746643781662,
+        "avg_progress": 0.10892622722312809,
         "total_steps": 45500,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10363.040038438437
+        "total_reward": 12160.560625362252,
+        "avg_naming_loss": 0.0012395747253322043,
+        "avg_discrimination_loss": 0.00014407175440283025,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          34.01922160439052,
+          29.019221604390523,
           89.92173709470224
         ],
-        "confidence": 0.9743108033110005,
-        "avg_error": 0.003527887159725651,
-        "avg_progress": 0.0009371698135510087,
+        "confidence": 0.9899908803136427,
+        "avg_error": 0.0017609309346880765,
+        "avg_progress": 0.0003032215230632573,
         "total_steps": 45500,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 10342.362918652545
+        "total_reward": 12175.293331721927,
+        "avg_naming_loss": 0.0005549313939354761,
+        "avg_discrimination_loss": 0.00016167580033652485,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          69.48532981212541,
-          36.00777488111977
+          84.48532981212541,
+          71.00777488111977
         ],
-        "confidence": 0.9223092309960051,
-        "avg_error": 0.07192060244269669,
-        "avg_progress": 0.02382053607143462,
+        "confidence": 0.7487203931002977,
+        "avg_error": 0.26107198507525026,
+        "avg_progress": 0.17608050941489636,
         "total_steps": 45500,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10345.848643773987
+        "total_reward": 12154.11458510968,
+        "avg_naming_loss": 0.002423448693298269,
+        "avg_discrimination_loss": 0.0001786710803571623,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4506,
+      "naming_accuracy": 0.9955614735907679,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -202,46 +334,79 @@
     "agents": {
       "0": {
         "position": [
-          54.77715578159082,
-          13.979473573078373
+          94.77715578159082,
+          98.97947357307837
         ],
-        "confidence": 0.9634729217283735,
-        "avg_error": 0.019703320821281522,
-        "avg_progress": 0.01260784569894895,
+        "confidence": 0.8470565672166022,
+        "avg_error": 0.1445083851693198,
+        "avg_progress": 0.08631250080652535,
         "total_steps": 45600,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10388.67358403559
+        "total_reward": 12195.878982909406,
+        "avg_naming_loss": 0.001745474040217232,
+        "avg_discrimination_loss": 0.00013797986575809774,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          67.48421342056751,
-          87.65137603127891
+          12.484213420567514,
+          82.65137603127891
         ],
-        "confidence": 0.9266750376328816,
-        "avg_error": 0.08269320628605784,
-        "avg_progress": 0.03360436772927642,
+        "confidence": 0.6918235527171444,
+        "avg_error": 0.3323450147290714,
+        "avg_progress": 0.2055377267417498,
         "total_steps": 45600,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10369.18373323079
+        "total_reward": 12205.52256486601,
+        "avg_naming_loss": 0.001854244322566956,
+        "avg_discrimination_loss": 0.00022838942750240675,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          62.42978217029619,
-          33.74258993216853
+          82.42978217029619,
+          93.74258993216853
         ],
-        "confidence": 0.9136745945181497,
-        "avg_error": 0.11160468004527502,
-        "avg_progress": 0.058077754377154636,
+        "confidence": 0.9849436297347386,
+        "avg_error": 0.002390706300502643,
+        "avg_progress": 0.0003543417376931757,
         "total_steps": 45600,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 10372.592973308529
+        "total_reward": 12186.212771312752,
+        "avg_naming_loss": 0.002127420277975034,
+        "avg_discrimination_loss": 0.00014983841392677278,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4518,
+      "naming_accuracy": 0.9955732625055335,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -251,46 +416,79 @@
     "agents": {
       "0": {
         "position": [
-          24.448041915018635,
-          87.57896244489962
+          4.448041915018635,
+          37.57896244489962
         ],
-        "confidence": 0.9764977806737256,
-        "avg_error": 0.0038594463723711668,
-        "avg_progress": 0.0011645171442069113,
+        "confidence": 0.9168291382558139,
+        "avg_error": 0.10539957713335753,
+        "avg_progress": 0.0704376817215234,
         "total_steps": 45700,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10413.99708856074
+        "total_reward": 12218.354370069324,
+        "avg_naming_loss": 0.001553328239970142,
+        "avg_discrimination_loss": 0.00012980325082025956,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          81.14427884747556,
-          11.180690784663852
+          41.14427884747556,
+          81.18069078466385
         ],
-        "confidence": 0.9596095659751583,
-        "avg_error": 0.04711625514028128,
-        "avg_progress": 0.02989808349229861,
+        "confidence": 0.8410025608330604,
+        "avg_error": 0.19801107436651363,
+        "avg_progress": 0.08811408689944074,
         "total_steps": 45700,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10389.678888128452
+        "total_reward": 12233.869375519405,
+        "avg_naming_loss": 0.0013594607102277224,
+        "avg_discrimination_loss": 0.000191340952005703,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          74.26796800450596,
-          71.15710628284035
+          64.26796800450596,
+          91.15710628284035
         ],
-        "confidence": 0.9311562873965809,
-        "avg_error": 0.06586947143077851,
-        "avg_progress": 0.023931266088038684,
+        "confidence": 0.957265414903235,
+        "avg_error": 0.05520307895494625,
+        "avg_progress": 0.05354869001894258,
         "total_steps": 45700,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10394.216942101932
+        "total_reward": 12211.61914065042,
+        "avg_naming_loss": 0.0016647121068672278,
+        "avg_discrimination_loss": 0.00012420759994711262,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4525,
+      "naming_accuracy": 0.9955801104972376,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -300,46 +498,79 @@
     "agents": {
       "0": {
         "position": [
-          98.44197268879586,
-          17.363048682265287
+          63.44197268879586,
+          32.36304868226529
         ],
-        "confidence": 0.9845961517831976,
-        "avg_error": 0.0032643587634083814,
-        "avg_progress": 0.000835978209215682,
+        "confidence": 0.9973461286965825,
+        "avg_error": 0.0011624950042460115,
+        "avg_progress": 0.00028623206599149854,
         "total_steps": 45800,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 10435.773876878713
+        "total_reward": 12240.021826790979,
+        "avg_naming_loss": 0.001553328239970142,
+        "avg_discrimination_loss": 0.00012980325082025956,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          75.68355730403417,
-          80.96510560303693
+          40.68355730403417,
+          65.96510560303693
         ],
-        "confidence": 0.9416785101083766,
-        "avg_error": 0.07006479486590252,
-        "avg_progress": 0.03983271485194564,
+        "confidence": 0.9133926495363395,
+        "avg_error": 0.07631600892636925,
+        "avg_progress": 0.04137203155551106,
         "total_steps": 45800,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10412.41030110554
+        "total_reward": 12267.220388356971,
+        "avg_naming_loss": 0.0011490135118947364,
+        "avg_discrimination_loss": 0.0001663471517531434,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          75.860137494869,
-          63.06744950588616
+          25.860137494868994,
+          43.06744950588616
         ],
-        "confidence": 0.944369579994855,
-        "avg_error": 0.047858452028594914,
-        "avg_progress": 0.023651166004128754,
+        "confidence": 0.7789948315479366,
+        "avg_error": 0.32543729143217204,
+        "avg_progress": 0.18694370840676128,
         "total_steps": 45800,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10413.974794522963
+        "total_reward": 12240.29710656679,
+        "avg_naming_loss": 0.0010127865614776965,
+        "avg_discrimination_loss": 0.00012203835904074367,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4531,
+      "naming_accuracy": 0.9955859633634959,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -349,46 +580,79 @@
     "agents": {
       "0": {
         "position": [
-          43.187630300798176,
-          0.9952473108935465
+          18.187630300798176,
+          65.99524731089355
         ],
-        "confidence": 0.9882180029055857,
-        "avg_error": 0.003277937666280195,
-        "avg_progress": 0.0009547887893859297,
+        "confidence": 0.93255649309439,
+        "avg_error": 0.11258389811264351,
+        "avg_progress": 0.10008657787693664,
         "total_steps": 45900,
-        "vocab_size": 0,
-        "is_learning": 0,
+        "vocab_size": 4,
+        "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10460.19403880147
+        "total_reward": 12264.591353877151,
+        "avg_naming_loss": 0.0011646034887235145,
+        "avg_discrimination_loss": 0.00012422002437233458,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          49.47505385756219,
-          94.97121756983209
+          4.475053857562187,
+          99.97121756983209
         ],
-        "confidence": 0.9792278679803407,
-        "avg_error": 0.003270804032217711,
-        "avg_progress": 0.0009008039894979447,
+        "confidence": 0.9954922198391272,
+        "avg_error": 0.003854399469855707,
+        "avg_progress": 0.0008304368704557419,
         "total_steps": 45900,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 10433.516757847017
+        "total_reward": 12290.176843639938,
+        "avg_naming_loss": 0.0005629585692076943,
+        "avg_discrimination_loss": 0.00015507844036619645,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          42.36365175924669,
-          59.96469248583162
+          77.3636517592467,
+          64.96469248583162
         ],
-        "confidence": 0.9566630550085158,
-        "avg_error": 0.026708472886821256,
-        "avg_progress": 0.020096014201408254,
+        "confidence": 0.9031649310785835,
+        "avg_error": 0.10747224277292844,
+        "avg_progress": 0.05225977209920529,
         "total_steps": 45900,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10437.466542069826
+        "total_reward": 12268.549653355496,
+        "avg_naming_loss": 0.0013088180698105135,
+        "avg_discrimination_loss": 0.00012189541957923211,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4544,
+      "naming_accuracy": 0.9955985915492958,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -398,46 +662,79 @@
     "agents": {
       "0": {
         "position": [
-          53.45815906618256,
-          87.76145720348755
+          63.45815906618256,
+          32.76145720348755
         ],
-        "confidence": 0.9511970336529072,
-        "avg_error": 0.04088202836574055,
-        "avg_progress": 0.032801757304696366,
+        "confidence": 0.8961759437114055,
+        "avg_error": 0.05993666872382164,
+        "avg_progress": 0.1010801262804307,
         "total_steps": 46000,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10485.683566480677
+        "total_reward": 12290.490788374877,
+        "avg_naming_loss": 0.001573258418648038,
+        "avg_discrimination_loss": 0.0001448165192414308,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          17.498962075052404,
-          75.14119149402183
+          87.4989620750524,
+          65.14119149402183
         ],
-        "confidence": 0.932620185445639,
-        "avg_error": 0.06685473175020888,
-        "avg_progress": 0.035598284180741756,
+        "confidence": 0.9304260313356,
+        "avg_error": 0.08034179997630417,
+        "avg_progress": 0.07719965084688737,
         "total_steps": 46000,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10454.68997475487
+        "total_reward": 12315.186398547305,
+        "avg_naming_loss": 0.0012304506406508153,
+        "avg_discrimination_loss": 0.00019819458211713936,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          52.2820090224763,
-          83.0175732393454
+          12.282009022476302,
+          63.017573239345396
         ],
-        "confidence": 0.9671324917975682,
-        "avg_error": 0.034541571058798584,
-        "avg_progress": 0.019192672905046494,
+        "confidence": 0.6713221597972995,
+        "avg_error": 0.4421214553061873,
+        "avg_progress": 0.21348493576515465,
         "total_steps": 46000,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10460.488791952497
+        "total_reward": 12296.826008381107,
+        "avg_naming_loss": 0.0003864785423502326,
+        "avg_discrimination_loss": 8.149991954269354e-05,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4554,
+      "naming_accuracy": 0.9956082564778217,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -447,46 +744,79 @@
     "agents": {
       "0": {
         "position": [
-          51.756983120939026,
-          3.397249539434398
+          26.756983120939026,
+          78.3972495394344
         ],
-        "confidence": 0.9562785277992241,
-        "avg_error": 0.045835819671628995,
-        "avg_progress": 0.02413331838324666,
+        "confidence": 0.9078023822172082,
+        "avg_error": 0.0599433558061719,
+        "avg_progress": 0.04940229647327214,
         "total_steps": 46100,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10507.225341079764
+        "total_reward": 12320.042421194525,
+        "avg_naming_loss": 0.0012835825313231909,
+        "avg_discrimination_loss": 0.00012682440392381978,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          1.660961441286318,
-          91.384200711342
+          46.66096144128632,
+          56.384200711342004
         ],
-        "confidence": 0.9078535542099105,
-        "avg_error": 0.11225314540788531,
-        "avg_progress": 0.03303748834878206,
+        "confidence": 0.7472340981320437,
+        "avg_error": 0.24681601026386488,
+        "avg_progress": 0.11744732737715821,
         "total_steps": 46100,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10476.641777701618
+        "total_reward": 12342.240243898557,
+        "avg_naming_loss": 0.0011753369341022334,
+        "avg_discrimination_loss": 0.00018929105244751553,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          34.23198574515277,
-          50.36123582162871
+          9.23198574515277,
+          30.361235821628703
         ],
-        "confidence": 0.9835998652597372,
-        "avg_error": 0.0055806315620429816,
-        "avg_progress": 0.0016616731300018728,
+        "confidence": 0.9859414559156154,
+        "avg_error": 0.004609276226256042,
+        "avg_progress": 0.001441213651560247,
         "total_steps": 46100,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10485.784156587419
+        "total_reward": 12320.957277686626,
+        "avg_naming_loss": 0.0003974684310378507,
+        "avg_discrimination_loss": 8.551682294637431e-05,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4559,
+      "naming_accuracy": 0.9956130730423338,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -496,46 +826,79 @@
     "agents": {
       "0": {
         "position": [
-          65.50796326386657,
-          7.328553352267463
+          40.50796326386657,
+          42.32855335226746
         ],
-        "confidence": 0.9617600279528364,
-        "avg_error": 0.029009162184229352,
-        "avg_progress": 0.01793252760762698,
+        "confidence": 0.9328203638386885,
+        "avg_error": 0.0061326753755565734,
+        "avg_progress": 0.002858955427655019,
         "total_steps": 46200,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10530.627693386017
+        "total_reward": 12343.477594889593,
+        "avg_naming_loss": 0.0012353795566014015,
+        "avg_discrimination_loss": 0.00012820706579077523,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          10.974810045822807,
-          78.53494901458346
+          45.97481004582281,
+          28.53494901458346
         ],
-        "confidence": 0.8848745556274008,
-        "avg_error": 0.13587509277276694,
-        "avg_progress": 0.03775597834028303,
+        "confidence": 0.9812784121517704,
+        "avg_error": 0.0030284657492302357,
+        "avg_progress": 0.0004252241691574454,
         "total_steps": 46200,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 10500.86470130968
+        "total_reward": 12372.880025204007,
+        "avg_naming_loss": 0.0011617117132118437,
+        "avg_discrimination_loss": 0.00018477360463293736,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          62.54535046295304,
-          80.7172300660696
+          37.54535046295304,
+          40.7172300660696
         ],
-        "confidence": 0.9418402616299143,
-        "avg_error": 0.07235784118529409,
-        "avg_progress": 0.024381419201381503,
+        "confidence": 0.9944270371875451,
+        "avg_error": 0.0009388468752149493,
+        "avg_progress": 0.0001369541249005124,
         "total_steps": 46200,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 10510.519955929847
+        "total_reward": 12345.994409969055,
+        "avg_naming_loss": 0.0004619812600139994,
+        "avg_discrimination_loss": 8.535590131941717e-05,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4564,
+      "naming_accuracy": 0.9956178790534619,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -545,46 +908,79 @@
     "agents": {
       "0": {
         "position": [
-          56.58187312744511,
-          68.23840110940594
+          86.5818731274451,
+          8.238401109405942
         ],
-        "confidence": 0.9508777517052036,
-        "avg_error": 0.03978842787910253,
-        "avg_progress": 0.017225908325053753,
+        "confidence": 0.8836057992641716,
+        "avg_error": 0.1354207271593623,
+        "avg_progress": 0.07844013647409157,
         "total_steps": 46300,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10556.641889723398
+        "total_reward": 12369.54466725913,
+        "avg_naming_loss": 0.0038561425069929102,
+        "avg_discrimination_loss": 0.000191875361269922,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          50.3313124573544,
-          14.173998300672096
+          0.3313124573544002,
+          49.173998300672096
         ],
-        "confidence": 0.9610284125467635,
-        "avg_error": 0.04516212579328567,
-        "avg_progress": 0.020085113937966526,
+        "confidence": 0.9960064732229296,
+        "avg_error": 0.0010387256828835235,
+        "avg_progress": 0.0003945663251215592,
         "total_steps": 46300,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 10523.090543777647
+        "total_reward": 12393.197890790321,
+        "avg_naming_loss": 0.0008446595838904614,
+        "avg_discrimination_loss": 0.00020442061140784061,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          18.915515911759954,
-          74.48398316545044
+          98.91551591175995,
+          89.48398316545044
         ],
-        "confidence": 0.9324662758374127,
-        "avg_error": 0.07010669857263566,
-        "avg_progress": 0.021477687731385232,
+        "confidence": 0.8408186429718971,
+        "avg_error": 0.12132064305478707,
+        "avg_progress": 0.07503521506441757,
         "total_steps": 46300,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10533.21905336081
+        "total_reward": 12374.14071579714,
+        "avg_naming_loss": 0.0012770929130056174,
+        "avg_discrimination_loss": 0.0001048267906298861,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4571,
+      "naming_accuracy": 0.9956245898052942,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -594,46 +990,79 @@
     "agents": {
       "0": {
         "position": [
-          91.66768798855705,
-          32.523823490372486
+          81.66768798855705,
+          82.52382349037248
         ],
-        "confidence": 0.9311389902655717,
-        "avg_error": 0.07950340872630476,
-        "avg_progress": 0.025246161874383687,
+        "confidence": 0.9269500037337415,
+        "avg_error": 0.01835905257612467,
+        "avg_progress": 0.008291848469525576,
         "total_steps": 46400,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10581.46848114721
+        "total_reward": 12399.804811804404,
+        "avg_naming_loss": 0.004627368196088355,
+        "avg_discrimination_loss": 0.0001783646086551016,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          8.64612882426286,
+          13.64612882426286,
           78.85664759213537
         ],
-        "confidence": 0.9057986415991062,
-        "avg_error": 0.10782549276482314,
-        "avg_progress": 0.04771763400640339,
+        "confidence": 0.9184314129052096,
+        "avg_error": 0.09859873821260408,
+        "avg_progress": 0.09221513530937955,
         "total_steps": 46400,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10545.629256955846
+        "total_reward": 12421.746278040742,
+        "avg_naming_loss": 0.00042345301062596263,
+        "avg_discrimination_loss": 0.00018427957002131734,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          68.18067842601917,
-          24.40682372139144
+          18.18067842601917,
+          39.40682372139145
         ],
-        "confidence": 0.9681800668468306,
-        "avg_error": 0.0367902419908205,
-        "avg_progress": 0.027316765961586498,
+        "confidence": 0.9265758550770814,
+        "avg_error": 0.03785102057736367,
+        "avg_progress": 0.02909612257499248,
         "total_steps": 46400,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10556.893065609267
+        "total_reward": 12405.026211019122,
+        "avg_naming_loss": 0.0018229681190859992,
+        "avg_discrimination_loss": 0.0001284812420635717,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4581,
+      "naming_accuracy": 0.9956341410172451,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -643,46 +1072,79 @@
     "agents": {
       "0": {
         "position": [
-          23.390241766595892,
-          3.9734532934519535
+          8.3902417665959,
+          28.973453293451954
         ],
-        "confidence": 0.960962561542264,
-        "avg_error": 0.03414603237179108,
-        "avg_progress": 0.01648916457197629,
+        "confidence": 0.9535346186200278,
+        "avg_error": 0.018077975767664612,
+        "avg_progress": 0.006701902218628675,
         "total_steps": 46500,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10605.39474960448
+        "total_reward": 12430.15261989053,
+        "avg_naming_loss": 0.0048620415240293365,
+        "avg_discrimination_loss": 0.00018299521689186805,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          42.047554805979885,
-          76.9658546953592
+          37.047554805979885,
+          51.9658546953592
         ],
-        "confidence": 0.9173219903989582,
-        "avg_error": 0.0732771160081029,
-        "avg_progress": 0.029866667557507755,
+        "confidence": 0.9556607580795289,
+        "avg_error": 0.004485063211177476,
+        "avg_progress": 0.0011868717818288132,
         "total_steps": 46500,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10571.24535965636
+        "total_reward": 12448.505517542248,
+        "avg_naming_loss": 0.00044287040163908386,
+        "avg_discrimination_loss": 0.00016989941032079513,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          8.622892351621132,
-          29.88626320697348
+          48.62289235162113,
+          99.88626320697348
         ],
-        "confidence": 0.9559826114167717,
-        "avg_error": 0.049817358783911914,
-        "avg_progress": 0.03313453805167228,
+        "confidence": 0.8843242602728504,
+        "avg_error": 0.09681872316868975,
+        "avg_progress": 0.04667069321731106,
         "total_steps": 46500,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10584.561786397522
+        "total_reward": 12434.487163613827,
+        "avg_naming_loss": 0.000694799824123038,
+        "avg_discrimination_loss": 0.00011666866594168823,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4589,
+      "naming_accuracy": 0.9956417520156897,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -693,45 +1155,78 @@
       "0": {
         "position": [
           73.61502461554196,
-          81.52042924224158
+          61.520429242241576
         ],
-        "confidence": 0.9240946050854725,
-        "avg_error": 0.09372258179355412,
-        "avg_progress": 0.04834845175500959,
+        "confidence": 0.8958655194660545,
+        "avg_error": 0.10651296314608771,
+        "avg_progress": 0.1001454709621612,
         "total_steps": 46600,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10627.002500563536
+        "total_reward": 12453.603648392775,
+        "avg_naming_loss": 0.0009337612540548434,
+        "avg_discrimination_loss": 0.00010337834755773656,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          6.680357158558209,
-          48.4146112996341
+          56.68035715855821,
+          18.414611299634103
         ],
-        "confidence": 0.9574881380620082,
-        "avg_error": 0.017838885262608527,
-        "avg_progress": 0.004863922577351331,
+        "confidence": 0.7968995604760223,
+        "avg_error": 0.19862956210563426,
+        "avg_progress": 0.11988521690946072,
         "total_steps": 46600,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10594.17986218959
+        "total_reward": 12477.934495088679,
+        "avg_naming_loss": 0.0013680928059329744,
+        "avg_discrimination_loss": 0.00019486046621750575,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          27.87314405565447,
+          7.873144055654471,
           0.09512508124636554
         ],
-        "confidence": 0.9534662120791464,
-        "avg_error": 0.037760608620010315,
-        "avg_progress": 0.031848467863164844,
+        "confidence": 0.9370879878966424,
+        "avg_error": 0.04470436590781901,
+        "avg_progress": 0.0004623672197340056,
         "total_steps": 46600,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 10608.795149889162
+        "total_reward": 12458.460798426531,
+        "avg_naming_loss": 0.0003181286568178621,
+        "avg_discrimination_loss": 8.409860638494137e-05,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4600,
+      "naming_accuracy": 0.9956521739130435,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -741,46 +1236,79 @@
     "agents": {
       "0": {
         "position": [
-          36.12475108760806,
+          16.12475108760806,
           5.9364831961146365
         ],
-        "confidence": 0.9710836962593339,
-        "avg_error": 0.051187443820526826,
-        "avg_progress": 0.030937932134838773,
+        "confidence": 0.9480458955858797,
+        "avg_error": 0.06272992276353762,
+        "avg_progress": 0.050349487020866945,
         "total_steps": 46700,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10651.451804071166
+        "total_reward": 12477.24981824302,
+        "avg_naming_loss": 0.0011914578390133101,
+        "avg_discrimination_loss": 0.00011100106275989674,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          73.24590492647651,
-          11.278419263393232
+          98.24590492647651,
+          86.27841926339323
         ],
-        "confidence": 0.9771794239231687,
-        "avg_error": 0.008046736303367653,
-        "avg_progress": 0.00243823210184928,
+        "confidence": 0.767650995540499,
+        "avg_error": 0.2799728036858141,
+        "avg_progress": 0.18987388073001057,
         "total_steps": 46700,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10618.601112107111
+        "total_reward": 12506.717310945884,
+        "avg_naming_loss": 0.0018878704162489158,
+        "avg_discrimination_loss": 0.00023906734204501845,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          24.712823983452168,
-          78.2928478324345
+          29.712823983452168,
+          13.292847832434504
         ],
-        "confidence": 0.9493967454312019,
-        "avg_error": 0.05740909448359162,
-        "avg_progress": 0.01953335659345612,
+        "confidence": 0.9422501432244369,
+        "avg_error": 0.04572025921952445,
+        "avg_progress": 0.0009858046396402642,
         "total_steps": 46700,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 10631.250844289963
+        "total_reward": 12484.544852696987,
+        "avg_naming_loss": 0.000291161727909639,
+        "avg_discrimination_loss": 0.00011879650191986002,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4606,
+      "naming_accuracy": 0.9956578376031263,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -790,46 +1318,79 @@
     "agents": {
       "0": {
         "position": [
-          89.16437375556072,
-          55.52746660946988
+          99.16437375556072,
+          50.52746660946988
         ],
-        "confidence": 0.9321672996637744,
-        "avg_error": 0.05140094929374754,
-        "avg_progress": 0.012825211207382382,
+        "confidence": 0.8344079678843178,
+        "avg_error": 0.1944034657208249,
+        "avg_progress": 0.09656347266864032,
         "total_steps": 46800,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10674.54471246762
+        "total_reward": 12509.737756633866,
+        "avg_naming_loss": 0.0011674619861878454,
+        "avg_discrimination_loss": 0.00012274759938009084,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          80.79268041305133,
-          90.16149316954701
+          15.792680413051325,
+          45.161493169547015
         ],
-        "confidence": 0.9341309487752077,
-        "avg_error": 0.056894505582749846,
-        "avg_progress": 0.01894729621708393,
+        "confidence": 0.9453462684830817,
+        "avg_error": 0.005505981401074678,
+        "avg_progress": 0.0009100027731619775,
         "total_steps": 46800,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 10643.362741345942
+        "total_reward": 12535.592657178313,
+        "avg_naming_loss": 0.0010637399420375005,
+        "avg_discrimination_loss": 0.0001919435650052037,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          31.6974372894894,
-          5.156358365511579
+          41.6974372894894,
+          85.15635836551158
         ],
-        "confidence": 0.9875796073192427,
-        "avg_error": 0.0023542373382952064,
-        "avg_progress": 0.0006400167039828375,
+        "confidence": 0.9958992482328086,
+        "avg_error": 0.0007430698344251141,
+        "avg_progress": 0.00037592672306345775,
         "total_steps": 46800,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 10652.41367714443
+        "total_reward": 12507.726957689965,
+        "avg_naming_loss": 0.00016978145881694218,
+        "avg_discrimination_loss": 0.00011405873665353284,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4620,
+      "naming_accuracy": 0.9956709956709957,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -839,46 +1400,79 @@
     "agents": {
       "0": {
         "position": [
-          37.42860778695707,
-          1.5841906551666796
+          32.42860778695707,
+          86.58419065516668
         ],
-        "confidence": 0.94743969979222,
-        "avg_error": 0.04726130415219813,
-        "avg_progress": 0.01941089213360101,
+        "confidence": 0.8699801488835763,
+        "avg_error": 0.1890141955111176,
+        "avg_progress": 0.13396497978828847,
         "total_steps": 46900,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10700.53403359786
+        "total_reward": 12539.75150939788,
+        "avg_naming_loss": 0.0011295962234726177,
+        "avg_discrimination_loss": 0.0001112094076233916,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          95.58739761472086,
-          98.20304102206326
+          20.58739761472085,
+          53.20304102206326
         ],
-        "confidence": 0.9064497451740716,
-        "avg_error": 0.09608135167509317,
-        "avg_progress": 0.03184677008539438,
+        "confidence": 0.8415772917022799,
+        "avg_error": 0.24521856403443962,
+        "avg_progress": 0.16394248559372498,
         "total_steps": 46900,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10669.00040315753
+        "total_reward": 12559.763095734637,
+        "avg_naming_loss": 0.0007004262564805685,
+        "avg_discrimination_loss": 0.00018921463342849165,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          16.730501400771686,
-          7.003804313929493
+          36.730501400771686,
+          32.00380431392949
         ],
-        "confidence": 0.9360332708929296,
-        "avg_error": 0.06997058851993643,
-        "avg_progress": 0.028676440397975966,
+        "confidence": 0.9815621585286415,
+        "avg_error": 0.004312945739366114,
+        "avg_progress": 0.0011822945030871778,
         "total_steps": 46900,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10674.695803454428
+        "total_reward": 12534.256713196039,
+        "avg_naming_loss": 0.0004164176164977107,
+        "avg_discrimination_loss": 0.0001127534964325605,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4626,
+      "naming_accuracy": 0.9956766104626027,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -888,46 +1482,79 @@
     "agents": {
       "0": {
         "position": [
-          26.00933295642097,
-          3.0647156325186984
+          51.00933295642097,
+          58.0647156325187
         ],
-        "confidence": 0.9650378027573526,
-        "avg_error": 0.03885992166469805,
-        "avg_progress": 0.017567769455490635,
+        "confidence": 0.7678992147263897,
+        "avg_error": 0.2521646430948749,
+        "avg_progress": 0.09101953736972064,
         "total_steps": 47000,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10722.550829665044
+        "total_reward": 12566.0788480015,
+        "avg_naming_loss": 0.0013822081324178725,
+        "avg_discrimination_loss": 0.00010591733698674943,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          72.64683459769962,
-          69.58178843691589
+          67.64683459769962,
+          14.581788436915886
         ],
-        "confidence": 0.9193530087924959,
-        "avg_error": 0.08433904815465212,
-        "avg_progress": 0.028680731542408466,
+        "confidence": 0.9935880486343269,
+        "avg_error": 0.0028442704409826548,
+        "avg_progress": 0.0007684250682359562,
         "total_steps": 47000,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 10692.318276119064
+        "total_reward": 12583.794154270625,
+        "avg_naming_loss": 0.0005588334870481049,
+        "avg_discrimination_loss": 0.00017787412871257403,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          18.695729407125953,
-          75.06928798959966
+          73.69572940712595,
+          15.069287989599658
         ],
-        "confidence": 0.9683436398707668,
-        "avg_error": 0.015816846673260443,
-        "avg_progress": 0.007882828524452634,
+        "confidence": 0.9945221682973021,
+        "avg_error": 0.0035974203739897346,
+        "avg_progress": 0.002265039949270431,
         "total_steps": 47000,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10694.415131575295
+        "total_reward": 12559.249568580382,
+        "avg_naming_loss": 0.0005498509337030555,
+        "avg_discrimination_loss": 0.00011402886993892026,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4628,
+      "naming_accuracy": 0.9956784788245462,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -937,46 +1564,79 @@
     "agents": {
       "0": {
         "position": [
-          88.12415807821499,
-          19.31563039363887
+          38.12415807821499,
+          4.31563039363887
         ],
-        "confidence": 0.9325838079812182,
-        "avg_error": 0.07015777686028742,
-        "avg_progress": 0.027985515660839157,
+        "confidence": 0.8848944598373235,
+        "avg_error": 0.15346008925698698,
+        "avg_progress": 0.12937103876611217,
         "total_steps": 47100,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10746.513200411591
+        "total_reward": 12592.459396617933,
+        "avg_naming_loss": 0.0013822081324178725,
+        "avg_discrimination_loss": 0.00010591733698674943,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          97.54217311908918,
-          58.50351594386103
+          62.54217311908917,
+          88.50351594386103
         ],
-        "confidence": 0.9210988644174845,
-        "avg_error": 0.0880955200176686,
-        "avg_progress": 0.03495749849826098,
+        "confidence": 0.983140675981467,
+        "avg_error": 0.002411028355709277,
+        "avg_progress": 0.0002961768273962662,
         "total_steps": 47100,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 10714.369633186443
+        "total_reward": 12608.50950876059,
+        "avg_naming_loss": 0.0005003418382329983,
+        "avg_discrimination_loss": 0.0001763664316968061,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          56.07909807221556,
-          70.5741101657147
+          6.079098072215558,
+          55.57411016571471
         ],
-        "confidence": 0.9539362296520947,
-        "avg_error": 0.04720113181974739,
-        "avg_progress": 0.0316026546061039,
+        "confidence": 0.9247454691048002,
+        "avg_error": 0.0819477860990446,
+        "avg_progress": 0.08080566329299473,
         "total_steps": 47100,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10716.198535858146
+        "total_reward": 12585.06487606474,
+        "avg_naming_loss": 0.0006686411417831551,
+        "avg_discrimination_loss": 0.0001278376435948303,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4636,
+      "naming_accuracy": 0.9956859361518551,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -986,46 +1646,79 @@
     "agents": {
       "0": {
         "position": [
-          69.40642866495023,
-          81.76058931610325
+          14.406428664950226,
+          16.76058931610325
         ],
-        "confidence": 0.939406351320004,
-        "avg_error": 0.07315096547827124,
-        "avg_progress": 0.02114783935248852,
+        "confidence": 0.9707349365549043,
+        "avg_error": 0.013804039324168117,
+        "avg_progress": 0.00876364751602523,
         "total_steps": 47200,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10769.071719549533
+        "total_reward": 12615.855984642789,
+        "avg_naming_loss": 0.0013523063142201863,
+        "avg_discrimination_loss": 9.980266295315233e-05,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          50.956152071995064,
-          2.382024792467746
+          65.95615207199506,
+          57.382024792467746
         ],
-        "confidence": 0.9465993417562185,
-        "avg_error": 0.05479165898141218,
-        "avg_progress": 0.021095578507811297,
+        "confidence": 0.9458176278960113,
+        "avg_error": 0.004169486474711448,
+        "avg_progress": 0.0008470238943118602,
         "total_steps": 47200,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 10738.493201746338
+        "total_reward": 12634.697248681101,
+        "avg_naming_loss": 0.0006826203607488424,
+        "avg_discrimination_loss": 0.00018646156167960725,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          12.948765667507601,
-          55.79765532070185
+          37.9487656675076,
+          5.79765532070185
         ],
-        "confidence": 0.956277161550419,
-        "avg_error": 0.03928471833933145,
-        "avg_progress": 0.02038783337920904,
+        "confidence": 0.9201697136540858,
+        "avg_error": 0.14127887645736337,
+        "avg_progress": 0.052930848905816674,
         "total_steps": 47200,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10740.055987031119
+        "total_reward": 12613.363506430973,
+        "avg_naming_loss": 0.00041727274619915986,
+        "avg_discrimination_loss": 0.000129566082614474,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4643,
+      "naming_accuracy": 0.9956924402326083,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -1035,46 +1728,79 @@
     "agents": {
       "0": {
         "position": [
-          52.22956298989503,
-          63.41406220708318
+          2.2295629898950295,
+          93.41406220708318
         ],
-        "confidence": 0.9229790812908144,
-        "avg_error": 0.07366258995607496,
-        "avg_progress": 0.034739342797547576,
+        "confidence": 0.9550452608791156,
+        "avg_error": 0.0027426110056694595,
+        "avg_progress": 0.0003021403041202575,
         "total_steps": 47300,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 10795.028126997402
+        "total_reward": 12644.34845069239,
+        "avg_naming_loss": 0.001273198434500955,
+        "avg_discrimination_loss": 9.210859352606348e-05,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          20.18314182160543,
-          3.48623878611005
+          85.18314182160543,
+          58.48623878611005
         ],
-        "confidence": 0.9643618401530312,
-        "avg_error": 0.029548351326957344,
-        "avg_progress": 0.016037896345369517,
+        "confidence": 0.856091090626173,
+        "avg_error": 0.1952618089853786,
+        "avg_progress": 0.09288464087294415,
         "total_steps": 47300,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10762.449615389316
+        "total_reward": 12661.956378358993,
+        "avg_naming_loss": 0.0014489772045635618,
+        "avg_discrimination_loss": 0.00019352294621057808,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          89.08766776379002,
-          20.07629534215394
+          4.087667763790023,
+          75.07629534215394
         ],
-        "confidence": 0.9479607934708711,
-        "avg_error": 0.0513724468415603,
-        "avg_progress": 0.020296201412566005,
+        "confidence": 0.9452864804222696,
+        "avg_error": 0.01289575988193974,
+        "avg_progress": 0.0025500829215161502,
         "total_steps": 47300,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10761.388752001869
+        "total_reward": 12640.07013239061,
+        "avg_naming_loss": 0.0007778723324008751,
+        "avg_discrimination_loss": 0.00012632997677428648,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4655,
+      "naming_accuracy": 0.9957035445757251,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -1084,46 +1810,79 @@
     "agents": {
       "0": {
         "position": [
-          17.556210200915473,
+          7.55621020091548,
           52.026658127483884
         ],
-        "confidence": 0.9427254524927704,
-        "avg_error": 0.04344892128719948,
-        "avg_progress": 0.030672840721672402,
+        "confidence": 0.8460006127570182,
+        "avg_error": 0.22443173031206243,
+        "avg_progress": 0.14970112996234092,
         "total_steps": 47400,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10819.984555932564
+        "total_reward": 12670.259660947144,
+        "avg_naming_loss": 0.0005958929239568533,
+        "avg_discrimination_loss": 9.244232460332568e-05,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          70.94163547761814,
-          27.702211757514675
+          45.941635477618135,
+          2.702211757514675
         ],
-        "confidence": 0.9660775671558512,
-        "avg_error": 0.03880826425593113,
-        "avg_progress": 0.02680369375884766,
+        "confidence": 0.8670009597323975,
+        "avg_error": 0.1492111000872683,
+        "avg_progress": 0.06096871395711787,
         "total_steps": 47400,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10788.762700785626
+        "total_reward": 12688.555714152571,
+        "avg_naming_loss": 0.0017590497111086734,
+        "avg_discrimination_loss": 0.00017742018171702513,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          46.13728787983503,
-          32.77078292337603
+          71.13728787983503,
+          52.77078292337603
         ],
-        "confidence": 0.9827831247721042,
-        "avg_error": 0.010184259677771479,
-        "avg_progress": 0.0029432606068439783,
+        "confidence": 0.9480393365757672,
+        "avg_error": 0.054583174557774325,
+        "avg_progress": 0.0004850453435210511,
         "total_steps": 47400,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 10784.33842039493
+        "total_reward": 12661.380392424138,
+        "avg_naming_loss": 0.0006056932170395157,
+        "avg_discrimination_loss": 0.0001228316526976414,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4667,
+      "naming_accuracy": 0.9957145918148703,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -1133,46 +1892,79 @@
     "agents": {
       "0": {
         "position": [
-          47.408670625714514,
-          28.970705646436855
+          2.4086706257145067,
+          13.970705646436855
         ],
-        "confidence": 0.9753986566421523,
-        "avg_error": 0.005587729159742594,
-        "avg_progress": 0.001767200161702931,
+        "confidence": 0.9297423414175988,
+        "avg_error": 0.012331827910384164,
+        "avg_progress": 0.005084609886398539,
         "total_steps": 47500,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10844.388191365824
+        "total_reward": 12701.099563656031,
+        "avg_naming_loss": 0.001159439365801518,
+        "avg_discrimination_loss": 9.399188347742893e-05,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          53.28409728344593,
-          71.83802104143388
+          18.28409728344593,
+          11.838021041433876
         ],
-        "confidence": 0.880083901803227,
-        "avg_error": 0.12755544886458664,
-        "avg_progress": 0.05084774636197835,
+        "confidence": 0.8292711827809931,
+        "avg_error": 0.1683427781565115,
+        "avg_progress": 0.11449807521421462,
         "total_steps": 47500,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10817.726815173368
+        "total_reward": 12718.59717513755,
+        "avg_naming_loss": 0.0015916676027700305,
+        "avg_discrimination_loss": 0.00016819490447232964,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          48.553754341060795,
-          34.333091336371254
+          53.553754341060795,
+          19.333091336371254
         ],
-        "confidence": 0.9746514503736877,
-        "avg_error": 0.029051656037336216,
-        "avg_progress": 0.017293213604716584,
+        "confidence": 0.9478632863195652,
+        "avg_error": 0.07973433129518526,
+        "avg_progress": 0.0423281605282682,
         "total_steps": 47500,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10810.229002795622
+        "total_reward": 12691.74997389297,
+        "avg_naming_loss": 0.0006056932170395157,
+        "avg_discrimination_loss": 0.0001228316526976414,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4672,
+      "naming_accuracy": 0.9957191780821918,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -1182,46 +1974,79 @@
     "agents": {
       "0": {
         "position": [
-          24.99664006728912,
-          29.19065036762106
+          54.99664006728912,
+          59.19065036762106
         ],
-        "confidence": 0.941599744888325,
-        "avg_error": 0.08522578857373446,
-        "avg_progress": 0.043472463125362994,
+        "confidence": 0.9319305115039306,
+        "avg_error": 0.05800574318272993,
+        "avg_progress": 0.04913345741806552,
         "total_steps": 47600,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10867.418510449705
+        "total_reward": 12732.707039495617,
+        "avg_naming_loss": 0.0009569349898811197,
+        "avg_discrimination_loss": 9.300849851570092e-05,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          82.81407558651875,
-          15.34798039451853
+          47.814075586518754,
+          0.3479803945185296
         ],
-        "confidence": 0.9707270744435292,
-        "avg_error": 0.025764069285651205,
-        "avg_progress": 0.01869603458471829,
+        "confidence": 0.9257806997225634,
+        "avg_error": 0.08919537935871631,
+        "avg_progress": 0.08776673344545997,
         "total_steps": 47600,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10841.13597967983
+        "total_reward": 12745.907284942763,
+        "avg_naming_loss": 0.0008038615487748757,
+        "avg_discrimination_loss": 0.00012677641534537544,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          66.88111165089246,
-          75.20039113570039
+          61.881111650892464,
+          0.2003911357003858
         ],
-        "confidence": 0.9647488788080506,
-        "avg_error": 0.029236442316323517,
-        "avg_progress": 0.021261382941156627,
+        "confidence": 0.9632352962112677,
+        "avg_error": 0.004236702749039978,
+        "avg_progress": 0.0007909963140264153,
         "total_steps": 47600,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 10833.027592923381
+        "total_reward": 12717.98055225831,
+        "avg_naming_loss": 0.0009455970079216058,
+        "avg_discrimination_loss": 0.00010934452875517308,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4692,
+      "naming_accuracy": 0.9957374254049446,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -1231,46 +2056,79 @@
     "agents": {
       "0": {
         "position": [
-          93.10368391263086,
-          73.44496340212186
+          83.10368391263086,
+          58.44496340212186
         ],
-        "confidence": 0.9260361290995202,
-        "avg_error": 0.07641661167144775,
-        "avg_progress": 0.01952453628182411,
+        "confidence": 0.7152893620840524,
+        "avg_error": 0.44052120111882687,
+        "avg_progress": 0.16198473013937473,
         "total_steps": 47700,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10892.323154996564
+        "total_reward": 12762.610314775064,
+        "avg_naming_loss": 0.0013688276994798798,
+        "avg_discrimination_loss": 9.544608474243432e-05,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          67.37580268307195,
-          29.110981312694094
+          87.37580268307195,
+          39.11098131269409
         ],
-        "confidence": 0.9136815397242932,
-        "avg_error": 0.10085112759261392,
-        "avg_progress": 0.06636094505665824,
+        "confidence": 0.9642303688704928,
+        "avg_error": 0.008613995928317308,
+        "avg_progress": 0.001233164151199162,
         "total_steps": 47700,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10867.328556155113
+        "total_reward": 12773.228487127913,
+        "avg_naming_loss": 0.0007002635727985762,
+        "avg_discrimination_loss": 0.00014781979807594326,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          93.14845327004375,
-          17.76418183701034
+          23.148453270043753,
+          47.764181837010334
         ],
-        "confidence": 0.9325730653691461,
-        "avg_error": 0.07076604096218944,
-        "avg_progress": 0.04588012308813631,
+        "confidence": 0.995156642166356,
+        "avg_error": 0.004701802943600342,
+        "avg_progress": 0.0026072018139529974,
         "total_steps": 47700,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10856.712124406024
+        "total_reward": 12735.130998640963,
+        "avg_naming_loss": 0.0009466111327128601,
+        "avg_discrimination_loss": 0.00010744336977950298,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4702,
+      "naming_accuracy": 0.9957464908549554,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -1280,46 +2138,79 @@
     "agents": {
       "0": {
         "position": [
-          92.53780170641129,
-          57.21960519175235
+          47.53780170641129,
+          27.21960519175235
         ],
-        "confidence": 0.9290962107380115,
-        "avg_error": 0.0833711737766862,
-        "avg_progress": 0.01781064085662365,
+        "confidence": 0.9806184264010508,
+        "avg_error": 0.0026907105842838065,
+        "avg_progress": 0.0006371528696035966,
         "total_steps": 47800,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 10915.040644039993
+        "total_reward": 12786.52614650548,
+        "avg_naming_loss": 0.000908318160509225,
+        "avg_discrimination_loss": 9.59169221459888e-05,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          72.67138057305722,
-          89.41231626384939
+          92.67138057305722,
+          4.412316263849391
         ],
-        "confidence": 0.934351018772816,
-        "avg_error": 0.07623688071034848,
-        "avg_progress": 0.05097655202262104,
+        "confidence": 0.9342588806902485,
+        "avg_error": 0.08564117607020308,
+        "avg_progress": 0.04235223097202834,
         "total_steps": 47800,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10887.103277412054
+        "total_reward": 12798.604448617474,
+        "avg_naming_loss": 0.0007403235966194188,
+        "avg_discrimination_loss": 0.00016037670757214074,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          4.3088406244277735,
-          16.334361666310357
+          54.30884062442777,
+          26.334361666310357
         ],
-        "confidence": 0.9198326590159489,
-        "avg_error": 0.1038672731956467,
-        "avg_progress": 0.09038320442195982,
+        "confidence": 0.9992267875311145,
+        "avg_error": 0.00043068707673228347,
+        "avg_progress": 9.227871414623224e-05,
         "total_steps": 47800,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 10878.680605682268
+        "total_reward": 12753.703953564038,
+        "avg_naming_loss": 0.0009466111327128601,
+        "avg_discrimination_loss": 0.00010744336977950298,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4705,
+      "naming_accuracy": 0.9957492029755579,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -1329,46 +2220,79 @@
     "agents": {
       "0": {
         "position": [
-          52.30636921297424,
-          50.632968402627924
+          17.30636921297424,
+          0.6329684026279239
         ],
-        "confidence": 0.9312272639464629,
-        "avg_error": 0.0902671761228703,
-        "avg_progress": 0.052192440221551804,
+        "confidence": 0.9810114352382627,
+        "avg_error": 0.0021097403252497314,
+        "avg_progress": 0.0005178770516067743,
         "total_steps": 47900,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 10938.898465089887
+        "total_reward": 12816.242954353827,
+        "avg_naming_loss": 0.0009271725662983954,
+        "avg_discrimination_loss": 9.557124685670715e-05,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          56.16457725960266,
-          75.85594849513299
+          81.16457725960265,
+          90.85594849513299
         ],
-        "confidence": 0.9241846616762099,
-        "avg_error": 0.09766110428608954,
-        "avg_progress": 0.05463671195320785,
+        "confidence": 0.9864825150261979,
+        "avg_error": 0.0019150261417962612,
+        "avg_progress": 0.00022765008616261185,
         "total_steps": 47900,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 10911.540865833294
+        "total_reward": 12823.888914226492,
+        "avg_naming_loss": 0.0005644289063639008,
+        "avg_discrimination_loss": 0.00016917312022997067,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          87.34986659530244,
-          19.081511608755733
+          52.349866595302444,
+          69.08151160875573
         ],
-        "confidence": 0.9469004753698493,
-        "avg_error": 0.06507254601456225,
-        "avg_progress": 0.031777697056531905,
+        "confidence": 0.842477743596682,
+        "avg_error": 0.1361941218492575,
+        "avg_progress": 0.04828422768041492,
         "total_steps": 47900,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10902.363451416533
+        "total_reward": 12786.932870365694,
+        "avg_naming_loss": 0.0008183155270671705,
+        "avg_discrimination_loss": 0.00010261590177833569,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4719,
+      "naming_accuracy": 0.9957618139436322,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -1378,46 +2302,79 @@
     "agents": {
       "0": {
         "position": [
-          85.10676935265269,
-          93.9253083855537
+          80.10676935265269,
+          98.9253083855537
         ],
-        "confidence": 0.9306916685939713,
-        "avg_error": 0.06681494143558667,
-        "avg_progress": 0.04315800160402432,
+        "confidence": 0.9118356792416211,
+        "avg_error": 0.07512526254868135,
+        "avg_progress": 0.0394689981942065,
         "total_steps": 48000,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10961.093094410102
+        "total_reward": 12841.299894133419,
+        "avg_naming_loss": 0.0010336058570828755,
+        "avg_discrimination_loss": 9.027879204950295e-05,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          18.897741118726685,
+          58.897741118726685,
           78.41624838304034
         ],
-        "confidence": 0.8871356433563345,
-        "avg_error": 0.11926754293963313,
-        "avg_progress": 0.043874095845967534,
+        "confidence": 0.8536673692084646,
+        "avg_error": 0.16178679456934333,
+        "avg_progress": 0.0804223295301199,
         "total_steps": 48000,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10937.966520711534
+        "total_reward": 12856.120612370023,
+        "avg_naming_loss": 0.0006126900469098473,
+        "avg_discrimination_loss": 0.00016866050609678495,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          88.09809043890698,
-          14.041372298825593
+          73.09809043890698,
+          34.04137229882559
         ],
-        "confidence": 0.9762927607947584,
-        "avg_error": 0.008025426513631828,
-        "avg_progress": 0.003493983062799089,
+        "confidence": 0.9945228978467264,
+        "avg_error": 0.006353349313576473,
+        "avg_progress": 0.0020861429555225188,
         "total_steps": 48000,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10924.665892713874
+        "total_reward": 12809.626591780023,
+        "avg_naming_loss": 0.0007830289730918593,
+        "avg_discrimination_loss": 0.0001097438478609547,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4726,
+      "naming_accuracy": 0.9957680914092255,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -1427,46 +2384,79 @@
     "agents": {
       "0": {
         "position": [
-          62.55109109872832,
-          52.17256214677706
+          7.551091098728321,
+          57.17256214677707
         ],
-        "confidence": 0.9515345526068046,
-        "avg_error": 0.04273069009941537,
-        "avg_progress": 0.014563030560384504,
+        "confidence": 0.7673146767314747,
+        "avg_error": 0.16615629508160054,
+        "avg_progress": 0.15704013840295375,
         "total_steps": 48100,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10980.51628636593
+        "total_reward": 12874.878764762665,
+        "avg_naming_loss": 0.0007163544825743884,
+        "avg_discrimination_loss": 8.82644220837392e-05,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          0.33134182373299836,
-          19.091393446855093
+          90.331341823733,
+          94.0913934468551
         ],
-        "confidence": 0.9712195117485877,
-        "avg_error": 0.026563017745502293,
-        "avg_progress": 0.016365715605206787,
+        "confidence": 0.9629037954702767,
+        "avg_error": 0.05490742588881403,
+        "avg_progress": 0.0441799582738895,
         "total_steps": 48100,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10961.297906621552
+        "total_reward": 12879.225150529599,
+        "avg_naming_loss": 0.0005131770016305381,
+        "avg_discrimination_loss": 0.0001723794692225056,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          73.51152891155714,
-          78.14269944469719
+          28.511528911557136,
+          93.14269944469719
         ],
-        "confidence": 0.9316472773360228,
-        "avg_error": 0.06282068970613182,
-        "avg_progress": 0.02310190782882273,
+        "confidence": 0.9896527832726331,
+        "avg_error": 0.0015342786427936517,
+        "avg_progress": 0.0007499005514546297,
         "total_steps": 48100,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 10947.63351043561
+        "total_reward": 12836.913751216354,
+        "avg_naming_loss": 0.000581493145909917,
+        "avg_discrimination_loss": 9.917685929394793e-05,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4736,
+      "naming_accuracy": 0.995777027027027,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -1476,46 +2466,79 @@
     "agents": {
       "0": {
         "position": [
-          15.7766449790075,
-          7.762579828791985
+          60.7766449790075,
+          77.76257982879198
         ],
-        "confidence": 0.9725435570977127,
-        "avg_error": 0.03257328539511946,
-        "avg_progress": 0.023301225697287008,
+        "confidence": 0.8955053591481479,
+        "avg_error": 0.06753820671583526,
+        "avg_progress": 0.04570852000615559,
         "total_steps": 48200,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11003.213300300056
+        "total_reward": 12906.035803804232,
+        "avg_naming_loss": 0.000609880177580635,
+        "avg_discrimination_loss": 9.288930959883146e-05,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          84.68103030217927,
-          66.25812069436726
+          39.68103030217927,
+          36.258120694367264
         ],
-        "confidence": 0.9042094437918857,
-        "avg_error": 0.08524605575948954,
-        "avg_progress": 0.02746625728905201,
+        "confidence": 0.9377253772726502,
+        "avg_error": 0.09278218975232448,
+        "avg_progress": 0.08875394653587136,
         "total_steps": 48200,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10985.987906802871
+        "total_reward": 12905.190124762988,
+        "avg_naming_loss": 0.00043753285362981844,
+        "avg_discrimination_loss": 0.00014399399879039265,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          92.33552456573359,
-          96.83369442914596
+          22.335524565733593,
+          16.833694429145964
         ],
-        "confidence": 0.9403161954636394,
-        "avg_error": 0.05292221326380968,
-        "avg_progress": 0.027373037207871674,
+        "confidence": 0.973789453109312,
+        "avg_error": 0.003959351743105799,
+        "avg_progress": 0.0006206028745509684,
         "total_steps": 48200,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 10971.390500797768
+        "total_reward": 12866.823958269146,
+        "avg_naming_loss": 0.000639899433190294,
+        "avg_discrimination_loss": 9.833057083596941e-05,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4742,
+      "naming_accuracy": 0.995782370307887,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -1525,46 +2548,79 @@
     "agents": {
       "0": {
         "position": [
-          50.23932189959686,
-          2.2571086414170836
+          65.23932189959686,
+          12.257108641417084
         ],
-        "confidence": 0.9379559884852339,
-        "avg_error": 0.10669561464746949,
-        "avg_progress": 0.06236828078108374,
+        "confidence": 0.9251286908864899,
+        "avg_error": 0.09280867889756336,
+        "avg_progress": 0.08974331648205407,
         "total_steps": 48300,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11028.94242976364
+        "total_reward": 12930.768624110773,
+        "avg_naming_loss": 0.000609880177580635,
+        "avg_discrimination_loss": 9.288930959883146e-05,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          86.94945066463289,
-          86.96171303228864
+          91.94945066463289,
+          91.96171303228864
         ],
-        "confidence": 0.8973151333252324,
-        "avg_error": 0.12282882928848267,
-        "avg_progress": 0.046458961348980664,
+        "confidence": 0.6762215055547519,
+        "avg_error": 0.467336156591773,
+        "avg_progress": 0.1265277369238902,
         "total_steps": 48300,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11010.33115983489
+        "total_reward": 12932.479914279196,
+        "avg_naming_loss": 0.0012388764434035694,
+        "avg_discrimination_loss": 0.00016633348168397787,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          65.51823432584182,
-          1.6570099087367538
+          75.51823432584182,
+          86.65700990873675
         ],
-        "confidence": 0.935233057368333,
-        "avg_error": 0.05696097225882113,
-        "avg_progress": 0.03920203661546111,
+        "confidence": 0.9367233271736012,
+        "avg_error": 0.08416637876071036,
+        "avg_progress": 0.06019919820246287,
         "total_steps": 48300,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 10994.507979227
+        "total_reward": 12895.13264025824,
+        "avg_naming_loss": 0.0007061682246785495,
+        "avg_discrimination_loss": 9.58751275902614e-05,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4748,
+      "naming_accuracy": 0.995787700084246,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -1574,46 +2630,79 @@
     "agents": {
       "0": {
         "position": [
-          61.12971736193913,
-          89.8808569187425
+          91.12971736193913,
+          44.880856918742495
         ],
-        "confidence": 0.9787402989151808,
-        "avg_error": 0.01735130721644964,
-        "avg_progress": 0.00791666616278235,
+        "confidence": 0.9911862464488612,
+        "avg_error": 0.002323004568461329,
+        "avg_progress": 0.000614578032400459,
         "total_steps": 48400,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 11049.852282497748
+        "total_reward": 12953.578086977604,
+        "avg_naming_loss": 0.0011757313843190787,
+        "avg_discrimination_loss": 0.00012797988238162362,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          57.60079033637953,
-          28.60682393238092
+          92.60079033637953,
+          13.60682393238092
         ],
-        "confidence": 0.9955730698389956,
-        "avg_error": 0.001668706962664146,
-        "avg_progress": 0.0003365476601175033,
+        "confidence": 0.991963051069108,
+        "avg_error": 0.005033737351186574,
+        "avg_progress": 0.00047740908339619634,
         "total_steps": 48400,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 11030.167574877065
+        "total_reward": 12950.906898390662,
+        "avg_naming_loss": 0.0015166353395215993,
+        "avg_discrimination_loss": 0.00018686926596274135,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          72.09682422413722,
-          74.6229832976894
+          57.09682422413722,
+          24.6229832976894
         ],
-        "confidence": 0.9615327510942265,
-        "avg_error": 0.033315700199455026,
-        "avg_progress": 0.02043119599111378,
+        "confidence": 0.9847561575799301,
+        "avg_error": 0.0012019185654935428,
+        "avg_progress": 0.0002781322560622357,
         "total_steps": 48400,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 11015.980886884505
+        "total_reward": 12915.19465389117,
+        "avg_naming_loss": 0.000733338148893381,
+        "avg_discrimination_loss": 9.570825422997587e-05,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4754,
+      "naming_accuracy": 0.995793016407236,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -1623,46 +2712,79 @@
     "agents": {
       "0": {
         "position": [
-          92.32802311998195,
-          86.06782540469783
+          87.32802311998195,
+          71.06782540469783
         ],
-        "confidence": 0.9523990031983648,
-        "avg_error": 0.031898083677515385,
-        "avg_progress": 0.01741457707248628,
+        "confidence": 0.8254012388158045,
+        "avg_error": 0.17690134069416671,
+        "avg_progress": 0.05914186888840049,
         "total_steps": 48500,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11073.89795876302
+        "total_reward": 12983.508091666747,
+        "avg_naming_loss": 0.0016259736885331222,
+        "avg_discrimination_loss": 0.00012729508889606223,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          87.72600234798274,
-          30.535116976093043
+          77.72600234798274,
+          60.535116976093036
         ],
-        "confidence": 0.9603266828194443,
-        "avg_error": 0.03612178681069054,
-        "avg_progress": 0.01770358008216135,
+        "confidence": 0.8643441907532659,
+        "avg_error": 0.0831215153215453,
+        "avg_progress": 0.042967896535992624,
         "total_steps": 48500,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11052.652272904788
+        "total_reward": 12982.270488762702,
+        "avg_naming_loss": 0.0015612937953846996,
+        "avg_discrimination_loss": 0.0001931270475324709,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          3.977039952157213,
-          15.612305137865086
+          83.97703995215721,
+          45.612305137865086
         ],
-        "confidence": 0.9595589563188742,
-        "avg_error": 0.03174094355781563,
-        "avg_progress": 0.019923236954491587,
+        "confidence": 0.9979182747715908,
+        "avg_error": 0.001008479532902129,
+        "avg_progress": 0.00018064655305352061,
         "total_steps": 48500,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 11041.379753990808
+        "total_reward": 12937.289454658589,
+        "avg_naming_loss": 0.0004620855350367492,
+        "avg_discrimination_loss": 0.00012029270037601236,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4763,
+      "naming_accuracy": 0.9958009657778711,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -1672,46 +2794,79 @@
     "agents": {
       "0": {
         "position": [
-          19.86413023749043,
-          13.634143931349485
+          49.86413023749043,
+          28.634143931349485
         ],
-        "confidence": 0.9614143855919532,
-        "avg_error": 0.02941734314081259,
-        "avg_progress": 0.014710444453521631,
+        "confidence": 0.9598434476612612,
+        "avg_error": 0.012042501091491431,
+        "avg_progress": 0.012250857945764438,
         "total_steps": 48600,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11096.514144281202
+        "total_reward": 13011.180555362926,
+        "avg_naming_loss": 0.0019303253007819875,
+        "avg_discrimination_loss": 0.00012118628947064281,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          5.9041300451056316,
-          71.25421903756113
+          75.90413004510563,
+          36.25421903756113
         ],
-        "confidence": 0.947063856424675,
-        "avg_error": 0.0651174088503467,
-        "avg_progress": 0.03324789005855564,
+        "confidence": 0.9523605473490482,
+        "avg_error": 0.09764514619018883,
+        "avg_progress": 0.05062291470821947,
         "total_steps": 48600,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11077.010408249143
+        "total_reward": 13006.935872775268,
+        "avg_naming_loss": 0.0006302670131844934,
+        "avg_discrimination_loss": 0.000156485346815316,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          96.34908654486048,
-          27.291918426828595
+          86.34908654486048,
+          32.2919184268286
         ],
-        "confidence": 0.9408381087148291,
-        "avg_error": 0.0453117520082742,
-        "avg_progress": 0.03171730129979551,
+        "confidence": 0.9954857877687237,
+        "avg_error": 0.0023972487731953153,
+        "avg_progress": 0.0008477197741740383,
         "total_steps": 48600,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 11063.794451713822
+        "total_reward": 12958.802977497957,
+        "avg_naming_loss": 0.0005857078387634829,
+        "avg_discrimination_loss": 0.00012285544362384827,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4768,
+      "naming_accuracy": 0.9958053691275168,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -1721,46 +2876,79 @@
     "agents": {
       "0": {
         "position": [
-          91.92634263298812,
-          63.006322394942515
+          66.92634263298812,
+          93.00632239494252
         ],
-        "confidence": 0.9248222911590752,
-        "avg_error": 0.060269750119186935,
-        "avg_progress": 0.028465580265037715,
+        "confidence": 0.7892936046292744,
+        "avg_error": 0.20652443869039416,
+        "avg_progress": 0.11485302012879402,
         "total_steps": 48700,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11125.422618733694
+        "total_reward": 13044.201248991016,
+        "avg_naming_loss": 0.001198955802829005,
+        "avg_discrimination_loss": 0.0001041590359818656,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          86.4952147168456,
-          26.48958811653113
+          81.4952147168456,
+          81.48958811653114
         ],
-        "confidence": 0.9851540807702412,
-        "avg_error": 0.020045452803606166,
-        "avg_progress": 0.013264618412358686,
+        "confidence": 0.8242010172298821,
+        "avg_error": 0.1924022037885152,
+        "avg_progress": 0.15462061525322496,
         "total_steps": 48700,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11097.657527643703
+        "total_reward": 13035.86403610312,
+        "avg_naming_loss": 0.00137880041875178,
+        "avg_discrimination_loss": 0.00018413060970488005,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          23.930072501596385,
+          78.93007250159638,
           98.83036931337978
         ],
-        "confidence": 0.9447082551126686,
-        "avg_error": 0.0594620936375577,
-        "avg_progress": 0.02923095512087457,
+        "confidence": 0.8697634184358218,
+        "avg_error": 0.19795619112555868,
+        "avg_progress": 0.0981330684327986,
         "total_steps": 48700,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11091.28424169066
+        "total_reward": 12984.650034812728,
+        "avg_naming_loss": 0.0004526630415057298,
+        "avg_discrimination_loss": 0.00011874319025082514,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4778,
+      "naming_accuracy": 0.9958141481791545,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -1770,46 +2958,79 @@
     "agents": {
       "0": {
         "position": [
-          52.63500933044661,
-          45.38755871825218
+          22.635009330446607,
+          85.38755871825218
         ],
-        "confidence": 0.9596453984194561,
-        "avg_error": 0.017107852292247115,
-        "avg_progress": 0.021349411853589118,
+        "confidence": 0.9523089196390215,
+        "avg_error": 0.011603496933821589,
+        "avg_progress": 0.002348968375008553,
         "total_steps": 48800,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11148.572689766854
+        "total_reward": 13072.028559767126,
+        "avg_naming_loss": 0.0015408769802888855,
+        "avg_discrimination_loss": 0.00010315179824829101,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          37.31265140856755,
-          92.07150167043511
+          57.31265140856755,
+          32.07150167043511
         ],
-        "confidence": 0.9981244047299125,
-        "avg_error": 0.0009612488516722806,
-        "avg_progress": 0.00042122396553168073,
+        "confidence": 0.9850543162243783,
+        "avg_error": 0.005343458615243435,
+        "avg_progress": 0.0008842912153340876,
         "total_steps": 48800,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 11116.403587027562
+        "total_reward": 13060.534913640864,
+        "avg_naming_loss": 0.001335267481044866,
+        "avg_discrimination_loss": 0.00018346314973314293,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          39.20807780381119,
-          90.72173033025538
+          4.208077803811193,
+          60.72173033025538
         ],
-        "confidence": 0.9921284966784075,
-        "avg_error": 0.0019048268295591697,
-        "avg_progress": 0.00037679576489608736,
+        "confidence": 0.8639302628979891,
+        "avg_error": 0.10909848541487008,
+        "avg_progress": 0.07202656981535256,
         "total_steps": 48800,
-        "vocab_size": 0,
-        "is_learning": 0,
+        "vocab_size": 4,
+        "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11112.436926441836
+        "total_reward": 13015.886283729174,
+        "avg_naming_loss": 0.0011638261339612654,
+        "avg_discrimination_loss": 0.0001243988754140446,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4785,
+      "naming_accuracy": 0.9958202716823407,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -1819,46 +3040,79 @@
     "agents": {
       "0": {
         "position": [
-          46.14618094882667,
-          18.68014002014057
+          31.146180948826668,
+          73.68014002014057
         ],
-        "confidence": 0.9735951331438376,
-        "avg_error": 0.012478105688933283,
-        "avg_progress": 0.0073524627834558485,
+        "confidence": 0.8347801721486072,
+        "avg_error": 0.1543662325013429,
+        "avg_progress": 0.14292641817592083,
         "total_steps": 48900,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11170.531509278806
+        "total_reward": 13102.186171118803,
+        "avg_naming_loss": 0.0018251048080855981,
+        "avg_discrimination_loss": 0.00011463068476587068,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          25.83687521349114,
-          93.8473691491336
+          85.83687521349114,
+          23.84736914913359
         ],
-        "confidence": 0.9781726629583516,
-        "avg_error": 0.017740019530174324,
-        "avg_progress": 0.014931682639871723,
+        "confidence": 0.9887413979160877,
+        "avg_error": 0.003997819183859974,
+        "avg_progress": 0.0018548506719525903,
         "total_steps": 48900,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11140.817084463524
+        "total_reward": 13086.681411522055,
+        "avg_naming_loss": 0.001477140143106226,
+        "avg_discrimination_loss": 0.00018486393310013227,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          39.691617208708706,
-          45.5229321883094
+          69.6916172087087,
+          40.5229321883094
         ],
-        "confidence": 0.9837174080845816,
-        "avg_error": 0.00173796125309309,
-        "avg_progress": 0.001056346157565713,
+        "confidence": 0.7670417312205102,
+        "avg_error": 0.2731432789703831,
+        "avg_progress": 0.13659919810015708,
         "total_steps": 48900,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11136.758245210362
+        "total_reward": 13047.17715761916,
+        "avg_naming_loss": 0.0013410522093181497,
+        "avg_discrimination_loss": 0.00011386780242901295,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4793,
+      "naming_accuracy": 0.9958272480701023,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -1868,46 +3122,79 @@
     "agents": {
       "0": {
         "position": [
-          99.12191927566576,
-          12.294237141783498
+          89.12191927566576,
+          87.2942371417835
         ],
-        "confidence": 0.9136144226372458,
-        "avg_error": 0.09628832819871605,
-        "avg_progress": 0.04226096598431468,
+        "confidence": 0.9364334827602037,
+        "avg_error": 0.024603837076574563,
+        "avg_progress": 0.004320303350687027,
         "total_steps": 49000,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11197.281828557489
+        "total_reward": 13131.153007417886,
+        "avg_naming_loss": 0.001619681148440577,
+        "avg_discrimination_loss": 0.00011856992241519038,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          76.5633607153966,
-          36.95472423150474
+          36.5633607153966,
+          11.954724231504741
         ],
-        "confidence": 0.9401622212738413,
-        "avg_error": 0.04754704473889433,
-        "avg_progress": 0.021276229299837725,
+        "confidence": 0.7877393594845955,
+        "avg_error": 0.25622081649489703,
+        "avg_progress": 0.14516851217485965,
         "total_steps": 49000,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11161.767845041464
+        "total_reward": 13116.143516142118,
+        "avg_naming_loss": 0.0009090175932215061,
+        "avg_discrimination_loss": 0.00017648530556471086,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          29.22230326604148,
-          57.58252662211495
+          59.22230326604148,
+          62.582526622114955
         ],
-        "confidence": 0.9235303354723687,
-        "avg_error": 0.08497575473738835,
-        "avg_progress": 0.05054240495664999,
+        "confidence": 0.900956775617023,
+        "avg_error": 0.0983869265532121,
+        "avg_progress": 0.050598386744968596,
         "total_steps": 49000,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11160.987614600343
+        "total_reward": 13075.476947301726,
+        "avg_naming_loss": 0.0008329498341481667,
+        "avg_discrimination_loss": 0.00010063122354040389,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4803,
+      "naming_accuracy": 0.9958359358734125,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -1917,46 +3204,79 @@
     "agents": {
       "0": {
         "position": [
-          5.460486656238583,
-          51.72491058114797
+          80.46048665623859,
+          81.72491058114797
         ],
-        "confidence": 0.9624295286449976,
-        "avg_error": 0.030379127338528635,
-        "avg_progress": 0.011092944024130701,
+        "confidence": 0.9751190408375154,
+        "avg_error": 0.005519391573034227,
+        "avg_progress": 0.0005424873088486493,
         "total_steps": 49100,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 11220.343712322214
+        "total_reward": 13154.425492500615,
+        "avg_naming_loss": 0.0014248451741877943,
+        "avg_discrimination_loss": 0.00010147730718017556,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          76.47613160612195,
-          6.218253140279174
+          91.47613160612195,
+          41.218253140279174
         ],
-        "confidence": 0.9549013512693156,
-        "avg_error": 0.034692002553492786,
-        "avg_progress": 0.016158041497692465,
+        "confidence": 0.9911318287950759,
+        "avg_error": 0.0009183100060909055,
+        "avg_progress": 0.00022802096646046266,
         "total_steps": 49100,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 11187.971607480917
+        "total_reward": 13138.04973436147,
+        "avg_naming_loss": 0.0007205869000245002,
+        "avg_discrimination_loss": 0.00018807622072927188,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          90.43824348502632,
-          34.4041019506491
+          20.43824348502632,
+          54.40410195064911
         ],
-        "confidence": 0.9650076961344567,
-        "avg_error": 0.03155040992423892,
-        "avg_progress": 0.014555384847335517,
+        "confidence": 0.9881156538936973,
+        "avg_error": 0.004230766018736176,
+        "avg_progress": 0.002742190461140126,
         "total_steps": 49100,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11183.9605187084
+        "total_reward": 13098.490164099989,
+        "avg_naming_loss": 0.0006498439554889046,
+        "avg_discrimination_loss": 0.00011229462434130255,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4810,
+      "naming_accuracy": 0.9958419958419958,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -1966,46 +3286,79 @@
     "agents": {
       "0": {
         "position": [
-          92.32139846477341,
-          55.44650904028698
+          7.321398464773409,
+          75.44650904028698
         ],
-        "confidence": 0.9341838100838609,
-        "avg_error": 0.05312886782921851,
-        "avg_progress": 0.03754343804903328,
+        "confidence": 0.7866077376716526,
+        "avg_error": 0.22443947196006775,
+        "avg_progress": 0.14281358723528684,
         "total_steps": 49200,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11243.589990559727
+        "total_reward": 13177.355076786993,
+        "avg_naming_loss": 0.0014789415610721335,
+        "avg_discrimination_loss": 9.787177768885157e-05,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          14.233885797166835,
-          9.253300200874378
+          94.23388579716683,
+          49.25330020087438
         ],
-        "confidence": 0.9412577734639421,
-        "avg_error": 0.0698011896922253,
-        "avg_progress": 0.04566367306979373,
+        "confidence": 0.9785188230128586,
+        "avg_error": 0.004867342626675963,
+        "avg_progress": 0.0006731391884386539,
         "total_steps": 49200,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 11211.353786570762
+        "total_reward": 13164.938950146512,
+        "avg_naming_loss": 0.0007023615713478648,
+        "avg_discrimination_loss": 0.00018731340060185175,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
           85.81832744115046,
-          92.7132369368696
+          37.7132369368696
         ],
-        "confidence": 0.9588565766272148,
-        "avg_error": 0.03141015742148738,
-        "avg_progress": 0.03376578295428771,
+        "confidence": 0.9962079457567858,
+        "avg_error": 0.006222263094969094,
+        "avg_progress": 0.0037592782638967035,
         "total_steps": 49200,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11206.92002819706
+        "total_reward": 13117.20704536373,
+        "avg_naming_loss": 0.0004674886758039065,
+        "avg_discrimination_loss": 0.00012010196805931628,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4822,
+      "naming_accuracy": 0.9958523434259643,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -2015,46 +3368,79 @@
     "agents": {
       "0": {
         "position": [
-          90.04833707873223,
-          35.13609782320266
+          75.04833707873223,
+          70.13609782320266
         ],
-        "confidence": 0.9425794484984912,
-        "avg_error": 0.0764345725736348,
-        "avg_progress": 0.044579670298844576,
+        "confidence": 0.8076004053419854,
+        "avg_error": 0.19765926543623208,
+        "avg_progress": 0.047746867313981055,
         "total_steps": 49300,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11266.584152911739
+        "total_reward": 13203.61699611267,
+        "avg_naming_loss": 0.0014947515133826527,
+        "avg_discrimination_loss": 9.391448620590381e-05,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          14.580958788281393,
-          76.73697572339177
+          24.580958788281393,
+          61.736975723391765
         ],
-        "confidence": 0.8826692253979231,
-        "avg_error": 0.12863200521096588,
-        "avg_progress": 0.03082386776804924,
+        "confidence": 0.9139654669078952,
+        "avg_error": 0.04967622958356514,
+        "avg_progress": 0.0014983700239099562,
         "total_steps": 49300,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11235.384600708385
+        "total_reward": 13189.975532212127,
+        "avg_naming_loss": 0.0010645062031471753,
+        "avg_discrimination_loss": 0.00019248434546170756,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          68.28317590869798,
-          80.09379042742765
+          53.283175908697984,
+          50.09379042742765
         ],
-        "confidence": 0.9490150893165092,
-        "avg_error": 0.05361732511228183,
-        "avg_progress": 0.031655699723341965,
+        "confidence": 0.9799136992521913,
+        "avg_error": 0.00190172775182873,
+        "avg_progress": 0.0004951620823703707,
         "total_steps": 49300,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 11227.726567928834
+        "total_reward": 13145.582757181422,
+        "avg_naming_loss": 0.0006534568919050798,
+        "avg_discrimination_loss": 0.00011789683157985565,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4833,
+      "naming_accuracy": 0.9958617835712807,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -2064,46 +3450,79 @@
     "agents": {
       "0": {
         "position": [
-          90.02275587677087,
-          95.29337810655818
+          95.02275587677087,
+          80.29337810655818
         ],
-        "confidence": 0.8943197435881923,
-        "avg_error": 0.11836586473509669,
-        "avg_progress": 0.01999795390293002,
+        "confidence": 0.7917053843501419,
+        "avg_error": 0.2472472390567418,
+        "avg_progress": 0.14243231923901475,
         "total_steps": 49400,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11290.827010290397
+        "total_reward": 13234.094639512841,
+        "avg_naming_loss": 0.0014919770597771275,
+        "avg_discrimination_loss": 0.00010022597634815611,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          30.21686091392467,
-          39.60353119857728
+          20.21686091392467,
+          24.60353119857728
         ],
-        "confidence": 0.9279780693145854,
-        "avg_error": 0.08571681103494484,
-        "avg_progress": 0.04478985257737804,
+        "confidence": 0.9913487131959815,
+        "avg_error": 0.003146053943783045,
+        "avg_progress": 0.0007449402881320566,
         "total_steps": 49400,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 11257.621334204212
+        "total_reward": 13211.27690916955,
+        "avg_naming_loss": 0.0010893966196817927,
+        "avg_discrimination_loss": 0.00018629253027029334,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          38.35171719398299,
-          77.02143284946737
+          3.351717193982992,
+          87.02143284946737
         ],
-        "confidence": 0.96812531301681,
-        "avg_error": 0.015260473499074579,
-        "avg_progress": 0.006861636531539261,
+        "confidence": 0.8755227501204091,
+        "avg_error": 0.16096797124191653,
+        "avg_progress": 0.09059841000998858,
         "total_steps": 49400,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11252.781376014349
+        "total_reward": 13168.69333914988,
+        "avg_naming_loss": 0.0005826369841997803,
+        "avg_discrimination_loss": 0.00011961330310441553,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4843,
+      "naming_accuracy": 0.9958703283088994,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -2113,46 +3532,79 @@
     "agents": {
       "0": {
         "position": [
-          8.70220090671991,
-          50.37939119723657
+          33.70220090671991,
+          0.379391197236572
         ],
-        "confidence": 0.9696812862397124,
-        "avg_error": 0.029233239695895464,
-        "avg_progress": 0.01700842895079404,
+        "confidence": 0.9701184569864562,
+        "avg_error": 0.0025363805412780493,
+        "avg_progress": 0.0009021220321301371,
         "total_steps": 49500,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 11313.03631471498
+        "total_reward": 13254.541992905206,
+        "avg_naming_loss": 0.0009941029737092321,
+        "avg_discrimination_loss": 9.384903169120661e-05,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          98.50374739876322,
-          40.264544004065954
+          68.50374739876322,
+          15.264544004065954
         ],
-        "confidence": 0.9777982352809751,
-        "avg_error": 0.015272162901237608,
-        "avg_progress": 0.0120099933934398,
+        "confidence": 0.968797385117922,
+        "avg_error": 0.004706163069931791,
+        "avg_progress": 0.000766940723406151,
         "total_steps": 49500,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 11281.789139425993
+        "total_reward": 13241.489954145354,
+        "avg_naming_loss": 0.001183082531861146,
+        "avg_discrimination_loss": 0.00016362844762625174,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          40.1332943686204,
-          65.20401228190836
+          95.1332943686204,
+          70.20401228190836
         ],
-        "confidence": 0.9826669768482861,
-        "avg_error": 0.012881994593772105,
-        "avg_progress": 0.007342020570649766,
+        "confidence": 0.9855322365486682,
+        "avg_error": 0.0037281014840118585,
+        "avg_progress": 0.0009712925413623453,
         "total_steps": 49500,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 11276.13358607769
+        "total_reward": 13191.95054898922,
+        "avg_naming_loss": 0.0012303699135372882,
+        "avg_discrimination_loss": 0.00011500642831379082,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4854,
+      "naming_accuracy": 0.9958796868562011,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -2162,46 +3614,79 @@
     "agents": {
       "0": {
         "position": [
-          23.407027859072336,
-          72.3798627725833
+          53.40702785907234,
+          62.379862772583294
         ],
-        "confidence": 0.92412874062579,
-        "avg_error": 0.08114694016985595,
-        "avg_progress": 0.018339465418830515,
+        "confidence": 0.8789876022225661,
+        "avg_error": 0.09950889680767432,
+        "avg_progress": 0.09009027756983415,
         "total_steps": 49600,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11335.844054857716
+        "total_reward": 13285.464146936058,
+        "avg_naming_loss": 0.0006271335159908631,
+        "avg_discrimination_loss": 9.386691344843711e-05,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          13.59443848380834,
-          11.10658043935642
+          8.59443848380834,
+          21.10658043935642
         ],
-        "confidence": 0.9878003273164359,
-        "avg_error": 0.003294993634335697,
-        "avg_progress": 0.0008111940740491263,
+        "confidence": 0.9950157127407354,
+        "avg_error": 0.005101911909878254,
+        "avg_progress": 0.0013413122622296214,
         "total_steps": 49600,
-        "vocab_size": 0,
-        "is_learning": 0,
+        "vocab_size": 4,
+        "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11303.645311125834
+        "total_reward": 13262.905052716724,
+        "avg_naming_loss": 0.0011672461145280978,
+        "avg_discrimination_loss": 0.00015844974404899403,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          40.040605988412835,
-          79.6324490605857
+          25.040605988412835,
+          69.6324490605857
         ],
-        "confidence": 0.9295602610986793,
-        "avg_error": 0.09369623367674648,
-        "avg_progress": 0.046353610092774035,
+        "confidence": 0.9687287992065894,
+        "avg_error": 0.05131468825857155,
+        "avg_progress": 0.04452748213079758,
         "total_steps": 49600,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11301.364603013115
+        "total_reward": 13223.251708949478,
+        "avg_naming_loss": 0.0017442075775761623,
+        "avg_discrimination_loss": 0.00010426077133161016,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4864,
+      "naming_accuracy": 0.9958881578947368,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -2211,46 +3696,79 @@
     "agents": {
       "0": {
         "position": [
-          57.545122951995154,
-          38.19515549935676
+          22.545122951995154,
+          13.195155499356758
         ],
-        "confidence": 0.9865273250962708,
-        "avg_error": 0.003323448190349154,
-        "avg_progress": 0.0011583952844375744,
+        "confidence": 0.9620307179165671,
+        "avg_error": 0.06996413040324115,
+        "avg_progress": 0.062065803114091975,
         "total_steps": 49700,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11358.503274155644
+        "total_reward": 13307.909000034108,
+        "avg_naming_loss": 0.0005797296065793489,
+        "avg_discrimination_loss": 9.50350564380642e-05,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          20.26377020015167,
-          81.7890122334662
+          10.263770200151669,
+          26.789012233466195
         ],
-        "confidence": 0.9592183583154616,
-        "avg_error": 0.020268808689434082,
-        "avg_progress": 0.006994341843528673,
+        "confidence": 0.9725940637642921,
+        "avg_error": 0.004166758578503504,
+        "avg_progress": 0.001066688948776573,
         "total_steps": 49700,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11329.27543097225
+        "total_reward": 13292.633813931587,
+        "avg_naming_loss": 0.0009365036474264343,
+        "avg_discrimination_loss": 0.0001601852629391942,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          70.2051665502631,
-          56.6272094849317
+          15.205166550263101,
+          31.627209484931697
         ],
-        "confidence": 0.9185526695708888,
-        "avg_error": 0.08314535296522081,
-        "avg_progress": 0.027434124378487468,
+        "confidence": 0.9615718599902018,
+        "avg_error": 0.002841487419209443,
+        "avg_progress": 0.000552644464187324,
         "total_steps": 49700,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 11328.1219923145
+        "total_reward": 13246.102287472413,
+        "avg_naming_loss": 0.0008570465513912495,
+        "avg_discrimination_loss": 0.00010521443400648422,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4874,
+      "naming_accuracy": 0.9958965941731637,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -2260,46 +3778,79 @@
     "agents": {
       "0": {
         "position": [
-          41.574414700456174,
-          42.44708064104364
+          31.574414700456174,
+          17.44708064104364
         ],
-        "confidence": 0.9442873088489411,
-        "avg_error": 0.07099288639146835,
-        "avg_progress": 0.04247756990371272,
+        "confidence": 0.9815550503581589,
+        "avg_error": 0.013214559271000325,
+        "avg_progress": 0.011647925130091608,
         "total_steps": 49800,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11380.632733006909
+        "total_reward": 13339.09695002491,
+        "avg_naming_loss": 0.001040517091860238,
+        "avg_discrimination_loss": 0.00010743144812295214,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          74.01386091365167,
-          90.59266766225936
+          59.01386091365167,
+          40.592667662259345
         ],
-        "confidence": 0.9367992541126904,
-        "avg_error": 0.056818421371281146,
-        "avg_progress": 0.020256382506340743,
+        "confidence": 0.9684286405617095,
+        "avg_error": 0.0025064964924240486,
+        "avg_progress": 0.00047324382758233695,
         "total_steps": 49800,
-        "vocab_size": 0,
-        "is_learning": 1,
+        "vocab_size": 4,
+        "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 11354.119175197802
+        "total_reward": 13323.575569072862,
+        "avg_naming_loss": 0.0009365036474264343,
+        "avg_discrimination_loss": 0.0001601852629391942,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          34.73497275800817,
-          78.50429273606687
+          19.73497275800817,
+          58.50429273606687
         ],
-        "confidence": 0.9746490763617296,
-        "avg_error": 0.008279683068394661,
-        "avg_progress": 0.0018427976872771978,
+        "confidence": 0.8348642375096429,
+        "avg_error": 0.29814155225212746,
+        "avg_progress": 0.17766642093847623,
         "total_steps": 49800,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11351.519084598614
+        "total_reward": 13271.88558169371,
+        "avg_naming_loss": 0.00033078007154472287,
+        "avg_discrimination_loss": 0.00011282503655820619,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4879,
+      "naming_accuracy": 0.9959007993441279,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -2309,46 +3860,79 @@
     "agents": {
       "0": {
         "position": [
-          89.51495199615601,
-          3.9658028491066517
+          9.514951996156015,
+          63.96580284910665
         ],
-        "confidence": 0.986019439164441,
-        "avg_error": 0.00203755948896287,
-        "avg_progress": 0.0009016664829687215,
+        "confidence": 0.890077565752937,
+        "avg_error": 0.13095922236680052,
+        "avg_progress": 0.1238976025080774,
         "total_steps": 49900,
-        "vocab_size": 0,
-        "is_learning": 0,
+        "vocab_size": 4,
+        "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11404.853203891407
+        "total_reward": 13364.536903090635,
+        "avg_naming_loss": 0.0021891220942052312,
+        "avg_discrimination_loss": 0.00012066073140886147,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          81.6168196452564,
-          59.3666302424584
+          66.6168196452564,
+          79.3666302424584
         ],
-        "confidence": 0.9460814894994652,
-        "avg_error": 0.05881057785300072,
-        "avg_progress": 0.012575699036824517,
+        "confidence": 0.9117921081180792,
+        "avg_error": 0.0875389768043533,
+        "avg_progress": 0.07637306184042245,
         "total_steps": 49900,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11376.745096761508
+        "total_reward": 13352.936049216873,
+        "avg_naming_loss": 0.002494596498581814,
+        "avg_discrimination_loss": 0.00021618909740936943,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          50.439647640202594,
-          56.32321483680644
+          30.439647640202594,
+          66.32321483680644
         ],
-        "confidence": 0.9775981574633876,
-        "avg_error": 0.0035088926495518537,
-        "avg_progress": 0.010188440763158724,
+        "confidence": 0.9633944199525604,
+        "avg_error": 0.06232217168726493,
+        "avg_progress": 0.04810781267879065,
         "total_steps": 49900,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11373.062494250511
+        "total_reward": 13296.717446777942,
+        "avg_naming_loss": 0.0016321968054398895,
+        "avg_discrimination_loss": 0.00012716376768366898,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4887,
+      "naming_accuracy": 0.9959075097196645,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -2358,46 +3942,79 @@
     "agents": {
       "0": {
         "position": [
-          95.33097856173559,
-          48.01291249801004
+          30.33097856173559,
+          58.01291249801004
         ],
-        "confidence": 0.9515030542713586,
-        "avg_error": 0.045987176802009345,
-        "avg_progress": 0.015274622105062008,
+        "confidence": 0.926372163627703,
+        "avg_error": 0.08718908954178914,
+        "avg_progress": 0.08229368870379403,
         "total_steps": 50000,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11432.35388592964
+        "total_reward": 13386.946737949422,
+        "avg_naming_loss": 0.0022699178520269926,
+        "avg_discrimination_loss": 0.00012450474387151189,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball"
+        ],
+        "naming_accuracy": 1.0
       },
       "1": {
         "position": [
-          84.02873624202734,
-          53.95651119537811
+          64.02873624202734,
+          83.95651119537811
         ],
-        "confidence": 0.9221937815776466,
-        "avg_error": 0.09501511240378022,
-        "avg_progress": 0.034491936583071946,
+        "confidence": 0.9411205352725435,
+        "avg_error": 0.049881514368462374,
+        "avg_progress": 0.04011823280306999,
         "total_steps": 50000,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11399.409349167623
+        "total_reward": 13375.483900458086,
+        "avg_naming_loss": 0.0025347611990582664,
+        "avg_discrimination_loss": 0.0002166360580304172,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock"
+        ],
+        "naming_accuracy": 1.0
       },
       "2": {
         "position": [
-          72.34428955554866,
-          13.187131602077756
+          52.344289555548656,
+          53.187131602077756
         ],
-        "confidence": 0.964205314823378,
-        "avg_error": 0.04524397456552833,
-        "avg_progress": 0.03993722060695291,
+        "confidence": 0.8636508669386211,
+        "avg_error": 0.14943045778782107,
+        "avg_progress": 0.05263159545720555,
         "total_steps": 50000,
-        "vocab_size": 0,
+        "vocab_size": 4,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11394.037051665111
+        "total_reward": 13315.326200973683,
+        "avg_naming_loss": 0.001094061662297463,
+        "avg_discrimination_loss": 9.315132665506098e-05,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower"
+        ],
+        "naming_accuracy": 1.0
       }
+    },
+    "language": {
+      "total_teaching_events": 24,
+      "total_naming_tests": 4894,
+      "naming_accuracy": 0.9959133633020024,
+      "recent_accuracy": 1.0
     }
   },
   {
@@ -2407,46 +4024,83 @@
     "agents": {
       "0": {
         "position": [
-          77.15679889449571,
-          34.75816240908658
+          32.15679889449571,
+          64.75816240908658
         ],
-        "confidence": 0.9438622766963479,
-        "avg_error": 0.07581272820243612,
-        "avg_progress": 0.03823630337137729,
+        "confidence": 0.9102486577649528,
+        "avg_error": 0.08881138656288386,
+        "avg_progress": 0.01301936451345682,
         "total_steps": 50100,
-        "vocab_size": 0,
+        "vocab_size": 6,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11453.741718198637
+        "total_reward": 13412.879139135792,
+        "avg_naming_loss": 0.03514159864316753,
+        "avg_discrimination_loss": 1.6645222638984705,
+        "words_known": [
+          "flower",
+          "rock",
+          "apple",
+          "ball",
+          "book",
+          "fire"
+        ],
+        "naming_accuracy": 0.75
       },
       "1": {
         "position": [
-          87.68208743466849,
-          60.078124112496624
+          27.68208743466849,
+          40.078124112496624
         ],
-        "confidence": 0.9201053001287067,
-        "avg_error": 0.07195408958941699,
-        "avg_progress": 0.026029156241565942,
+        "confidence": 0.9199399000321821,
+        "avg_error": 0.0970305036753416,
+        "avg_progress": 0.028209590539336204,
         "total_steps": 50100,
-        "vocab_size": 0,
+        "vocab_size": 5,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11419.980149627312
+        "total_reward": 13400.16671578166,
+        "avg_naming_loss": 0.020532466649456182,
+        "avg_discrimination_loss": 1.3256224048964214,
+        "words_known": [
+          "ball",
+          "flower",
+          "apple",
+          "rock",
+          "book"
+        ],
+        "naming_accuracy": 0.85
       },
       "2": {
         "position": [
-          45.13378998171916,
-          6.562122313670486
+          75.13378998171916,
+          26.562122313670486
         ],
-        "confidence": 0.8687557182757082,
-        "avg_error": 0.12843509521335364,
-        "avg_progress": 0.015837753377854823,
+        "confidence": 0.8990105275919069,
+        "avg_error": 0.1563997850753367,
+        "avg_progress": 0.06629696302115917,
         "total_steps": 50100,
-        "vocab_size": 0,
+        "vocab_size": 5,
         "is_learning": 1,
         "is_exploring": true,
-        "total_reward": 11420.403624315013
+        "total_reward": 13338.16485528204,
+        "avg_naming_loss": 0.0057334426826855635,
+        "avg_discrimination_loss": 1.2457807870076067,
+        "words_known": [
+          "rock",
+          "ball",
+          "apple",
+          "flower",
+          "dog"
+        ],
+        "naming_accuracy": 0.9
       }
+    },
+    "language": {
+      "total_teaching_events": 31,
+      "total_naming_tests": 4906,
+      "naming_accuracy": 0.9938850387280881,
+      "recent_accuracy": 0.8
     }
   }
 ]

@@ -386,6 +386,13 @@ class OstensiveTeacher:
                             position=obj.position,
                             perception_radius=self.config.teaching_radius,
                         )
+                        # Pad to agent's full perception_dim (adds utterance slots as zeros —
+                        # no agents are speaking during vocabulary refresh).
+                        expected_dim = agent.config.perception_dim
+                        if len(flat_perc) < expected_dim:
+                            flat_perc = np.concatenate(
+                                [flat_perc, np.zeros(expected_dim - len(flat_perc))]
+                            )
                         with torch.no_grad():
                             x = torch.FloatTensor(flat_perc).unsqueeze(0)
                             new_state = agent.encoder(x).squeeze().numpy()
