@@ -17,7 +17,21 @@
       "Bash(cd /c/Users/Johnathan/ClaudeResearch/curious_agents && python analyze_run.py --log-dir logs_phase3 --section all --every 100 2>&1)",
       "Bash(cd /c/Users/Johnathan/ClaudeResearch/curious_agents && python analyze_run.py --log-dir logs_phase3 --section lang --every 50 --ep-min 1000 2>&1)",
       "Bash(cd /c/Users/Johnathan/ClaudeResearch/curious_agents && python analyze_run.py --log-dir logs_phase3 --section all --every 100 --ep-min 1500 2>&1)",
-      "Bash(cd /c/Users/Johnathan/ClaudeResearch/curious_agents && python analyze_run.py --log-dir logs_phase3 --section all --every 100 --ep-min 3500 2>&1)"
+      "Bash(cd /c/Users/Johnathan/ClaudeResearch/curious_agents && python analyze_run.py --log-dir logs_phase3 --section all --every 100 --ep-min 3500 2>&1)",
+      "Bash(cd \"C:/Users/Johnathan/ClaudeResearch/curious_agents\" && python run.py --test 2>&1)",
+      "Bash(cd /c/Users/Johnathan/ClaudeResearch/curious_agents && python run.py --episodes 1000 2>&1)",
+      "Bash(cd /c/Users/Johnathan/ClaudeResearch/curious_agents && python analyze_run.py --section all 2>&1)",
+      "Bash(cd /c/Users/Johnathan/ClaudeResearch/curious_agents && python analyze_run.py --section all --ep-min 0 --every 50 2>&1)",
+      "Bash(cd /c/Users/Johnathan/ClaudeResearch/curious_agents && mkdir -p logs_phase4 && cp logs/metrics_ep500.json logs_phase4/ && cp logs/metrics_ep1000.json logs_phase4/ && python analyze_run.py --log-dir logs_phase4 --section all --every 50 2>&1)",
+      "Bash(cd /c/Users/Johnathan/ClaudeResearch/curious_agents && python analyze_run.py --log-dir logs_phase4 --section comm --every 50 2>&1)",
+      "Bash(cd /c/Users/Johnathan/ClaudeResearch/curious_agents && python run.py --resume checkpoints/checkpoint_ep1000.pt --episodes 3000 2>&1)",
+      "Bash(grep:*)",
+      "Bash(cd /c/Users/Johnathan/ClaudeResearch/curious_agents && python analyze_run.py --log-dir logs_phase4_new --section all --every 50 2>&1)",
+      "Bash(cd C:\\\\Users\\\\Johnathan\\\\ClaudeResearch\\\\curious_agents:*)",
+      "Bash(cd /c/Users/Johnathan/ClaudeResearch/curious_agents && python -c \"\nimport json, glob\nfiles = sorted\\(glob.glob\\('logs/metrics_ep*.json'\\)\\)\n# Get the most recent file\nif files:\n    with open\\(files[-1]\\) as f:\n        d = json.load\\(f\\)\n    a = d[-1]['agents']['0']\n    print\\('property_vocab_size:', a.get\\('property_vocab_size', 'MISSING'\\)\\)\n    print\\('property_utterance_rate:', a.get\\('property_utterance_rate', 'MISSING'\\)\\)\n    print\\('property_utterance_count:', a.get\\('property_utterance_count', 'MISSING'\\)\\)\n    print\\('All agent-0 keys:', sorted\\(a.keys\\(\\)\\)\\)\nelse:\n    print\\('No log files found'\\)\n\" 2>&1)",
+      "Bash(cd /c/Users/Johnathan/ClaudeResearch/curious_agents && python -c \"\nimport json, glob\nfiles = sorted\\(glob.glob\\('logs/metrics_ep*.json'\\)\\)\nprint\\('Log files:', files[-3:] if files else 'NONE'\\)\n\n# Also check what the latest file actually contains\nif files:\n    with open\\(files[-1]\\) as f:\n        d = json.load\\(f\\)\n    print\\('Latest file episode:', d[-1]['episode']\\)\n    a = d[-1]['agents']['0']\n    print\\('utterance_rate:', a.get\\('utterance_rate', 'MISSING'\\)\\)\n    print\\('memory_entries:', a.get\\('memory_entries', 'MISSING'\\)\\)\n\" 2>&1)",
+      "Bash(cd /c/Users/Johnathan/ClaudeResearch/curious_agents && python -c \"\nimport json, glob, os\n\n# The smoke test uses default log_dir='logs', writes at every 25 or 50 episodes\n# Check for very recent files \\(smoke test runs 50 episodes\\)\nfiles = sorted\\(glob.glob\\('logs/metrics_ep*.json'\\), key=os.path.getmtime\\)\nprint\\('Most recently modified:', files[-3:] if files else 'NONE'\\)\n\n# Check the newest by modification time\nif files:\n    newest = max\\(files, key=os.path.getmtime\\)\n    print\\('Newest file:', newest\\)\n    with open\\(newest\\) as f:\n        d = json.load\\(f\\)\n    a = d[-1]['agents']['0']\n    print\\('Episode:', d[-1]['episode']\\)\n    print\\('property_vocab_size:', a.get\\('property_vocab_size', 'MISSING'\\)\\)\n    print\\('property_utterance_rate:', a.get\\('property_utterance_rate', 'MISSING'\\)\\)\n\" 2>&1)",
+      "Bash(python:*)"
     ]
   }
 }

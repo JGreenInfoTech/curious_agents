@@ -45,8 +45,17 @@ Three features added for agent-to-agent word communication:
 3. COMMUNICATIVE REWARD: Phase 6.5 in run_step. When agent A emits word with class_idx C, scan nearby agents' discrimination_head predictions. If B predicts class C, A gets +0.2 (communicative_reward in TrainerConfig). Approach-only — fires only when shared understanding confirmed by B's internal state. Near-zero early in training, rises as discrimination heads converge.
 Checkpoint compat: loading old ep0-999 checkpoints will hit RuntimeError (encoder shape 129→139). load_checkpoint now wraps state_dict load in try/except, falls back to apply_structured_initialization for incompatible agents with a clear warning.
 Smoke test: 50ep, 4.3ep/s, 139D perception confirmed, vocab grounds correctly, utterance actions in action_history.
-**Last updated**: 2026-02-23
-**Project root**: `C:\Users\Johnathan\ClaudeResearch\curious_agents\`  
+=== Journal Entry 2026-02-24 (Phase 4: spatial memory + communication scaffolding) ===
+Five features added to give agents persistent spatial memory and conditions for genuine inter-agent communication:
+1. SPATIAL MEMORY: SpatialMemory dataclass in curious_agent.py. Per-agent entries[class_idx] = {salience, episode, position, times_visited}. Salience decays as exp(-delta/20). to_vec() returns 10D vector appended to perception. serialize/deserialize for checkpoint persistence.
+2. PERCEPTION DIM 139→149: 10 memory dims appended after utterance slots. get_perception_dim() gains n_memory_classes param. Trainer._build_perception() replaces all inline perceive calls in run_step.
+3. PERCEPTION RADIUS 30→15 (also teaching_radius 25→15): Tighter radius forces genuine information asymmetry — agents at radius 35 from center can't see each other's objects without communicating.
+4. ASYMMETRIC STARTS + DIRECTED DISCOVERY: _reset_agent_positions() spaces agents evenly around world center (r≈35). _setup_directed_discovery() fires 20% of episodes — places a high-salience agent near an object its partner hasn't seen, scaffolding early referral communication.
+5. REFERRAL REWARD (+0.4, Phase 6.6) + JOINT CURIOSITY BONUS (+0.15, Phase 6.7): Referral fires when agent A's recent utterance predicted agent B's novel discovery. Joint bonus fires when two curious agents (err>0.05) explore together within helping_radius. Both added to Phase 7 reward total.
+Also: utterance_log and episode_step per episode; spatial_memory saved/loaded in checkpoints; load_checkpoint warning updated to 139->149 for Phase 4.
+Smoke test: 50ep, ~5ep/s, 149D perception (129 env + 10 utterance slots + 10 memory dims) confirmed, all components functional.
+**Last updated**: 2026-02-24
+**Project root**: `C:\Users\Johnathan\ClaudeResearch\curious_agents\`
 **Owner**: Johnathan (AI consciousness/emergence researcher)
 
 ---
@@ -65,11 +74,11 @@ A multi-phase research program building curiosity-driven neural agents from scra
 |-------|--------|-------------|
 | 1: Curiosity & Exploration | ✅ Complete (ep 0-5000) | Forward model, REINFORCE policy, confidence tracking |
 | 2: Language Grounding | ✅ Complete | Ostensive teaching; circular-buffer vocabulary; naming loss + discrimination head |
-| 3: Multi-Agent Communication | ✅ Active | Utterance actions (15-action space); word perception slots (139D); communicative reward |
-| 3.5: Property Vocabulary | 🔮 Next | Ground property words from 15D property vector; prerequisite for grammar |
-| 4: Grammar / Compositionality | 🔮 Planned | 2-word utterances; referential games; disambiguation tasks |
-| 5: Meta-Cognition | 🔮 Planned | Hierarchical self-modeling, awareness of awareness |
-| 6: Conversation | 🔮 Planned | Human-agent dialogue grounded in shared perception |
+| 3: Multi-Agent Communication | ✅ Complete | Utterance actions (15-action space); word perception slots (149D); communicative reward |
+| 4: Spatial Memory + Communication Scaffolding | ✅ Active | SpatialMemory (149D perception); perception_radius 30→15; asymmetric starts; referral reward (+0.4); joint curiosity bonus (+0.15) |
+| 5: Grammar / Compositionality | 🔮 Planned | 2-word utterances; referential games; disambiguation tasks |
+| 6: Meta-Cognition | 🔮 Planned | Hierarchical self-modeling, awareness of awareness |
+| 7: Conversation | 🔮 Planned | Human-agent dialogue grounded in shared perception |
 
 ---
 
@@ -106,8 +115,8 @@ A multi-phase research program building curiosity-driven neural agents from scra
 
 ### Agent (`CuriousAgent`)
 ```
-Perception (139D flat) → Encoder (3× NormedLinear+GELU → 64D Tanh)
-  129D env + 10D words                                          |
+Perception (149D flat) → Encoder (3× NormedLinear+GELU → 64D Tanh)
+  129D env + 10D words + 10D memory                            |
                         → Forward Model (state + 5D move-onehot → predicted next state)  [forward_model_optimizer]
                         → Policy (state → 15 action logits, softmax)                     [policy_optimizer]
                               5 movement + 10 utterance actions (word class 0-9)
@@ -123,16 +132,16 @@ Perception (139D flat) → Encoder (3× NormedLinear+GELU → 64D Tanh)
 - **Forward model**: utterance actions → mapped to "stay" (action 4) before one-hot encoding
 - **3 optimizers**: `policy_optimizer`, `forward_model_optimizer`, `language_optimizer` (encoder shared between policy and language, each manages its own zero_grad/step)
 - **Vocabulary**: `dict[str, np.ndarray]` mapping words → circular-buffer prototype vectors
-- **Key methods**: `perceive()`, `decide_action()`, `execute_action()`, `compute_prediction_error()`, `compute_intrinsic_reward()`, `learn_word()`, `try_to_name()`, `store_experience()`, `update_policy()`, `train_forward_model()`, `train_language_losses(word, class_idx)`, `get_predicted_class()`
+- **Key methods**: `perceive()`, `decide_action()`, `execute_action()`, `compute_prediction_error()`, `compute_intrinsic_reward()`, `learn_word()`, `try_to_name()`, `store_experience()`, `update_policy()`, `train_forward_model()`, `train_language_losses(word, class_idx)`, `get_predicted_class()`, `update_memory(nearby_object_classes, prediction_error, episode)`
 
 ### Environment (`StructuredEnvironment`)
 - 100×100 toroidal world
 - Objects have 15D property vectors (color RGB, size, shape, animate, edible, dangerous, warm, soft, bright, noisy, complexity, familiarity)
 - 10 object types: apple, banana, cat, dog, rock, fire, water, flower, ball, book
 - `get_flat_perception()` returns 129D vector (8 max objects × 16 features + 1 count)
-- `get_perception_dim(n_utterance_classes=N)` returns 129+N (trainer passes N=10)
+- `get_perception_dim(n_utterance_classes=N, n_memory_classes=M)` returns 129+N+M (trainer passes N=M=10)
 - 3 curriculum stages: simple (4 obj) → complex (8 obj) → dynamic (spawn/despawn/shift)
-- **Trainer appends 10D utterance slots** to get full 139D perception — `get_flat_perception()` itself is unchanged
+- **Trainer appends 10D utterance slots + 10D memory vec** to get full 149D perception — `get_flat_perception()` itself is unchanged
 
 ### Teaching System (`OstensiveTeacher` + `WordMemory`)
 - Probabilistic teaching: each step, may "point and name" a nearby object
@@ -152,9 +161,12 @@ total_reward = curiosity_reward     (max(0, prev_error - curr_error))
              + naming_reward        (0.3 if correctly named nearby object)
              + comm_reward          (0.5 × count of nearby agents whose discrimination
                                      prediction agrees with current utterance class)
+             + referral_reward      (0.4 when agent's utterance led a nearby agent to
+                                     a novel discovery within the last 20 steps)
+             + joint_curiosity_bonus (0.15 when two curious agents explore together
+                                     within helping_radius, both err > 0.05)
 ```
 **Never negative.** Worst case = 0.
-`comm_reward` is computed in Phase 6.5 of `run_step` and added to the step reward passed to `store_experience`. It is NOT added to `agent.total_reward` (same pattern as naming_reward — minor tracking inconsistency, doesn't affect training).
 
 ---
 
@@ -304,9 +316,9 @@ python -c "import sys; sys.path.insert(0,'.'); from training.trainer import Trai
 - **PowerShell**: Use `;` not `&&` to chain commands
 - **sys.path**: The trainer already does `sys.path.insert(0, ...)` — don't duplicate
 - **Checkpoint format (updated Feb 2026)**: `WordMemory` serializes as `{'buffer': [[...], ...], 'write_pos': int, 'exposures': int, 'grounded': bool, ...}`. The old `state_accumulator` key no longer exists in new checkpoints. `load_checkpoint` handles both formats for backward compat.
-- **Checkpoint loading**: Uses `strict=False` so old checkpoints (without `discrimination_head` weights) load cleanly. A shape mismatch (e.g. Phase 2→3 migration where encoder changed 129→139) raises RuntimeError — `load_checkpoint` catches this and re-applies `apply_structured_initialization` for that agent with a printed warning.
-- **Phase 2→3 checkpoint break**: Old ep0-999 checkpoints have encoder input dim 129; Phase 3 uses 139. Loading those will trigger the RuntimeError fallback above — agents start fresh but the run continues. Start a new run for clean Phase 3 training.
-- **Perception dim**: 139 = 129 base + 10 utterance slots. Base: 8 max objects × (1 distance + 15 properties) + 1 count. Utterance slots: appended by trainer, NOT by `get_flat_perception()`. If you change max_objects or property count, update both the base calc and the 139 default in `create_agent`.
+- **Checkpoint loading**: Uses `strict=False` so old checkpoints (without `discrimination_head` weights) load cleanly. A shape mismatch (e.g. Phase 3→4 migration where encoder changed 139→149) raises RuntimeError — `load_checkpoint` catches this and re-applies `apply_structured_initialization` for that agent with a printed warning. `spatial_memory` key is optional — missing = fresh SpatialMemory().
+- **Phase 2→3 checkpoint break**: Old ep0-999 checkpoints have encoder input dim 129; Phase 3 uses 139. Triggers RuntimeError fallback. Phase 3→4 same: 139→149. Start a new run for clean Phase 4 training.
+- **Perception dim**: 149 = 129 base + 10 utterance slots + 10 memory dims. Base: 8 max objects × (1 distance + 15 properties) + 1 count. Utterance slots and memory vec: appended by `_build_perception()` in Trainer, NOT by `get_flat_perception()`. If you change max_objects or property count, update both the base calc and the 149 default in `create_agent`.
 - **Temperature**: Decays per-episode via `temp *= decay`. Starts at 2.0, floor now 0.6 (raised from 0.3 — 0.3 caused utterances to collapse to ~5% at late training as policy went near-greedy). `load_checkpoint` uses `max(checkpoint_temp, config.temperature_end)` so resumed runs respect the new floor.
 - **language_optimizer backward timing**: `train_language_losses()` is called from `OstensiveTeacher.teach_step()` inside `run_step()`, after the second `perceive()` call. At that point `agent.internal_state` still has a live computation graph. The backward call there consumes the graph — `train_forward_model()` called later uses `.detach()` so there's no conflict.
 - **Discrimination head class count**: If you add objects to the curriculum beyond the current 10, add them to `ALL_OBJECT_CLASSES` in `language_grounding.py` AND update `AgentConfig.n_object_classes`. Out-of-sync values will cause silent mismatch (discrimination head produces wrong number of logits).

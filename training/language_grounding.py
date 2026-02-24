@@ -39,6 +39,33 @@ N_OBJECT_CLASSES: int = len(ALL_OBJECT_CLASSES)
 WORD_CLASS_MAP: Dict[str, int] = {word: idx for idx, word in enumerate(ALL_OBJECT_CLASSES)}
 
 
+# =============================================================================
+# Property Class Registry (Phase 3.5)
+# =============================================================================
+
+N_PROPERTY_CLASSES: int = 5
+ALL_PROPERTY_CLASSES: List[str] = ['dangerous', 'edible', 'animate', 'warm', 'bright']
+PROPERTY_WORD_MAP: Dict[str, int] = {word: idx for idx, word in enumerate(ALL_PROPERTY_CLASSES)}
+
+# Which PROPERTY_SCHEMA dimension each property word corresponds to
+PROPERTY_DIM_MAP: Dict[str, int] = {
+    'dangerous': 8,
+    'edible':    7,
+    'animate':   6,
+    'warm':      9,
+    'bright':    11,
+}
+
+# Minimum property value to count as a teaching instance for that word
+PROPERTY_THRESHOLDS: Dict[str, float] = {
+    'dangerous': 0.5,
+    'edible':    0.5,
+    'animate':   0.5,
+    'warm':      0.6,
+    'bright':    0.6,
+}
+
+
 @dataclass
 class TeachingConfig:
     """Hyperparameters for the ostensive teaching system."""
@@ -71,7 +98,11 @@ class TeachingConfig:
     naming_threshold: float = 0.5        # Lower than agent default (0.7) early on
 
     # Maximum teaching radius: how close agent must be to object
-    teaching_radius: float = 25.0
+    teaching_radius: float = 15.0
+
+    # Property vocabulary (Phase 3.5)
+    property_teach_prob: float = 0.10     # Per step, per agent
+    property_naming_reward: float = 0.2   # Approach-only, smaller than object reward
 
 
 # Which words to teach at each curriculum stage
@@ -278,6 +309,74 @@ class OstensiveTeacher:
                 class_idx = WORD_CLASS_MAP.get(base_name, -1)
                 agent.train_language_losses(base_name, class_idx)
 
+    def teach_property_step(self, agents, env, stage: int, episode: int):
+        """
+        Each step, may teach property words to agents near qualifying objects.
+
+        A property word is taught when agent is within teaching_radius of an
+        object whose property value for that dimension exceeds the threshold.
+        Uses the same WordMemory / circular-buffer mechanism as object teaching.
+        """
+        for agent in agents:
+            aid = agent.config.agent_id
+            if agent.internal_state is None:
+                continue
+            if self.rng.rand() > self.config.property_teach_prob:
+                continue
+
+            if aid not in self.word_memories:
+                self.word_memories[aid] = {}
+
+            nearby = self._find_nearby_objects(
+                agent.position, env.objects, env.world_size
+            )
+            if not nearby:
+                continue
+
+            internal_state = agent.internal_state.detach().squeeze().numpy().copy()
+
+            # Track which property words have already been taught this step to avoid
+            # double-counting the same internal_state when multiple nearby objects
+            # qualify for the same property word.
+            taught_properties: set = set()
+
+            # For each nearby object, teach any property words it qualifies for
+            for obj_key, base_name, dist in nearby:
+                obj = env.objects.get(obj_key)
+                if obj is None:
+                    continue
+                for prop_word, dim_idx in PROPERTY_DIM_MAP.items():
+                    if obj.properties[dim_idx] <= PROPERTY_THRESHOLDS[prop_word]:
+                        continue
+                    # Skip if this property word was already taught this step
+                    if prop_word in taught_properties:
+                        continue
+                    taught_properties.add(prop_word)
+                    # This object qualifies as a teaching instance for prop_word
+                    mem_key = f'prop_{prop_word}'
+                    if mem_key not in self.word_memories[aid]:
+                        self.word_memories[aid][mem_key] = WordMemory(
+                            word=prop_word,
+                            base_name=mem_key,
+                            buffer_size=self.config.vocab_buffer_size,
+                        )
+                    memory = self.word_memories[aid][mem_key]
+                    memory.add_exposure(internal_state)
+
+                    if memory.exposures >= self.config.min_exposures_to_ground:
+                        if not memory.grounded:
+                            memory.grounded = True
+                            self.teaching_events.append({
+                                'episode': episode,
+                                'agent_id': aid,
+                                'word': prop_word,
+                                'type': 'property',
+                                'event': 'grounded',
+                            })
+                        agent.property_vocabulary[prop_word] = memory.prototype.copy()
+                        prop_idx = PROPERTY_WORD_MAP[prop_word]
+                        agent.train_property_losses(prop_word, prop_idx)
+
     def test_naming(self, agents, env, stage: int, episode: int) -> List[Dict]:
         """
         Passively test whether agents can name nearby objects.
@@ -358,6 +457,34 @@ class OstensiveTeacher:
             return self.config.naming_reward
         return 0.0
 
+    def compute_property_naming_reward(self, agent, env) -> float:
+        """
+        Reward when agent's last utterance was a property word that correctly
+        describes a nearby object.
+
+        Returns 0.0 if no property utterance this step, or if the property
+        doesn't apply to nearby objects. Never negative.
+        """
+        if agent.last_utterance_property is None:
+            return 0.0
+        if not agent.property_vocabulary:
+            return 0.0
+
+        prop_word = ALL_PROPERTY_CLASSES[agent.last_utterance_property]
+        dim_idx = PROPERTY_DIM_MAP.get(prop_word)
+        threshold = PROPERTY_THRESHOLDS.get(prop_word, 0.5)
+        if dim_idx is None:
+            return 0.0
+
+        nearby = self._find_nearby_objects(
+            agent.position, env.objects, env.world_size
+        )
+        for obj_key, base_name, dist in nearby:
+            obj = env.objects.get(obj_key)
+            if obj is not None and obj.properties[dim_idx] > threshold:
+                return self.config.property_naming_reward
+        return 0.0
+
     def refresh_vocabularies(self, agents, env, episode: int):
         """
         Re-ground all words using current encoder weights.
@@ -376,37 +503,60 @@ class OstensiveTeacher:
                 if not memory.grounded:
                     continue
 
-                # Find an instance of this object in the environment
-                for key, obj in env.objects.items():
-                    base = key.split('_')[0] if '_' in key and key.split('_')[-1].isdigit() else key
-                    if base == word:
-                        # Get perception from object's location
-                        # (simulate agent being right next to it)
-                        flat_perc = env.get_flat_perception(
-                            position=obj.position,
-                            perception_radius=self.config.teaching_radius,
-                        )
-                        # Pad to agent's full perception_dim (adds utterance slots as zeros —
-                        # no agents are speaking during vocabulary refresh).
-                        expected_dim = agent.config.perception_dim
-                        if len(flat_perc) < expected_dim:
-                            flat_perc = np.concatenate(
-                                [flat_perc, np.zeros(expected_dim - len(flat_perc))]
-                            )
-                        with torch.no_grad():
-                            x = torch.FloatTensor(flat_perc).unsqueeze(0)
-                            new_state = agent.encoder(x).squeeze().numpy()
+                # Determine whether this is a property word ('prop_dangerous', etc.)
+                # or an object word ('apple', 'rock', etc.).
+                is_property_word = word.startswith('prop_')
 
-                        # Reset memory and re-accumulate
-                        memory.reset_for_refresh()
-                        memory.add_exposure(new_state)
-                        memory.exposures = self.config.min_exposures_to_ground  # Keep grounded
-                        memory.grounded = True
-                        memory.last_refresh_episode = episode
+                # For object words the env key base must match the word directly.
+                # For property words we match against any object in the environment
+                # (use the first object found — we only need an encoder state).
+                if is_property_word:
+                    # Use any object to get a representative encoder state.
+                    any_obj = next(iter(env.objects.values()), None)
+                    if any_obj is None:
+                        continue
+                    match_obj = any_obj
+                else:
+                    match_obj = None
+                    for key, obj in env.objects.items():
+                        base = key.split('_')[0] if '_' in key and key.split('_')[-1].isdigit() else key
+                        if base == word:
+                            match_obj = obj
+                            break
 
-                        agent.vocabulary[word] = new_state.copy()
-                        refreshed_count += 1
-                        break
+                if match_obj is None:
+                    continue
+
+                # Get perception from object's location
+                # (simulate agent being right next to it)
+                flat_perc = env.get_flat_perception(
+                    position=match_obj.position,
+                    perception_radius=self.config.teaching_radius,
+                )
+                # Pad to agent's full perception_dim (adds utterance slots as zeros —
+                # no agents are speaking during vocabulary refresh).
+                expected_dim = agent.config.perception_dim
+                if len(flat_perc) < expected_dim:
+                    flat_perc = np.concatenate(
+                        [flat_perc, np.zeros(expected_dim - len(flat_perc))]
+                    )
+                with torch.no_grad():
+                    x = torch.FloatTensor(flat_perc).unsqueeze(0)
+                    new_state = agent.encoder(x).squeeze().numpy()
+
+                # Reset memory and re-accumulate
+                memory.reset_for_refresh()
+                memory.add_exposure(new_state)
+                memory.exposures = self.config.min_exposures_to_ground  # Keep grounded
+                memory.grounded = True
+                memory.last_refresh_episode = episode
+
+                if is_property_word:
+                    prop_key = word[5:]  # strip 'prop_' prefix → bare property word
+                    agent.property_vocabulary[prop_key] = new_state.copy()
+                else:
+                    agent.vocabulary[word] = new_state.copy()
+                refreshed_count += 1
 
             if refreshed_count > 0:
                 self.teaching_events.append({

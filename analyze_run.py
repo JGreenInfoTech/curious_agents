@@ -11,11 +11,13 @@ Usage:
     python analyze_run.py --every 100        # Show every Nth episode only
     python analyze_run.py --section lang     # Show only language metrics
     python analyze_run.py --section core     # Show only curiosity/reward metrics
+    python analyze_run.py --section comm     # Show only Phase 4 comm/memory metrics
 
 Sections:
-    all    Full table (default) — two rows per checkpoint: core then language
+    all    Full table (default) — core + language + comm
     core   Prediction error, learning progress, confidence, reward
     lang   Vocab size, naming accuracy, naming loss, discrimination loss
+    comm   Utterance rate, referral reward, joint reward, spatial memory
 """
 
 import json
@@ -112,6 +114,32 @@ def print_lang(entries: List[Dict], aids: List[str]):
         print(f'{ep:>6} {stage:>2}  {global_col}  {"  ".join(cols)}')
 
 
+def print_comm(entries: List[Dict], aids: List[str]):
+    """Utterance rate, property utterance rate, referral reward, joint reward, spatial memory, property vocab."""
+    n = len(aids)
+    agent_hdrs = '  '.join(
+        f'{"A"+a+":utt%":>7} {"putt":>5} {"ref_r":>5} {"jnt_r":>5} {"mem":>3} {"pvoc":>4}' for a in aids
+    )
+    print(f'\n{"=== COMM METRICS (utterances / referral / spatial memory)":<60}')
+    print(f'{"EP":>6} {"St":>2}  {agent_hdrs}')
+    print('-' * (12 + n * 38))
+
+    for e in entries:
+        ep    = e['episode']
+        stage = e.get('stage', '?')
+        cols  = []
+        for a in aids:
+            d = e['agents'].get(a, e['agents'].get(int(a), {}))
+            utt_rate = d.get('utterance_rate', 0.0)
+            putt     = d.get('property_utterance_rate', 0.0)
+            ref_r    = d.get('referral_reward', 0.0)
+            jnt_r    = d.get('joint_reward', 0.0)
+            mem      = d.get('memory_entries', 0)
+            pvoc     = d.get('property_vocab_size', 0)
+            cols.append(f'{utt_rate:>7.3f} {putt:>5.3f} {ref_r:>5.2f} {jnt_r:>5.2f} {mem:>3d} {pvoc:>4d}')
+        print(f'{ep:>6} {stage:>2}  {"  ".join(cols)}')
+
+
 def print_summary(entries: List[Dict], aids: List[str]):
     """High-level summary statistics across the full run."""
     if not entries:
@@ -132,12 +160,14 @@ def print_summary(entries: List[Dict], aids: List[str]):
         nl1    = d1.get('avg_naming_loss', 0.0)
         dl1    = d1.get('avg_discrimination_loss', 0.0)
         words  = d1.get('words_known', [])
+        pv1    = d1.get('property_vocab_size', 0)
         print(f'\n  Agent {a}:')
         direction = "down" if e1 < e0 else "UP"
         print(f'    Pred error:   {e0:.4f} -> {e1:.4f}  ({direction})')
         print(f'    Confidence:   {c0:.3f} -> {c1:.3f}')
         print(f'    Vocabulary:   {v0} -> {v1} words  {words}')
         print(f'    Naming acc:   {na1:.3f}   naming_loss={nl1:.4f}   disc_loss={dl1:.4f}')
+        print(f'    Prop vocab:   {pv1} words')
 
 
 def main():
@@ -146,7 +176,7 @@ def main():
     parser.add_argument('--ep-min', type=int, default=0, help='Skip episodes below this')
     parser.add_argument('--every', type=int, default=1,
                         help='Show every Nth episode snapshot (default: 1 = all)')
-    parser.add_argument('--section', choices=['all', 'core', 'lang'], default='all',
+    parser.add_argument('--section', choices=['all', 'core', 'lang', 'comm'], default='all',
                         help='Which metrics to display (default: all)')
     args = parser.parse_args()
 
@@ -169,6 +199,9 @@ def main():
 
     if args.section in ('all', 'lang'):
         print_lang(entries, aids)
+
+    if args.section in ('all', 'comm'):
+        print_comm(entries, aids)
 
 
 if __name__ == '__main__':

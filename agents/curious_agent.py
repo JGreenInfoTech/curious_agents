@@ -47,6 +47,65 @@ class NormedLinear(nn.Module):
 
 
 # =============================================================================
+# Spatial Memory
+# =============================================================================
+
+@dataclass
+class SpatialMemory:
+    """
+    Per-agent persistent memory of object encounters, decaying over episodes.
+
+    Stores the most recent encounter with each object class: where it was,
+    how novel it felt (prediction error = salience), and when. Salience
+    decays exponentially across episodes so stale memories don't dominate.
+
+    Persisted in checkpoints — agents remember across training sessions.
+    """
+    entries: Dict[int, Dict] = field(default_factory=dict)
+    # entries[class_idx] = {
+    #   'salience':      float  — prediction_error at time of encounter
+    #   'episode':       int    — episode last seen
+    #   'position':      list   — [x, y] world coordinates
+    #   'times_visited': int    — total lifetime encounters with this class
+    # }
+
+    def update(self, class_idx: int, salience: float, episode: int,
+               position: np.ndarray):
+        existing = self.entries.get(class_idx, {'times_visited': 0})
+        self.entries[class_idx] = {
+            'salience': float(salience),
+            'episode': int(episode),
+            'position': [float(position[0]), float(position[1])],
+            'times_visited': existing['times_visited'] + 1,
+        }
+
+    def get_decayed_salience(self, class_idx: int, current_episode: int,
+                              decay_horizon: int = 20) -> float:
+        if class_idx not in self.entries:
+            return 0.0
+        entry = self.entries[class_idx]
+        delta = max(0, current_episode - entry['episode'])
+        return entry['salience'] * float(np.exp(-delta / decay_horizon))
+
+    def to_vec(self, current_episode: int, n_classes: int = 10,
+               decay_horizon: int = 20) -> np.ndarray:
+        """10D summary vector: decayed salience per object class."""
+        vec = np.zeros(n_classes, dtype=np.float32)
+        for c in range(n_classes):
+            vec[c] = self.get_decayed_salience(c, current_episode, decay_horizon)
+        return vec
+
+    def serialize(self) -> Dict:
+        return {'entries': {str(k): v for k, v in self.entries.items()}}
+
+    @classmethod
+    def deserialize(cls, data: Dict) -> 'SpatialMemory':
+        mem = cls()
+        mem.entries = {int(k): v for k, v in data.get('entries', {}).items()}
+        return mem
+
+
+# =============================================================================
 # Agent Configuration
 # =============================================================================
 
@@ -93,10 +152,17 @@ class AgentConfig:
     n_object_classes: int = 10          # One class per word in the full vocabulary
     naming_loss_weight: float = 0.1     # Encoder alignment: pull state → word prototype
     discrimination_loss_weight: float = 0.2  # Auxiliary classifier: state → class label
+    property_loss_weight: float = 0.2   # Property discrimination head loss weight
+    n_property_utterances: int = 5        # Property word emission actions (Phase 3.5)
+    n_property_classes: int = 5           # For property discrimination head
+
+    # Spatial Memory (Phase 4)
+    memory_decay_horizon: int = 20        # Episodes for salience to decay to ~37%
+    memory_salience_threshold: float = 0.01  # Min prediction error to update memory
 
     # World
     world_size: float = 100.0
-    perception_radius: float = 30.0
+    perception_radius: float = 15.0
 
     # Identity
     agent_id: int = 0
@@ -150,7 +216,7 @@ class CuriousAgent(nn.Module):
         # Given internal state → action preferences (softmax probabilities)
         # Total action space: n_actions (movement) + n_utterance_classes (word emissions)
         # The forward model only uses movement actions; utterance actions expand policy only.
-        _total_actions = config.n_actions + config.n_utterance_classes
+        _total_actions = config.n_actions + config.n_utterance_classes + config.n_property_utterances
         self.policy = nn.Sequential(
             NormedLinear(config.internal_state_dim, config.hidden_dim // 2),
             nn.GELU(),
@@ -176,6 +242,13 @@ class CuriousAgent(nn.Module):
             nn.Linear(config.internal_state_dim, config.hidden_dim // 2),
             nn.GELU(),
             nn.Linear(config.hidden_dim // 2, config.n_object_classes),
+        )
+
+        self.property_discrimination_head = nn.Sequential(
+            nn.Linear(config.internal_state_dim, config.hidden_dim // 4),
+            nn.GELU(),
+            nn.Linear(config.hidden_dim // 4, config.n_property_classes),
+            nn.Sigmoid(),   # Binary per property — multiple can be true simultaneously
         )
 
         # ===== OBSERVABLE STATE (what others can see about me) =====
@@ -216,10 +289,19 @@ class CuriousAgent(nn.Module):
         # Last utterance this step: class index (0-9) or None if agent moved/stayed
         self.last_utterance_class: Optional[int] = None
 
+        # Property vocabulary (Phase 3.5): word → prototype vector
+        self.property_vocabulary: Dict[str, np.ndarray] = {}
+        # Last property utterance this step: property index (0-4) or None
+        self.last_utterance_property: Optional[int] = None
+
         # Language loss tracking
         self.naming_loss_history: List[float] = []
         self.discrimination_loss_history: List[float] = []
-        
+
+        # Spatial memory (Phase 4): persistent object-encounter memory across episodes
+        self.spatial_memory = SpatialMemory()
+        self.current_episode: int = 0
+
         # Set up optimizers
         self._setup_optimizers()
     
@@ -243,7 +325,8 @@ class CuriousAgent(nn.Module):
         # Encoder params are shared with policy_optimizer — each optimizer manages
         # its own zero_grad/step cycle so they don't interfere with each other.
         language_params = list(self.encoder.parameters()) + \
-                          list(self.discrimination_head.parameters())
+                          list(self.discrimination_head.parameters()) + \
+                          list(self.property_discrimination_head.parameters())
         self.language_optimizer = torch.optim.Adam(
             language_params, lr=self.config.learning_rate
         )
@@ -300,6 +383,7 @@ class CuriousAgent(nn.Module):
         if action < self.config.n_actions:
             # Movement action — clear any previous utterance
             self.last_utterance_class = None
+            self.last_utterance_property = None
 
             if action == 0:    # North
                 self.position[1] += step
@@ -316,10 +400,15 @@ class CuriousAgent(nn.Module):
             self.position[1] %= self.config.world_size
         else:
             # Utterance action — no movement, emit a word
-            word_idx = action - self.config.n_actions
-            self.last_utterance_class = (
-                word_idx if word_idx < self.config.n_utterance_classes else None
-            )
+            action_offset = action - self.config.n_actions
+            if action_offset < self.config.n_utterance_classes:
+                # Object utterance
+                self.last_utterance_class = action_offset
+                self.last_utterance_property = None
+            else:
+                # Property utterance
+                self.last_utterance_class = None
+                self.last_utterance_property = action_offset - self.config.n_utterance_classes
 
         self.action_history.append(action)
         self.position_history.append(tuple(self.position.copy()))
@@ -334,7 +423,15 @@ class CuriousAgent(nn.Module):
         rng = np.random.RandomState(seed)
         self.position = rng.uniform(0, self.config.world_size, size=2)
         self.visit_counts.clear()
-    
+
+    def update_memory(self, nearby_object_classes: List[Tuple[int, np.ndarray]],
+                      prediction_error: float, episode: int):
+        """Update spatial memory after a prediction error is computed."""
+        if prediction_error < self.config.memory_salience_threshold:
+            return
+        for class_idx, position in nearby_object_classes:
+            self.spatial_memory.update(class_idx, prediction_error, episode, position)
+
     def compute_prediction_error(self, action: int) -> float:
         """
         How wrong was my prediction about what would happen?
@@ -538,6 +635,34 @@ class CuriousAgent(nn.Module):
         self.naming_loss_history.append(naming_val)
         self.discrimination_loss_history.append(disc_val)
         return naming_val, disc_val
+
+    def train_property_losses(self, property_word: str, property_idx: int) -> float:
+        """
+        Train property discrimination head on the current internal state.
+
+        Uses BCELoss: head should output 1.0 for property_idx being taught.
+        Returns BCE loss value (float) for logging.
+        """
+        if self.internal_state is None:
+            return 0.0
+
+        target = torch.zeros(1, self.config.n_property_classes)
+        if 0 <= property_idx < self.config.n_property_classes:
+            target[0, property_idx] = 1.0
+
+        # Detach so property losses don't backprop through the encoder.
+        # The encoder may have already had its graph freed by train_language_losses
+        # in the same step; detaching avoids "backward through freed graph" errors.
+        # Property losses shape the property head; the encoder is shaped by
+        # curiosity and object-naming losses.
+        state = self.internal_state.detach()
+        pred = self.property_discrimination_head(state)  # (1, 5)
+        loss = torch.nn.functional.binary_cross_entropy(pred, target) * self.config.property_loss_weight
+
+        self.language_optimizer.zero_grad()
+        loss.backward()
+        self.language_optimizer.step()
+        return loss.item()
 
     def get_predicted_class(self, class_names: Optional[List[str]] = None) -> Optional[str]:
         """
@@ -789,9 +914,14 @@ def apply_structured_initialization(agent: CuriousAgent, seed: int = 42):
                 nn.init.zeros_(layer.weight)
                 # Movement bias: encourage movement (0-3), discourage stay (4),
                 # slightly discourage utterances (5+) so agents explore first
-                total_actions = agent.config.n_actions + agent.config.n_utterance_classes
+                total_actions = (agent.config.n_actions
+                                 + agent.config.n_utterance_classes
+                                 + agent.config.n_property_utterances)
                 movement_bias = torch.tensor([0.1, 0.1, 0.1, 0.1, -0.1])
-                utterance_bias = torch.full((agent.config.n_utterance_classes,), -0.2)
+                utterance_bias = torch.full(
+                    (agent.config.n_utterance_classes + agent.config.n_property_utterances,),
+                    -0.2,
+                )
                 full_bias = torch.cat([movement_bias[:agent.config.n_actions],
                                        utterance_bias])[:total_actions]
                 layer.bias.copy_(full_bias)
@@ -819,7 +949,7 @@ def apply_structured_initialization(agent: CuriousAgent, seed: int = 42):
 
 
 def create_agent(agent_id: int = 0,
-                 perception_dim: int = 139,  # 129 base + 10 utterance slots
+                 perception_dim: int = 154,  # 129 base + 10 utterance slots + 10 memory dims + 5 property utterance slots
                  n_utterance_classes: int = 10,
                  seed: int = 42,
                  position: Optional[Tuple[float, float]] = None) -> CuriousAgent:
