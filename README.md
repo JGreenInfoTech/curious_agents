@@ -14,13 +14,14 @@ This is part of a larger research program studying emergent cognition, communica
 - Phase 3 (multi-agent communication): ✅ Complete — utterance actions (word emission), word perception slots, communicative reward
 - Phase 3.5 (property vocabulary): ✅ Active — 5 property words (dangerous/edible/animate/warm/bright), 20-action policy, 154D perception, property discrimination head
 - Phase 4 (spatial memory + communication scaffolding): ✅ Complete — SpatialMemory (154D perception with decay), asymmetric starts, directed discovery, referral reward, joint curiosity bonus
+- Phase 5 (disambiguation pressure): 🔄 Active — property-varying object instances + property-consequential rewards (danger penalty, food bonus)
 
 ## Architecture
 
 ### Environment (`environment/world.py`)
 - 2D world with objects defined by 15-dimensional property vectors
 - Properties: color (RGB), size, shape, animate, edible, dangerous, temperature, texture, luminosity, sound, complexity, familiarity
-- 10 pre-defined grounded concepts (apple, banana, cat, dog, rock, fire, water, flower, ball, book)
+- 12 objects total (10 unique classes + poisonous apple variant + feral cat variant; variants share class index with originals to force noun+property disambiguation)
 - Curriculum stages: simple → rich → dynamic
 - Agents perceive structured properties, not pixels
 
@@ -135,19 +136,29 @@ viz.plot_from_checkpoint('checkpoints/checkpoint_ep1000.pt', metrics_dir='logs')
 10. **Communicative reward** — Fires when agent A's utterance class matches nearby agent B's discrimination prediction. Near-zero early (heads untrained), should rise as shared representations converge
 11. **Property utterances** — Do agents emit property words? `--section comm` shows `putt%` column
 12. **Property vocab size** — Should grow toward 5 as agents encounter qualifying objects; shown in `pvoc` column of `--section comm`
+13. **Fire avoidance** — Fire had `dangerous=0.9` before Phase 5; expect avoidance to emerge earliest among dangerous objects as the danger penalty fires immediately on proximity
+14. **Poisonous apple vs. normal apple** — Same class index, different `dangerous` property. Agents that learn to discriminate will approach normal apple and avoid poisonous variant; visible as diverging approach patterns for the same noun
+15. **Feral cat vs. normal cat** — Same dynamic as apple pair; feral cat has high `dangerous`, normal cat does not
+16. **Noun+property co-utterance sequences** — Near variant objects, watch for agents emitting both an object word and a property word within a few steps; early sign of compositional pressure
+17. **`prop_app` trending negative then toward 0** — Column in `--section comm`. Starts near 0 (random proximity). Goes negative as danger penalty trains avoidance. Trends back toward 0 (or slightly positive) as agents successfully avoid dangerous objects and preferentially approach edible ones
 
 ## Reward Architecture (Critical Design Choice)
 
 ```
-reward = max(0, prev_error - curr_error)  +  helping_bonus  +  exploration_bonus  +  naming_bonus  +  prop_naming  +  comm_bonus  +  prop_comm  +  referral_bonus  +  joint_bonus
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^     ^^^^^^^^^^^^      ^^^^^^^^^^^^^^^^^     ^^^^^^^^^^^^     ^^^^^^^^^^     ^^^^^^^^^^     ^^^^^^^^^     ^^^^^^^^^^^^^     ^^^^^^^^^^
-         Curiosity: learning progress         Others learn      Anti-stagnation       Correct obj      Correct prop   Obj utterance  Prop utterance Agent's word      Two agents
-         (ONLY positive)                      near you          (tiny constant)       name nearby      word nearby    matches peer   matches peer   led partner to    exploring
-                                                                                                                       disc. head     prop. head     novel discovery   together
-                                                                                                                       (Phase 3)      (Phase 3.5)    (Phase 4)         (Phase 4)
+reward = max(0, prev_error - curr_error)  +  helping_bonus  +  exploration_bonus  +  naming_bonus  +  prop_naming  +  comm_bonus  +  prop_comm  +  referral_bonus  +  joint_bonus  +  food_bonus  +  danger_penalty
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^     ^^^^^^^^^^^^      ^^^^^^^^^^^^^^^^^     ^^^^^^^^^^^^     ^^^^^^^^^^     ^^^^^^^^^^     ^^^^^^^^^     ^^^^^^^^^^^^^     ^^^^^^^^^^     ^^^^^^^^^^     ^^^^^^^^^^^^^^
+         Curiosity: learning progress         Others learn      Anti-stagnation       Correct obj      Correct prop   Obj utterance  Prop utterance Agent's word      Two agents     +0.05/step     -0.2/step
+         (ONLY positive)                      near you          (tiny constant)       name nearby      word nearby    matches peer   matches peer   led partner to    exploring       within r=8     within r=8
+                                                                                                                       disc. head     prop. head     novel discovery   together        of edible      of dangerous
+                                                                                                                       (Phase 3)      (Phase 3.5)    (Phase 4)         (Phase 4)       objects        objects
+                                                                                                                                                                                        (Phase 5)      (Phase 5)
 ```
 
-**No negative signal anywhere.** Confusion is neutral information, not suffering.
+**Danger penalty** (Phase 5): `−0.2` per step while within radius 8 of a dangerous object (fire, poisonous apple, feral cat). The first negative signal in the reward architecture — introduced to create genuine approach/avoid disambiguation pressure on properties.
+
+**Food bonus** (Phase 5): `+0.05` per step while within radius 8 of an edible object (apple, banana, water). Mild positive signal for proximity to food sources.
+
+**No other negative signals.** Confusion remains neutral information, not suffering.
 
 ### Language Loss Architecture (Encoder Shaping — separate from reward)
 
@@ -235,7 +246,8 @@ curious_agents/
 | 3: Multi-Agent Communication | ✅ Complete | Utterance actions (15-action space); word perception slots; communicative reward |
 | 3.5: Property Vocabulary | ✅ Active | 5 property words; 20-action policy; 154D perception; property discrimination head; property comm reward |
 | 4: Spatial Memory + Communication Scaffolding | ✅ Complete | SpatialMemory; perception_radius 30→15; asymmetric starts; referral reward (+0.4); joint curiosity bonus (+0.15) |
-| 5: Grammar / Compositionality | 🔮 Planned | 2-word utterances; referential games; disambiguation tasks |
+| 5: Disambiguation Pressure | 🔄 Active | Property-varying instances (poisonous apple, feral cat); danger penalty (−0.2/step near dangerous objects); food bonus (+0.05/step near edible objects) |
+| 6: Grammar / Compositionality | 🔮 Planned | 2-word utterances; referential games; disambiguation tasks |
 | 6: Meta-Cognition | 🔮 Planned | Hierarchical self-modeling, awareness of awareness |
 | 7: Conversation | 🔮 Planned | Human-agent dialogue grounded in shared perception |
 
