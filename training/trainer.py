@@ -26,7 +26,7 @@ from environment.world import StructuredEnvironment
 from agents.curious_agent import CuriousAgent, create_agent
 from training.language_grounding import (
     OstensiveTeacher, TeachingConfig, N_OBJECT_CLASSES, ALL_OBJECT_CLASSES, WORD_CLASS_MAP,
-    N_PROPERTY_CLASSES, ALL_PROPERTY_CLASSES, PROPERTY_WORD_MAP,
+    N_PROPERTY_CLASSES, ALL_PROPERTY_CLASSES, PROPERTY_WORD_MAP, PROPERTY_DIM_MAP,
 )
 
 
@@ -61,7 +61,13 @@ class TrainerConfig:
     referral_reward: float = 0.4         # Reward when agent's utterance helps another discover object
     joint_curiosity_bonus: float = 0.15  # Bonus when two curious agents explore together
     directed_discovery_prob: float = 0.20  # Probability of directed discovery setup per episode
-    
+
+    # Phase 5: property-consequential rewards
+    property_approach_penalty: float = -0.2   # per-step penalty near dangerous objects
+    property_food_bonus: float = 0.05         # per-step bonus near edible objects
+    danger_radius: float = 8.0
+    food_radius: float = 8.0
+
     # Logging
     log_freq: int = 50               # Log every N episodes
     checkpoint_freq: int = 500       # Save every N episodes
@@ -135,6 +141,8 @@ class Trainer:
         # Episode-level reward accumulators for metrics logging
         self.episode_referral_totals: Dict[int, float] = {}
         self.episode_joint_totals: Dict[int, float] = {}
+        self.episode_property_comm_totals: Dict[int, float] = {}
+        self.episode_property_approach_totals: Dict[int, float] = {}
         
         # Phase 2: Ostensive teacher for language grounding
         self.teaching_config = TeachingConfig()
@@ -171,17 +179,20 @@ class Trainer:
         """Progress through environment stages."""
         if episode == 0:
             self.env.setup_stage_1()
+            self.env.spawn_objects()  # Phase 5: replace with stable 12-object world
             self.current_stage = 1
             print("\n=== Stage 1: Simple environment (4 objects) ===")
         elif episode == self.config.stage_1_episodes and self.current_stage < 2:
             self.env.setup_stage_2()
+            self.env.spawn_objects()  # Phase 5: replace with stable 12-object world
             self.current_stage = 2
             print("\n=== Stage 2: Richer environment (8 objects + relations) ===")
         elif episode == self.config.stage_2_episodes and self.current_stage < 3:
             self.env.setup_stage_3()
+            self.env.spawn_objects()  # Phase 5: replace with stable 12-object world (no dynamic mode)
             self.current_stage = 3
             print("\n=== Stage 3: Dynamic environment (objects move) ===")
-        
+
         # Safety: ensure environment is populated for current stage
         # (guards against checkpoint resume with empty env)
         if not self.env.objects and self.current_stage >= 1:
@@ -191,6 +202,7 @@ class Trainer:
                 self.env.setup_stage_2()
             else:
                 self.env.setup_stage_1()
+            self.env.spawn_objects()  # Phase 5: replace with stable 12-object world
             print(f"  [Safety] Re-initialized environment for stage {self.current_stage}"
                   f" ({len(self.env.objects)} objects)")
     
@@ -439,6 +451,7 @@ class Trainer:
                 if prop_pred[0, prop_idx].item() > 0.5:
                     aid = agent_a.config.agent_id
                     step_comm_rewards[aid] = step_comm_rewards.get(aid, 0.0) + self.config.property_comm_reward
+                    self.episode_property_comm_totals[aid] = self.episode_property_comm_totals.get(aid, 0.0) + self.config.property_comm_reward
 
         # --- Phase 6.6: Referral reward ---
         # Agent A said word W recently; agent B just found class W it didn't know about.
@@ -496,6 +509,33 @@ class Trainer:
             self.episode_referral_totals[_aid] = self.episode_referral_totals.get(_aid, 0.0) + referral_rewards.get(_aid, 0.0)
             self.episode_joint_totals[_aid] = self.episode_joint_totals.get(_aid, 0.0) + joint_rewards.get(_aid, 0.0)
 
+        # --- Phase 6.4: property-sensitive approach rewards ---
+        # Per-step penalty near dangerous objects; bonus near edible objects.
+        # Fires directly onto agent.total_reward (cumulative) and accumulated
+        # in episode_property_approach_totals for metrics logging.
+        dangerous_dim = PROPERTY_DIM_MAP.get('dangerous', 8)
+        edible_dim = PROPERTY_DIM_MAP.get('edible', 7)
+        for agent in self.agents:
+            aid = agent.config.agent_id
+            for obj_key, obj in self.env.objects.items():
+                dist = np.linalg.norm(
+                    np.array(agent.position) - np.array(obj.position)
+                )
+                if dist <= self.config.danger_radius:
+                    if obj.properties[dangerous_dim] > 0.5:
+                        r = self.config.property_approach_penalty
+                        agent.total_reward += r
+                        self.episode_property_approach_totals[aid] = (
+                            self.episode_property_approach_totals.get(aid, 0.0) + r
+                        )
+                if dist <= self.config.food_radius:
+                    if obj.properties[edible_dim] > 0.5:
+                        r = self.config.property_food_bonus
+                        agent.total_reward += r
+                        self.episode_property_approach_totals[aid] = (
+                            self.episode_property_approach_totals.get(aid, 0.0) + r
+                        )
+
         # --- Phase 7: Compute rewards (curiosity + helping + naming + communicative + referral + joint) ---
         for agent in self.agents:
             nearby = self.get_nearby_agents(agent)
@@ -552,6 +592,8 @@ class Trainer:
         self.episode_step = 0
         self.episode_referral_totals = {a.config.agent_id: 0.0 for a in self.agents}
         self.episode_joint_totals = {a.config.agent_id: 0.0 for a in self.agents}
+        self.episode_property_comm_totals = {a.config.agent_id: 0.0 for a in self.agents}
+        self.episode_property_approach_totals = {a.config.agent_id: 0.0 for a in self.agents}
 
         # Stamp current episode onto each agent (used by spatial memory decay)
         for agent in self.agents:
@@ -601,6 +643,8 @@ class Trainer:
                 'avg_discrimination_loss': report['avg_discrimination_loss'],
                 'referral_reward': self.episode_referral_totals.get(agent.config.agent_id, 0.0),
                 'joint_reward': self.episode_joint_totals.get(agent.config.agent_id, 0.0),
+                'property_comm_reward': self.episode_property_comm_totals.get(agent.config.agent_id, 0.0),
+                'property_approach_reward': self.episode_property_approach_totals.get(agent.config.agent_id, 0.0),
                 'utterance_count': sum(1 for e in self.utterance_log if e['agent_id'] == agent.config.agent_id),
                 'utterance_rate': sum(1 for e in self.utterance_log if e['agent_id'] == agent.config.agent_id) / max(1, self.config.steps_per_episode),
                 'memory_entries': len(agent.spatial_memory.entries),
@@ -822,6 +866,7 @@ class Trainer:
             self.env.setup_stage_2()
         elif self.current_stage >= 1:
             self.env.setup_stage_1()
+        self.env.spawn_objects()  # Phase 5: replace with stable 12-object world
         
         print(f"Resumed from episode {self.current_episode}, stage {self.current_stage}")
         print(f"  Environment restored: {len(self.env.objects)} objects")
