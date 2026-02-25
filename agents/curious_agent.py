@@ -636,25 +636,28 @@ class CuriousAgent(nn.Module):
         self.discrimination_loss_history.append(disc_val)
         return naming_val, disc_val
 
-    def train_property_losses(self, property_word: str, property_idx: int) -> float:
+    def train_property_losses(self, target_vec: np.ndarray) -> float:
         """
         Train property discrimination head on the current internal state.
 
-        Uses BCELoss: head should output 1.0 for property_idx being taught.
+        target_vec: 5D binary numpy array — 1.0 for each property the nearby
+                    object qualifies for, 0.0 for the rest. Using the full
+                    multi-label target avoids conflicting gradients: training
+                    one property at a time incorrectly suppresses co-occurring
+                    true properties (e.g. fire is dangerous AND warm AND bright,
+                    so all three should be 1.0 simultaneously, not trained as
+                    three separate one-hot calls that fight each other).
+
         Returns BCE loss value (float) for logging.
         """
         if self.internal_state is None:
             return 0.0
 
-        target = torch.zeros(1, self.config.n_property_classes)
-        if 0 <= property_idx < self.config.n_property_classes:
-            target[0, property_idx] = 1.0
+        target = torch.tensor(target_vec, dtype=torch.float32).unsqueeze(0)  # (1, 5)
 
         # Detach so property losses don't backprop through the encoder.
         # The encoder may have already had its graph freed by train_language_losses
         # in the same step; detaching avoids "backward through freed graph" errors.
-        # Property losses shape the property head; the encoder is shaped by
-        # curiosity and object-naming losses.
         state = self.internal_state.detach()
         pred = self.property_discrimination_head(state)  # (1, 5)
         loss = torch.nn.functional.binary_cross_entropy(pred, target) * self.config.property_loss_weight

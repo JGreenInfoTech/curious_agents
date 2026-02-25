@@ -335,47 +335,61 @@ class OstensiveTeacher:
 
             internal_state = agent.internal_state.detach().squeeze().numpy().copy()
 
-            # Track which property words have already been taught this step to avoid
+            # Track which property words have had memory updated this step to avoid
             # double-counting the same internal_state when multiple nearby objects
             # qualify for the same property word.
             taught_properties: set = set()
 
-            # For each nearby object, teach any property words it qualifies for
+            # For each nearby object: build the full multi-label property target,
+            # update vocabulary memories, then train the head ONCE per object with
+            # the correct joint target (e.g. fire → dangerous=1, warm=1, bright=1).
+            # Training one property at a time with separate calls is wrong: each call
+            # suppresses the other true properties to 0, producing conflicting gradients.
             for obj_key, base_name, dist in nearby:
                 obj = env.objects.get(obj_key)
                 if obj is None:
                     continue
+
+                # Build full 5D binary target for this object
+                full_target = np.zeros(N_PROPERTY_CLASSES, dtype=np.float32)
+                obj_qualifies = False
+
                 for prop_word, dim_idx in PROPERTY_DIM_MAP.items():
                     if obj.properties[dim_idx] <= PROPERTY_THRESHOLDS[prop_word]:
                         continue
-                    # Skip if this property word was already taught this step
-                    if prop_word in taught_properties:
-                        continue
-                    taught_properties.add(prop_word)
-                    # This object qualifies as a teaching instance for prop_word
-                    mem_key = f'prop_{prop_word}'
-                    if mem_key not in self.word_memories[aid]:
-                        self.word_memories[aid][mem_key] = WordMemory(
-                            word=prop_word,
-                            base_name=mem_key,
-                            buffer_size=self.config.vocab_buffer_size,
-                        )
-                    memory = self.word_memories[aid][mem_key]
-                    memory.add_exposure(internal_state)
+                    # This object qualifies for prop_word
+                    prop_idx = PROPERTY_WORD_MAP[prop_word]
+                    full_target[prop_idx] = 1.0
+                    obj_qualifies = True
 
-                    if memory.exposures >= self.config.min_exposures_to_ground:
-                        if not memory.grounded:
-                            memory.grounded = True
-                            self.teaching_events.append({
-                                'episode': episode,
-                                'agent_id': aid,
-                                'word': prop_word,
-                                'type': 'property',
-                                'event': 'grounded',
-                            })
-                        agent.property_vocabulary[prop_word] = memory.prototype.copy()
-                        prop_idx = PROPERTY_WORD_MAP[prop_word]
-                        agent.train_property_losses(prop_word, prop_idx)
+                    # Update vocabulary memory (deduplicated across objects per step)
+                    if prop_word not in taught_properties:
+                        taught_properties.add(prop_word)
+                        mem_key = f'prop_{prop_word}'
+                        if mem_key not in self.word_memories[aid]:
+                            self.word_memories[aid][mem_key] = WordMemory(
+                                word=prop_word,
+                                base_name=mem_key,
+                                buffer_size=self.config.vocab_buffer_size,
+                            )
+                        memory = self.word_memories[aid][mem_key]
+                        memory.add_exposure(internal_state)
+
+                        if memory.exposures >= self.config.min_exposures_to_ground:
+                            if not memory.grounded:
+                                memory.grounded = True
+                                self.teaching_events.append({
+                                    'episode': episode,
+                                    'agent_id': aid,
+                                    'word': prop_word,
+                                    'type': 'property',
+                                    'event': 'grounded',
+                                })
+                            agent.property_vocabulary[prop_word] = memory.prototype.copy()
+
+                # Train head once with the full correct multi-label target
+                if obj_qualifies:
+                    agent.train_property_losses(full_target)
 
     def test_naming(self, agents, env, stage: int, episode: int) -> List[Dict]:
         """
