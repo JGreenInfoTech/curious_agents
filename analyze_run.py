@@ -118,11 +118,11 @@ def print_comm(entries: List[Dict], aids: List[str]):
     """Utterance rate, property utterance rate, referral reward, joint reward, spatial memory, property vocab."""
     n = len(aids)
     agent_hdrs = '  '.join(
-        f'{"A"+a+":utt%":>7} {"putt":>5} {"ref_r":>5} {"jnt_r":>5} {"mem":>3} {"pvoc":>4}' for a in aids
+        f'{"A"+a+":utt%":>7} {"putt":>5} {"ref_r":>5} {"prop_r":>6} {"prop_app":>8} {"jnt_r":>5} {"mem":>3} {"pvoc":>4}' for a in aids
     )
     print(f'\n{"=== COMM METRICS (utterances / referral / spatial memory)":<60}')
     print(f'{"EP":>6} {"St":>2}  {agent_hdrs}')
-    print('-' * (12 + n * 38))
+    print('-' * (12 + n * 54))
 
     for e in entries:
         ep    = e['episode']
@@ -133,10 +133,12 @@ def print_comm(entries: List[Dict], aids: List[str]):
             utt_rate = d.get('utterance_rate', 0.0)
             putt     = d.get('property_utterance_rate', 0.0)
             ref_r    = d.get('referral_reward', 0.0)
+            prop_r   = d.get('property_comm_reward', 0.0)
+            prop_app = d.get('property_approach_reward', 0.0)
             jnt_r    = d.get('joint_reward', 0.0)
             mem      = d.get('memory_entries', 0)
             pvoc     = d.get('property_vocab_size', 0)
-            cols.append(f'{utt_rate:>7.3f} {putt:>5.3f} {ref_r:>5.2f} {jnt_r:>5.2f} {mem:>3d} {pvoc:>4d}')
+            cols.append(f'{utt_rate:>7.3f} {putt:>5.3f} {ref_r:>5.2f} {prop_r:>6.2f} {prop_app:>8.2f} {jnt_r:>5.2f} {mem:>3d} {pvoc:>4d}')
         print(f'{ep:>6} {stage:>2}  {"  ".join(cols)}')
 
 
@@ -168,6 +170,8 @@ def print_summary(entries: List[Dict], aids: List[str]):
         print(f'    Vocabulary:   {v0} -> {v1} words  {words}')
         print(f'    Naming acc:   {na1:.3f}   naming_loss={nl1:.4f}   disc_loss={dl1:.4f}')
         print(f'    Prop vocab:   {pv1} words')
+        app_r = d1.get('property_approach_reward', 0.0)
+        print(f'    Prop approach: {app_r:.2f}')
 
 
 def main():
