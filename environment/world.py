@@ -228,6 +228,36 @@ OBJECT_LIBRARY = {
         position=pos,
         text_description="Pages full of symbols and ideas."
     ),
+    # Phase 5 variants — same name/class as originals, different properties.
+    # name must match the original so OstensiveTeacher teaches the same noun class.
+    # Disambiguation must come through property words, not different object names.
+    'apple_2': lambda pos: WorldObject(
+        name='apple',           # CRITICAL: same name as original for teaching
+        category='fruit',
+        properties=make_properties(
+            color_r=0.9, color_g=0.1, color_b=0.1,
+            size=0.3, shape_round=0.9, shape_long=0.1,
+            animate=0.0, edible=0.0,    # was 1.0 — poisonous
+            dangerous=0.6,              # was 0.0 — above 0.5 threshold
+            warm=0.2, soft=0.4, bright=0.5, noisy=0.0,
+            complexity=0.2
+        ),
+        position=pos,
+        text_description="A round red fruit. Something seems wrong with it."
+    ),
+    'cat_2': lambda pos: WorldObject(
+        name='cat',             # CRITICAL: same name as original for teaching
+        category='animal',
+        properties=make_properties(
+            color_r=0.5, color_g=0.4, color_b=0.3,
+            size=0.4, shape_round=0.4, shape_long=0.6,
+            animate=1.0, edible=0.0, dangerous=0.9,  # was 0.1 — feral
+            warm=0.7, soft=0.8, bright=0.3, noisy=0.3,
+            complexity=0.7
+        ),
+        position=pos,
+        text_description="A small furry animal. It looks hostile."
+    ),
 }
 
 
@@ -276,8 +306,11 @@ class StructuredEnvironment:
             counter += 1
         
         obj = OBJECT_LIBRARY[obj_name](position)
-        obj.name = instance_key  # Unique instance name
-        
+        # NOTE: obj.name preserves the semantic name set by the OBJECT_LIBRARY lambda
+        # (e.g. 'apple' for both 'apple' and 'apple_2' library keys).
+        # instance_key is used only as the dict key for self.objects bookkeeping.
+        # This allows variants to share the same noun class for OstensiveTeacher teaching.
+
         # Add slight property noise — no two apples are identical
         noise = self.rng.randn(PROPERTY_DIM) * 0.03
         obj.properties = np.clip(obj.properties + noise, 0.0, 1.0)
@@ -545,11 +578,39 @@ class StructuredEnvironment:
         # Add more objects and let animate ones move
         self.add_object('flower', (50, 50))
         self.add_object('ball', (30, 80))
-        
+
         # v2: enable dynamic events so world never becomes fully predictable
         self.enable_dynamic_mode()
-        
+
         self._log_event('stage_setup', {'stage': 3, 'n_objects': len(self.objects)})
+
+    def spawn_objects(self):
+        """
+        Spawn the full Phase 5 base object set at random positions.
+
+        Spawns all 10 original objects plus the two Phase 5 property-varying
+        variants (apple_2 / cat_2), giving 12 objects total.  Each variant
+        shares its `name` with the original (i.e. apple_2.name == "apple")
+        so the OstensiveTeacher teaches the same noun class for both instances.
+        Disambiguation is achieved through property words, not object names.
+
+        The dict key in self.objects is always the OBJECT_LIBRARY key, not
+        the WorldObject.name (add_object() uses the library key as the
+        instance key to avoid collisions).
+        """
+        self.objects.clear()
+        self.relations.clear()
+
+        base_objects = [
+            'flower', 'rock', 'apple', 'ball', 'book',
+            'dog', 'fire', 'cat', 'water', 'banana',
+            'apple_2', 'cat_2',   # Phase 5 variants
+        ]
+
+        for obj_name in base_objects:
+            self.add_object(obj_name)
+
+        self._log_event('spawn_objects', {'n_objects': len(self.objects)})
     
     # ---- Serialization ----
     
