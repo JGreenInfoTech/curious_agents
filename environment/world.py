@@ -306,10 +306,11 @@ class StructuredEnvironment:
             counter += 1
         
         obj = OBJECT_LIBRARY[obj_name](position)
-        # NOTE: obj.name preserves the semantic name set by the OBJECT_LIBRARY lambda
-        # (e.g. 'apple' for both 'apple' and 'apple_2' library keys).
-        # instance_key is used only as the dict key for self.objects bookkeeping.
-        # This allows variants to share the same noun class for OstensiveTeacher teaching.
+        # NOTE: Do not overwrite obj.name here. The OstensiveTeacher derives the
+        # base class name by stripping numeric suffixes from the dict key
+        # (e.g. 'apple_2' -> 'apple') in language_grounding._find_nearby_objects().
+        # obj.name is preserved from the OBJECT_LIBRARY lambda for documentation
+        # purposes but is not the active teaching routing mechanism.
 
         # Add slight property noise — no two apples are identical
         noise = self.rng.randn(PROPERTY_DIM) * 0.03
@@ -589,14 +590,16 @@ class StructuredEnvironment:
         Spawn the full Phase 5 base object set at random positions.
 
         Spawns all 10 original objects plus the two Phase 5 property-varying
-        variants (apple_2 / cat_2), giving 12 objects total.  Each variant
-        shares its `name` with the original (i.e. apple_2.name == "apple")
-        so the OstensiveTeacher teaches the same noun class for both instances.
-        Disambiguation is achieved through property words, not object names.
+        variants (apple_2 / cat_2), giving 12 objects total.  The OstensiveTeacher
+        routes both 'apple' and 'apple_2' to the same noun class by stripping
+        the numeric suffix from the dict key ('apple_2' -> 'apple') inside
+        language_grounding._find_nearby_objects(). The WorldObject.name field
+        is documentation only and is not read by the teaching system.
 
-        The dict key in self.objects is always the OBJECT_LIBRARY key, not
-        the WorldObject.name (add_object() uses the library key as the
-        instance key to avoid collisions).
+        Dynamic mode is intentionally not enabled here; Phase 5 uses a stable
+        12-object world for controlled disambiguation training. Random
+        spawn/despawn events would interfere with the property-contrasting
+        pair setup.
         """
         self.objects.clear()
         self.relations.clear()
