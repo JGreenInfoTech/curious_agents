@@ -503,18 +503,12 @@ class Trainer:
                     joint_rewards[aid_a] = joint_rewards.get(aid_a, 0.0) + self.config.joint_curiosity_bonus
                     joint_rewards[aid_b] = joint_rewards.get(aid_b, 0.0) + self.config.joint_curiosity_bonus
 
-        # Accumulate episode totals for metrics logging
-        for _agent in self.agents:
-            _aid = _agent.config.agent_id
-            self.episode_referral_totals[_aid] = self.episode_referral_totals.get(_aid, 0.0) + referral_rewards.get(_aid, 0.0)
-            self.episode_joint_totals[_aid] = self.episode_joint_totals.get(_aid, 0.0) + joint_rewards.get(_aid, 0.0)
-
         # --- Phase 6.4: property-sensitive approach rewards ---
-        # Per-step penalty near dangerous objects; bonus near edible objects.
-        # Fires directly onto agent.total_reward (cumulative) and accumulated
-        # in episode_property_approach_totals for metrics logging.
+        # Compute into a dict first so the rewards can be summed into `reward`
+        # before store_experience(), reaching the REINFORCE gradient.
         dangerous_dim = PROPERTY_DIM_MAP.get('dangerous', 8)
         edible_dim = PROPERTY_DIM_MAP.get('edible', 7)
+        property_approach_rewards: Dict[int, float] = {}
         for agent in self.agents:
             aid = agent.config.agent_id
             for obj_key, obj in self.env.objects.items():
@@ -523,20 +517,18 @@ class Trainer:
                 )
                 if dist <= self.config.danger_radius:
                     if obj.properties[dangerous_dim] > 0.5:
-                        r = self.config.property_approach_penalty
-                        agent.total_reward += r
-                        self.episode_property_approach_totals[aid] = (
-                            self.episode_property_approach_totals.get(aid, 0.0) + r
+                        property_approach_rewards[aid] = (
+                            property_approach_rewards.get(aid, 0.0)
+                            + self.config.property_approach_penalty
                         )
                 if dist <= self.config.food_radius:
                     if obj.properties[edible_dim] > 0.5:
-                        r = self.config.property_food_bonus
-                        agent.total_reward += r
-                        self.episode_property_approach_totals[aid] = (
-                            self.episode_property_approach_totals.get(aid, 0.0) + r
+                        property_approach_rewards[aid] = (
+                            property_approach_rewards.get(aid, 0.0)
+                            + self.config.property_food_bonus
                         )
 
-        # --- Phase 7: Compute rewards (curiosity + helping + naming + communicative + referral + joint) ---
+        # --- Phase 7: Compute rewards (curiosity + helping + naming + communicative + referral + joint + property) ---
         for agent in self.agents:
             nearby = self.get_nearby_agents(agent)
 
@@ -561,6 +553,7 @@ class Trainer:
             reward += naming_reward + prop_naming_reward + comm_reward
             reward += referral_rewards.get(agent.config.agent_id, 0.0)
             reward += joint_rewards.get(agent.config.agent_id, 0.0)
+            reward += property_approach_rewards.get(agent.config.agent_id, 0.0)
 
             # Store experience
             agent.store_experience(
@@ -568,6 +561,16 @@ class Trainer:
                 reward=reward,
                 state=agent.internal_state,
                 action=actions[agent.config.agent_id],
+            )
+
+        # Accumulate episode totals for metrics logging
+        for _agent in self.agents:
+            _aid = _agent.config.agent_id
+            self.episode_referral_totals[_aid] = self.episode_referral_totals.get(_aid, 0.0) + referral_rewards.get(_aid, 0.0)
+            self.episode_joint_totals[_aid] = self.episode_joint_totals.get(_aid, 0.0) + joint_rewards.get(_aid, 0.0)
+        for _aid, _r in property_approach_rewards.items():
+            self.episode_property_approach_totals[_aid] = (
+                self.episode_property_approach_totals.get(_aid, 0.0) + _r
             )
 
         # --- Phase 8: Train forward models (every step) ---
