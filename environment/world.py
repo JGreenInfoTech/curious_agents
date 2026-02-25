@@ -601,6 +601,7 @@ class StructuredEnvironment:
         spawn/despawn events would interfere with the property-contrasting
         pair setup.
         """
+        self.disable_dynamic_mode()   # Phase 5: stable world — no spawn/despawn events
         self.objects.clear()
         self.relations.clear()
 

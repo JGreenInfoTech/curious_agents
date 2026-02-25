@@ -506,14 +506,14 @@ class Trainer:
         # --- Phase 6.4: property-sensitive approach rewards ---
         # Compute into a dict first so the rewards can be summed into `reward`
         # before store_experience(), reaching the REINFORCE gradient.
-        dangerous_dim = PROPERTY_DIM_MAP.get('dangerous', 8)
-        edible_dim = PROPERTY_DIM_MAP.get('edible', 7)
+        dangerous_dim = PROPERTY_DIM_MAP['dangerous']
+        edible_dim = PROPERTY_DIM_MAP['edible']
         property_approach_rewards: Dict[int, float] = {}
         for agent in self.agents:
             aid = agent.config.agent_id
             for obj_key, obj in self.env.objects.items():
-                dist = np.linalg.norm(
-                    np.array(agent.position) - np.array(obj.position)
+                dist = self.env.toroidal_distance(
+                    tuple(agent.position), obj.position
                 )
                 if dist <= self.config.danger_radius:
                     if obj.properties[dangerous_dim] > 0.5:
