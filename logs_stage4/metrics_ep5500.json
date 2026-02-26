@@ -9,14 +9,14 @@
           85.93742434380533,
           71.34680223521609
         ],
-        "confidence": 0.9675468310140015,
-        "avg_error": 0.028557274490594864,
+        "confidence": 0.9683598254922781,
+        "avg_error": 0.022904055193066597,
         "avg_progress": 0.0,
-        "total_steps": 538791,
+        "total_steps": 538793,
         "vocab_size": 10,
         "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 113248.24118273477,
+        "total_reward": 113252.84118273477,
         "avg_naming_loss": 0.03495290912687778,
         "avg_discrimination_loss": 0.6797127523925155,
         "referral_reward": 0.0,
@@ -26,7 +26,7 @@
         "utterance_count": 1,
         "utterance_rate": 0.02857142857142857,
         "memory_entries": 10,
-        "memory_avg_salience": 0.020142660135296454,
+        "memory_avg_salience": 0.018446694346037976,
         "property_utterance_count": 1,
         "property_utterance_rate": 0.02857142857142857,
         "property_vocab_size": 5,
@@ -42,21 +42,21 @@
           "dog",
           "book"
         ],
-        "naming_accuracy": 0.9
+        "naming_accuracy": 0.8
       },
       "1": {
         "position": [
           74.09433712206923,
           73.28104241118986
         ],
-        "confidence": 0.9557185292528784,
-        "avg_error": 0.03923938423395157,
+        "confidence": 0.9566141130678366,
+        "avg_error": 0.0338243693113327,
         "avg_progress": 0.0,
-        "total_steps": 538791,
+        "total_steps": 538793,
         "vocab_size": 10,
         "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 107598.91340347953,
+        "total_reward": 107603.51340347953,
         "avg_naming_loss": 0.0526451877783984,
         "avg_discrimination_loss": 0.8524397156550549,
         "referral_reward": 0.0,
@@ -66,7 +66,7 @@
         "utterance_count": 1,
         "utterance_rate": 0.02857142857142857,
         "memory_entries": 10,
-        "memory_avg_salience": 0.03024322833750353,
+        "memory_avg_salience": 0.028618723860717864,
         "property_utterance_count": 1,
         "property_utterance_rate": 0.02857142857142857,
         "property_vocab_size": 5,
@@ -89,14 +89,14 @@
           29.852983821935787,
           31.874688457806588
         ],
-        "confidence": 0.9233210862017355,
-        "avg_error": 0.016459370031952858,
+        "confidence": 0.9294346449667692,
+        "avg_error": 0.013213301077485085,
         "avg_progress": 0.0,
-        "total_steps": 538791,
+        "total_steps": 538793,
         "vocab_size": 10,
         "is_learning": 0,
         "is_exploring": true,
-        "total_reward": 94745.2011691019,
+        "total_reward": 94746.00116910189,
         "avg_naming_loss": 0.07058837078511715,
         "avg_discrimination_loss": 0.2672489693395619,
         "referral_reward": 0.0,
@@ -145,8 +145,8 @@
     "language": {
       "total_teaching_events": 203,
       "total_naming_tests": 201,
-      "naming_accuracy": 0.9303482587064676,
-      "recent_accuracy": 0.96
+      "naming_accuracy": 0.9203980099502488,
+      "recent_accuracy": 0.92
     }
   }
 ]
