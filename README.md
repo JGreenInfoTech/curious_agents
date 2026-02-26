@@ -12,9 +12,10 @@ This is part of a larger research program studying emergent cognition, communica
 - Phase 1 (curiosity & exploration): ✅ Complete — 5000 episodes trained, agents develop stable internal representations
 - Phase 2 (language grounding): ✅ Complete — ostensive teaching with encoder-shaping losses: naming alignment, discrimination head, circular-buffer vocabulary
 - Phase 3 (multi-agent communication): ✅ Complete — utterance actions (word emission), word perception slots, communicative reward
-- Phase 3.5 (property vocabulary): ✅ Active — 5 property words (dangerous/edible/animate/warm/bright), 20-action policy, 154D perception, property discrimination head
+- Phase 3.5 (property vocabulary): ✅ Complete — 5 property words (dangerous/edible/animate/warm/bright), 20-action policy, 154D perception, property discrimination head
 - Phase 4 (spatial memory + communication scaffolding): ✅ Complete — SpatialMemory (154D perception with decay), asymmetric starts, directed discovery, referral reward, joint curiosity bonus
-- Phase 5 (disambiguation pressure): 🔄 Active — property-varying object instances + property-consequential rewards (danger penalty, food bonus)
+- Phase 5 (disambiguation pressure): ✅ Complete — property-varying object instances + property-consequential rewards (danger penalty, food bonus)
+- Phase 6 (GRU recurrent architecture + food events): 🔄 Active — GRU hidden state (64D h_t) replaces single-step encoder state; food event bonus (+0.5/step for 20-step windows); event coordination tracking
 
 ## Architecture
 
@@ -28,6 +29,7 @@ This is part of a larger research program studying emergent cognition, communica
 ### Agent (`agents/curious_agent.py`)
 - **Perception encoder**: 154D flat perception → 64D internal state (NormedLinear + GELU + Tanh)
   - 129D environment perception + 10D object utterance slots + 5D property utterance slots + 10D spatial memory
+- **GRU hidden state**: 64D h_t persists across steps within an episode; reset to zeros at episode start. Encoder output + h_{t-1} → h_t via GRUCell. Hidden states are detached during collection; BPTT runs through full trajectory during policy update (Phase 6).
 - **Forward model**: Predicts next internal state from (state, movement-action). Self-supervised. Core of curiosity. Utterance actions map to "stay" for forward model purposes.
 - **Policy**: REINFORCE with value baseline. Selects from **20 actions**: move N/S/E/W, stay, + 10 object-word emissions + 5 property-word emissions
 - **Discrimination head**: Small auxiliary classifier (64D → 32D → 10 classes). Forces encoder to produce class-separable representations.
@@ -76,10 +78,10 @@ python run.py --test
 
 ### Full Training
 ```
-python run.py                              # Default: 3 agents, 5000 episodes
+python run.py                              # Default: 3 agents, 5000 episodes (logs_phase6/, checkpoints_phase6/)
 python run.py --episodes 1000              # Quick run
 python run.py --agents 5 --visualize       # 5 agents with dashboard snapshots
-python run.py --resume checkpoints/checkpoint_ep500.pt  # Resume from checkpoint
+python run.py --resume checkpoints_phase6/checkpoint_ep500.pt  # Resume from Phase 6 checkpoint
 ```
 
 ### CLI Options
@@ -92,8 +94,8 @@ python run.py --resume checkpoints/checkpoint_ep500.pt  # Resume from checkpoint
 --visualize       Enable periodic dashboard PNG saves
 --viz-freq N      Dashboard save frequency (default: every 200 episodes)
 --test            Quick 50-episode smoke test
---log-dir DIR     Log output directory (default: logs)
---checkpoint-dir  Checkpoint directory (default: checkpoints)
+--log-dir DIR     Log output directory (default: logs_phase6)
+--checkpoint-dir  Checkpoint directory (default: checkpoints_phase6)
 ```
 
 ## Reviewing Training Runs
@@ -141,6 +143,9 @@ viz.plot_from_checkpoint('checkpoints/checkpoint_ep1000.pt', metrics_dir='logs')
 15. **Feral cat vs. normal cat** — Same dynamic as apple pair; feral cat has high `dangerous`, normal cat does not
 16. **Noun+property co-utterance sequences** — Near variant objects, watch for agents emitting both an object word and a property word within a few steps; early sign of compositional pressure
 17. **`prop_app` trending negative then toward 0** — Column in `--section comm`. Starts near 0 (random proximity). Goes negative as danger penalty trains avoidance. Trends back toward 0 (or slightly positive) as agents successfully avoid dangerous objects and preferentially approach edible ones
+18. **Event coordination rate** — `arr` column in `--section comm`. Shows how many distinct agents reached the event object during its active window. Starts near 1 (only the agent that stumbled on it). Should approach 3 as utterances reliably guide peers to the event location before it closes.
+19. **Property utterances preceding peer arrivals** — In episodes with a food event, watch for agents emitting a food-related property word (edible) shortly before a second agent arrives at the event object. Early sign that property communication is providing directional value beyond object words alone.
+20. **`disc_loss` stabilizing after GRU convergence** — The GRU changes the internal representation space; discrimination loss may spike briefly as the encoder adjusts to temporal context. Should re-stabilize once GRU hidden states develop consistent structure.
 
 ## Reward Architecture (Critical Design Choice)
 
@@ -157,6 +162,8 @@ reward = max(0, prev_error - curr_error)  +  helping_bonus  +  exploration_bonus
 **Danger penalty** (Phase 5): `−0.2` per step while within radius 8 of a dangerous object (fire, poisonous apple, feral cat). The first negative signal in the reward architecture — introduced to create genuine approach/avoid disambiguation pressure on properties.
 
 **Food bonus** (Phase 5): `+0.05` per step while within radius 8 of an edible object (apple, banana, water). Mild positive signal for proximity to food sources.
+
+**Food event bonus** (Phase 6): `+0.5` per step (replaces the baseline `+0.05`) while within radius 8 of the event object during the active 20-step event window. Fires in 30% of episodes. Creates temporal coordination pressure: agents that communicate the event location to peers unlock higher reward density for both.
 
 **No other negative signals.** Confusion remains neutral information, not suffering.
 
@@ -246,10 +253,11 @@ curious_agents/
 | 3: Multi-Agent Communication | ✅ Complete | Utterance actions (15-action space); word perception slots; communicative reward |
 | 3.5: Property Vocabulary | ✅ Active | 5 property words; 20-action policy; 154D perception; property discrimination head; property comm reward |
 | 4: Spatial Memory + Communication Scaffolding | ✅ Complete | SpatialMemory; perception_radius 30→15; asymmetric starts; referral reward (+0.4); joint curiosity bonus (+0.15) |
-| 5: Disambiguation Pressure | 🔄 Active | Property-varying instances (poisonous apple, feral cat); danger penalty (−0.2/step near dangerous objects); food bonus (+0.05/step near edible objects) |
-| 6: Grammar / Compositionality | 🔮 Planned | 2-word utterances; referential games; disambiguation tasks |
-| 6: Meta-Cognition | 🔮 Planned | Hierarchical self-modeling, awareness of awareness |
-| 7: Conversation | 🔮 Planned | Human-agent dialogue grounded in shared perception |
+| 5: Disambiguation Pressure | ✅ Complete | Property-varying instances (poisonous apple, feral cat); danger penalty (−0.2/step near dangerous objects); food bonus (+0.05/step near edible objects) |
+| 6: GRU Recurrent Architecture + Food Events | 🔄 Active | GRU hidden state (64D h_t) for temporal context across steps; food event bonus (+0.5/step during 20-step event window, 30% of episodes); event coordination tracking (arrivals metric) |
+| 7: Grammar / Compositionality | 🔮 Planned | 2-word utterances; referential games; disambiguation tasks |
+| 7: Meta-Cognition | 🔮 Planned | Hierarchical self-modeling, awareness of awareness |
+| 8: Conversation | 🔮 Planned | Human-agent dialogue grounded in shared perception |
 
 ## Hardware
 
