@@ -301,7 +301,7 @@ python -c "import sys; sys.path.insert(0,'.'); from training.trainer import Trai
 5. **Three separate optimizers**: `policy_optimizer` (encoder+policy+value+expression), `forward_model_optimizer`, `language_optimizer` (encoder+discrimination_head). Each calls its own `zero_grad()`/`step()` — they can share encoder params safely because they never run concurrent backward passes.
 6. **Naming loss fires only on grounded words**: `train_language_losses` checks `word in self.vocabulary` before computing naming MSE. No prototype = no naming loss, but discrimination loss still fires.
 7. **Structured initialization**: Agents get biological-style weight init, not random. See `apply_structured_initialization()` — discrimination head + utterance bias init included.
-8. **store_experience() signature**: `(log_prob, reward, state, action=None)` — 4 params, action is optional.
+8. **store_experience() signature**: `(perception, action, reward)` — 3 required params, no optionals. Phase 6: stores raw numpy perception so update_policy() can replay the full episode trajectory through encoder → GRU with fresh gradients.
 9. **load_state_dict strict=False**: Allows loading pre-discrimination-head checkpoints cleanly. Keep this.
 10. **n_object_classes must match N_OBJECT_CLASSES**: `AgentConfig.n_object_classes = 10` must stay in sync with `ALL_OBJECT_CLASSES` in `language_grounding.py`. If curriculum changes, update both.
 11. **Utterance → "stay" mapping**: `execute_action(action >= n_actions)` sets `last_utterance_class` but does NOT move the agent. `compute_prediction_error` and `train_forward_model` both map `forward_action = min(action, n_actions-1)` so the forward model's one-hot dim stays at 5 (backward compatible).
