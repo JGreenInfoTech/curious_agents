@@ -23,7 +23,7 @@ from typing import Dict, List, Optional, Set, Tuple
 import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from environment.world import StructuredEnvironment
+from environment.world import StructuredEnvironment, WorldObject
 from agents.curious_agent import CuriousAgent, create_agent
 from training.language_grounding import (
     OstensiveTeacher, TeachingConfig, N_OBJECT_CLASSES, ALL_OBJECT_CLASSES, WORD_CLASS_MAP,
@@ -383,6 +383,50 @@ class Trainer:
                     knower.position = (np.array(obj.position) + offset) % self.env.world_size
                     knower.position_history = [tuple(knower.position.copy())]
                     return
+
+    def _place_ref_game_agents(self, scout_id: int, runner_id: int,
+                                target_obj: WorldObject, episode: int) -> None:
+        """
+        Place agents for a reference game episode.
+
+        Geometry (toroidal):
+          TARGET <---10u---> SCOUT <---12u---> RUNNER
+
+        - Scout: 10 units from target -> within perception radius (15), sees target
+        - Runner: 12 units from scout on far side -> within hearing range of scout (12<15),
+                  but 22 units from target (22>15, blind to target)
+        - Free agents: random position anywhere in world
+        """
+        rng = np.random.RandomState(episode * 53)
+        target_pos = np.array(target_obj.position, dtype=float)
+
+        # Rejection sampling: try angles until runner is outside perception range of target.
+        # Needed because toroidal wrapping can create a short path from runner to target
+        # even when the raw Euclidean displacement is 22u (scout 10u + runner 12u away).
+        for _ in range(50):
+            angle = rng.uniform(0, 2 * np.pi)
+            scout_offset = np.array([np.cos(angle), np.sin(angle)]) * 10.0
+            scout_pos = (target_pos + scout_offset) % self.env.world_size
+
+            away_angle = angle + np.pi
+            runner_offset = np.array([np.cos(away_angle), np.sin(away_angle)]) * 12.0
+            runner_pos = (scout_pos + runner_offset) % self.env.world_size
+
+            if self.env.toroidal_distance(tuple(runner_pos), tuple(target_pos)) > self.config.perception_radius:
+                break
+        # If all 50 attempts fail (extremely unlikely on a 100x100 world), use last attempt.
+        # Runner may be closer than ideal but game still runs.
+
+        for agent in self.agents:
+            aid = agent.config.agent_id
+            if aid == scout_id:
+                agent.position = scout_pos.copy()
+            elif aid == runner_id:
+                agent.position = runner_pos.copy()
+            else:
+                agent.position = rng.uniform(0, self.env.world_size, 2)
+            agent.visit_counts.clear()
+            agent.position_history = [tuple(agent.position.copy())]
 
     def run_step(self):
         """Execute one simulation step for all agents."""
