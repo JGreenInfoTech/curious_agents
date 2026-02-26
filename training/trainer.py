@@ -435,7 +435,8 @@ class Trainer:
 
         Scout is placed near the target object (sees it).
         Runner has a goal class token and must navigate to the correct variant.
-        Terminal reward fires at episode end: +2.0 correct, -1.0 wrong variant, 0 timeout.
+        Terminal reward fires when runner enters target radius (+2.0 correct, -1.0 wrong variant)
+        or at episode end with no contact (0 timeout).
         """
         # --- Role assignment ---
         aid_list = [a.config.agent_id for a in self.agents]
@@ -496,15 +497,35 @@ class Trainer:
             "scout_used_correct_property": False,
         }
 
-        # --- Run steps ---
+        # --- Run steps (early exit when runner enters target radius) ---
         runner_agent = next(a for a in self.agents if a.config.agent_id == runner_id)
+        outcome = "timeout"
+        terminal_reward = 0.0
         for _ in range(self.config.ref_game_steps):
             self.run_step()
-            dist = self.env.toroidal_distance(
+            dist_correct = self.env.toroidal_distance(
                 tuple(runner_agent.position), target_obj.position
             )
-            if dist < self._ref_game_state["runner_min_distance"]:
-                self._ref_game_state["runner_min_distance"] = dist
+            if dist_correct < self._ref_game_state["runner_min_distance"]:
+                self._ref_game_state["runner_min_distance"] = dist_correct
+
+            if dist_correct <= self.config.ref_game_radius:
+                outcome = "correct"
+                terminal_reward = self.config.ref_game_success_reward
+                break
+
+            dist_wrong = float("inf")
+            for wrong_key in same_class_keys:
+                if wrong_key in self.env.objects:
+                    d = self.env.toroidal_distance(
+                        tuple(runner_agent.position),
+                        self.env.objects[wrong_key].position
+                    )
+                    dist_wrong = min(dist_wrong, d)
+            if dist_wrong <= self.config.ref_game_radius:
+                outcome = "wrong_variant"
+                terminal_reward = self.config.ref_game_wrong_penalty
+                break
 
         # --- Collect scout utterances from utterance_log ---
         scout_obj_words = []
@@ -527,29 +548,6 @@ class Trainer:
             correct_property_idx is not None
             and ALL_PROPERTY_CLASSES[correct_property_idx] in scout_prop_words
         )
-
-        # --- Determine outcome based on runner's final position ---
-        dist_correct = self.env.toroidal_distance(
-            tuple(runner_agent.position), target_obj.position
-        )
-        dist_wrong = float("inf")
-        for wrong_key in same_class_keys:
-            if wrong_key in self.env.objects:
-                d = self.env.toroidal_distance(
-                    tuple(runner_agent.position),
-                    self.env.objects[wrong_key].position
-                )
-                dist_wrong = min(dist_wrong, d)
-
-        if dist_correct <= self.config.ref_game_radius:
-            outcome = "correct"
-            terminal_reward = self.config.ref_game_success_reward
-        elif dist_wrong <= self.config.ref_game_radius:
-            outcome = "wrong_variant"
-            terminal_reward = self.config.ref_game_wrong_penalty
-        else:
-            outcome = "timeout"
-            terminal_reward = 0.0
 
         self._ref_game_state["outcome"] = outcome
 
@@ -1004,7 +1002,7 @@ class Trainer:
         metrics['event_arrivals'] = len(self.episode_event_agent_arrivals)
 
         # Stage 4: Reference game metrics (episode-level)
-        # runner_min_distance may be float('inf') for timeout — convert to None for JSON
+        # runner_min_distance may be float('inf') for timeout ï¿½ convert to None for JSON
         ref_state = dict(self._ref_game_state)
         if ref_state.get('runner_min_distance') == float('inf'):
             ref_state['runner_min_distance'] = None
