@@ -122,7 +122,7 @@ def print_comm(entries: List[Dict], aids: List[str]):
     )
     print(f'\n{"=== COMM METRICS (utterances / referral / spatial memory)":<60}')
     print(f'{"EP":>6} {"St":>2}  {agent_hdrs}  {"evt":>3} {"arr":>3}')
-    print('-' * (12 + n * 54 + 8))
+    print('-' * (12 + n * 54 + 9))
 
     for e in entries:
         ep    = e['episode']
@@ -181,6 +181,7 @@ def print_summary(entries: List[Dict], aids: List[str]):
     avg_arrivals = total_arrivals / n_events if n_events > 0 else 0.0
     print(f'\n  Food Events:')
     print(f'    Episodes with event: {n_events} / {len(entries)}')
+    print(f'    Total arrivals:      {total_arrivals}')
     print(f'    Avg arrivals per event: {avg_arrivals:.2f}')
 
 
