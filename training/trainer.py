@@ -11,6 +11,7 @@ curriculum progression.
 Phase 2 addition: OstensiveTeacher integration for language grounding.
 """
 
+import random
 import numpy as np
 import torch
 import json
@@ -67,6 +68,11 @@ class TrainerConfig:
     property_food_bonus: float = 0.05         # per-step bonus near edible objects
     danger_radius: float = 8.0
     food_radius: float = 8.0
+
+    # Phase 6: food events
+    p_event: float = 0.30          # probability a food event fires each episode
+    event_duration: int = 20        # steps the event is active
+    event_food_bonus: float = 0.5   # per-step bonus during event (replaces baseline 0.05)
 
     # Logging
     log_freq: int = 50               # Log every N episodes
@@ -157,6 +163,13 @@ class Trainer:
         self.episode_joint_totals: Dict[int, float] = {}
         self.episode_property_comm_totals: Dict[int, float] = {}
         self.episode_property_approach_totals: Dict[int, float] = {}
+
+        # Phase 6: food event state — reset each episode in run_episode()
+        self.active_event_object: Optional[str] = None   # dict key of active event object
+        self.event_start_step: int = 0
+        self.event_end_step: int = 0
+        self.episode_event_arrivals: int = 0             # agents who arrived during event window
+        self.episode_event_active: bool = False          # whether a food event fired this episode
         
         # Phase 2: Ostensive teacher for language grounding
         self.teaching_config = TeachingConfig()
@@ -559,10 +572,23 @@ class Trainer:
                         )
                 if dist <= self.config.food_radius:
                     if obj.properties[edible_dim] > 0.5:
-                        property_approach_rewards[aid] = (
-                            property_approach_rewards.get(aid, 0.0)
-                            + self.config.property_food_bonus
+                        # Food bonus: use event rate if in event window, else baseline
+                        in_event = (
+                            self.episode_event_active
+                            and obj_key == self.active_event_object
+                            and self.event_start_step <= self.episode_step < self.event_end_step
                         )
+                        food_r = (
+                            self.config.event_food_bonus if in_event
+                            else self.config.property_food_bonus
+                        )
+                        property_approach_rewards[aid] = (
+                            property_approach_rewards.get(aid, 0.0) + food_r
+                        )
+
+                        # Track event arrivals: count all agents near event object during window
+                        if in_event:
+                            self.episode_event_arrivals += 1
 
         # --- Phase 7: Compute rewards (curiosity + helping + naming + communicative + referral + joint + property) ---
         for agent in self.agents:
@@ -636,6 +662,27 @@ class Trainer:
         self.episode_joint_totals = {a.config.agent_id: 0.0 for a in self.agents}
         self.episode_property_comm_totals = {a.config.agent_id: 0.0 for a in self.agents}
         self.episode_property_approach_totals = {a.config.agent_id: 0.0 for a in self.agents}
+
+        # Phase 6: food event setup — decide whether a food event fires this episode
+        self.episode_event_active = False
+        self.episode_event_arrivals = 0
+        self.active_event_object = None
+
+        if random.random() < self.config.p_event:
+            edible_dim = PROPERTY_DIM_MAP['edible']
+            edible_keys = [
+                k for k, obj in self.env.objects.items()
+                if obj.properties[edible_dim] > 0.5
+            ]
+            if edible_keys:
+                self.active_event_object = random.choice(edible_keys)
+                event_start = random.randint(
+                    10,
+                    max(11, self.config.steps_per_episode - self.config.event_duration - 5)
+                )
+                self.event_start_step = event_start
+                self.event_end_step = event_start + self.config.event_duration
+                self.episode_event_active = True
 
         # Phase 6: reset GRU hidden states to zeros at the start of each episode.
         # The GRU should have no temporal context carried over from the previous episode.
@@ -711,6 +758,10 @@ class Trainer:
                 'property_vocab_size': len(agent.property_vocabulary),
             }
         
+        # Food event metrics (episode-level)
+        metrics['event_active'] = self.episode_event_active
+        metrics['event_arrivals'] = self.episode_event_arrivals
+
         # Language grounding metrics
         lang_metrics = self.teacher.get_metrics()
         metrics['language'] = lang_metrics
