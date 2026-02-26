@@ -960,6 +960,9 @@ class Trainer:
             'agents': {}
         }
         
+        _episode_steps = (self.config.ref_game_steps
+                          if self._ref_game_state.get('active', False)
+                          else self.config.steps_per_episode)
         for agent in self.agents:
             report = agent.metacognitive_report()
             metrics['agents'][agent.config.agent_id] = {
@@ -979,7 +982,7 @@ class Trainer:
                 'property_comm_reward': self.episode_property_comm_totals.get(agent.config.agent_id, 0.0),
                 'property_approach_reward': self.episode_property_approach_totals.get(agent.config.agent_id, 0.0),
                 'utterance_count': sum(1 for e in self.utterance_log if e['agent_id'] == agent.config.agent_id),
-                'utterance_rate': sum(1 for e in self.utterance_log if e['agent_id'] == agent.config.agent_id) / max(1, self.config.steps_per_episode),
+                'utterance_rate': sum(1 for e in self.utterance_log if e['agent_id'] == agent.config.agent_id) / max(1, _episode_steps),
                 'memory_entries': len(agent.spatial_memory.entries),
                 'memory_avg_salience': float(np.mean([
                     agent.spatial_memory.get_decayed_salience(c, self.current_episode, agent.config.memory_decay_horizon)
@@ -992,13 +995,20 @@ class Trainer:
                 'property_utterance_rate': sum(
                     1 for e in self.utterance_log
                     if e['agent_id'] == agent.config.agent_id and e.get('type') == 'property'
-                ) / max(1, self.config.steps_per_episode),
+                ) / max(1, _episode_steps),
                 'property_vocab_size': len(agent.property_vocabulary),
             }
         
         # Food event metrics (episode-level)
         metrics['event_active'] = self.episode_event_active
         metrics['event_arrivals'] = len(self.episode_event_agent_arrivals)
+
+        # Stage 4: Reference game metrics (episode-level)
+        # runner_min_distance may be float('inf') for timeout — convert to None for JSON
+        ref_state = dict(self._ref_game_state)
+        if ref_state.get('runner_min_distance') == float('inf'):
+            ref_state['runner_min_distance'] = None
+        metrics['ref_game'] = ref_state
 
         # Language grounding metrics
         lang_metrics = self.teacher.get_metrics()
