@@ -415,23 +415,22 @@ class StructuredEnvironment:
     
     def get_perception_dim(self, max_objects: int = 8, n_utterance_classes: int = 0,
                            n_memory_classes: int = 0,
-                           n_property_utterance_classes: int = 0) -> int:
+                           n_property_utterance_classes: int = 0,
+                           n_goal_classes: int = 0) -> int:
         """Total dimension of flattened perception vector.
 
         Args:
-            n_utterance_classes: number of word-emission slots appended by the trainer
-                                 for agent-to-agent communication (Phase 3). Default 0
-                                 keeps backward compatibility.
-            n_memory_classes: number of spatial-memory dims appended by the trainer
-                              (Phase 4). Default 0 keeps backward compatibility.
-            n_property_utterance_classes: number of property utterance slots appended
-                                          by the trainer (Phase 3.5). Default 0 keeps
-                                          backward compatibility.
+            n_utterance_classes: word-emission slots for agent-to-agent communication (Phase 3).
+            n_memory_classes: spatial-memory dims (Phase 4).
+            n_property_utterance_classes: property utterance slots (Phase 3.5).
+            n_goal_classes: goal class token dims for reference game runner (Stage 4).
+                            Always present (zeros for non-runner agents).
         """
         return (max_objects * (1 + PROPERTY_DIM) + 1
                 + n_utterance_classes
                 + n_memory_classes
-                + n_property_utterance_classes)
+                + n_property_utterance_classes
+                + n_goal_classes)
     
     # ---- World Dynamics ----
     

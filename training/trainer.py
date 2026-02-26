@@ -126,11 +126,12 @@ class Trainer:
         )
         
         # Create agents — perception_dim includes utterance slots (Phase 3) + memory dims (Phase 4)
-        # + property utterance slots (Phase 3.5)
+        # + property utterance slots (Phase 3.5) + goal class token (Stage 4)
         perception_dim = self.env.get_perception_dim(
             n_utterance_classes=N_OBJECT_CLASSES,
             n_memory_classes=N_OBJECT_CLASSES,
             n_property_utterance_classes=N_PROPERTY_CLASSES,
+            n_goal_classes=N_OBJECT_CLASSES,
         )
         self.agents: List[CuriousAgent] = []
         for i in range(config.n_agents):
@@ -148,6 +149,17 @@ class Trainer:
         self.hidden_states: Dict[int, torch.Tensor] = {
             i: self.agents[i].reset_hidden() for i in range(config.n_agents)
         }
+
+        # Stage 4: Per-agent goal class vector for reference game runner.
+        # 10D one-hot indicating target class. Zeros for scout, free agent,
+        # and all agents during normal (non-reference-game) episodes.
+        self._goal_class_vecs: Dict[int, np.ndarray] = {
+            i: np.zeros(N_OBJECT_CLASSES, dtype=np.float32)
+            for i in range(config.n_agents)
+        }
+
+        # Stage 4: Reference game state for current episode (for metrics logging).
+        self._ref_game_state: Dict = {'active': False}
 
         # Track utterances from the previous step so agents can perceive them
         # when deciding their NEXT action (one step delay — realistic communication).
@@ -193,7 +205,8 @@ class Trainer:
         
         print(f"Trainer initialized:")
         print(f"  {config.n_agents} agents, {perception_dim}D perception "
-              f"(129 env + {N_OBJECT_CLASSES} obj slots + {N_PROPERTY_CLASSES} prop slots + {N_OBJECT_CLASSES} memory dims)")
+              f"(129 env + {N_OBJECT_CLASSES} obj slots + {N_PROPERTY_CLASSES} prop slots "
+              f"+ {N_OBJECT_CLASSES} memory dims + {N_OBJECT_CLASSES} goal token)")
         print(f"  Params per agent: {sum(p.numel() for p in self.agents[0].parameters()):,}")
         print(f"  Total params: {sum(p.numel() for a in self.agents for p in a.parameters()):,}")
         print(f"  Language grounding: ENABLED (Phase 2)")
@@ -298,7 +311,11 @@ class Trainer:
             n_classes=N_OBJECT_CLASSES,
             decay_horizon=agent.config.memory_decay_horizon,
         )
-        return np.concatenate([base, utterance_slots, property_slots, memory_vec])
+        goal_vec = self._goal_class_vecs.get(
+            agent.config.agent_id,
+            np.zeros(N_OBJECT_CLASSES, dtype=np.float32)
+        )
+        return np.concatenate([base, utterance_slots, property_slots, memory_vec, goal_vec])
 
     def _get_nearby_object_classes(self, agent: CuriousAgent) -> List[Tuple[int, np.ndarray]]:
         """Return [(class_idx, position), ...] for objects within perception radius."""
