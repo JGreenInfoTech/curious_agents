@@ -18,7 +18,7 @@ import json
 import time
 import os
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Set, Tuple
 
 import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -115,6 +115,7 @@ class Trainer:
         self.config = config
         
         # Set seeds
+        random.seed(config.seed)
         np.random.seed(config.seed)
         torch.manual_seed(config.seed)
         
@@ -168,8 +169,8 @@ class Trainer:
         self.active_event_object: Optional[str] = None   # dict key of active event object
         self.event_start_step: int = 0
         self.event_end_step: int = 0
-        self.episode_event_arrivals: int = 0             # agents who arrived during event window
-        self.episode_event_active: bool = False          # whether a food event fired this episode
+        self.episode_event_agent_arrivals: Set[int] = set()  # distinct agent IDs that reached the event object
+        self.episode_event_active: bool = False               # whether a food event fired this episode
         
         # Phase 2: Ostensive teacher for language grounding
         self.teaching_config = TeachingConfig()
@@ -586,9 +587,9 @@ class Trainer:
                             property_approach_rewards.get(aid, 0.0) + food_r
                         )
 
-                        # Track event arrivals: count all agents near event object during window
+                        # Track event arrivals: record distinct agents near event object during window
                         if in_event:
-                            self.episode_event_arrivals += 1
+                            self.episode_event_agent_arrivals.add(aid)
 
         # --- Phase 7: Compute rewards (curiosity + helping + naming + communicative + referral + joint + property) ---
         for agent in self.agents:
@@ -665,8 +666,10 @@ class Trainer:
 
         # Phase 6: food event setup — decide whether a food event fires this episode
         self.episode_event_active = False
-        self.episode_event_arrivals = 0
+        self.episode_event_agent_arrivals = set()
         self.active_event_object = None
+        self.event_start_step = 0
+        self.event_end_step = 0
 
         if random.random() < self.config.p_event:
             edible_dim = PROPERTY_DIM_MAP['edible']
@@ -676,6 +679,7 @@ class Trainer:
             ]
             if edible_keys:
                 self.active_event_object = random.choice(edible_keys)
+                # Assumes steps_per_episode >= event_duration + 15 (default: 100 >= 35)
                 event_start = random.randint(
                     10,
                     max(11, self.config.steps_per_episode - self.config.event_duration - 5)
@@ -760,7 +764,7 @@ class Trainer:
         
         # Food event metrics (episode-level)
         metrics['event_active'] = self.episode_event_active
-        metrics['event_arrivals'] = self.episode_event_arrivals
+        metrics['event_arrivals'] = len(self.episode_event_agent_arrivals)
 
         # Language grounding metrics
         lang_metrics = self.teacher.get_metrics()
