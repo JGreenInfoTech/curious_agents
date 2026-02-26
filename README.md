@@ -197,8 +197,8 @@ curious_agents/
 │   ├── __init__.py
 │   └── visualizer.py         # Matplotlib dashboard
 ├── assets/                   # (Future: images, concept graphs)
-├── logs/                     # Training metrics (JSON)
-└── checkpoints/              # Saved agent states (PyTorch)
+├── logs_phase6/              # Training metrics (JSON)
+└── checkpoints_phase6/       # Saved agent states (PyTorch)
 ```
 
 ## Verified Results (Phase 1 Smoke Test)
