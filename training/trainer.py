@@ -85,19 +85,26 @@ class TrainerConfig:
 class Trainer:
     """
     Multi-agent training loop.
-    
+
     Each step:
-    1. All agents perceive their local environment
+    1. All agents perceive their local environment (encoder → GRU → h_t)
     2. All agents decide and execute actions
     3. Environment steps (animate objects move)
-    4. All agents compute prediction errors
+    4. All agents compute prediction errors (||predicted_h_{t+1} - actual_h_{t+1}||²)
     5. Ostensive teaching: teacher may "point and name" nearby objects
     6. Naming tests: agents try to name nearby objects
     7. Helping rewards + naming rewards calculated
     8. Forward models trained (self-supervised)
-    9. Policies updated periodically (REINFORCE)
+    9. Policies updated periodically (REINFORCE with sequential GRU replay)
+
+    Phase 6: Hidden state management.
+    The Trainer holds a per-agent hidden state tensor that persists across
+    steps within an episode. At episode start, hidden states are reset to zeros.
+    During collection, hidden states are detached before each step so gradients
+    don't accumulate through time. During update_policy(), the agent re-runs
+    the full trajectory with fresh gradients (BPTT through GRU).
     """
-    
+
     def __init__(self, config: TrainerConfig):
         self.config = config
         
@@ -127,6 +134,13 @@ class Trainer:
                 seed=config.seed,
             )
             self.agents.append(agent)
+
+        # Phase 6: Per-agent GRU hidden states, managed across steps within an episode.
+        # Detached at each collection step; reset to zeros at episode start.
+        # Key: agent_id → Tensor of shape (1, internal_state_dim)
+        self.hidden_states: Dict[int, torch.Tensor] = {
+            i: self.agents[i].reset_hidden() for i in range(config.n_agents)
+        }
 
         # Track utterances from the previous step so agents can perceive them
         # when deciding their NEXT action (one step delay — realistic communication).
@@ -332,16 +346,29 @@ class Trainer:
 
         actions = {}
         log_probs = {}
+        # Track perceptions this step so we can store them in experience_buffer
+        step_perceptions: Dict[int, np.ndarray] = {}
 
         # --- Phase 1: All agents perceive and decide ---
         # Include PREVIOUS step's utterances so agents know what was recently said
         # when choosing their next action (one-step communication delay).
+        # Phase 6: pass hidden state in (detached — no gradient accumulation across steps).
         for agent in self.agents:
+            aid = agent.config.agent_id
             perception = self._build_perception(agent, self.prev_utterances)
-            agent.perceive(perception)
+            step_perceptions[aid] = perception
+
+            # Detach hidden state before passing in — gradients are recomputed during
+            # update_policy() via full trajectory replay, not accumulated here.
+            h_prev = self.hidden_states[aid].detach()
+            h_t = agent.perceive(perception, hidden_state=h_prev)
+
+            # Store new hidden state (detached for next step's collection)
+            self.hidden_states[aid] = h_t.detach()
+
             action, log_prob = agent.decide_action(temperature=self.temperature)
-            actions[agent.config.agent_id] = action
-            log_probs[agent.config.agent_id] = log_prob
+            actions[aid] = action
+            log_probs[aid] = log_prob
 
         # --- Phase 2: All agents execute actions ---
         for agent in self.agents:
@@ -388,10 +415,15 @@ class Trainer:
 
         # --- Phase 4: All agents perceive new state and compute prediction error ---
         # Include THIS step's utterances so agents observe simultaneous communication.
+        # Phase 6: pass hidden state in (detached). This second perceive() call within
+        # the same step advances the hidden state with the post-action perception.
         for agent in self.agents:
+            aid = agent.config.agent_id
             new_perception = self._build_perception(agent, step_utterances)
-            agent.perceive(new_perception)
-            agent.compute_prediction_error(actions[agent.config.agent_id])
+            h_prev = self.hidden_states[aid].detach()
+            h_t = agent.perceive(new_perception, hidden_state=h_prev)
+            self.hidden_states[aid] = h_t.detach()
+            agent.compute_prediction_error(actions[aid])
 
         # --- Phase 4.5: Update spatial memory ---
         for agent in self.agents:
@@ -556,11 +588,14 @@ class Trainer:
             reward += property_approach_rewards.get(agent.config.agent_id, 0.0)
 
             # Store experience
+            # Phase 6: store raw perception so update_policy() can replay the
+            # trajectory through encoder → GRU with fresh gradients (BPTT).
+            # The pre-action perception (step_perceptions) is used as the input
+            # that produced the action — this is the perception the agent acted on.
             agent.store_experience(
-                log_prob=log_probs[agent.config.agent_id],
-                reward=reward,
-                state=agent.internal_state,
+                perception=step_perceptions[agent.config.agent_id],
                 action=actions[agent.config.agent_id],
+                reward=reward,
             )
 
         # Accumulate episode totals for metrics logging
@@ -597,6 +632,11 @@ class Trainer:
         self.episode_joint_totals = {a.config.agent_id: 0.0 for a in self.agents}
         self.episode_property_comm_totals = {a.config.agent_id: 0.0 for a in self.agents}
         self.episode_property_approach_totals = {a.config.agent_id: 0.0 for a in self.agents}
+
+        # Phase 6: reset GRU hidden states to zeros at the start of each episode.
+        # The GRU should have no temporal context carried over from the previous episode.
+        for agent in self.agents:
+            self.hidden_states[agent.config.agent_id] = agent.reset_hidden()
 
         # Stamp current episode onto each agent (used by spatial memory decay)
         for agent in self.agents:

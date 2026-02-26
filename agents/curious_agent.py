@@ -20,6 +20,11 @@ Architecturally this means:
 
 The agent is a small feedforward network (~50K-100K params).
 Fits easily on a GTX 1080. Multiple agents run simultaneously.
+
+Phase 6: GRUCell inserted between encoder and all downstream heads.
+The GRU maintains a hidden state across steps within an episode,
+giving the agent genuine temporal context. The Trainer manages the
+hidden state tensor externally and passes it in at each step.
 """
 
 import numpy as np
@@ -41,7 +46,7 @@ class NormedLinear(nn.Module):
         super().__init__()
         self.linear = nn.Linear(in_features, out_features)
         self.norm = nn.LayerNorm(out_features)
-    
+
     def forward(self, x):
         return self.norm(self.linear(x))
 
@@ -112,15 +117,15 @@ class SpatialMemory:
 @dataclass
 class AgentConfig:
     """All hyperparameters in one place for reproducibility."""
-    
+
     # Perception
     perception_dim: int = 129       # From environment: 8 objects * (1 + 15) + 1
     max_perceivable_objects: int = 8
-    
+
     # Internal representation
     hidden_dim: int = 128           # Main processing width
-    internal_state_dim: int = 64    # Compressed internal state
-    
+    internal_state_dim: int = 64    # Compressed internal state / GRU hidden size
+
     # Actions
     n_actions: int = 5              # move_north, move_south, move_east, move_west, stay
     n_utterance_classes: int = 10   # One utterance action per vocabulary word (Phase 3)
@@ -128,14 +133,14 @@ class AgentConfig:
         'move_north', 'move_south', 'move_east', 'move_west', 'stay'
     ])
     move_step: float = 5.0          # How far each move goes
-    
+
     # Motivation (APPROACH-ONLY — no negative signals)
     curiosity_weight: float = 1.0   # Reward for learning progress
     helping_weight: float = 0.5     # Reward for helping others learn
     exploration_bonus: float = 0.1  # Small constant reward for movement (anti-stagnation)
     novelty_weight: float = 0.3     # Reward for visiting new grid cells
     visit_grid_resolution: int = 10 # Grid cells per axis for visit tracking (10x10 = 100 cells)
-    
+
     # Learning
     learning_rate: float = 3e-4
     forward_model_lr: float = 1e-3  # Forward model learns faster (it needs to keep up)
@@ -143,7 +148,7 @@ class AgentConfig:
     entropy_coeff: float = 0.05     # Entropy regularization: penalizes logit concentration,
                                     # keeps utterance actions viable at low temperature
                                     # (raised from 0.02 — gap was closing too slowly at 0.02)
-    
+
     # Meta-cognition (Phase 1: simple version)
     confidence_smooth: float = 0.95 # EMA smoothing for confidence tracking
 
@@ -177,32 +182,49 @@ class CuriousAgent(nn.Module):
     """
     A small agent that:
     1. Perceives structured properties of nearby objects
-    2. Builds a forward model (predicts next perception from state + action)
+    2. Builds a forward model (predicts next hidden state from h_t + action)
     3. Is rewarded ONLY for learning progress (prediction error going DOWN)
     4. Can observe other agents and is rewarded for helping them learn
     5. Tracks its own confidence (proto-metacognition)
-    
+
+    Phase 6: A GRUCell sits between the encoder and all downstream heads.
+    The encoder maps perception → 64D encoding; the GRU integrates this
+    with the previous hidden state to produce h_t. All heads (policy, value,
+    naming, discrimination, property) consume h_t instead of raw encoder output.
+    The forward model predicts the NEXT h_t: forward_model(h_t, action) → h_{t+1}.
+
     No punishment. No negative reward. Confusion is just information.
     """
-    
+
     def __init__(self, config: AgentConfig):
         super().__init__()
         self.config = config
-        
+
         # ===== PERCEPTION ENCODER =====
-        # Takes flat perception vector → compressed internal state
+        # Takes flat perception vector → compressed encoding (64D)
+        # Output feeds into GRUCell, not directly into heads.
         self.encoder = nn.Sequential(
             NormedLinear(config.perception_dim, config.hidden_dim),
             nn.GELU(),  # Smooth activation (no dead neurons like ReLU)
             NormedLinear(config.hidden_dim, config.hidden_dim),
             nn.GELU(),
             NormedLinear(config.hidden_dim, config.internal_state_dim),
-            nn.Tanh(),  # Bounded internal state
+            nn.Tanh(),  # Bounded encoding
         )
-        
+
+        # ===== GRU CELL (Phase 6) =====
+        # Integrates new encoder output with previous hidden state.
+        # h_t = GRU(encoded_t, h_{t-1})
+        # All downstream heads use h_t — this gives the agent temporal context.
+        self.gru = nn.GRUCell(
+            input_size=config.internal_state_dim,
+            hidden_size=config.internal_state_dim,
+        )
+
         # ===== FORWARD MODEL (World Predictor) =====
-        # Given current internal state + action → predict next internal state
-        # This is the core of curiosity: surprise = prediction error
+        # Given current hidden state h_t + action → predict next hidden state h_{t+1}.
+        # Curiosity = surprise = ||predicted_h_{t+1} - actual_h_{t+1}||²
+        # Input: (h_t || action_5D) = 64 + 5 = 69D
         self.forward_model = nn.Sequential(
             NormedLinear(config.internal_state_dim + config.n_actions, config.hidden_dim),
             nn.GELU(),
@@ -211,9 +233,9 @@ class CuriousAgent(nn.Module):
             nn.Linear(config.hidden_dim, config.internal_state_dim),
             nn.Tanh(),
         )
-        
+
         # ===== POLICY (Action Selection) =====
-        # Given internal state → action preferences (softmax probabilities)
+        # Given hidden state h_t → action preferences (softmax probabilities)
         # Total action space: n_actions (movement) + n_utterance_classes (word emissions)
         # The forward model only uses movement actions; utterance actions expand policy only.
         _total_actions = config.n_actions + config.n_utterance_classes + config.n_property_utterances
@@ -223,21 +245,22 @@ class CuriousAgent(nn.Module):
             nn.Linear(config.hidden_dim // 2, _total_actions),
             # No final activation — we'll use softmax at decision time
         )
-        
+
         # ===== VALUE ESTIMATOR =====
         # Estimates expected future reward (for advantage computation)
+        # Input: h_t
         self.value_head = nn.Sequential(
             NormedLinear(config.internal_state_dim, config.hidden_dim // 2),
             nn.GELU(),
             nn.Linear(config.hidden_dim // 2, 1),
         )
-        
+
         # ===== DISCRIMINATION HEAD (Auxiliary Object Classifier) =====
-        # Takes internal state → object class logits.
+        # Takes h_t → object class logits.
         # Trained with cross-entropy as a parallel objective alongside curiosity.
-        # Forces the encoder to produce class-separable representations without
+        # Forces the encoder+GRU to produce class-separable representations without
         # replacing or disrupting the forward model / policy gradient flow.
-        # Gradients flow through encoder via a dedicated language_optimizer.
+        # Gradients flow through encoder+GRU via a dedicated language_optimizer.
         self.discrimination_head = nn.Sequential(
             nn.Linear(config.internal_state_dim, config.hidden_dim // 2),
             nn.GELU(),
@@ -255,25 +278,27 @@ class CuriousAgent(nn.Module):
         # A small "expression" vector that leaks some internal state
         # Think of it as body language / facial expression
         self.expression_projection = nn.Linear(config.internal_state_dim, 8)
-        
+
         # ===== TRACKING STATE (not learned, just bookkeeping) =====
         self.position = np.array([50.0, 50.0])  # Start at center
-        self.internal_state = None                # Current encoded perception
-        self.prev_internal_state = None           # Previous step's state
+        self.internal_state = None                # Current h_t (GRU output)
+        self.prev_internal_state = None           # Previous step's h_t
         self.prev_prediction_error = 0.0          # For learning progress calc
         self.current_prediction_error = 0.0
-        
+
         # Confidence tracker (exponential moving average of prediction accuracy)
         # Starts at 0.5 (uncertain). Rises as predictions improve.
         self.confidence = 0.5
-        
+
         # Visit tracking for novelty bonus (grid-based)
         self.visit_counts: Dict[Tuple[int, int], int] = {}
-        
+
         # Experience buffer for learning
+        # Phase 6: stores (perception_np, action, reward) tuples for full trajectory replay.
+        # Ordered list — one entry per step within the episode.
         self.experience_buffer: List[Dict] = []
         self.max_buffer_size = 256
-        
+
         # Lifetime stats
         self.total_steps = 0
         self.total_reward = 0.0
@@ -282,7 +307,7 @@ class CuriousAgent(nn.Module):
         self.confidence_history: List[float] = []
         self.action_history: List[int] = []
         self.position_history: List[Tuple[float, float]] = []
-        
+
         # Vocabulary (for language grounding — starts empty)
         self.vocabulary: Dict[str, np.ndarray] = {}
 
@@ -304,72 +329,149 @@ class CuriousAgent(nn.Module):
 
         # Set up optimizers
         self._setup_optimizers()
-    
+
     def _setup_optimizers(self):
-        """Three separate optimizers for three separate learning signals."""
-        # Policy + value learn from intrinsic reward (REINFORCE)
-        policy_params = list(self.encoder.parameters()) + \
-                        list(self.policy.parameters()) + \
-                        list(self.value_head.parameters()) + \
-                        list(self.expression_projection.parameters())
+        """Three separate optimizers for three separate learning signals.
+
+        Phase 6: GRU params are added to BOTH policy_optimizer and language_optimizer,
+        mirroring the encoder sharing pattern. Each optimizer manages its own
+        zero_grad/step cycle so they don't interfere with each other.
+        """
+        # Policy + value learn from intrinsic reward (REINFORCE).
+        # Encoder and GRU are shared with language_optimizer.
+        policy_params = (
+            list(self.encoder.parameters())
+            + list(self.gru.parameters())
+            + list(self.policy.parameters())
+            + list(self.value_head.parameters())
+            + list(self.expression_projection.parameters())
+        )
         self.policy_optimizer = torch.optim.Adam(
             policy_params, lr=self.config.learning_rate
         )
 
-        # Forward model learns from prediction error (self-supervised)
+        # Forward model learns from prediction error (self-supervised).
+        # It predicts the next h_t, but its own parameters are separate —
+        # gradients do NOT flow back through the GRU during forward model training.
         self.forward_model_optimizer = torch.optim.Adam(
             self.forward_model.parameters(), lr=self.config.forward_model_lr
         )
 
-        # Language losses shape encoder + discrimination head via supervised signal.
-        # Encoder params are shared with policy_optimizer — each optimizer manages
+        # Language losses shape encoder + GRU + discrimination heads via supervised signal.
+        # Encoder and GRU params are shared with policy_optimizer — each optimizer manages
         # its own zero_grad/step cycle so they don't interfere with each other.
-        language_params = list(self.encoder.parameters()) + \
-                          list(self.discrimination_head.parameters()) + \
-                          list(self.property_discrimination_head.parameters())
+        language_params = (
+            list(self.encoder.parameters())
+            + list(self.gru.parameters())
+            + list(self.discrimination_head.parameters())
+            + list(self.property_discrimination_head.parameters())
+        )
         self.language_optimizer = torch.optim.Adam(
             language_params, lr=self.config.learning_rate
         )
-    
+
+    # =========================================================================
+    # Phase 6: Hidden State Management
+    # =========================================================================
+
+    def reset_hidden(self, device: torch.device = None) -> torch.Tensor:
+        """
+        Return a zero hidden state tensor for the start of a new episode.
+
+        The Trainer calls this at episode start and holds the returned tensor.
+        Shape: (1, internal_state_dim) — batch dim of 1 for GRUCell compatibility.
+
+        Args:
+            device: target device for the tensor (default: CPU)
+        """
+        if device is None:
+            device = torch.device('cpu')
+        return torch.zeros(1, self.config.internal_state_dim, device=device)
+
+    def gru_step(self, perception: np.ndarray,
+                 hidden_state: torch.Tensor) -> Tuple[torch.Tensor, torch.Tensor]:
+        """
+        One forward pass through encoder → GRU → h_t.
+
+        This is the primary step API for the Trainer. It replaces the old
+        `perceive()` call for the collection path. The Trainer passes the
+        current hidden state in and gets the new hidden state back.
+
+        Side-effects (same as old perceive()):
+          - self.prev_internal_state ← old self.internal_state
+          - self.internal_state ← new h_t
+
+        Args:
+            perception: flat numpy perception vector (perception_dim,)
+            hidden_state: current GRU hidden state, shape (1, internal_state_dim).
+                          Should be detached before calling during collection so
+                          gradients don't accumulate across steps.
+
+        Returns:
+            h_t: new GRU hidden state, shape (1, internal_state_dim)
+            h_t: same tensor (h_t is both the new hidden state and the
+                 representation used by downstream heads — GRUCell output IS
+                 the new hidden state)
+        """
+        x = torch.FloatTensor(perception).unsqueeze(0)  # (1, perception_dim)
+        encoded = self.encoder(x)                        # (1, internal_state_dim)
+        h_t = self.gru(encoded, hidden_state)            # (1, internal_state_dim)
+
+        self.prev_internal_state = self.internal_state
+        self.internal_state = h_t
+
+        # Return (new_hidden, h_t) — they are the same tensor for GRUCell
+        return h_t, h_t
+
     # =========================================================================
     # Core Loop: Perceive → Predict → Act → Learn
     # =========================================================================
-    
-    def perceive(self, flat_perception: np.ndarray) -> torch.Tensor:
+
+    def perceive(self, flat_perception: np.ndarray,
+                 hidden_state: Optional[torch.Tensor] = None) -> torch.Tensor:
         """
-        Encode raw perception into internal state.
-        
-        This is what the agent "experiences" — a compressed representation
-        of what's around it. Not the raw properties, but a learned encoding.
+        Encode raw perception into internal state (h_t from GRU).
+
+        Phase 6: hidden_state is now required for full functionality.
+        If hidden_state is None, a fresh zero state is used (backward compat
+        for any call sites that don't yet pass hidden state).
+
+        Updates self.internal_state to h_t. Returns h_t.
         """
+        if hidden_state is None:
+            hidden_state = self.reset_hidden()
+
         x = torch.FloatTensor(flat_perception).unsqueeze(0)  # (1, perception_dim)
+        encoded = self.encoder(x)                             # (1, internal_state_dim)
+        h_t = self.gru(encoded, hidden_state)                 # (1, internal_state_dim)
+
         self.prev_internal_state = self.internal_state
-        self.internal_state = self.encoder(x)  # (1, internal_state_dim)
-        return self.internal_state
-    
+        self.internal_state = h_t
+        return h_t
+
     def decide_action(self, temperature: float = 1.0) -> Tuple[int, torch.Tensor]:
         """
-        Choose an action based on current internal state.
-        
+        Choose an action based on current hidden state h_t.
+
         Uses softmax policy with temperature for exploration.
         High temperature = more random. Low = more greedy.
-        
+
         Returns: (action_index, log_probability)
         """
         assert self.internal_state is not None, "Must perceive before acting"
-        
+
         logits = self.policy(self.internal_state)  # (1, n_actions)
-        
+
         # Temperature-scaled softmax
         probs = F.softmax(logits / max(temperature, 0.01), dim=-1)
-        
+
         # Sample action
         action_dist = torch.distributions.Categorical(probs)
         action = action_dist.sample()
         log_prob = action_dist.log_prob(action).squeeze()  # Ensure scalar
-        
+
         return action.item(), log_prob
-    
+
     def execute_action(self, action: int) -> np.ndarray:
         """
         Execute movement or utterance action. Returns new position.
@@ -414,7 +516,7 @@ class CuriousAgent(nn.Module):
         self.position_history.append(tuple(self.position.copy()))
 
         return self.position.copy()
-    
+
     def reset_position(self, seed: Optional[int] = None):
         """
         Randomize position for a new episode.
@@ -435,11 +537,14 @@ class CuriousAgent(nn.Module):
     def compute_prediction_error(self, action: int) -> float:
         """
         How wrong was my prediction about what would happen?
-        
+
+        Phase 6: The forward model predicts the next h_t (hidden state).
+        We compare forward_model(prev_h_t, action) against actual h_t.
+
         This is INFORMATION, not pain. It tells the agent where
         its world model is inaccurate.
-        
-        Returns: scalar prediction error (MSE between predicted and actual)
+
+        Returns: scalar prediction error (MSE between predicted and actual h_t)
         """
         if self.prev_internal_state is None:
             return 0.0
@@ -450,55 +555,55 @@ class CuriousAgent(nn.Module):
         action_onehot = torch.zeros(1, self.config.n_actions)
         action_onehot[0, forward_action] = 1.0
 
-        # What did I predict would happen?
-        forward_input = torch.cat([self.prev_internal_state, action_onehot], dim=-1)
-        predicted_next = self.forward_model(forward_input)
+        # What did I predict the next hidden state would be?
+        forward_input = torch.cat([self.prev_internal_state.detach(), action_onehot], dim=-1)
+        predicted_next_h = self.forward_model(forward_input)
 
-        # What actually happened?
-        actual_next = self.internal_state.detach()
-        
-        # Prediction error (MSE)
-        error = F.mse_loss(predicted_next, actual_next).item()
-        
+        # What is the actual next hidden state?
+        actual_next_h = self.internal_state.detach()
+
+        # Prediction error (MSE between predicted and actual h_t)
+        error = F.mse_loss(predicted_next_h, actual_next_h).item()
+
         # Update tracking
         self.prev_prediction_error = self.current_prediction_error
         self.current_prediction_error = error
         self.prediction_error_history.append(error)
-        
+
         # Update confidence (EMA of prediction accuracy)
         accuracy = max(0, 1.0 - error)  # Higher accuracy = lower error
         alpha = 1.0 - self.config.confidence_smooth
         self.confidence = self.config.confidence_smooth * self.confidence + alpha * accuracy
         self.confidence_history.append(self.confidence)
-        
+
         return error
-    
-    def compute_intrinsic_reward(self, 
+
+    def compute_intrinsic_reward(self,
                                   others_prev_errors: Optional[List[float]] = None,
                                   others_curr_errors: Optional[List[float]] = None
                                   ) -> float:
         """
         APPROACH-ONLY intrinsic reward.
-        
+
         Components:
         1. Learning progress: reward when prediction error DECREASES
            - Positive when learning (error goes down)
            - Zero when already mastered (error already low)
            - Zero when incomprehensible (error stays high)
            → Naturally explores at the boundary of competence
-        
+
         2. Helping bonus: reward when others' prediction errors decrease
            while you're near them (your presence helped them learn)
-        
+
         3. Exploration bonus: tiny constant reward for moving
            (prevents the agent from just sitting still forever)
-        
+
         CRITICAL: No negative component. Worst case = 0 reward.
         """
         # --- Curiosity: my own learning progress ---
         learning_progress = max(0.0, self.prev_prediction_error - self.current_prediction_error)
         curiosity_reward = self.config.curiosity_weight * learning_progress
-        
+
         # --- Helping: others' learning progress ---
         helping_reward = 0.0
         if others_prev_errors is not None and others_curr_errors is not None:
@@ -506,12 +611,12 @@ class CuriousAgent(nn.Module):
                 other_progress = max(0.0, prev_e - curr_e)
                 helping_reward += other_progress
             helping_reward *= self.config.helping_weight
-        
+
         # --- Exploration: small bonus for movement ---
         # Only actions 0-3 are movements; 4=stay, 5+=utterance (no physical displacement)
         moved = (len(self.action_history) > 0 and self.action_history[-1] < 4)
         exploration_reward = self.config.exploration_bonus if moved else 0.0
-        
+
         # --- Novelty: reward for visiting less-seen grid cells ---
         grid_res = self.config.visit_grid_resolution
         cell_size = self.config.world_size / grid_res
@@ -520,23 +625,28 @@ class CuriousAgent(nn.Module):
         cell = (gx, gy)
         self.visit_counts[cell] = self.visit_counts.get(cell, 0) + 1
         novelty_reward = self.config.novelty_weight / self.visit_counts[cell]
-        
+
         total_reward = curiosity_reward + helping_reward + exploration_reward + novelty_reward
-        
+
         self.total_reward += total_reward
         self.learning_progress_history.append(learning_progress)
         self.total_steps += 1
-        
+
         return total_reward
-    
+
     # =========================================================================
     # Forward Model Training (Self-Supervised)
     # =========================================================================
-    
+
     def train_forward_model(self, action: int):
         """
-        Train the forward model on (state, action) → next_state prediction.
-        
+        Train the forward model on (h_t, action) → next_h_t prediction.
+
+        Phase 6: The forward model operates in hidden-state space rather than
+        raw encoder space. We use detached prev_internal_state (h_{t-1}) and
+        detached internal_state (h_t) so forward model gradients don't flow
+        through the GRU or encoder.
+
         This is self-supervised: no external reward needed.
         The forward model just tries to predict what will happen.
         Better forward model = more accurate prediction error signal
@@ -550,52 +660,62 @@ class CuriousAgent(nn.Module):
         action_onehot = torch.zeros(1, self.config.n_actions)
         action_onehot[0, forward_action] = 1.0
 
+        # Use detached h_{t-1} and h_t — forward model has its own optimizer
         forward_input = torch.cat([self.prev_internal_state.detach(), action_onehot], dim=-1)
-        predicted_next = self.forward_model(forward_input)
-        actual_next = self.internal_state.detach()
-        
-        loss = F.mse_loss(predicted_next, actual_next)
-        
+        predicted_next_h = self.forward_model(forward_input)
+        actual_next_h = self.internal_state.detach()
+
+        loss = F.mse_loss(predicted_next_h, actual_next_h)
+
         self.forward_model_optimizer.zero_grad()
         loss.backward()
         torch.nn.utils.clip_grad_norm_(self.forward_model.parameters(), 1.0)
         self.forward_model_optimizer.step()
-        
+
         return loss.item()
-    
+
     # =========================================================================
     # Language Loss Training (Naming + Discrimination — parallel objectives)
     # =========================================================================
 
-    def train_language_losses(self, word: str, class_idx: int) -> Tuple[float, float]:
+    def train_language_losses(self, word: str, class_idx: int,
+                               h_t: Optional[torch.Tensor] = None) -> Tuple[float, float]:
         """
         Train naming alignment loss and discrimination loss in a single backward pass.
 
+        Phase 6: Accepts an explicit h_t parameter (the current GRU hidden state).
+        If h_t is not provided, falls back to self.internal_state for backward
+        compatibility. Callers (Trainer teach_step) should pass the current h_t
+        so the language losses flow through GRU → encoder gradients properly.
+
         Naming loss (MSE):
-          Pulls current encoder output toward the stored word prototype.
-          When the agent sees an apple and is told "apple", the encoding
+          Pulls current h_t toward the stored word prototype.
+          When the agent sees an apple and is told "apple", the hidden state
           should converge toward the prototype averaged across prior apple
           sightings. This makes representations consistent across contexts.
 
         Discrimination loss (cross-entropy):
-          Auxiliary classifier: internal_state → object class prediction.
-          Forces the encoder to produce class-separable representations.
+          Auxiliary classifier: h_t → object class prediction.
+          Forces the encoder+GRU to produce class-separable representations.
           The discrimination_head is a separate small network — its gradients
-          flow through the shared encoder but the head itself isn't used for
+          flow through the shared encoder+GRU but the head itself isn't used for
           policy decisions or curiosity computation.
 
-        Both losses share language_optimizer (encoder + discrimination_head).
+        Both losses share language_optimizer (encoder + GRU + discrimination_head).
         Policy and forward-model optimizers are unaffected.
 
         Args:
             word: the word that was just taught (must exist in self.vocabulary
                   for naming loss to fire; discrimination loss only needs class_idx)
             class_idx: integer class label (from WORD_CLASS_MAP); -1 to skip discrimination
+            h_t: optional explicit hidden state tensor, shape (1, internal_state_dim).
+                 If None, uses self.internal_state.
 
         Returns:
             (naming_loss_value, discrimination_loss_value) as plain floats for logging.
         """
-        if self.internal_state is None:
+        state = h_t if h_t is not None else self.internal_state
+        if state is None:
             return 0.0, 0.0
 
         has_loss = False
@@ -607,7 +727,7 @@ class CuriousAgent(nn.Module):
         # Only fires once the word has a stable prototype in vocabulary.
         if word in self.vocabulary:
             prototype = torch.FloatTensor(self.vocabulary[word]).unsqueeze(0)
-            naming_loss = F.mse_loss(self.internal_state, prototype)
+            naming_loss = F.mse_loss(state, prototype)
             total_loss = self.config.naming_loss_weight * naming_loss
             naming_val = naming_loss.item()
             has_loss = True
@@ -615,7 +735,7 @@ class CuriousAgent(nn.Module):
         # --- Discrimination loss ---
         # Fires whenever a valid class index is provided.
         if 0 <= class_idx < self.config.n_object_classes:
-            logits = self.discrimination_head(self.internal_state)
+            logits = self.discrimination_head(state)
             label = torch.tensor([class_idx])
             disc_loss = F.cross_entropy(logits, label)
             weighted = self.config.discrimination_loss_weight * disc_loss
@@ -627,7 +747,9 @@ class CuriousAgent(nn.Module):
             self.language_optimizer.zero_grad()
             total_loss.backward()
             torch.nn.utils.clip_grad_norm_(
-                list(self.encoder.parameters()) + list(self.discrimination_head.parameters()),
+                list(self.encoder.parameters())
+                + list(self.gru.parameters())
+                + list(self.discrimination_head.parameters()),
                 1.0,
             )
             self.language_optimizer.step()
@@ -638,7 +760,7 @@ class CuriousAgent(nn.Module):
 
     def train_property_losses(self, target_vec: np.ndarray) -> float:
         """
-        Train property discrimination head on the current internal state.
+        Train property discrimination head on the current hidden state h_t.
 
         target_vec: 5D binary numpy array — 1.0 for each property the nearby
                     object qualifies for, 0.0 for the rest. Using the full
@@ -655,8 +777,8 @@ class CuriousAgent(nn.Module):
 
         target = torch.tensor(target_vec, dtype=torch.float32).unsqueeze(0)  # (1, 5)
 
-        # Detach so property losses don't backprop through the encoder.
-        # The encoder may have already had its graph freed by train_language_losses
+        # Detach so property losses don't backprop through the encoder/GRU.
+        # The encoder/GRU may have already had its graph freed by train_language_losses
         # in the same step; detaching avoids "backward through freed graph" errors.
         state = self.internal_state.detach()
         pred = self.property_discrimination_head(state)  # (1, 5)
@@ -690,56 +812,83 @@ class CuriousAgent(nn.Module):
     # =========================================================================
     # Policy Training (REINFORCE with baseline)
     # =========================================================================
-    
-    def store_experience(self, log_prob: torch.Tensor, reward: float, 
-                         state: torch.Tensor, action: Optional[int] = None):
+
+    def store_experience(self, perception: np.ndarray, action: int, reward: float,
+                         # Legacy params kept for call-site backward compat — ignored
+                         log_prob: Optional[torch.Tensor] = None,
+                         state: Optional[torch.Tensor] = None):
         """Buffer an experience for batch policy update.
-        
-        Stores state and action (detached from graph) so we can
-        recompute log_prob fresh during updates. This avoids stale
-        gradient references when the policy weights change between
-        collection and update.
+
+        Phase 6: Stores raw (perception, action, reward) instead of
+        (state, action, reward). During update_policy() the trajectory is
+        re-run sequentially through encoder → GRU with fresh gradients,
+        so we need the original perception input rather than a detached h_t.
+
+        The log_prob and state params are accepted but ignored (kept so existing
+        Trainer call sites don't immediately break — Task 2 will update them).
+
+        Args:
+            perception: flat numpy perception vector for this step
+            action: integer action taken
+            reward: total reward received this step
+            log_prob: IGNORED (kept for backward compat)
+            state: IGNORED (kept for backward compat)
         """
         self.experience_buffer.append({
+            'perception': perception.copy() if isinstance(perception, np.ndarray)
+                          else np.array(perception),
             'action': action,
-            'reward': reward,
-            'state': state.detach(),
+            'reward': float(reward),
         })
-        
+
         if len(self.experience_buffer) > self.max_buffer_size:
             self.experience_buffer.pop(0)
-    
+
     def update_policy(self, batch_size: int = 32):
         """
-        REINFORCE policy gradient update.
-        
-        Recomputes log_probs from current policy weights to avoid
-        stale autograd graph references. Uses value baseline to
-        reduce variance. Only positive rewards, so gradients push
-        toward actions that led to learning or helping.
+        REINFORCE policy gradient update with sequential GRU trajectory replay.
+
+        Phase 6: Instead of sampling random experiences and recomputing logits
+        from a detached state, we re-run the stored episode trajectory sequentially
+        through encoder → GRU. This gives each h_t fresh gradients that flow
+        properly through the GRU and encoder.
+
+        We use a contiguous window of up to `batch_size` steps from the buffer
+        (most recent experiences first) to keep the replay sequential and bounded.
+
+        Uses value baseline to reduce variance. Only positive rewards, so
+        gradients push toward actions that led to learning or helping.
         """
         if len(self.experience_buffer) < batch_size:
             return 0.0
-        
-        # Sample batch
-        indices = np.random.choice(len(self.experience_buffer), batch_size, replace=False)
-        batch = [self.experience_buffer[i] for i in indices]
-        
+
+        # Take the most recent `batch_size` experiences as a sequential window.
+        # They are stored in chronological order, so slice from the end.
+        window = self.experience_buffer[-batch_size:]
+
+        # Re-run the trajectory through encoder + GRU with fresh gradients.
+        # h starts as zeros (we don't have the exact episode-start hidden state
+        # saved, but the GRU can re-derive useful context from the trajectory).
+        h = torch.zeros(1, self.config.internal_state_dim)
+
         policy_losses = []
         value_losses = []
         entropy_losses = []
 
-        for exp in batch:
-            state = exp['state']  # Detached snapshot
+        for exp in window:
+            x = torch.FloatTensor(exp['perception']).unsqueeze(0)  # (1, perception_dim)
+            encoded = self.encoder(x)                               # (1, internal_state_dim)
+            h = self.gru(encoded, h)                                # (1, internal_state_dim)
+            # h now has gradients flowing through encoder and GRU
 
             # Recompute log_prob from CURRENT policy (fresh graph)
-            logits = self.policy(state)
+            logits = self.policy(h)
             probs = F.softmax(logits, dim=-1)
             dist = torch.distributions.Categorical(probs)
             log_prob = dist.log_prob(torch.tensor(exp['action'])).squeeze()
 
             # Value estimate (baseline)
-            value = self.value_head(state)
+            value = self.value_head(h)
             advantage = exp['reward'] - value.item()
 
             # Policy gradient: push toward actions with positive advantage
@@ -758,22 +907,22 @@ class CuriousAgent(nn.Module):
             + 0.5 * torch.stack(value_losses).sum()
             + torch.stack(entropy_losses).sum()
         ) / batch_size
-        
+
         self.policy_optimizer.zero_grad()
         total_loss.backward()
         torch.nn.utils.clip_grad_norm_(self.parameters(), 1.0)
         self.policy_optimizer.step()
-        
+
         return total_loss.item()
-    
+
     # =========================================================================
     # Observable State (what others see about me)
     # =========================================================================
-    
+
     def get_observable_state(self) -> Dict[str, Any]:
         """
         What other agents can perceive about this agent.
-        
+
         This is the "body language" — partial transparency into internal state.
         Other agents use this for theory of mind (in later phases).
         """
@@ -782,7 +931,7 @@ class CuriousAgent(nn.Module):
             expression = torch.sigmoid(
                 self.expression_projection(self.internal_state.detach())
             ).squeeze()
-        
+
         return {
             'agent_id': self.config.agent_id,
             'position': tuple(self.position),
@@ -794,18 +943,18 @@ class CuriousAgent(nn.Module):
             'learning_rate': self.learning_progress_history[-1]
                            if self.learning_progress_history else 0.0,
         }
-    
+
     # =========================================================================
     # Language Grounding (Starts empty — Phase 2 will expand this)
     # =========================================================================
-    
+
     def learn_word(self, word: str, internal_state: torch.Tensor):
         """
-        Associate a word with the current internal state.
+        Associate a word with the current internal state (h_t).
         Ostensive learning: human points at thing, says word, agent encodes.
         """
         self.vocabulary[word] = internal_state.detach().squeeze().numpy().copy()
-    
+
     def try_to_name(self, internal_state: torch.Tensor, threshold: float = 0.7) -> Optional[str]:
         """
         Try to find a word for the current experience.
@@ -813,12 +962,12 @@ class CuriousAgent(nn.Module):
         """
         if not self.vocabulary:
             return None
-        
+
         state_np = internal_state.detach().squeeze().numpy()
-        
+
         best_word = None
         best_sim = -1.0
-        
+
         for word, stored_state in self.vocabulary.items():
             sim = np.dot(state_np, stored_state) / (
                 np.linalg.norm(state_np) * np.linalg.norm(stored_state) + 1e-8
@@ -826,26 +975,26 @@ class CuriousAgent(nn.Module):
             if sim > best_sim:
                 best_sim = sim
                 best_word = word
-        
+
         if best_sim >= threshold:
             return best_word
         return None
-    
+
     # =========================================================================
     # Meta-Cognitive Report (Proto-metacognition for Phase 1)
     # =========================================================================
-    
+
     def metacognitive_report(self) -> Dict[str, Any]:
         """
         What the agent can report about its own state.
-        
+
         Phase 1: Simple tracking metrics.
         Phase 4 will add hierarchical self-modeling.
         """
         recent_n = 20
         recent_errors = self.prediction_error_history[-recent_n:] if self.prediction_error_history else [0]
         recent_progress = self.learning_progress_history[-recent_n:] if self.learning_progress_history else [0]
-        
+
         recent_naming = self.naming_loss_history[-recent_n:] if self.naming_loss_history else [0.0]
         recent_disc = self.discrimination_loss_history[-recent_n:] if self.discrimination_loss_history else [0.0]
 
@@ -861,7 +1010,7 @@ class CuriousAgent(nn.Module):
             'avg_naming_loss': float(np.mean(recent_naming)),
             'avg_discrimination_loss': float(np.mean(recent_disc)),
         }
-    
+
     def __repr__(self):
         return (f"CuriousAgent(id={self.config.agent_id}, "
                 f"steps={self.total_steps}, "
@@ -876,24 +1025,31 @@ class CuriousAgent(nn.Module):
 def apply_structured_initialization(agent: CuriousAgent, seed: int = 42):
     """
     Initialize weights with biological structure rather than random noise.
-    
+
     Principles:
     - Encoder: slight bias toward detecting large differences in properties
     - Forward model: initialized near identity (predict no change)
     - Policy: slight bias toward exploration (movement actions)
     - Value head: starts at zero (no prior expectations)
-    
+    - GRU: default PyTorch init (orthogonal hidden weights, uniform input weights)
+      — we leave GRU at default since its recurrent structure is already well-conditioned.
+
     This gives the agent a "developmental scaffold" without training it.
     """
     torch.manual_seed(seed)
-    
+
     with torch.no_grad():
         # --- Encoder: Xavier init with slight structure ---
         for layer in agent.encoder:
             if isinstance(layer, NormedLinear):
                 nn.init.xavier_normal_(layer.linear.weight, gain=0.8)
                 nn.init.zeros_(layer.linear.bias)
-        
+
+        # --- GRU: leave at PyTorch default initialization ---
+        # PyTorch initializes GRUCell with kaiming_uniform for input weights
+        # and orthogonal for hidden weights — a well-conditioned starting point.
+        # No override needed.
+
         # --- Forward model: near-identity initialization ---
         # The forward model starts by predicting "nothing changes"
         # This means initial prediction errors come from actual changes
@@ -907,7 +1063,7 @@ def apply_structured_initialization(agent: CuriousAgent, seed: int = 42):
                 # Combined with Tanh, this means "predict similar state"
                 nn.init.xavier_normal_(layer.weight, gain=0.1)
                 nn.init.zeros_(layer.bias)
-        
+
         # --- Policy: slight exploration bias ---
         for layer in agent.policy:
             if isinstance(layer, NormedLinear):
@@ -928,7 +1084,7 @@ def apply_structured_initialization(agent: CuriousAgent, seed: int = 42):
                 full_bias = torch.cat([movement_bias[:agent.config.n_actions],
                                        utterance_bias])[:total_actions]
                 layer.bias.copy_(full_bias)
-        
+
         # --- Value head: start at zero ---
         for layer in agent.value_head:
             if isinstance(layer, NormedLinear):
@@ -937,7 +1093,7 @@ def apply_structured_initialization(agent: CuriousAgent, seed: int = 42):
             elif isinstance(layer, nn.Linear):
                 nn.init.zeros_(layer.weight)
                 nn.init.zeros_(layer.bias)
-        
+
         # --- Expression: small random (like subtle facial features) ---
         nn.init.xavier_normal_(agent.expression_projection.weight, gain=0.2)
         nn.init.zeros_(agent.expression_projection.bias)
@@ -947,7 +1103,7 @@ def apply_structured_initialization(agent: CuriousAgent, seed: int = 42):
             if isinstance(layer, nn.Linear):
                 nn.init.xavier_normal_(layer.weight, gain=0.5)
                 nn.init.zeros_(layer.bias)
-    
+
     return agent
 
 
@@ -968,15 +1124,15 @@ def create_agent(agent_id: int = 0,
         perception_dim=perception_dim,
         n_utterance_classes=n_utterance_classes,
     )
-    
+
     agent = CuriousAgent(config)
     agent = apply_structured_initialization(agent, seed=seed + agent_id * 1000)
-    
+
     if position is not None:
         agent.position = np.array(position, dtype=float)
     else:
         # Random starting position, different per agent
         rng = np.random.RandomState(seed + agent_id)
         agent.position = rng.uniform(20, 80, size=2)
-    
+
     return agent
