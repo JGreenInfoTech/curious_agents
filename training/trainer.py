@@ -74,6 +74,13 @@ class TrainerConfig:
     event_duration: int = 20        # steps the event is active
     event_food_bonus: float = 0.5   # per-step bonus during event (replaces baseline 0.05)
 
+    # Stage 4: Reference game
+    ref_game_prob: float = 0.35          # Fraction of Stage 4 episodes that are ref games
+    ref_game_steps: int = 35             # Steps per ref game episode (vs 100 for normal)
+    ref_game_radius: float = 8.0         # Distance threshold: runner "reached" target
+    ref_game_success_reward: float = 2.0 # Terminal reward for correct variant
+    ref_game_wrong_penalty: float = -1.0 # Terminal reward for wrong variant
+
     # Logging
     log_freq: int = 50               # Log every N episodes
     checkpoint_freq: int = 500       # Save every N episodes
@@ -233,6 +240,10 @@ class Trainer:
             self.env.spawn_objects()  # Phase 5: replace with stable 12-object world (no dynamic mode)
             self.current_stage = 3
             print("\n=== Stage 3: Dynamic environment (objects move) ===")
+        elif episode == self.config.stage_3_episodes and self.current_stage < 4:
+            self.env.setup_stage_4()
+            self.current_stage = 4
+            print("\n=== Stage 4: Reference game (grammatical communication) ===")
 
         # Safety: ensure environment is populated for current stage
         # (guards against checkpoint resume with empty env)
@@ -923,7 +934,7 @@ class Trainer:
                     from agents.curious_agent import apply_structured_initialization
                     print(f"  Warning: checkpoint architecture incompatible for agent {aid} "
                           f"(perception_dim may have changed 139->149 for Phase 4, "
-                          f"or 149->154 for Phase 3.5). "
+                          f"149->154 for Phase 3.5, or 154->164 for Stage 4). "
                           f"Re-applying structured initialization.")
                     apply_structured_initialization(agent, seed=self.config.seed + aid * 1000)
                 agent.position = np.array(data['position'])
@@ -980,7 +991,10 @@ class Trainer:
         
         # Restore environment for the current stage
         # (env.__init__ starts with empty objects dict, so we must re-populate)
-        if self.current_stage >= 3:
+        if self.current_stage >= 4:
+            self.env.setup_stage_3()  # Stage 4 uses same 12-object world as Stage 3
+            self.env.setup_stage_4()
+        elif self.current_stage >= 3:
             self.env.setup_stage_3()
         elif self.current_stage >= 2:
             self.env.setup_stage_2()

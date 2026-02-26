@@ -584,6 +584,14 @@ class StructuredEnvironment:
 
         self._log_event('stage_setup', {'stage': 3, 'n_objects': len(self.objects)})
 
+    def setup_stage_4(self):
+        """
+        Stage 4: No environment change — same 12-object world as Stage 3.
+        Stage 4 changes episode structure (reference game), not world complexity.
+        The environment is already populated with 12 objects from spawn_objects().
+        """
+        self._log_event('stage_setup', {'stage': 4, 'n_objects': len(self.objects)})
+
     def spawn_objects(self):
         """
         Spawn the full Phase 5 base object set at random positions.
