@@ -391,41 +391,6 @@ class CuriousAgent(nn.Module):
             device = torch.device('cpu')
         return torch.zeros(1, self.config.internal_state_dim, device=device)
 
-    def gru_step(self, perception: np.ndarray,
-                 hidden_state: torch.Tensor) -> Tuple[torch.Tensor, torch.Tensor]:
-        """
-        One forward pass through encoder → GRU → h_t.
-
-        This is the primary step API for the Trainer. It replaces the old
-        `perceive()` call for the collection path. The Trainer passes the
-        current hidden state in and gets the new hidden state back.
-
-        Side-effects (same as old perceive()):
-          - self.prev_internal_state ← old self.internal_state
-          - self.internal_state ← new h_t
-
-        Args:
-            perception: flat numpy perception vector (perception_dim,)
-            hidden_state: current GRU hidden state, shape (1, internal_state_dim).
-                          Should be detached before calling during collection so
-                          gradients don't accumulate across steps.
-
-        Returns:
-            h_t: new GRU hidden state, shape (1, internal_state_dim)
-            h_t: same tensor (h_t is both the new hidden state and the
-                 representation used by downstream heads — GRUCell output IS
-                 the new hidden state)
-        """
-        x = torch.FloatTensor(perception).unsqueeze(0)  # (1, perception_dim)
-        encoded = self.encoder(x)                        # (1, internal_state_dim)
-        h_t = self.gru(encoded, hidden_state)            # (1, internal_state_dim)
-
-        self.prev_internal_state = self.internal_state
-        self.internal_state = h_t
-
-        # Return (new_hidden, h_t) — they are the same tensor for GRUCell
-        return h_t, h_t
-
     # =========================================================================
     # Core Loop: Perceive → Predict → Act → Learn
     # =========================================================================
@@ -823,26 +788,18 @@ class CuriousAgent(nn.Module):
     # Policy Training (REINFORCE with baseline)
     # =========================================================================
 
-    def store_experience(self, perception: np.ndarray, action: int, reward: float,
-                         # Legacy params kept for call-site backward compat — ignored
-                         log_prob: Optional[torch.Tensor] = None,
-                         state: Optional[torch.Tensor] = None):
+    def store_experience(self, perception: np.ndarray, action: int, reward: float):
         """Buffer an experience for batch policy update.
 
-        Phase 6: Stores raw (perception, action, reward) instead of
-        (state, action, reward). During update_policy() the trajectory is
-        re-run sequentially through encoder → GRU with fresh gradients,
-        so we need the original perception input rather than a detached h_t.
-
-        The log_prob and state params are accepted but ignored (kept so existing
-        Trainer call sites don't immediately break — Task 2 will update them).
+        Phase 6: Stores raw (perception, action, reward). During update_policy()
+        the trajectory is re-run sequentially through encoder → GRU with fresh
+        gradients, so we need the original perception input rather than a
+        detached h_t snapshot.
 
         Args:
             perception: flat numpy perception vector for this step
             action: integer action taken
             reward: total reward received this step
-            log_prob: IGNORED (kept for backward compat)
-            state: IGNORED (kept for backward compat)
         """
         self.experience_buffer.append({
             'perception': perception.copy() if isinstance(perception, np.ndarray)
@@ -870,6 +827,28 @@ class CuriousAgent(nn.Module):
 
         Uses value baseline to reduce variance. Only positive rewards, so
         gradients push toward actions that led to learning or helping.
+
+        Known limitation — BPTT/collection h_t mismatch:
+          During collection each timestep runs perceive() twice: once pre-action
+          (perception built from prev_utterances) and once post-action (perception
+          built from step_utterances). The forward model is trained to predict the
+          post-action h_t. However, only the pre-action perception is stored per
+          experience, so BPTT replay produces h_t values from pre-action perceptions
+          only — one GRU step per stored experience — and never sees the post-action
+          GRU transitions. The BPTT h_t trajectory therefore differs slightly from
+          the collection h_t trajectory that the forward model targeted.
+
+          Why this is acceptable: both trajectories use the same actions and rewards
+          and start from the same h_0 = zeros. The inconsistency introduces a small
+          amount of noise into the curiosity signal (prediction errors computed from
+          collection h_t vs policy gradients computed from replay h_t) but does not
+          prevent learning — the signals remain strongly correlated.
+
+          How to fix if needed later: store both pre-action and post-action
+          perceptions per timestep in experience_buffer, then run two GRU passes
+          per stored step in BPTT (one for action selection, one for prediction
+          error). This would perfectly reproduce the collection trajectory at the
+          cost of doubling BPTT memory and compute.
         """
         if len(self.experience_buffer) < steps_per_episode:
             return 0.0
