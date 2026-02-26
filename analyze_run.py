@@ -24,6 +24,7 @@ import json
 import os
 import glob
 import argparse
+import numpy as np
 from typing import List, Dict, Any
 
 
@@ -144,6 +145,55 @@ def print_comm(entries: List[Dict], aids: List[str]):
         print(f'{ep:>6} {stage:>2}  {"  ".join(cols)}  {evt:>3d} {arr:>3d}')
 
 
+
+def print_refgame(entries, aids):
+    """Reference game outcomes and grammar signals (Stage 4 only)."""
+    ref_entries = [e for e in entries if e.get('ref_game', {}).get('active', False)]
+
+    print(f'\n{"=== REFERENCE GAME METRICS (Stage 4)":<60}')
+    if not ref_entries:
+        print('  No reference game episodes in this window.')
+        return
+
+    print(f'{"EP":>6} {"scout":>5} {"run":>3} {"target":>10} {"amb":>3} '
+          f'{"outcome":>12} {"prop":>4} {"cp":>3} {"dist":>6}')
+    print('-' * 60)
+
+    for e in ref_entries:
+        rg = e['ref_game']
+        ep      = e['episode']
+        scout   = rg.get('scout_id', '?')
+        runner  = rg.get('runner_id', '?')
+        target  = rg.get('target_key', '?')[:10]
+        amb     = 'Y' if rg.get('target_is_ambiguous', False) else 'N'
+        outcome = rg.get('outcome', 'timeout')[:12]
+        prop    = 'Y' if rg.get('scout_used_property', False) else 'N'
+        cprop   = 'Y' if rg.get('scout_used_correct_property', False) else 'N'
+        dist    = rg.get('runner_min_distance') or 999.9
+        print(f'{ep:>6} {str(scout):>5} {str(runner):>3} {target:>10} {amb:>3} '
+              f'{outcome:>12} {prop:>4} {cprop:>3} {dist:>6.1f}')
+
+    # Summary statistics
+    n = len(ref_entries)
+    n_amb     = sum(1 for e in ref_entries if e['ref_game'].get('target_is_ambiguous'))
+    n_correct = sum(1 for e in ref_entries if e['ref_game'].get('outcome') == 'correct')
+    n_wrong   = sum(1 for e in ref_entries if e['ref_game'].get('outcome') == 'wrong_variant')
+    n_timeout = sum(1 for e in ref_entries if e['ref_game'].get('outcome') == 'timeout')
+    n_prop    = sum(1 for e in ref_entries if e['ref_game'].get('scout_used_property'))
+    n_cprop   = sum(1 for e in ref_entries if e['ref_game'].get('scout_used_correct_property'))
+    dists     = [e['ref_game'].get('runner_min_distance') or 999.9 for e in ref_entries]
+    avg_dist  = float(np.mean(dists))
+
+    print(f'\n  Summary ({n} ref game episodes in window):')
+    print(f'    Ambiguous targets: {n_amb:>3}/{n} ({100*n_amb/n:>4.0f}%)')
+    print(f'    Correct:           {n_correct:>3}/{n} ({100*n_correct/n:>4.0f}%)')
+    print(f'    Wrong variant:     {n_wrong:>3}/{n} ({100*n_wrong/n:>4.0f}%)')
+    print(f'    Timeout:           {n_timeout:>3}/{n} ({100*n_timeout/n:>4.0f}%)')
+    print(f'    Scout used prop:   {n_prop:>3}/{n} ({100*n_prop/n:>4.0f}%)')
+    print(f'    Correct prop word: {n_cprop:>3}/{n} ({100*n_cprop/n:>4.0f}%)')
+    print(f'    Avg min distance:  {avg_dist:>6.1f}')
+
+
 def print_summary(entries: List[Dict], aids: List[str]):
     """High-level summary statistics across the full run."""
     if not entries:
@@ -184,6 +234,17 @@ def print_summary(entries: List[Dict], aids: List[str]):
     print(f'    Total arrivals:      {total_arrivals}')
     print(f'    Avg arrivals per event: {avg_arrivals:.2f}')
 
+    # Reference game summary (Stage 4)
+    rg_entries = [e for e in entries if e.get('ref_game', {}).get('active', False)]
+    if rg_entries:
+        n_rg = len(rg_entries)
+        n_correct = sum(1 for e in rg_entries if e['ref_game'].get('outcome') == 'correct')
+        n_cprop   = sum(1 for e in rg_entries if e['ref_game'].get('scout_used_correct_property'))
+        print(f'\n  Reference Game (Stage 4):')
+        print(f'    Games played:      {n_rg} / {len(entries)}')
+        print(f'    Success rate:      {100*n_correct/n_rg:.0f}%')
+        print(f'    Correct prop use:  {100*n_cprop/n_rg:.0f}%')
+
 
 def main():
     parser = argparse.ArgumentParser(description='Analyze curious_agents training run')
@@ -191,7 +252,8 @@ def main():
     parser.add_argument('--ep-min', type=int, default=0, help='Skip episodes below this')
     parser.add_argument('--every', type=int, default=1,
                         help='Show every Nth episode snapshot (default: 1 = all)')
-    parser.add_argument('--section', choices=['all', 'core', 'lang', 'comm'], default='all',
+    parser.add_argument('--section', choices=['all', 'core', 'lang', 'comm', 'refgame'],
+                        default='all',
                         help='Which metrics to display (default: all)')
     args = parser.parse_args()
 
@@ -217,6 +279,9 @@ def main():
 
     if args.section in ('all', 'comm'):
         print_comm(entries, aids)
+
+    if args.section in ('all', 'refgame'):
+        print_refgame(entries, aids)
 
 
 if __name__ == '__main__':
