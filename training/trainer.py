@@ -248,7 +248,10 @@ class Trainer:
         # Safety: ensure environment is populated for current stage
         # (guards against checkpoint resume with empty env)
         if not self.env.objects and self.current_stage >= 1:
-            if self.current_stage >= 3:
+            if self.current_stage >= 4:
+                self.env.setup_stage_3()
+                self.env.setup_stage_4()
+            elif self.current_stage >= 3:
                 self.env.setup_stage_3()
             elif self.current_stage >= 2:
                 self.env.setup_stage_2()
