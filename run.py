@@ -43,10 +43,10 @@ def parse_args():
                         help='Visualization frequency (episodes)')
     parser.add_argument('--test', action='store_true',
                         help='Quick smoke test (50 episodes)')
-    parser.add_argument('--log-dir', type=str, default='logs',
-                        help='Directory for log files')
-    parser.add_argument('--checkpoint-dir', type=str, default='checkpoints',
-                        help='Directory for checkpoints')
+    parser.add_argument('--log-dir', type=str, default='logs_phase6',
+                        help='Directory for log files (default: logs_phase6)')
+    parser.add_argument('--checkpoint-dir', type=str, default='checkpoints_phase6',
+                        help='Directory for checkpoints (default: checkpoints_phase6)')
     return parser.parse_args()
 
 

@@ -77,8 +77,8 @@ class TrainerConfig:
     # Logging
     log_freq: int = 50               # Log every N episodes
     checkpoint_freq: int = 500       # Save every N episodes
-    log_dir: str = "logs"
-    checkpoint_dir: str = "checkpoints"
+    log_dir: str = "logs_phase6"
+    checkpoint_dir: str = "checkpoints_phase6"
     
     # Reproducibility
     seed: int = 42
