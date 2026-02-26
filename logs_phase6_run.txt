@@ -1,0 +1,1983 @@
+Trainer initialized:
+  3 agents, 154D perception (129 env + 10 obj slots + 5 prop slots + 10 memory dims)
+  Params per agent: 121,964
+  Total params: 365,892
+  Language grounding: ENABLED (Phase 2)
+    Teaching probs: stage1=0.15, stage2=0.08, stage3=0.02
+    Min exposures to ground: 3
+    Vocab refresh interval: 100 episodes
+
+Configuration:
+  Agents: 3
+  Episodes: 10000
+  Steps/episode: 100
+  Seed: 42
+  Log dir: logs_phase6
+  Checkpoint dir: checkpoints_phase6
+  Visualization: OFF
+
+============================================================
+Starting training: episodes 0 -> 10000
+============================================================
+
+
+=== Stage 1: Simple environment (4 objects) ===
+
+--- Episode 0 | Stage 1 | Temp 1.998 ---
+  Agent 0: conf=0.960 err=0.0504 prog=0.0066 reward=8.17 [LEARNING, exploring]  pos=(2,66)
+  Agent 1: conf=0.963 err=0.0338 prog=0.0052 reward=8.32 [LEARNING, exploring]  pos=(25,75)
+         vocab(1): ['apple']  naming_acc=0.00
+  Agent 2: conf=0.974 err=0.0245 prog=0.0023 reward=8.06 [LEARNING, exploring]  pos=(25,44)
+         vocab(1): ['apple']  naming_acc=0.86
+  Language: 10 teach events, 7 tests, accuracy=0.86 (recent=0.86)
+  [3s elapsed, 0.4 ep/s]
+
+--- Episode 50 | Stage 1 | Temp 1.901 ---
+  Agent 0: conf=0.998 err=0.0013 prog=0.0001 reward=456.65 [plateau, exploring]  pos=(10,29)
+         vocab(1): ['apple']  naming_acc=0.00
+  Agent 1: conf=0.982 err=0.0191 prog=0.0056 reward=416.47 [LEARNING, exploring]  pos=(33,93)
+         vocab(4): ['apple', 'ball', 'rock', 'flower']  naming_acc=0.10
+  Agent 2: conf=0.948 err=0.0600 prog=0.0356 reward=480.20 [LEARNING, exploring]  pos=(86,30)
+         vocab(4): ['apple', 'flower', 'ball', 'rock']  naming_acc=0.45
+  Language: 24 teach events, 442 tests, accuracy=0.38 (recent=0.14)
+  [95s elapsed, 0.5 ep/s]
+
+--- Episode 100 | Stage 1 | Temp 1.808 ---
+  Agent 0: conf=0.985 err=0.0179 prog=0.0036 reward=886.97 [LEARNING, exploring]  pos=(51,44)
+         vocab(2): ['apple', 'rock']  naming_acc=0.55
+  Agent 1: conf=0.971 err=0.0318 prog=0.0062 reward=857.07 [LEARNING, exploring]  pos=(45,58)
+         vocab(4): ['apple', 'ball', 'rock', 'flower']  naming_acc=0.60
+  Agent 2: conf=0.960 err=0.0319 prog=0.0122 reward=972.41 [LEARNING, exploring]  pos=(50,28)
+         vocab(4): ['apple', 'flower', 'ball', 'rock']  naming_acc=0.85
+  Language: 28 teach events, 966 tests, accuracy=0.41 (recent=0.64)
+  [233s elapsed, 0.4 ep/s]
+
+--- Episode 150 | Stage 1 | Temp 1.720 ---
+  Agent 0: conf=0.999 err=0.0005 prog=0.0001 reward=1321.88 [plateau, exploring]  pos=(67,64)
+         vocab(3): ['apple', 'rock', 'ball']  naming_acc=0.00
+  Agent 1: conf=0.991 err=0.0110 prog=0.0029 reward=1314.19 [LEARNING, exploring]  pos=(9,93)
+         vocab(4): ['apple', 'ball', 'rock', 'flower']  naming_acc=0.40
+  Agent 2: conf=0.973 err=0.0354 prog=0.0138 reward=1496.93 [LEARNING, exploring]  pos=(28,7)
+         vocab(4): ['apple', 'flower', 'ball', 'rock']  naming_acc=0.65
+  Language: 29 teach events, 1448 tests, accuracy=0.41 (recent=0.36)
+  [376s elapsed, 0.4 ep/s]
+
+--- Episode 200 | Stage 1 | Temp 1.636 ---
+  Agent 0: conf=1.000 err=0.0001 prog=0.0000 reward=1770.13 [plateau, exploring]  pos=(98,30)
+         vocab(3): ['apple', 'rock', 'ball']  naming_acc=0.10
+  Agent 1: conf=0.951 err=0.0571 prog=0.0265 reward=1804.11 [LEARNING, exploring]  pos=(20,85)
+         vocab(4): ['apple', 'ball', 'rock', 'flower']  naming_acc=0.50
+  Agent 2: conf=0.954 err=0.0563 prog=0.0432 reward=2031.34 [LEARNING, exploring]  pos=(40,1)
+         vocab(4): ['apple', 'flower', 'ball', 'rock']  naming_acc=0.55
+  Language: 32 teach events, 1917 tests, accuracy=0.42 (recent=0.50)
+  [519s elapsed, 0.4 ep/s]
+
+--- Episode 250 | Stage 1 | Temp 1.556 ---
+  Agent 0: conf=0.999 err=0.0004 prog=0.0001 reward=2253.27 [plateau, exploring]  pos=(87,61)
+         vocab(3): ['apple', 'rock', 'ball']  naming_acc=0.20
+  Agent 1: conf=0.994 err=0.0053 prog=0.0027 reward=2310.12 [LEARNING, exploring]  pos=(59,71)
+         vocab(4): ['apple', 'ball', 'rock', 'flower']  naming_acc=0.35
+  Agent 2: conf=0.972 err=0.0293 prog=0.0238 reward=2565.29 [LEARNING, exploring]  pos=(33,26)
+         vocab(4): ['apple', 'flower', 'ball', 'rock']  naming_acc=0.70
+  Language: 32 teach events, 2396 tests, accuracy=0.41 (recent=0.36)
+  [662s elapsed, 0.4 ep/s]
+
+--- Episode 300 | Stage 1 | Temp 1.480 ---
+  Agent 0: conf=0.990 err=0.0096 prog=0.0045 reward=2743.92 [LEARNING, exploring]  pos=(92,40)
+         vocab(3): ['apple', 'rock', 'ball']  naming_acc=0.40
+  Agent 1: conf=0.996 err=0.0028 prog=0.0004 reward=2833.78 [plateau, exploring]  pos=(3,82)
+         vocab(4): ['apple', 'ball', 'rock', 'flower']  naming_acc=0.25
+  Agent 2: conf=0.953 err=0.0559 prog=0.0235 reward=3134.03 [LEARNING, exploring]  pos=(56,13)
+         vocab(4): ['apple', 'flower', 'ball', 'rock']  naming_acc=0.70
+  Language: 35 teach events, 2855 tests, accuracy=0.41 (recent=0.46)
+  [804s elapsed, 0.4 ep/s]
+
+--- Episode 350 | Stage 1 | Temp 1.408 ---
+  Agent 0: conf=0.984 err=0.0059 prog=0.0015 reward=3225.67 [LEARNING, exploring]  pos=(62,57)
+         vocab(4): ['apple', 'rock', 'ball', 'flower']  naming_acc=0.20
+  Agent 1: conf=0.957 err=0.0672 prog=0.0421 reward=3357.74 [LEARNING, exploring]  pos=(47,94)
+         vocab(4): ['apple', 'ball', 'rock', 'flower']  naming_acc=0.20
+  Agent 2: conf=0.937 err=0.0775 prog=0.0375 reward=3720.27 [LEARNING, exploring]  pos=(75,29)
+         vocab(4): ['apple', 'flower', 'ball', 'rock']  naming_acc=0.50
+  Language: 36 teach events, 3329 tests, accuracy=0.41 (recent=0.38)
+  [947s elapsed, 0.4 ep/s]
+
+--- Episode 400 | Stage 1 | Temp 1.339 ---
+  Agent 0: conf=0.999 err=0.0002 prog=0.0001 reward=3770.73 [plateau, exploring]  pos=(93,51)
+         vocab(4): ['apple', 'rock', 'ball', 'flower']  naming_acc=0.20
+  Agent 1: conf=0.958 err=0.0392 prog=0.0144 reward=3927.86 [LEARNING, exploring]  pos=(50,75)
+         vocab(4): ['apple', 'ball', 'rock', 'flower']  naming_acc=0.00
+  Agent 2: conf=0.957 err=0.0488 prog=0.0380 reward=4319.45 [LEARNING, exploring]  pos=(26,18)
+         vocab(4): ['apple', 'flower', 'ball', 'rock']  naming_acc=0.50
+  Language: 39 teach events, 3847 tests, accuracy=0.40 (recent=0.24)
+  [1090s elapsed, 0.4 ep/s]
+
+--- Episode 450 | Stage 1 | Temp 1.274 ---
+  Agent 0: conf=0.973 err=0.0079 prog=0.0010 reward=4324.75 [plateau, exploring]  pos=(2,33)
+         vocab(4): ['apple', 'rock', 'ball', 'flower']  naming_acc=0.25
+  Agent 1: conf=0.959 err=0.0322 prog=0.0120 reward=4534.90 [LEARNING, exploring]  pos=(30,61)
+         vocab(4): ['apple', 'ball', 'rock', 'flower']  naming_acc=0.35
+  Agent 2: conf=0.946 err=0.0693 prog=0.0550 reward=4898.95 [LEARNING, exploring]  pos=(16,22)
+         vocab(4): ['apple', 'flower', 'ball', 'rock']  naming_acc=0.70
+  Language: 39 teach events, 4330 tests, accuracy=0.39 (recent=0.46)
+  [1232s elapsed, 0.4 ep/s]
+
+=== Stage 2: Richer environment (8 objects + relations) ===
+
+--- Episode 500 | Stage 2 | Temp 1.212 ---
+  Agent 0: conf=0.971 err=0.0315 prog=0.0111 reward=4900.86 [LEARNING, exploring]  pos=(96,31)
+         vocab(5): ['apple', 'rock', 'ball', 'flower', 'water']  naming_acc=0.95
+  Agent 1: conf=0.950 err=0.0616 prog=0.0222 reward=5125.67 [LEARNING, exploring]  pos=(34,51)
+         vocab(4): ['apple', 'ball', 'rock', 'flower']  naming_acc=0.15
+  Agent 2: conf=0.969 err=0.0212 prog=0.0037 reward=5438.61 [LEARNING, exploring]  pos=(22,90)
+         vocab(4): ['apple', 'flower', 'ball', 'rock']  naming_acc=0.35
+  Language: 43 teach events, 4803 tests, accuracy=0.39 (recent=0.54)
+  [1372s elapsed, 0.4 ep/s]
+  Checkpoint saved: checkpoints_phase6\checkpoint_ep500.pt
+
+--- Episode 550 | Stage 2 | Temp 1.152 ---
+  Agent 0: conf=0.948 err=0.0455 prog=0.0300 reward=5516.78 [LEARNING, exploring]  pos=(10,65)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.65
+  Agent 1: conf=0.944 err=0.0572 prog=0.0259 reward=5644.08 [LEARNING, exploring]  pos=(21,68)
+         vocab(8): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire']  naming_acc=0.65
+  Agent 2: conf=0.997 err=0.0024 prog=0.0001 reward=5914.39 [plateau, exploring]  pos=(58,97)
+         vocab(9): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana']  naming_acc=0.75
+  Language: 57 teach events, 5146 tests, accuracy=0.40 (recent=0.64)
+  [1512s elapsed, 0.4 ep/s]
+
+--- Episode 600 | Stage 2 | Temp 1.096 ---
+  Agent 0: conf=0.955 err=0.0356 prog=0.0136 reward=6231.46 [LEARNING, exploring]  pos=(98,39)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.75
+  Agent 1: conf=0.969 err=0.0332 prog=0.0225 reward=6254.55 [LEARNING, exploring]  pos=(26,1)
+         vocab(9): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana']  naming_acc=0.70
+  Agent 2: conf=0.983 err=0.0126 prog=0.0046 reward=6427.69 [LEARNING, exploring]  pos=(6,26)
+         vocab(9): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana']  naming_acc=0.85
+  Language: 61 teach events, 5580 tests, accuracy=0.44 (recent=0.80)
+  [1654s elapsed, 0.4 ep/s]
+
+--- Episode 650 | Stage 2 | Temp 1.043 ---
+  Agent 0: conf=0.909 err=0.1177 prog=0.0642 reward=6952.65 [LEARNING, exploring]  pos=(11,59)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.95
+  Agent 1: conf=0.891 err=0.1262 prog=0.0501 reward=6920.93 [LEARNING, exploring]  pos=(16,49)
+         vocab(9): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana']  naming_acc=0.15
+  Agent 2: conf=0.948 err=0.0561 prog=0.0219 reward=7044.94 [LEARNING, exploring]  pos=(5,80)
+         vocab(9): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana']  naming_acc=1.00
+  Language: 61 teach events, 5995 tests, accuracy=0.46 (recent=0.66)
+  [1792s elapsed, 0.4 ep/s]
+
+--- Episode 700 | Stage 2 | Temp 0.992 ---
+  Agent 0: conf=0.918 err=0.0916 prog=0.0323 reward=7709.83 [LEARNING, exploring]  pos=(82,72)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.95
+  Agent 1: conf=0.892 err=0.1641 prog=0.1131 reward=7627.21 [LEARNING, exploring]  pos=(24,93)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.60
+  Agent 2: conf=0.974 err=0.0427 prog=0.0214 reward=7686.42 [LEARNING, exploring]  pos=(34,17)
+         vocab(9): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana']  naming_acc=1.00
+  Language: 65 teach events, 6459 tests, accuracy=0.49 (recent=0.88)
+  [1926s elapsed, 0.4 ep/s]
+
+--- Episode 750 | Stage 2 | Temp 0.943 ---
+  Agent 0: conf=0.888 err=0.1543 prog=0.1174 reward=8426.55 [LEARNING, exploring]  pos=(94,57)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.90
+  Agent 1: conf=0.922 err=0.0772 prog=0.0211 reward=8345.29 [LEARNING, exploring]  pos=(54,98)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.90
+  Agent 2: conf=0.934 err=0.0398 prog=0.0115 reward=8382.69 [LEARNING, exploring]  pos=(38,93)
+         vocab(9): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana']  naming_acc=1.00
+  Language: 65 teach events, 6925 tests, accuracy=0.51 (recent=0.92)
+  [2060s elapsed, 0.4 ep/s]
+
+--- Episode 800 | Stage 2 | Temp 0.897 ---
+  Agent 0: conf=0.984 err=0.0060 prog=0.0007 reward=9188.01 [plateau, exploring]  pos=(59,49)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.65
+  Agent 1: conf=0.912 err=0.0798 prog=0.0308 reward=9116.58 [LEARNING, exploring]  pos=(32,95)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=1.00
+  Agent 2: conf=0.993 err=0.0059 prog=0.0030 reward=9115.89 [LEARNING, exploring]  pos=(8,18)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.90
+  Language: 69 teach events, 7451 tests, accuracy=0.54 (recent=0.86)
+  [2195s elapsed, 0.4 ep/s]
+
+--- Episode 850 | Stage 2 | Temp 0.854 ---
+  Agent 0: conf=0.883 err=0.1214 prog=0.0570 reward=9916.77 [LEARNING, exploring]  pos=(58,77)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.80
+  Agent 1: conf=0.883 err=0.1470 prog=0.1022 reward=9935.10 [LEARNING, exploring]  pos=(44,65)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.95
+  Agent 2: conf=0.945 err=0.0270 prog=0.0078 reward=9893.16 [LEARNING, exploring]  pos=(42,98)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.90
+  Language: 69 teach events, 7945 tests, accuracy=0.56 (recent=0.90)
+  [2334s elapsed, 0.4 ep/s]
+
+--- Episode 900 | Stage 2 | Temp 0.812 ---
+  Agent 0: conf=0.941 err=0.0753 prog=0.0585 reward=10696.81 [LEARNING, exploring]  pos=(5,47)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.75
+  Agent 1: conf=0.940 err=0.0581 prog=0.0538 reward=10794.39 [LEARNING, exploring]  pos=(40,90)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=1.00
+  Agent 2: conf=0.957 err=0.0344 prog=0.0173 reward=10756.26 [LEARNING, exploring]  pos=(6,40)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.85
+  Language: 72 teach events, 8435 tests, accuracy=0.57 (recent=0.82)
+  [2470s elapsed, 0.4 ep/s]
+
+--- Episode 950 | Stage 2 | Temp 0.772 ---
+  Agent 0: conf=0.893 err=0.1223 prog=0.0799 reward=11530.33 [LEARNING, exploring]  pos=(74,53)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.80
+  Agent 1: conf=0.862 err=0.0921 prog=0.0433 reward=11703.32 [LEARNING, exploring]  pos=(34,76)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.95
+  Agent 2: conf=0.964 err=0.0327 prog=0.0071 reward=11629.28 [LEARNING, exploring]  pos=(91,4)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.90
+  Language: 72 teach events, 8886 tests, accuracy=0.59 (recent=0.88)
+  [2605s elapsed, 0.4 ep/s]
+
+--- Episode 1000 | Stage 2 | Temp 0.735 ---
+  Agent 0: conf=0.820 err=0.1717 prog=0.0725 reward=12456.49 [LEARNING, exploring]  pos=(69,46)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.80
+  Agent 1: conf=0.902 err=0.1259 prog=0.0782 reward=12633.45 [LEARNING, exploring]  pos=(33,97)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.95
+  Agent 2: conf=0.903 err=0.0816 prog=0.0563 reward=12552.50 [LEARNING, exploring]  pos=(43,37)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.85
+  Language: 75 teach events, 9347 tests, accuracy=0.60 (recent=0.84)
+  [2740s elapsed, 0.4 ep/s]
+  Checkpoint saved: checkpoints_phase6\checkpoint_ep1000.pt
+
+--- Episode 1050 | Stage 2 | Temp 0.699 ---
+  Agent 0: conf=0.875 err=0.0783 prog=0.0409 reward=13415.15 [LEARNING, exploring]  pos=(97,68)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=1.00
+  Agent 1: conf=0.962 err=0.0226 prog=0.0107 reward=13592.67 [LEARNING, exploring]  pos=(75,77)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.95
+  Agent 2: conf=0.820 err=0.2231 prog=0.1219 reward=13478.36 [LEARNING, exploring]  pos=(38,36)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.85
+  Language: 75 teach events, 9842 tests, accuracy=0.62 (recent=0.92)
+  [2874s elapsed, 0.4 ep/s]
+
+--- Episode 1100 | Stage 2 | Temp 0.665 ---
+  Agent 0: conf=0.894 err=0.1361 prog=0.0686 reward=14357.82 [LEARNING, exploring]  pos=(84,23)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.85
+  Agent 1: conf=0.963 err=0.0047 prog=0.0016 reward=14593.01 [LEARNING, exploring]  pos=(74,78)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.90
+  Agent 2: conf=0.903 err=0.0933 prog=0.0548 reward=14426.50 [LEARNING, exploring]  pos=(66,13)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.80
+  Language: 78 teach events, 10345 tests, accuracy=0.63 (recent=0.86)
+  [3009s elapsed, 0.4 ep/s]
+
+--- Episode 1150 | Stage 2 | Temp 0.632 ---
+  Agent 0: conf=0.867 err=0.1184 prog=0.0502 reward=15308.99 [LEARNING, exploring]  pos=(11,19)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=1.00
+  Agent 1: conf=0.969 err=0.0247 prog=0.0166 reward=15592.32 [LEARNING, exploring]  pos=(36,69)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=1.00
+  Agent 2: conf=0.878 err=0.1362 prog=0.0581 reward=15403.40 [LEARNING, exploring]  pos=(29,31)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 78 teach events, 10840 tests, accuracy=0.64 (recent=0.98)
+  [3144s elapsed, 0.4 ep/s]
+
+--- Episode 1200 | Stage 2 | Temp 0.601 ---
+  Agent 0: conf=0.804 err=0.1867 prog=0.1060 reward=16297.67 [LEARNING, exploring]  pos=(86,74)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=1.00
+  Agent 1: conf=0.866 err=0.1746 prog=0.1144 reward=16705.65 [LEARNING, exploring]  pos=(55,70)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.90
+  Agent 2: conf=0.939 err=0.0701 prog=0.0536 reward=16451.59 [LEARNING, exploring]  pos=(43,84)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 81 teach events, 11338 tests, accuracy=0.65 (recent=0.96)
+  [3279s elapsed, 0.4 ep/s]
+
+--- Episode 1250 | Stage 2 | Temp 0.600 ---
+  Agent 0: conf=0.940 err=0.0161 prog=0.0109 reward=17389.80 [LEARNING, exploring]  pos=(18,67)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.90
+  Agent 1: conf=0.907 err=0.0805 prog=0.0616 reward=17867.75 [LEARNING, exploring]  pos=(73,62)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.80
+  Agent 2: conf=0.832 err=0.1653 prog=0.1293 reward=17515.53 [LEARNING, exploring]  pos=(88,17)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 81 teach events, 11785 tests, accuracy=0.66 (recent=0.90)
+  [3410s elapsed, 0.4 ep/s]
+
+--- Episode 1300 | Stage 2 | Temp 0.600 ---
+  Agent 0: conf=0.979 err=0.0066 prog=0.0020 reward=18508.04 [LEARNING, exploring]  pos=(82,67)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.95
+  Agent 1: conf=0.873 err=0.1658 prog=0.1218 reward=18989.71 [LEARNING, exploring]  pos=(94,4)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.85
+  Agent 2: conf=0.868 err=0.1193 prog=0.0640 reward=18598.69 [LEARNING, exploring]  pos=(99,24)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.90
+  Language: 84 teach events, 12268 tests, accuracy=0.67 (recent=0.94)
+  [3530s elapsed, 0.4 ep/s]
+
+--- Episode 1350 | Stage 2 | Temp 0.600 ---
+  Agent 0: conf=0.865 err=0.1570 prog=0.0816 reward=19611.76 [LEARNING, exploring]  pos=(9,68)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.95
+  Agent 1: conf=0.841 err=0.1179 prog=0.0664 reward=20113.89 [LEARNING, exploring]  pos=(39,14)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.90
+  Agent 2: conf=0.889 err=0.1124 prog=0.0713 reward=19623.03 [LEARNING, exploring]  pos=(46,13)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.85
+  Language: 84 teach events, 12742 tests, accuracy=0.68 (recent=0.90)
+  [3649s elapsed, 0.4 ep/s]
+
+--- Episode 1400 | Stage 2 | Temp 0.600 ---
+  Agent 0: conf=0.915 err=0.1033 prog=0.0685 reward=20711.92 [LEARNING, exploring]  pos=(98,92)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=1.00
+  Agent 1: conf=0.902 err=0.0817 prog=0.0465 reward=21231.19 [LEARNING, exploring]  pos=(78,90)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.90
+  Agent 2: conf=0.937 err=0.0481 prog=0.0259 reward=20677.35 [LEARNING, exploring]  pos=(52,7)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 87 teach events, 13203 tests, accuracy=0.69 (recent=0.96)
+  [3765s elapsed, 0.4 ep/s]
+
+--- Episode 1450 | Stage 2 | Temp 0.600 ---
+  Agent 0: conf=0.877 err=0.1751 prog=0.0905 reward=21851.23 [LEARNING, exploring]  pos=(79,80)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=1.00
+  Agent 1: conf=0.946 err=0.0652 prog=0.0429 reward=22376.80 [LEARNING, exploring]  pos=(56,67)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=1.00
+  Agent 2: conf=0.855 err=0.1295 prog=0.0825 reward=21737.83 [LEARNING, exploring]  pos=(91,29)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 87 teach events, 13688 tests, accuracy=0.69 (recent=1.00)
+  [3884s elapsed, 0.4 ep/s]
+
+--- Episode 1500 | Stage 2 | Temp 0.600 ---
+  Agent 0: conf=0.822 err=0.2074 prog=0.0973 reward=22999.94 [LEARNING, exploring]  pos=(7,93)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.75
+  Agent 1: conf=0.886 err=0.1272 prog=0.0860 reward=23565.90 [LEARNING, exploring]  pos=(71,69)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.70
+  Agent 2: conf=0.888 err=0.1287 prog=0.0667 reward=22818.66 [LEARNING, exploring]  pos=(20,94)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.90
+  Language: 90 teach events, 14096 tests, accuracy=0.70 (recent=0.78)
+  [4030s elapsed, 0.4 ep/s]
+  Checkpoint saved: checkpoints_phase6\checkpoint_ep1500.pt
+
+--- Episode 1550 | Stage 2 | Temp 0.600 ---
+  Agent 0: conf=0.889 err=0.1086 prog=0.0470 reward=24171.61 [LEARNING, exploring]  pos=(21,40)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.95
+  Agent 1: conf=0.837 err=0.1695 prog=0.0971 reward=24707.61 [LEARNING, exploring]  pos=(66,77)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.95
+  Agent 2: conf=0.940 err=0.0583 prog=0.0337 reward=23905.36 [LEARNING, exploring]  pos=(20,50)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 90 teach events, 14592 tests, accuracy=0.70 (recent=0.98)
+  [4151s elapsed, 0.4 ep/s]
+
+--- Episode 1600 | Stage 2 | Temp 0.600 ---
+  Agent 0: conf=0.787 err=0.2529 prog=0.1714 reward=25339.99 [LEARNING, exploring]  pos=(14,68)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.85
+  Agent 1: conf=0.956 err=0.0241 prog=0.0082 reward=25874.08 [LEARNING, exploring]  pos=(78,16)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=1.00
+  Agent 2: conf=0.838 err=0.1439 prog=0.1673 reward=25025.67 [LEARNING, exploring]  pos=(45,16)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 93 teach events, 15064 tests, accuracy=0.71 (recent=0.92)
+  [4271s elapsed, 0.4 ep/s]
+
+--- Episode 1650 | Stage 2 | Temp 0.600 ---
+  Agent 0: conf=0.860 err=0.2107 prog=0.1307 reward=26543.63 [LEARNING, exploring]  pos=(10,88)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.95
+  Agent 1: conf=0.850 err=0.0528 prog=0.0257 reward=27064.96 [LEARNING, exploring]  pos=(56,60)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.90
+  Agent 2: conf=0.926 err=0.1074 prog=0.0538 reward=26155.70 [LEARNING, exploring]  pos=(39,14)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 93 teach events, 15567 tests, accuracy=0.71 (recent=0.94)
+  [4386s elapsed, 0.4 ep/s]
+
+--- Episode 1700 | Stage 2 | Temp 0.600 ---
+  Agent 0: conf=0.806 err=0.1980 prog=0.0880 reward=27785.02 [LEARNING, exploring]  pos=(56,66)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.70
+  Agent 1: conf=0.732 err=0.3058 prog=0.1357 reward=28277.41 [LEARNING, exploring]  pos=(56,41)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.95
+  Agent 2: conf=0.783 err=0.2804 prog=0.1927 reward=27296.84 [LEARNING, exploring]  pos=(47,39)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 96 teach events, 16041 tests, accuracy=0.72 (recent=0.86)
+  [4500s elapsed, 0.4 ep/s]
+
+--- Episode 1750 | Stage 2 | Temp 0.600 ---
+  Agent 0: conf=0.850 err=0.1877 prog=0.1100 reward=28979.38 [LEARNING, exploring]  pos=(33,33)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.95
+  Agent 1: conf=0.906 err=0.0653 prog=0.0569 reward=29455.61 [LEARNING, exploring]  pos=(95,42)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.95
+  Agent 2: conf=0.963 err=0.0286 prog=0.0166 reward=28344.26 [LEARNING, exploring]  pos=(23,42)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 96 teach events, 16567 tests, accuracy=0.73 (recent=0.96)
+  [4619s elapsed, 0.4 ep/s]
+
+--- Episode 1800 | Stage 2 | Temp 0.600 ---
+  Agent 0: conf=0.917 err=0.0879 prog=0.0647 reward=30175.83 [LEARNING, exploring]  pos=(21,15)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=1.00
+  Agent 1: conf=0.847 err=0.1390 prog=0.0786 reward=30615.83 [LEARNING, exploring]  pos=(81,43)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=1.00
+  Agent 2: conf=0.914 err=0.0991 prog=0.0555 reward=29404.60 [LEARNING, exploring]  pos=(28,64)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 99 teach events, 16984 tests, accuracy=0.73 (recent=1.00)
+  [4762s elapsed, 0.4 ep/s]
+
+--- Episode 1850 | Stage 2 | Temp 0.600 ---
+  Agent 0: conf=0.859 err=0.1008 prog=0.0665 reward=31404.57 [LEARNING, exploring]  pos=(33,33)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.85
+  Agent 1: conf=0.922 err=0.0932 prog=0.0428 reward=31766.89 [LEARNING, exploring]  pos=(83,73)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=1.00
+  Agent 2: conf=0.886 err=0.1144 prog=0.0310 reward=30503.73 [LEARNING, exploring]  pos=(14,57)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.65
+  Language: 99 teach events, 17403 tests, accuracy=0.73 (recent=0.84)
+  [4891s elapsed, 0.4 ep/s]
+
+--- Episode 1900 | Stage 2 | Temp 0.600 ---
+  Agent 0: conf=0.858 err=0.1812 prog=0.0479 reward=32549.63 [LEARNING, exploring]  pos=(87,79)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.70
+  Agent 1: conf=0.918 err=0.0989 prog=0.0612 reward=32898.49 [LEARNING, exploring]  pos=(73,95)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.75
+  Agent 2: conf=0.851 err=0.1442 prog=0.0735 reward=31570.58 [LEARNING, exploring]  pos=(19,37)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 102 teach events, 17835 tests, accuracy=0.74 (recent=0.74)
+  [5022s elapsed, 0.4 ep/s]
+
+--- Episode 1950 | Stage 2 | Temp 0.600 ---
+  Agent 0: conf=0.887 err=0.0924 prog=0.0375 reward=33642.84 [LEARNING, exploring]  pos=(23,24)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.50
+  Agent 1: conf=0.959 err=0.0344 prog=0.0163 reward=33955.47 [LEARNING, exploring]  pos=(99,56)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.90
+  Agent 2: conf=0.769 err=0.2255 prog=0.1077 reward=32657.63 [LEARNING, exploring]  pos=(84,15)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.90
+  Language: 102 teach events, 18329 tests, accuracy=0.74 (recent=0.78)
+  [5153s elapsed, 0.4 ep/s]
+
+=== Stage 3: Dynamic environment (objects move) ===
+
+--- Episode 2000 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.890 err=0.1065 prog=0.0422 reward=34723.33 [LEARNING, exploring]  pos=(35,20)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.60
+  Agent 1: conf=0.917 err=0.0962 prog=0.0484 reward=35059.25 [LEARNING, exploring]  pos=(28,32)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=1.00
+  Agent 2: conf=0.940 err=0.0600 prog=0.0341 reward=33740.72 [LEARNING, exploring]  pos=(45,26)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.70
+  Language: 105 teach events, 18801 tests, accuracy=0.74 (recent=0.72)
+  [5284s elapsed, 0.4 ep/s]
+  Checkpoint saved: checkpoints_phase6\checkpoint_ep2000.pt
+
+--- Episode 2050 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.947 err=0.0562 prog=0.0220 reward=35704.69 [LEARNING, exploring]  pos=(88,66)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.55
+  Agent 1: conf=0.962 err=0.0113 prog=0.0034 reward=36146.86 [LEARNING, exploring]  pos=(31,21)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.50
+  Agent 2: conf=0.896 err=0.0939 prog=0.0528 reward=34720.88 [LEARNING, exploring]  pos=(31,30)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 105 teach events, 19231 tests, accuracy=0.74 (recent=0.76)
+  [5410s elapsed, 0.4 ep/s]
+
+--- Episode 2100 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.889 err=0.1006 prog=0.0679 reward=36732.01 [LEARNING, exploring]  pos=(10,26)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.85
+  Agent 1: conf=0.792 err=0.2059 prog=0.1155 reward=37272.71 [LEARNING, exploring]  pos=(70,7)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.40
+  Agent 2: conf=0.932 err=0.0709 prog=0.0549 reward=35762.96 [LEARNING, exploring]  pos=(36,63)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.85
+  Language: 108 teach events, 19666 tests, accuracy=0.74 (recent=0.70)
+  [5542s elapsed, 0.4 ep/s]
+
+--- Episode 2150 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.990 err=0.0046 prog=0.0019 reward=37794.59 [LEARNING, exploring]  pos=(51,39)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.80
+  Agent 1: conf=0.955 err=0.0354 prog=0.0094 reward=38389.84 [LEARNING, exploring]  pos=(9,34)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.75
+  Agent 2: conf=0.941 err=0.0385 prog=0.0177 reward=36789.05 [LEARNING, exploring]  pos=(69,96)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 108 teach events, 20101 tests, accuracy=0.73 (recent=0.82)
+  [5667s elapsed, 0.4 ep/s]
+
+--- Episode 2200 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.920 err=0.0685 prog=0.0411 reward=38886.76 [LEARNING, exploring]  pos=(24,62)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.70
+  Agent 1: conf=0.969 err=0.0196 prog=0.0017 reward=39462.00 [LEARNING, exploring]  pos=(83,53)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.65
+  Agent 2: conf=0.963 err=0.0346 prog=0.0146 reward=37860.10 [LEARNING, exploring]  pos=(0,93)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.70
+  Language: 111 teach events, 20601 tests, accuracy=0.73 (recent=0.74)
+  [5793s elapsed, 0.4 ep/s]
+
+--- Episode 2250 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.944 err=0.0562 prog=0.0453 reward=40029.63 [LEARNING, exploring]  pos=(66,54)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.55
+  Agent 1: conf=0.866 err=0.0904 prog=0.0301 reward=40547.24 [LEARNING, exploring]  pos=(64,70)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.75
+  Agent 2: conf=0.934 err=0.0705 prog=0.0459 reward=38986.65 [LEARNING, exploring]  pos=(64,48)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.60
+  Language: 111 teach events, 21084 tests, accuracy=0.73 (recent=0.62)
+  [5917s elapsed, 0.4 ep/s]
+
+--- Episode 2300 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.978 err=0.0097 prog=0.0035 reward=41128.33 [LEARNING, exploring]  pos=(82,64)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.90
+  Agent 1: conf=0.909 err=0.1003 prog=0.0343 reward=41629.17 [LEARNING, exploring]  pos=(26,81)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.55
+  Agent 2: conf=0.933 err=0.0780 prog=0.0634 reward=40154.32 [LEARNING, exploring]  pos=(90,10)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.75
+  Language: 114 teach events, 21560 tests, accuracy=0.73 (recent=0.76)
+  [6046s elapsed, 0.4 ep/s]
+
+--- Episode 2350 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.921 err=0.1071 prog=0.0296 reward=42219.73 [LEARNING, exploring]  pos=(71,41)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.60
+  Agent 1: conf=0.904 err=0.1384 prog=0.0973 reward=42703.83 [LEARNING, exploring]  pos=(86,35)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.95
+  Agent 2: conf=0.933 err=0.0832 prog=0.0612 reward=41309.10 [LEARNING, exploring]  pos=(6,90)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.35
+  Language: 114 teach events, 22023 tests, accuracy=0.73 (recent=0.60)
+  [6171s elapsed, 0.4 ep/s]
+
+--- Episode 2400 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.975 err=0.0073 prog=0.0028 reward=43338.94 [LEARNING, exploring]  pos=(76,21)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.85
+  Agent 1: conf=0.938 err=0.0564 prog=0.0379 reward=43866.02 [LEARNING, exploring]  pos=(13,17)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.65
+  Agent 2: conf=0.889 err=0.0786 prog=0.0442 reward=42469.03 [LEARNING, exploring]  pos=(68,92)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.70
+  Language: 117 teach events, 22474 tests, accuracy=0.73 (recent=0.72)
+  [6297s elapsed, 0.4 ep/s]
+
+--- Episode 2450 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.947 err=0.0367 prog=0.0214 reward=44528.10 [LEARNING, exploring]  pos=(28,50)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.50
+  Agent 1: conf=0.864 err=0.1472 prog=0.0867 reward=45114.45 [LEARNING, exploring]  pos=(61,22)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.75
+  Agent 2: conf=0.936 err=0.0673 prog=0.0247 reward=43629.42 [LEARNING, exploring]  pos=(93,5)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.80
+  Language: 117 teach events, 22865 tests, accuracy=0.73 (recent=0.66)
+  [6423s elapsed, 0.4 ep/s]
+
+--- Episode 2500 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.939 err=0.0552 prog=0.0400 reward=45705.97 [LEARNING, exploring]  pos=(99,67)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.65
+  Agent 1: conf=0.899 err=0.0940 prog=0.1011 reward=46285.15 [LEARNING, exploring]  pos=(48,81)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.60
+  Agent 2: conf=0.945 err=0.0402 prog=0.0151 reward=44806.29 [LEARNING, exploring]  pos=(29,2)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.75
+  Language: 120 teach events, 23280 tests, accuracy=0.72 (recent=0.60)
+  [6550s elapsed, 0.4 ep/s]
+  Checkpoint saved: checkpoints_phase6\checkpoint_ep2500.pt
+
+--- Episode 2550 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.963 err=0.0387 prog=0.0181 reward=46866.92 [LEARNING, exploring]  pos=(38,32)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.90
+  Agent 1: conf=0.950 err=0.0584 prog=0.0279 reward=47471.49 [LEARNING, exploring]  pos=(18,57)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.70
+  Agent 2: conf=0.960 err=0.0494 prog=0.0411 reward=45993.99 [LEARNING, exploring]  pos=(17,3)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.55
+  Language: 120 teach events, 23741 tests, accuracy=0.72 (recent=0.70)
+  [6677s elapsed, 0.4 ep/s]
+
+--- Episode 2600 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.940 err=0.0587 prog=0.0201 reward=48035.14 [LEARNING, exploring]  pos=(37,32)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.70
+  Agent 1: conf=0.872 err=0.1970 prog=0.1063 reward=48654.77 [LEARNING, exploring]  pos=(1,39)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.80
+  Agent 2: conf=0.964 err=0.0415 prog=0.0291 reward=47172.05 [LEARNING, exploring]  pos=(71,8)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.65
+  Language: 123 teach events, 24239 tests, accuracy=0.72 (recent=0.66)
+  [6807s elapsed, 0.4 ep/s]
+
+--- Episode 2650 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.906 err=0.0863 prog=0.0368 reward=49229.60 [LEARNING, exploring]  pos=(93,84)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.80
+  Agent 1: conf=0.866 err=0.1397 prog=0.0842 reward=49820.53 [LEARNING, exploring]  pos=(10,69)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.40
+  Agent 2: conf=0.940 err=0.0772 prog=0.0432 reward=48318.27 [LEARNING, exploring]  pos=(71,70)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.65
+  Language: 123 teach events, 24692 tests, accuracy=0.72 (recent=0.68)
+  [6934s elapsed, 0.4 ep/s]
+
+--- Episode 2700 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.900 err=0.0788 prog=0.0506 reward=50405.06 [LEARNING, exploring]  pos=(71,68)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.85
+  Agent 1: conf=0.896 err=0.1419 prog=0.0901 reward=50945.74 [LEARNING, exploring]  pos=(22,80)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.75
+  Agent 2: conf=0.927 err=0.0807 prog=0.0448 reward=49459.80 [LEARNING, exploring]  pos=(88,60)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.85
+  Language: 126 teach events, 25191 tests, accuracy=0.72 (recent=0.88)
+  [7059s elapsed, 0.4 ep/s]
+
+--- Episode 2750 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.908 err=0.0661 prog=0.0448 reward=51628.12 [LEARNING, exploring]  pos=(56,66)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.80
+  Agent 1: conf=0.895 err=0.1267 prog=0.0584 reward=52091.68 [LEARNING, exploring]  pos=(99,98)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.70
+  Agent 2: conf=0.968 err=0.0304 prog=0.0159 reward=50682.07 [LEARNING, exploring]  pos=(26,67)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.55
+  Language: 126 teach events, 25656 tests, accuracy=0.71 (recent=0.72)
+  [7185s elapsed, 0.4 ep/s]
+
+--- Episode 2800 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.954 err=0.0325 prog=0.0146 reward=52824.36 [LEARNING, exploring]  pos=(62,49)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.75
+  Agent 1: conf=0.869 err=0.1266 prog=0.0805 reward=53294.45 [LEARNING, exploring]  pos=(12,5)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.55
+  Agent 2: conf=0.936 err=0.0637 prog=0.0515 reward=51925.65 [LEARNING, exploring]  pos=(100,88)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.40
+  Language: 129 teach events, 26066 tests, accuracy=0.71 (recent=0.52)
+  [7314s elapsed, 0.4 ep/s]
+
+--- Episode 2850 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.893 err=0.1062 prog=0.0396 reward=54049.34 [LEARNING, exploring]  pos=(33,31)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.80
+  Agent 1: conf=0.848 err=0.1803 prog=0.0951 reward=54500.22 [LEARNING, exploring]  pos=(39,54)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.75
+  Agent 2: conf=0.961 err=0.0264 prog=0.0142 reward=53123.83 [LEARNING, exploring]  pos=(66,23)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.35
+  Language: 129 teach events, 26539 tests, accuracy=0.71 (recent=0.66)
+  [7439s elapsed, 0.4 ep/s]
+
+--- Episode 2900 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.927 err=0.0792 prog=0.0332 reward=55239.07 [LEARNING, exploring]  pos=(82,31)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.80
+  Agent 1: conf=0.931 err=0.0365 prog=0.0193 reward=55733.61 [LEARNING, exploring]  pos=(25,64)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.75
+  Agent 2: conf=0.913 err=0.1069 prog=0.0614 reward=54341.92 [LEARNING, exploring]  pos=(57,18)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.85
+  Language: 132 teach events, 27037 tests, accuracy=0.71 (recent=0.84)
+  [7563s elapsed, 0.4 ep/s]
+
+--- Episode 2950 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.953 err=0.0362 prog=0.0174 reward=56481.11 [LEARNING, exploring]  pos=(23,55)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.80
+  Agent 1: conf=0.917 err=0.0648 prog=0.0370 reward=56906.10 [LEARNING, exploring]  pos=(22,26)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.80
+  Agent 2: conf=0.934 err=0.0519 prog=0.0294 reward=55495.16 [LEARNING, exploring]  pos=(21,98)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.70
+  Language: 132 teach events, 27549 tests, accuracy=0.71 (recent=0.80)
+  [7691s elapsed, 0.4 ep/s]
+
+--- Episode 3000 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.907 err=0.1190 prog=0.0663 reward=57670.82 [LEARNING, exploring]  pos=(24,80)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.60
+  Agent 1: conf=0.928 err=0.0848 prog=0.0481 reward=58099.78 [LEARNING, exploring]  pos=(19,77)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.75
+  Agent 2: conf=0.923 err=0.0747 prog=0.0231 reward=56703.09 [LEARNING, exploring]  pos=(87,46)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.90
+  Language: 135 teach events, 28047 tests, accuracy=0.71 (recent=0.70)
+  [7819s elapsed, 0.4 ep/s]
+  Checkpoint saved: checkpoints_phase6\checkpoint_ep3000.pt
+
+--- Episode 3050 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.868 err=0.1505 prog=0.0787 reward=58938.65 [LEARNING, exploring]  pos=(27,67)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.90
+  Agent 1: conf=0.948 err=0.0351 prog=0.0264 reward=59349.83 [LEARNING, exploring]  pos=(50,29)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.60
+  Agent 2: conf=0.931 err=0.0429 prog=0.0267 reward=57942.32 [LEARNING, exploring]  pos=(6,99)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.80
+  Language: 135 teach events, 28531 tests, accuracy=0.71 (recent=0.74)
+  [7945s elapsed, 0.4 ep/s]
+
+--- Episode 3100 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.955 err=0.0383 prog=0.0180 reward=60166.02 [LEARNING, exploring]  pos=(40,70)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.80
+  Agent 1: conf=0.931 err=0.0853 prog=0.0335 reward=60595.52 [LEARNING, exploring]  pos=(77,0)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.70
+  Agent 2: conf=0.947 err=0.0434 prog=0.0146 reward=59222.65 [LEARNING, exploring]  pos=(2,11)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.90
+  Language: 138 teach events, 29044 tests, accuracy=0.71 (recent=0.78)
+  [8072s elapsed, 0.4 ep/s]
+
+--- Episode 3150 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.872 err=0.1281 prog=0.0623 reward=61425.43 [LEARNING, exploring]  pos=(97,54)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.50
+  Agent 1: conf=0.868 err=0.1565 prog=0.0482 reward=61836.78 [LEARNING, exploring]  pos=(100,22)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.75
+  Agent 2: conf=0.946 err=0.0433 prog=0.0164 reward=60493.03 [LEARNING, exploring]  pos=(57,37)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.90
+  Language: 138 teach events, 29616 tests, accuracy=0.71 (recent=0.66)
+  [8199s elapsed, 0.4 ep/s]
+
+--- Episode 3200 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.908 err=0.1029 prog=0.0620 reward=62620.06 [LEARNING, exploring]  pos=(46,48)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.70
+  Agent 1: conf=0.890 err=0.0844 prog=0.0126 reward=63066.36 [LEARNING, exploring]  pos=(40,29)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.95
+  Agent 2: conf=0.966 err=0.0180 prog=0.0079 reward=61784.30 [LEARNING, exploring]  pos=(44,64)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 141 teach events, 30149 tests, accuracy=0.71 (recent=0.86)
+  [8328s elapsed, 0.4 ep/s]
+
+--- Episode 3250 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.933 err=0.0793 prog=0.0521 reward=63749.84 [LEARNING, exploring]  pos=(94,61)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.55
+  Agent 1: conf=0.926 err=0.0660 prog=0.0057 reward=64251.64 [LEARNING, exploring]  pos=(90,54)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.75
+  Agent 2: conf=0.903 err=0.1411 prog=0.0755 reward=63116.31 [LEARNING, exploring]  pos=(67,84)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.85
+  Language: 141 teach events, 30715 tests, accuracy=0.71 (recent=0.68)
+  [8456s elapsed, 0.4 ep/s]
+
+--- Episode 3300 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.916 err=0.0826 prog=0.0420 reward=64915.33 [LEARNING, exploring]  pos=(30,48)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.50
+  Agent 1: conf=0.848 err=0.1746 prog=0.0598 reward=65410.78 [LEARNING, exploring]  pos=(8,29)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.80
+  Agent 2: conf=0.891 err=0.1301 prog=0.0693 reward=64367.09 [LEARNING, exploring]  pos=(24,3)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 144 teach events, 31207 tests, accuracy=0.71 (recent=0.70)
+  [8585s elapsed, 0.4 ep/s]
+
+--- Episode 3350 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.823 err=0.1932 prog=0.0635 reward=66066.53 [LEARNING, exploring]  pos=(69,4)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.90
+  Agent 1: conf=0.968 err=0.0129 prog=0.0065 reward=66579.06 [LEARNING, exploring]  pos=(64,68)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.70
+  Agent 2: conf=0.916 err=0.1041 prog=0.0529 reward=65646.90 [LEARNING, exploring]  pos=(95,45)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.80
+  Language: 144 teach events, 31784 tests, accuracy=0.71 (recent=0.82)
+  [8712s elapsed, 0.4 ep/s]
+
+--- Episode 3400 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.897 err=0.0931 prog=0.0398 reward=67136.64 [LEARNING, exploring]  pos=(68,49)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.75
+  Agent 1: conf=0.876 err=0.1723 prog=0.1008 reward=67770.06 [LEARNING, exploring]  pos=(47,39)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.60
+  Agent 2: conf=0.910 err=0.1112 prog=0.0691 reward=66857.24 [LEARNING, exploring]  pos=(37,15)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.40
+  Language: 147 teach events, 32328 tests, accuracy=0.71 (recent=0.60)
+  [8842s elapsed, 0.4 ep/s]
+
+--- Episode 3450 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.912 err=0.1085 prog=0.0715 reward=68197.13 [LEARNING, exploring]  pos=(33,75)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.65
+  Agent 1: conf=0.944 err=0.0515 prog=0.0251 reward=68898.26 [LEARNING, exploring]  pos=(23,35)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.85
+  Agent 2: conf=0.955 err=0.0338 prog=0.0155 reward=68108.90 [LEARNING, exploring]  pos=(50,12)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.65
+  Language: 147 teach events, 32871 tests, accuracy=0.71 (recent=0.68)
+  [8971s elapsed, 0.4 ep/s]
+
+--- Episode 3500 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.981 err=0.0064 prog=0.0037 reward=69381.73 [LEARNING, exploring]  pos=(42,35)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.85
+  Agent 1: conf=0.968 err=0.0236 prog=0.0065 reward=70086.27 [LEARNING, exploring]  pos=(90,71)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.85
+  Agent 2: conf=0.956 err=0.0265 prog=0.0073 reward=69394.38 [LEARNING, exploring]  pos=(90,45)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 150 teach events, 33410 tests, accuracy=0.71 (recent=0.88)
+  [9101s elapsed, 0.4 ep/s]
+  Checkpoint saved: checkpoints_phase6\checkpoint_ep3500.pt
+
+--- Episode 3550 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.974 err=0.0098 prog=0.0041 reward=70586.40 [LEARNING, exploring]  pos=(10,67)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.80
+  Agent 1: conf=0.936 err=0.0898 prog=0.0537 reward=71267.97 [LEARNING, exploring]  pos=(15,31)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.85
+  Agent 2: conf=0.954 err=0.0475 prog=0.0271 reward=70642.30 [LEARNING, exploring]  pos=(79,94)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.50
+  Language: 150 teach events, 33968 tests, accuracy=0.70 (recent=0.78)
+  [9228s elapsed, 0.4 ep/s]
+
+--- Episode 3600 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.967 err=0.0323 prog=0.0134 reward=71773.96 [LEARNING, exploring]  pos=(77,73)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.80
+  Agent 1: conf=0.942 err=0.0446 prog=0.0349 reward=72432.89 [LEARNING, exploring]  pos=(30,36)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.60
+  Agent 2: conf=0.972 err=0.0076 prog=0.0021 reward=71755.97 [LEARNING, exploring]  pos=(6,88)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.75
+  Language: 153 teach events, 34507 tests, accuracy=0.70 (recent=0.72)
+  [9358s elapsed, 0.4 ep/s]
+
+--- Episode 3650 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.934 err=0.0584 prog=0.0294 reward=72969.27 [LEARNING, exploring]  pos=(92,72)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.60
+  Agent 1: conf=0.947 err=0.0527 prog=0.0405 reward=73635.32 [LEARNING, exploring]  pos=(30,62)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.80
+  Agent 2: conf=0.906 err=0.1183 prog=0.0850 reward=72826.68 [LEARNING, exploring]  pos=(80,5)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.65
+  Language: 153 teach events, 35042 tests, accuracy=0.70 (recent=0.66)
+  [9485s elapsed, 0.4 ep/s]
+
+--- Episode 3700 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.936 err=0.0317 prog=0.0119 reward=74164.27 [LEARNING, exploring]  pos=(55,36)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.85
+  Agent 1: conf=0.956 err=0.0491 prog=0.0252 reward=74846.76 [LEARNING, exploring]  pos=(16,52)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.95
+  Agent 2: conf=0.951 err=0.0380 prog=0.0194 reward=73855.96 [LEARNING, exploring]  pos=(7,51)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 156 teach events, 35574 tests, accuracy=0.71 (recent=0.92)
+  [9611s elapsed, 0.4 ep/s]
+
+--- Episode 3750 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.903 err=0.0590 prog=0.0263 reward=75337.60 [LEARNING, exploring]  pos=(82,70)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.75
+  Agent 1: conf=0.905 err=0.1115 prog=0.0435 reward=76046.17 [LEARNING, exploring]  pos=(50,42)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.85
+  Agent 2: conf=0.882 err=0.1006 prog=0.0695 reward=74970.40 [LEARNING, exploring]  pos=(99,72)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.80
+  Language: 156 teach events, 36151 tests, accuracy=0.71 (recent=0.84)
+  [9738s elapsed, 0.4 ep/s]
+
+--- Episode 3800 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.920 err=0.0674 prog=0.0366 reward=76580.97 [LEARNING, exploring]  pos=(61,54)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.65
+  Agent 1: conf=0.887 err=0.1558 prog=0.0785 reward=77302.27 [LEARNING, exploring]  pos=(34,22)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.90
+  Agent 2: conf=0.928 err=0.0689 prog=0.0385 reward=76151.75 [LEARNING, exploring]  pos=(21,81)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 159 teach events, 36662 tests, accuracy=0.71 (recent=0.84)
+  [9872s elapsed, 0.4 ep/s]
+
+--- Episode 3850 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.850 err=0.1693 prog=0.0964 reward=77829.93 [LEARNING, exploring]  pos=(16,55)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.80
+  Agent 1: conf=0.916 err=0.0889 prog=0.0423 reward=78537.25 [LEARNING, exploring]  pos=(68,20)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=1.00
+  Agent 2: conf=0.954 err=0.0382 prog=0.0127 reward=77343.05 [LEARNING, exploring]  pos=(35,50)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.65
+  Language: 159 teach events, 37136 tests, accuracy=0.71 (recent=0.82)
+  [10005s elapsed, 0.4 ep/s]
+
+--- Episode 3900 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.907 err=0.1182 prog=0.0899 reward=79107.98 [LEARNING, exploring]  pos=(56,91)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.80
+  Agent 1: conf=0.929 err=0.0968 prog=0.0678 reward=79814.12 [LEARNING, exploring]  pos=(94,17)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.75
+  Agent 2: conf=0.925 err=0.0782 prog=0.0360 reward=78518.14 [LEARNING, exploring]  pos=(76,89)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.80
+  Language: 162 teach events, 37697 tests, accuracy=0.71 (recent=0.82)
+  [10139s elapsed, 0.4 ep/s]
+
+--- Episode 3950 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.936 err=0.0466 prog=0.0277 reward=80393.01 [LEARNING, exploring]  pos=(59,49)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.85
+  Agent 1: conf=0.938 err=0.0437 prog=0.0285 reward=81092.83 [LEARNING, exploring]  pos=(68,46)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.65
+  Agent 2: conf=0.988 err=0.0035 prog=0.0010 reward=79757.28 [LEARNING, exploring]  pos=(6,10)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.80
+  Language: 162 teach events, 38186 tests, accuracy=0.71 (recent=0.78)
+  [10274s elapsed, 0.4 ep/s]
+
+--- Episode 4000 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.962 err=0.0344 prog=0.0134 reward=81576.53 [LEARNING, exploring]  pos=(29,77)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.50
+  Agent 1: conf=0.886 err=0.1352 prog=0.0894 reward=82330.09 [LEARNING, exploring]  pos=(71,44)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.45
+  Agent 2: conf=0.933 err=0.0471 prog=0.0123 reward=80887.24 [LEARNING, exploring]  pos=(20,4)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.80
+  Language: 165 teach events, 38744 tests, accuracy=0.71 (recent=0.54)
+  [10408s elapsed, 0.4 ep/s]
+  Checkpoint saved: checkpoints_phase6\checkpoint_ep4000.pt
+
+--- Episode 4050 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.955 err=0.0511 prog=0.0365 reward=82807.75 [LEARNING, exploring]  pos=(16,69)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.65
+  Agent 1: conf=0.920 err=0.0703 prog=0.0557 reward=83575.49 [LEARNING, exploring]  pos=(62,25)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.90
+  Agent 2: conf=0.907 err=0.0815 prog=0.0550 reward=82086.13 [LEARNING, exploring]  pos=(87,92)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.80
+  Language: 165 teach events, 39242 tests, accuracy=0.71 (recent=0.76)
+  [10543s elapsed, 0.4 ep/s]
+
+--- Episode 4100 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.864 err=0.1178 prog=0.0697 reward=83903.35 [LEARNING, exploring]  pos=(50,29)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.70
+  Agent 1: conf=0.892 err=0.0911 prog=0.0281 reward=84795.23 [LEARNING, exploring]  pos=(94,2)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.65
+  Agent 2: conf=0.948 err=0.0438 prog=0.0251 reward=83222.82 [LEARNING, exploring]  pos=(98,28)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.80
+  Language: 168 teach events, 39799 tests, accuracy=0.71 (recent=0.72)
+  [10678s elapsed, 0.4 ep/s]
+
+--- Episode 4150 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.948 err=0.0470 prog=0.0200 reward=84939.90 [LEARNING, exploring]  pos=(98,60)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.70
+  Agent 1: conf=0.932 err=0.0936 prog=0.0434 reward=86030.43 [LEARNING, exploring]  pos=(2,49)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.50
+  Agent 2: conf=0.936 err=0.0672 prog=0.0198 reward=84364.47 [LEARNING, exploring]  pos=(73,73)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.85
+  Language: 168 teach events, 40318 tests, accuracy=0.71 (recent=0.72)
+  [10814s elapsed, 0.4 ep/s]
+
+--- Episode 4200 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.907 err=0.0715 prog=0.0293 reward=86036.28 [LEARNING, exploring]  pos=(22,46)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.75
+  Agent 1: conf=0.925 err=0.0858 prog=0.0433 reward=87186.39 [LEARNING, exploring]  pos=(86,20)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.65
+  Agent 2: conf=0.950 err=0.0501 prog=0.0258 reward=85517.77 [LEARNING, exploring]  pos=(31,90)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.85
+  Language: 171 teach events, 40859 tests, accuracy=0.71 (recent=0.74)
+  [10948s elapsed, 0.4 ep/s]
+
+--- Episode 4250 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.973 err=0.0117 prog=0.0070 reward=87180.51 [LEARNING, exploring]  pos=(34,59)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.40
+  Agent 1: conf=0.904 err=0.1183 prog=0.1011 reward=88407.71 [LEARNING, exploring]  pos=(11,4)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.75
+  Agent 2: conf=0.965 err=0.0255 prog=0.0101 reward=86705.95 [LEARNING, exploring]  pos=(81,83)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.75
+  Language: 171 teach events, 41344 tests, accuracy=0.71 (recent=0.66)
+  [11076s elapsed, 0.4 ep/s]
+
+--- Episode 4300 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.887 err=0.1281 prog=0.0520 reward=88240.99 [LEARNING, exploring]  pos=(49,43)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.55
+  Agent 1: conf=0.862 err=0.1688 prog=0.0713 reward=89537.28 [LEARNING, exploring]  pos=(23,51)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.75
+  Agent 2: conf=0.979 err=0.0128 prog=0.0038 reward=87779.17 [LEARNING, exploring]  pos=(6,41)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.65
+  Language: 174 teach events, 41907 tests, accuracy=0.70 (recent=0.64)
+  [11204s elapsed, 0.4 ep/s]
+
+--- Episode 4350 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.926 err=0.0597 prog=0.0460 reward=89217.75 [LEARNING, exploring]  pos=(80,46)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.75
+  Agent 1: conf=0.806 err=0.1742 prog=0.0926 reward=90612.80 [LEARNING, exploring]  pos=(16,19)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.85
+  Agent 2: conf=0.939 err=0.0488 prog=0.0257 reward=88813.82 [LEARNING, exploring]  pos=(4,29)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.85
+  Language: 174 teach events, 42504 tests, accuracy=0.70 (recent=0.78)
+  [11331s elapsed, 0.4 ep/s]
+
+--- Episode 4400 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.913 err=0.0901 prog=0.0288 reward=90282.15 [LEARNING, exploring]  pos=(100,43)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.75
+  Agent 1: conf=0.887 err=0.1296 prog=0.0487 reward=91704.85 [LEARNING, exploring]  pos=(12,48)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.65
+  Agent 2: conf=0.933 err=0.0520 prog=0.0260 reward=89856.88 [LEARNING, exploring]  pos=(15,20)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.70
+  Language: 177 teach events, 43008 tests, accuracy=0.70 (recent=0.72)
+  [11458s elapsed, 0.4 ep/s]
+
+--- Episode 4450 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.931 err=0.0781 prog=0.0449 reward=91371.47 [LEARNING, exploring]  pos=(34,32)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.50
+  Agent 1: conf=0.927 err=0.0625 prog=0.0545 reward=92783.23 [LEARNING, exploring]  pos=(34,58)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.80
+  Agent 2: conf=0.987 err=0.0093 prog=0.0069 reward=90895.08 [LEARNING, exploring]  pos=(83,17)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.75
+  Language: 177 teach events, 43475 tests, accuracy=0.70 (recent=0.72)
+  [11585s elapsed, 0.4 ep/s]
+
+--- Episode 4500 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.964 err=0.0179 prog=0.0057 reward=92412.65 [LEARNING, exploring]  pos=(54,53)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.70
+  Agent 1: conf=0.899 err=0.1021 prog=0.0424 reward=93835.96 [LEARNING, exploring]  pos=(51,14)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.60
+  Agent 2: conf=0.948 err=0.0509 prog=0.0325 reward=91934.64 [LEARNING, exploring]  pos=(20,72)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.50
+  Language: 180 teach events, 43984 tests, accuracy=0.70 (recent=0.60)
+  [11713s elapsed, 0.4 ep/s]
+  Checkpoint saved: checkpoints_phase6\checkpoint_ep4500.pt
+
+--- Episode 4550 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.961 err=0.0272 prog=0.0154 reward=93429.27 [LEARNING, exploring]  pos=(41,62)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.65
+  Agent 1: conf=0.873 err=0.1783 prog=0.0996 reward=94896.51 [LEARNING, exploring]  pos=(64,17)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.70
+  Agent 2: conf=0.958 err=0.0566 prog=0.0385 reward=92961.54 [LEARNING, exploring]  pos=(4,23)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.80
+  Language: 180 teach events, 44502 tests, accuracy=0.70 (recent=0.74)
+  [11842s elapsed, 0.4 ep/s]
+
+--- Episode 4600 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.969 err=0.0271 prog=0.0107 reward=94359.41 [LEARNING, exploring]  pos=(28,65)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.70
+  Agent 1: conf=0.899 err=0.1067 prog=0.0634 reward=95965.95 [LEARNING, exploring]  pos=(6,38)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.85
+  Agent 2: conf=0.974 err=0.0103 prog=0.0042 reward=93902.80 [LEARNING, exploring]  pos=(20,93)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.70
+  Language: 183 teach events, 45038 tests, accuracy=0.70 (recent=0.72)
+  [11973s elapsed, 0.4 ep/s]
+
+--- Episode 4650 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.919 err=0.0898 prog=0.0509 reward=95387.38 [LEARNING, exploring]  pos=(91,22)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.45
+  Agent 1: conf=0.855 err=0.1428 prog=0.0785 reward=97079.15 [LEARNING, exploring]  pos=(99,46)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.60
+  Agent 2: conf=0.929 err=0.0955 prog=0.0429 reward=94846.59 [LEARNING, exploring]  pos=(6,31)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.70
+  Language: 183 teach events, 45579 tests, accuracy=0.70 (recent=0.62)
+  [12101s elapsed, 0.4 ep/s]
+
+--- Episode 4700 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.957 err=0.0620 prog=0.0377 reward=96393.57 [LEARNING, exploring]  pos=(58,1)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.45
+  Agent 1: conf=0.891 err=0.1123 prog=0.0733 reward=98282.47 [LEARNING, exploring]  pos=(53,84)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.30
+  Agent 2: conf=0.941 err=0.0461 prog=0.0195 reward=95864.40 [LEARNING, exploring]  pos=(45,86)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.80
+  Language: 186 teach events, 46071 tests, accuracy=0.70 (recent=0.56)
+  [12233s elapsed, 0.4 ep/s]
+
+--- Episode 4750 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.903 err=0.1169 prog=0.0824 reward=97407.54 [LEARNING, exploring]  pos=(11,63)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.65
+  Agent 1: conf=0.912 err=0.0944 prog=0.0660 reward=99498.29 [LEARNING, exploring]  pos=(1,46)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.60
+  Agent 2: conf=0.963 err=0.0281 prog=0.0208 reward=96874.91 [LEARNING, exploring]  pos=(36,10)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 186 teach events, 46631 tests, accuracy=0.70 (recent=0.82)
+  [12363s elapsed, 0.4 ep/s]
+
+--- Episode 4800 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.928 err=0.0841 prog=0.0388 reward=98386.82 [LEARNING, exploring]  pos=(67,52)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.65
+  Agent 1: conf=0.875 err=0.1210 prog=0.0674 reward=100664.98 [LEARNING, exploring]  pos=(100,73)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.50
+  Agent 2: conf=0.934 err=0.0675 prog=0.0296 reward=97928.05 [LEARNING, exploring]  pos=(34,81)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.85
+  Language: 189 teach events, 47161 tests, accuracy=0.70 (recent=0.64)
+  [12493s elapsed, 0.4 ep/s]
+
+--- Episode 4850 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.942 err=0.0405 prog=0.0428 reward=99352.50 [LEARNING, exploring]  pos=(71,57)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.90
+  Agent 1: conf=0.914 err=0.1085 prog=0.0606 reward=101807.26 [LEARNING, exploring]  pos=(42,2)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.70
+  Agent 2: conf=0.934 err=0.0591 prog=0.0411 reward=99022.39 [LEARNING, exploring]  pos=(5,75)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 189 teach events, 47735 tests, accuracy=0.70 (recent=0.84)
+  [12626s elapsed, 0.4 ep/s]
+
+--- Episode 4900 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.941 err=0.0526 prog=0.0255 reward=100356.99 [LEARNING, exploring]  pos=(16,33)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.90
+  Agent 1: conf=0.924 err=0.0804 prog=0.0468 reward=102961.76 [LEARNING, exploring]  pos=(8,56)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.60
+  Agent 2: conf=0.904 err=0.1144 prog=0.0776 reward=100093.93 [LEARNING, exploring]  pos=(64,95)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.70
+  Language: 192 teach events, 48277 tests, accuracy=0.70 (recent=0.70)
+  [12759s elapsed, 0.4 ep/s]
+
+--- Episode 4950 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.930 err=0.0674 prog=0.0466 reward=101306.65 [LEARNING, exploring]  pos=(6,29)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.70
+  Agent 1: conf=0.938 err=0.0443 prog=0.0142 reward=104118.33 [LEARNING, exploring]  pos=(3,48)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.90
+  Agent 2: conf=0.923 err=0.0628 prog=0.0301 reward=101159.64 [LEARNING, exploring]  pos=(4,82)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 192 teach events, 48799 tests, accuracy=0.70 (recent=0.84)
+  [12888s elapsed, 0.4 ep/s]
+
+--- Episode 5000 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.930 err=0.0398 prog=0.0268 reward=102333.18 [LEARNING, exploring]  pos=(59,94)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.95
+  Agent 1: conf=0.950 err=0.0084 prog=0.0194 reward=105300.00 [LEARNING, exploring]  pos=(99,34)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.80
+  Agent 2: conf=0.926 err=0.1302 prog=0.0653 reward=102177.92 [LEARNING, exploring]  pos=(83,37)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.75
+  Language: 195 teach events, 49334 tests, accuracy=0.70 (recent=0.82)
+  [13020s elapsed, 0.4 ep/s]
+  Checkpoint saved: checkpoints_phase6\checkpoint_ep5000.pt
+
+--- Episode 5050 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.868 err=0.1612 prog=0.0676 reward=103387.26 [LEARNING, exploring]  pos=(68,42)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.90
+  Agent 1: conf=0.878 err=0.1090 prog=0.0782 reward=106482.89 [LEARNING, exploring]  pos=(76,41)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.95
+  Agent 2: conf=0.901 err=0.1395 prog=0.0466 reward=103206.48 [LEARNING, exploring]  pos=(90,57)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 195 teach events, 49898 tests, accuracy=0.70 (recent=0.92)
+  [13152s elapsed, 0.4 ep/s]
+
+--- Episode 5100 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.916 err=0.0567 prog=0.0258 reward=104314.66 [LEARNING, exploring]  pos=(70,60)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.85
+  Agent 1: conf=0.848 err=0.1843 prog=0.0748 reward=107567.20 [LEARNING, exploring]  pos=(67,1)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.95
+  Agent 2: conf=0.953 err=0.0216 prog=0.0118 reward=104151.68 [LEARNING, exploring]  pos=(64,28)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.80
+  Language: 198 teach events, 50516 tests, accuracy=0.70 (recent=0.86)
+  [13284s elapsed, 0.4 ep/s]
+
+--- Episode 5150 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.970 err=0.0197 prog=0.0154 reward=105212.31 [LEARNING, exploring]  pos=(21,51)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=1.00
+  Agent 1: conf=0.865 err=0.1139 prog=0.0718 reward=108628.36 [LEARNING, exploring]  pos=(77,8)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.75
+  Agent 2: conf=0.981 err=0.0186 prog=0.0113 reward=105100.32 [LEARNING, exploring]  pos=(13,1)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 198 teach events, 51110 tests, accuracy=0.70 (recent=0.88)
+  [13417s elapsed, 0.4 ep/s]
+
+--- Episode 5200 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.957 err=0.0469 prog=0.0229 reward=106093.03 [LEARNING, exploring]  pos=(43,32)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=1.00
+  Agent 1: conf=0.955 err=0.0676 prog=0.0426 reward=109663.50 [LEARNING, exploring]  pos=(16,48)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.65
+  Agent 2: conf=0.903 err=0.0965 prog=0.0313 reward=106006.47 [LEARNING, exploring]  pos=(92,28)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.80
+  Language: 201 teach events, 51683 tests, accuracy=0.71 (recent=0.84)
+  [13547s elapsed, 0.4 ep/s]
+
+--- Episode 5250 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.948 err=0.0462 prog=0.0133 reward=107036.82 [LEARNING, exploring]  pos=(99,49)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.85
+  Agent 1: conf=0.914 err=0.1108 prog=0.0768 reward=110770.15 [LEARNING, exploring]  pos=(100,37)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.75
+  Agent 2: conf=0.979 err=0.0169 prog=0.0077 reward=106889.70 [LEARNING, exploring]  pos=(40,81)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.70
+  Language: 201 teach events, 52268 tests, accuracy=0.71 (recent=0.76)
+  [13680s elapsed, 0.4 ep/s]
+
+--- Episode 5300 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.932 err=0.0713 prog=0.0408 reward=108022.10 [LEARNING, exploring]  pos=(63,30)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.50
+  Agent 1: conf=0.934 err=0.0594 prog=0.0458 reward=111834.02 [LEARNING, exploring]  pos=(56,29)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.85
+  Agent 2: conf=0.973 err=0.0070 prog=0.0007 reward=107752.88 [plateau, exploring]  pos=(26,97)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 204 teach events, 52846 tests, accuracy=0.71 (recent=0.78)
+  [13813s elapsed, 0.4 ep/s]
+
+--- Episode 5350 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.978 err=0.0060 prog=0.0022 reward=108840.95 [LEARNING, exploring]  pos=(1,49)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=1.00
+  Agent 1: conf=0.927 err=0.0536 prog=0.0428 reward=112840.37 [LEARNING, exploring]  pos=(53,44)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.85
+  Agent 2: conf=0.948 err=0.0559 prog=0.0419 reward=108579.94 [LEARNING, exploring]  pos=(12,1)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 204 teach events, 53451 tests, accuracy=0.71 (recent=0.94)
+  [13946s elapsed, 0.4 ep/s]
+
+--- Episode 5400 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.978 err=0.0200 prog=0.0129 reward=109663.64 [LEARNING, exploring]  pos=(47,64)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.95
+  Agent 1: conf=0.964 err=0.0280 prog=0.0036 reward=113763.21 [LEARNING, exploring]  pos=(24,89)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.85
+  Agent 2: conf=0.913 err=0.1006 prog=0.0716 reward=109421.24 [LEARNING, exploring]  pos=(5,5)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.85
+  Language: 207 teach events, 54034 tests, accuracy=0.71 (recent=0.86)
+  [14080s elapsed, 0.4 ep/s]
+
+--- Episode 5450 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.937 err=0.1059 prog=0.0565 reward=110399.95 [LEARNING, exploring]  pos=(44,61)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=1.00
+  Agent 1: conf=0.916 err=0.0831 prog=0.0466 reward=114667.72 [LEARNING, exploring]  pos=(3,35)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.90
+  Agent 2: conf=0.956 err=0.0458 prog=0.0499 reward=110158.80 [LEARNING, exploring]  pos=(99,18)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.65
+  Language: 207 teach events, 54612 tests, accuracy=0.71 (recent=0.82)
+  [14214s elapsed, 0.4 ep/s]
+
+--- Episode 5500 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.971 err=0.0098 prog=0.0041 reward=111150.41 [LEARNING, exploring]  pos=(38,54)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=1.00
+  Agent 1: conf=0.985 err=0.0077 prog=0.0029 reward=115682.15 [LEARNING, exploring]  pos=(42,51)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.85
+  Agent 2: conf=0.905 err=0.1082 prog=0.0809 reward=110984.35 [LEARNING, exploring]  pos=(21,86)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 210 teach events, 55183 tests, accuracy=0.71 (recent=0.94)
+  [14348s elapsed, 0.4 ep/s]
+  Checkpoint saved: checkpoints_phase6\checkpoint_ep5500.pt
+
+--- Episode 5550 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.857 err=0.1556 prog=0.0345 reward=111844.96 [LEARNING, exploring]  pos=(13,45)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.85
+  Agent 1: conf=0.943 err=0.0737 prog=0.0525 reward=116476.02 [LEARNING, exploring]  pos=(70,33)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.80
+  Agent 2: conf=0.896 err=0.1470 prog=0.0967 reward=111758.07 [LEARNING, exploring]  pos=(13,70)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.85
+  Language: 210 teach events, 55755 tests, accuracy=0.71 (recent=0.80)
+  [14480s elapsed, 0.4 ep/s]
+
+--- Episode 5600 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.935 err=0.0596 prog=0.0225 reward=112507.98 [LEARNING, exploring]  pos=(96,62)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.85
+  Agent 1: conf=0.966 err=0.0363 prog=0.0189 reward=117186.75 [LEARNING, exploring]  pos=(76,61)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=1.00
+  Agent 2: conf=0.986 err=0.0063 prog=0.0034 reward=112591.52 [LEARNING, exploring]  pos=(8,3)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 213 teach events, 56340 tests, accuracy=0.71 (recent=0.96)
+  [14618s elapsed, 0.4 ep/s]
+
+--- Episode 5650 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.969 err=0.0241 prog=0.0129 reward=113112.14 [LEARNING, exploring]  pos=(41,47)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=1.00
+  Agent 1: conf=0.990 err=0.0103 prog=0.0043 reward=117794.76 [LEARNING, exploring]  pos=(67,80)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.80
+  Agent 2: conf=0.955 err=0.0362 prog=0.0124 reward=113369.79 [LEARNING, exploring]  pos=(17,66)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.70
+  Language: 213 teach events, 56962 tests, accuracy=0.72 (recent=0.80)
+  [14751s elapsed, 0.4 ep/s]
+
+--- Episode 5700 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.944 err=0.0641 prog=0.0261 reward=113730.00 [LEARNING, exploring]  pos=(5,73)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.80
+  Agent 1: conf=0.908 err=0.0849 prog=0.0547 reward=118411.25 [LEARNING, exploring]  pos=(89,53)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.90
+  Agent 2: conf=0.994 err=0.0036 prog=0.0012 reward=114133.23 [LEARNING, exploring]  pos=(41,71)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.65
+  Language: 216 teach events, 57592 tests, accuracy=0.72 (recent=0.76)
+  [14885s elapsed, 0.4 ep/s]
+
+--- Episode 5750 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.954 err=0.0403 prog=0.0242 reward=114361.85 [LEARNING, exploring]  pos=(38,34)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=1.00
+  Agent 1: conf=0.961 err=0.0361 prog=0.0251 reward=119056.77 [LEARNING, exploring]  pos=(98,20)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.75
+  Agent 2: conf=0.903 err=0.1349 prog=0.0876 reward=114817.84 [LEARNING, exploring]  pos=(13,38)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 216 teach events, 58189 tests, accuracy=0.72 (recent=0.90)
+  [15017s elapsed, 0.4 ep/s]
+
+--- Episode 5800 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.885 err=0.1643 prog=0.0903 reward=114985.39 [LEARNING, exploring]  pos=(12,54)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.70
+  Agent 1: conf=0.884 err=0.1417 prog=0.0753 reward=119683.71 [LEARNING, exploring]  pos=(23,76)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.75
+  Agent 2: conf=0.982 err=0.0200 prog=0.0103 reward=115393.47 [LEARNING, exploring]  pos=(34,46)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 219 teach events, 58805 tests, accuracy=0.72 (recent=0.80)
+  [15152s elapsed, 0.4 ep/s]
+
+--- Episode 5850 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.938 err=0.0416 prog=0.0263 reward=115683.75 [LEARNING, exploring]  pos=(49,47)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.90
+  Agent 1: conf=0.993 err=0.0091 prog=0.0051 reward=120313.37 [LEARNING, exploring]  pos=(44,77)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=1.00
+  Agent 2: conf=0.972 err=0.0278 prog=0.0214 reward=115890.47 [LEARNING, exploring]  pos=(33,26)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 219 teach events, 59441 tests, accuracy=0.72 (recent=1.00)
+  [15284s elapsed, 0.4 ep/s]
+
+--- Episode 5900 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.934 err=0.0454 prog=0.0146 reward=116305.97 [LEARNING, exploring]  pos=(16,52)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.65
+  Agent 1: conf=0.996 err=0.0026 prog=0.0011 reward=120892.93 [LEARNING, exploring]  pos=(39,68)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.70
+  Agent 2: conf=0.946 err=0.0638 prog=0.0267 reward=116345.96 [LEARNING, exploring]  pos=(29,70)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.90
+  Language: 222 teach events, 60088 tests, accuracy=0.72 (recent=0.76)
+  [15419s elapsed, 0.4 ep/s]
+
+--- Episode 5950 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.970 err=0.0112 prog=0.0065 reward=116956.13 [LEARNING, exploring]  pos=(16,29)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.65
+  Agent 1: conf=0.876 err=0.1315 prog=0.1064 reward=121487.39 [LEARNING, exploring]  pos=(12,70)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.75
+  Agent 2: conf=0.984 err=0.0128 prog=0.0069 reward=116768.52 [LEARNING, exploring]  pos=(21,31)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 222 teach events, 60693 tests, accuracy=0.72 (recent=0.76)
+  [15553s elapsed, 0.4 ep/s]
+
+--- Episode 6000 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.862 err=0.1730 prog=0.0918 reward=117688.52 [LEARNING, exploring]  pos=(21,48)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=1.00
+  Agent 1: conf=0.967 err=0.0332 prog=0.0017 reward=122112.48 [LEARNING, exploring]  pos=(51,74)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=1.00
+  Agent 2: conf=0.994 err=0.0027 prog=0.0015 reward=117318.05 [LEARNING, exploring]  pos=(20,25)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 225 teach events, 61339 tests, accuracy=0.72 (recent=1.00)
+  [15688s elapsed, 0.4 ep/s]
+  Checkpoint saved: checkpoints_phase6\checkpoint_ep6000.pt
+
+--- Episode 6050 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.969 err=0.0051 prog=0.0005 reward=118337.38 [plateau, exploring]  pos=(32,69)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.90
+  Agent 1: conf=0.886 err=0.1606 prog=0.0907 reward=122697.41 [LEARNING, exploring]  pos=(83,53)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.90
+  Agent 2: conf=0.995 err=0.0013 prog=0.0007 reward=117789.01 [plateau, settled]  pos=(20,27)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.90
+  Language: 225 teach events, 62028 tests, accuracy=0.72 (recent=0.90)
+  [15823s elapsed, 0.4 ep/s]
+
+--- Episode 6100 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.959 err=0.0419 prog=0.0314 reward=118871.60 [LEARNING, exploring]  pos=(1,59)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=1.00
+  Agent 1: conf=0.970 err=0.0362 prog=0.0247 reward=123277.06 [LEARNING, exploring]  pos=(97,85)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.90
+  Agent 2: conf=0.911 err=0.0700 prog=0.0250 reward=118182.14 [LEARNING, exploring]  pos=(37,59)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 228 teach events, 62720 tests, accuracy=0.73 (recent=0.94)
+  [15956s elapsed, 0.4 ep/s]
+
+--- Episode 6150 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.976 err=0.0245 prog=0.0099 reward=119314.30 [LEARNING, exploring]  pos=(96,28)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=1.00
+  Agent 1: conf=0.915 err=0.1065 prog=0.0331 reward=123791.92 [LEARNING, exploring]  pos=(50,26)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.75
+  Agent 2: conf=0.994 err=0.0042 prog=0.0014 reward=118572.59 [LEARNING, exploring]  pos=(27,35)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 228 teach events, 63395 tests, accuracy=0.73 (recent=0.90)
+  [16090s elapsed, 0.4 ep/s]
+
+--- Episode 6200 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.922 err=0.1082 prog=0.0823 reward=119792.01 [LEARNING, exploring]  pos=(36,63)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.95
+  Agent 1: conf=0.930 err=0.0678 prog=0.0493 reward=124293.83 [LEARNING, exploring]  pos=(27,72)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.95
+  Agent 2: conf=0.911 err=0.0861 prog=0.0701 reward=119014.80 [LEARNING, exploring]  pos=(27,31)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 231 teach events, 64102 tests, accuracy=0.73 (recent=0.94)
+  [16223s elapsed, 0.4 ep/s]
+
+--- Episode 6250 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.995 err=0.0031 prog=0.0020 reward=120249.07 [LEARNING, exploring]  pos=(95,46)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=1.00
+  Agent 1: conf=0.996 err=0.0009 prog=0.0001 reward=124706.78 [plateau, exploring]  pos=(42,67)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=1.00
+  Agent 2: conf=0.985 err=0.0143 prog=0.0086 reward=119453.49 [LEARNING, exploring]  pos=(23,37)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 231 teach events, 64832 tests, accuracy=0.73 (recent=1.00)
+  [16358s elapsed, 0.4 ep/s]
+
+--- Episode 6300 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.946 err=0.0698 prog=0.0718 reward=120687.42 [LEARNING, exploring]  pos=(95,30)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=1.00
+  Agent 1: conf=0.998 err=0.0014 prog=0.0005 reward=125138.83 [plateau, exploring]  pos=(48,86)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.90
+  Agent 2: conf=0.937 err=0.0593 prog=0.0282 reward=119964.17 [LEARNING, exploring]  pos=(7,33)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 234 teach events, 65562 tests, accuracy=0.73 (recent=0.94)
+  [16490s elapsed, 0.4 ep/s]
+
+--- Episode 6350 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.966 err=0.0334 prog=0.0162 reward=121153.67 [LEARNING, exploring]  pos=(12,58)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.75
+  Agent 1: conf=0.946 err=0.0858 prog=0.0530 reward=125604.44 [LEARNING, exploring]  pos=(7,68)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.80
+  Agent 2: conf=0.949 err=0.0529 prog=0.0320 reward=120555.59 [LEARNING, exploring]  pos=(4,61)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.75
+  Language: 234 teach events, 66261 tests, accuracy=0.73 (recent=0.74)
+  [16621s elapsed, 0.4 ep/s]
+
+--- Episode 6400 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.982 err=0.0101 prog=0.0018 reward=121663.34 [LEARNING, exploring]  pos=(33,42)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.60
+  Agent 1: conf=0.912 err=0.0898 prog=0.0298 reward=126100.52 [LEARNING, exploring]  pos=(30,64)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.85
+  Agent 2: conf=0.987 err=0.0010 prog=0.0006 reward=121225.24 [plateau, exploring]  pos=(79,79)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.90
+  Language: 237 teach events, 66882 tests, accuracy=0.73 (recent=0.82)
+  [16755s elapsed, 0.4 ep/s]
+
+--- Episode 6450 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.935 err=0.0766 prog=0.0558 reward=122431.81 [LEARNING, exploring]  pos=(74,49)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.85
+  Agent 1: conf=0.858 err=0.1991 prog=0.1222 reward=126717.31 [LEARNING, exploring]  pos=(85,89)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.65
+  Agent 2: conf=0.959 err=0.0431 prog=0.0294 reward=122004.89 [LEARNING, exploring]  pos=(34,23)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.75
+  Language: 237 teach events, 67545 tests, accuracy=0.73 (recent=0.66)
+  [16888s elapsed, 0.4 ep/s]
+
+--- Episode 6500 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.992 err=0.0024 prog=0.0007 reward=123207.72 [plateau, exploring]  pos=(31,28)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=1.00
+  Agent 1: conf=0.969 err=0.0262 prog=0.0115 reward=127448.40 [LEARNING, exploring]  pos=(69,40)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.90
+  Agent 2: conf=0.888 err=0.1201 prog=0.0653 reward=122791.20 [LEARNING, exploring]  pos=(34,79)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 240 teach events, 68150 tests, accuracy=0.74 (recent=0.96)
+  [17019s elapsed, 0.4 ep/s]
+  Checkpoint saved: checkpoints_phase6\checkpoint_ep6500.pt
+
+--- Episode 6550 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.994 err=0.0028 prog=0.0002 reward=123930.15 [plateau, exploring]  pos=(1,53)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.75
+  Agent 1: conf=0.962 err=0.0278 prog=0.0113 reward=128250.33 [LEARNING, exploring]  pos=(58,13)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.70
+  Agent 2: conf=0.913 err=0.0838 prog=0.0602 reward=123509.00 [LEARNING, exploring]  pos=(28,94)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.75
+  Language: 240 teach events, 68806 tests, accuracy=0.74 (recent=0.72)
+  [17153s elapsed, 0.4 ep/s]
+
+--- Episode 6600 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.983 err=0.0211 prog=0.0072 reward=124611.43 [LEARNING, exploring]  pos=(39,44)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.65
+  Agent 1: conf=0.900 err=0.1086 prog=0.0713 reward=129109.59 [LEARNING, exploring]  pos=(26,54)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.80
+  Agent 2: conf=0.960 err=0.0419 prog=0.0345 reward=124125.42 [LEARNING, exploring]  pos=(19,37)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.80
+  Language: 243 teach events, 69437 tests, accuracy=0.74 (recent=0.74)
+  [17286s elapsed, 0.4 ep/s]
+
+--- Episode 6650 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.972 err=0.0056 prog=0.0014 reward=125383.34 [LEARNING, exploring]  pos=(76,27)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=1.00
+  Agent 1: conf=0.981 err=0.0047 prog=0.0027 reward=129803.83 [LEARNING, exploring]  pos=(44,69)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=1.00
+  Agent 2: conf=0.966 err=0.0275 prog=0.0138 reward=124891.31 [LEARNING, exploring]  pos=(29,84)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 243 teach events, 70086 tests, accuracy=0.74 (recent=1.00)
+  [17418s elapsed, 0.4 ep/s]
+
+--- Episode 6700 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.968 err=0.0372 prog=0.0173 reward=125962.96 [LEARNING, exploring]  pos=(33,69)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.85
+  Agent 1: conf=0.954 err=0.0303 prog=0.0268 reward=130315.64 [LEARNING, exploring]  pos=(69,77)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.95
+  Agent 2: conf=0.943 err=0.0623 prog=0.0377 reward=125450.52 [LEARNING, exploring]  pos=(78,67)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 246 teach events, 70772 tests, accuracy=0.74 (recent=0.90)
+  [17551s elapsed, 0.4 ep/s]
+
+--- Episode 6750 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.977 err=0.0083 prog=0.0029 reward=126512.31 [LEARNING, settled]  pos=(32,30)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=1.00
+  Agent 1: conf=0.976 err=0.0090 prog=0.0039 reward=130816.15 [LEARNING, exploring]  pos=(49,30)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.85
+  Agent 2: conf=0.988 err=0.0024 prog=0.0014 reward=125835.60 [LEARNING, settled]  pos=(17,32)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.80
+  Language: 246 teach events, 71484 tests, accuracy=0.74 (recent=0.86)
+  [17687s elapsed, 0.4 ep/s]
+
+--- Episode 6800 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.998 err=0.0013 prog=0.0007 reward=127119.74 [plateau, exploring]  pos=(87,52)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.95
+  Agent 1: conf=0.975 err=0.0066 prog=0.0031 reward=131256.24 [LEARNING, exploring]  pos=(90,55)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.80
+  Agent 2: conf=0.977 err=0.0112 prog=0.0045 reward=126262.44 [LEARNING, exploring]  pos=(42,36)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.50
+  Language: 249 teach events, 72155 tests, accuracy=0.74 (recent=0.78)
+  [17821s elapsed, 0.4 ep/s]
+
+--- Episode 6850 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.963 err=0.0601 prog=0.0338 reward=127544.38 [LEARNING, exploring]  pos=(92,36)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.80
+  Agent 1: conf=0.865 err=0.1583 prog=0.1349 reward=132058.16 [LEARNING, exploring]  pos=(19,69)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.90
+  Agent 2: conf=0.948 err=0.0545 prog=0.0216 reward=126705.31 [LEARNING, exploring]  pos=(23,25)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.65
+  Language: 249 teach events, 72784 tests, accuracy=0.74 (recent=0.78)
+  [17954s elapsed, 0.4 ep/s]
+
+--- Episode 6900 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.925 err=0.0860 prog=0.0586 reward=128103.50 [LEARNING, exploring]  pos=(86,50)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.85
+  Agent 1: conf=0.868 err=0.1597 prog=0.1126 reward=132877.78 [LEARNING, exploring]  pos=(87,52)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.50
+  Agent 2: conf=0.933 err=0.0373 prog=0.0255 reward=127302.87 [LEARNING, exploring]  pos=(9,84)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.90
+  Language: 252 teach events, 73419 tests, accuracy=0.74 (recent=0.72)
+  [18089s elapsed, 0.4 ep/s]
+
+--- Episode 6950 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.917 err=0.0706 prog=0.0317 reward=128626.92 [LEARNING, exploring]  pos=(70,48)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.90
+  Agent 1: conf=0.906 err=0.0800 prog=0.0442 reward=133689.47 [LEARNING, exploring]  pos=(49,73)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.95
+  Agent 2: conf=0.995 err=0.0015 prog=0.0006 reward=128062.21 [plateau, exploring]  pos=(2,37)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 252 teach events, 74062 tests, accuracy=0.74 (recent=0.94)
+  [18221s elapsed, 0.4 ep/s]
+
+--- Episode 7000 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.995 err=0.0029 prog=0.0010 reward=129192.44 [LEARNING, exploring]  pos=(9,54)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.90
+  Agent 1: conf=0.922 err=0.1192 prog=0.0596 reward=134521.26 [LEARNING, exploring]  pos=(69,60)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=1.00
+  Agent 2: conf=0.887 err=0.0835 prog=0.0622 reward=128835.39 [LEARNING, exploring]  pos=(12,5)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.80
+  Language: 255 teach events, 74725 tests, accuracy=0.74 (recent=0.88)
+  [18354s elapsed, 0.4 ep/s]
+  Checkpoint saved: checkpoints_phase6\checkpoint_ep7000.pt
+
+--- Episode 7050 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.964 err=0.0230 prog=0.0031 reward=129741.29 [LEARNING, exploring]  pos=(39,35)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.85
+  Agent 1: conf=0.860 err=0.1554 prog=0.1381 reward=135421.52 [LEARNING, exploring]  pos=(89,64)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.85
+  Agent 2: conf=0.916 err=0.0573 prog=0.0288 reward=129705.03 [LEARNING, exploring]  pos=(87,39)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 255 teach events, 75364 tests, accuracy=0.74 (recent=0.88)
+  [18487s elapsed, 0.4 ep/s]
+
+--- Episode 7100 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.930 err=0.0663 prog=0.0274 reward=130239.90 [LEARNING, exploring]  pos=(16,69)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.75
+  Agent 1: conf=0.949 err=0.0083 prog=0.0037 reward=136237.62 [LEARNING, exploring]  pos=(55,72)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.65
+  Agent 2: conf=0.966 err=0.0343 prog=0.0173 reward=130490.30 [LEARNING, settled]  pos=(4,42)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.85
+  Language: 258 teach events, 75963 tests, accuracy=0.74 (recent=0.72)
+  [18620s elapsed, 0.4 ep/s]
+
+--- Episode 7150 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.987 err=0.0153 prog=0.0137 reward=130720.45 [LEARNING, exploring]  pos=(97,35)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.90
+  Agent 1: conf=0.843 err=0.1621 prog=0.1128 reward=137095.82 [LEARNING, settled]  pos=(48,72)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=1.00
+  Agent 2: conf=0.988 err=0.0039 prog=0.0010 reward=131264.87 [plateau, exploring]  pos=(91,42)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 258 teach events, 76564 tests, accuracy=0.74 (recent=0.94)
+  [18751s elapsed, 0.4 ep/s]
+
+--- Episode 7200 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.946 err=0.1061 prog=0.0493 reward=131191.44 [LEARNING, settled]  pos=(11,48)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=1.00
+  Agent 1: conf=0.905 err=0.0938 prog=0.0318 reward=137985.41 [LEARNING, exploring]  pos=(4,51)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.80
+  Agent 2: conf=0.961 err=0.0186 prog=0.0049 reward=132085.73 [LEARNING, exploring]  pos=(48,53)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 261 teach events, 77160 tests, accuracy=0.75 (recent=0.96)
+  [18887s elapsed, 0.4 ep/s]
+
+--- Episode 7250 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.995 err=0.0036 prog=0.0007 reward=131702.95 [plateau, exploring]  pos=(95,48)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.95
+  Agent 1: conf=0.852 err=0.1762 prog=0.0916 reward=138800.81 [LEARNING, exploring]  pos=(78,74)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=1.00
+  Agent 2: conf=0.932 err=0.0748 prog=0.0239 reward=132899.78 [LEARNING, exploring]  pos=(97,61)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 261 teach events, 77811 tests, accuracy=0.75 (recent=0.98)
+  [19021s elapsed, 0.4 ep/s]
+
+--- Episode 7300 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.999 err=0.0001 prog=0.0000 reward=132196.50 [plateau, settled]  pos=(92,52)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.60
+  Agent 1: conf=0.934 err=0.0612 prog=0.0598 reward=139532.43 [LEARNING, settled]  pos=(46,76)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.75
+  Agent 2: conf=0.976 err=0.0022 prog=0.0002 reward=133667.48 [plateau, exploring]  pos=(39,18)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.90
+  Language: 264 teach events, 78381 tests, accuracy=0.75 (recent=0.72)
+  [19156s elapsed, 0.4 ep/s]
+
+--- Episode 7350 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.992 err=0.0045 prog=0.0011 reward=132586.34 [LEARNING, exploring]  pos=(5,50)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.85
+  Agent 1: conf=0.924 err=0.0660 prog=0.0304 reward=140075.22 [LEARNING, exploring]  pos=(8,72)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.75
+  Agent 2: conf=0.971 err=0.0267 prog=0.0058 reward=134246.07 [LEARNING, exploring]  pos=(16,30)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.85
+  Language: 264 teach events, 78993 tests, accuracy=0.75 (recent=0.84)
+  [19292s elapsed, 0.4 ep/s]
+
+--- Episode 7400 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.975 err=0.0072 prog=0.0022 reward=133010.50 [LEARNING, exploring]  pos=(87,48)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.80
+  Agent 1: conf=0.956 err=0.0763 prog=0.0474 reward=140654.05 [LEARNING, exploring]  pos=(92,94)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.95
+  Agent 2: conf=0.943 err=0.0591 prog=0.0363 reward=134878.27 [LEARNING, exploring]  pos=(90,75)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.60
+  Language: 267 teach events, 79590 tests, accuracy=0.75 (recent=0.76)
+  [19425s elapsed, 0.4 ep/s]
+
+--- Episode 7450 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.982 err=0.0276 prog=0.0242 reward=133488.62 [LEARNING, exploring]  pos=(45,26)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.70
+  Agent 1: conf=0.976 err=0.0129 prog=0.0067 reward=141291.15 [LEARNING, settled]  pos=(69,56)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.85
+  Agent 2: conf=0.997 err=0.0014 prog=0.0006 reward=135538.48 [plateau, exploring]  pos=(37,40)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.85
+  Language: 267 teach events, 80223 tests, accuracy=0.75 (recent=0.78)
+  [19557s elapsed, 0.4 ep/s]
+
+--- Episode 7500 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.937 err=0.0645 prog=0.0324 reward=134005.72 [LEARNING, exploring]  pos=(54,51)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.55
+  Agent 1: conf=0.976 err=0.0173 prog=0.0066 reward=141874.28 [LEARNING, exploring]  pos=(63,71)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.75
+  Agent 2: conf=0.975 err=0.0242 prog=0.0078 reward=136261.53 [LEARNING, exploring]  pos=(9,91)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.90
+  Language: 270 teach events, 80829 tests, accuracy=0.75 (recent=0.82)
+  [19692s elapsed, 0.4 ep/s]
+  Checkpoint saved: checkpoints_phase6\checkpoint_ep7500.pt
+
+--- Episode 7550 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.963 err=0.0322 prog=0.0208 reward=134773.82 [LEARNING, exploring]  pos=(95,89)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.90
+  Agent 1: conf=0.992 err=0.0061 prog=0.0026 reward=142580.18 [LEARNING, exploring]  pos=(72,63)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.95
+  Agent 2: conf=0.965 err=0.0504 prog=0.0272 reward=137174.77 [LEARNING, exploring]  pos=(49,42)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.75
+  Language: 270 teach events, 81461 tests, accuracy=0.75 (recent=0.88)
+  [19827s elapsed, 0.4 ep/s]
+
+--- Episode 7600 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.973 err=0.0264 prog=0.0165 reward=135700.58 [LEARNING, exploring]  pos=(93,32)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.85
+  Agent 1: conf=0.896 err=0.1217 prog=0.0627 reward=143428.00 [LEARNING, exploring]  pos=(48,56)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.85
+  Agent 2: conf=0.967 err=0.0327 prog=0.0159 reward=138022.75 [LEARNING, settled]  pos=(8,75)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.90
+  Language: 273 teach events, 82054 tests, accuracy=0.75 (recent=0.88)
+  [19963s elapsed, 0.4 ep/s]
+
+--- Episode 7650 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.941 err=0.0863 prog=0.0555 reward=136479.44 [LEARNING, exploring]  pos=(54,66)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.85
+  Agent 1: conf=0.966 err=0.0702 prog=0.0460 reward=143845.75 [LEARNING, settled]  pos=(39,67)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.85
+  Agent 2: conf=0.939 err=0.0882 prog=0.0555 reward=138731.22 [LEARNING, settled]  pos=(29,22)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.90
+  Language: 273 teach events, 82681 tests, accuracy=0.75 (recent=0.86)
+  [20104s elapsed, 0.4 ep/s]
+
+--- Episode 7700 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.874 err=0.1480 prog=0.0970 reward=137461.82 [LEARNING, exploring]  pos=(42,67)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.75
+  Agent 1: conf=0.920 err=0.0932 prog=0.0414 reward=144459.97 [LEARNING, exploring]  pos=(44,63)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.70
+  Agent 2: conf=0.967 err=0.0389 prog=0.0278 reward=139522.32 [LEARNING, exploring]  pos=(14,31)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.80
+  Language: 276 teach events, 83305 tests, accuracy=0.75 (recent=0.78)
+  [20242s elapsed, 0.4 ep/s]
+
+--- Episode 7750 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.975 err=0.0159 prog=0.0100 reward=138381.79 [LEARNING, exploring]  pos=(19,55)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.85
+  Agent 1: conf=0.966 err=0.0265 prog=0.0123 reward=145096.69 [LEARNING, exploring]  pos=(93,64)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=1.00
+  Agent 2: conf=0.980 err=0.0078 prog=0.0040 reward=140250.16 [LEARNING, settled]  pos=(16,81)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.70
+  Language: 276 teach events, 83891 tests, accuracy=0.75 (recent=0.82)
+  [20377s elapsed, 0.4 ep/s]
+
+--- Episode 7800 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.857 err=0.1771 prog=0.1265 reward=139244.57 [LEARNING, exploring]  pos=(13,58)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.70
+  Agent 1: conf=0.915 err=0.1363 prog=0.0782 reward=145727.35 [LEARNING, exploring]  pos=(99,59)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.90
+  Agent 2: conf=0.911 err=0.0860 prog=0.0279 reward=140927.35 [LEARNING, exploring]  pos=(18,66)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.85
+  Language: 279 teach events, 84542 tests, accuracy=0.75 (recent=0.84)
+  [20512s elapsed, 0.4 ep/s]
+
+--- Episode 7850 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.949 err=0.0094 prog=0.0037 reward=139923.70 [LEARNING, settled]  pos=(76,41)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.85
+  Agent 1: conf=0.938 err=0.0714 prog=0.0529 reward=146309.50 [LEARNING, exploring]  pos=(61,70)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.90
+  Agent 2: conf=0.995 err=0.0030 prog=0.0009 reward=141580.71 [plateau, exploring]  pos=(20,82)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.90
+  Language: 279 teach events, 85207 tests, accuracy=0.75 (recent=0.84)
+  [20648s elapsed, 0.4 ep/s]
+
+--- Episode 7900 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.942 err=0.0375 prog=0.0142 reward=140359.75 [LEARNING, settled]  pos=(10,63)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.70
+  Agent 1: conf=0.988 err=0.0013 prog=0.0002 reward=146902.44 [plateau, exploring]  pos=(37,88)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.90
+  Agent 2: conf=0.971 err=0.0404 prog=0.0196 reward=142310.73 [LEARNING, exploring]  pos=(4,61)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 282 teach events, 85844 tests, accuracy=0.75 (recent=0.84)
+  [20783s elapsed, 0.4 ep/s]
+
+--- Episode 7950 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.947 err=0.0366 prog=0.0204 reward=140896.49 [LEARNING, exploring]  pos=(48,36)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.85
+  Agent 1: conf=0.986 err=0.0009 prog=0.0002 reward=147368.56 [plateau, exploring]  pos=(82,82)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.90
+  Agent 2: conf=0.983 err=0.0025 prog=0.0014 reward=143034.06 [LEARNING, exploring]  pos=(16,87)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 282 teach events, 86468 tests, accuracy=0.75 (recent=0.90)
+  [20919s elapsed, 0.4 ep/s]
+
+--- Episode 8000 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.968 err=0.0472 prog=0.0427 reward=141629.69 [LEARNING, exploring]  pos=(40,56)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.90
+  Agent 1: conf=0.958 err=0.0489 prog=0.0343 reward=147887.90 [LEARNING, exploring]  pos=(44,71)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.95
+  Agent 2: conf=0.973 err=0.0061 prog=0.0011 reward=143783.23 [LEARNING, settled]  pos=(89,16)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 285 teach events, 87129 tests, accuracy=0.75 (recent=0.94)
+  [21053s elapsed, 0.4 ep/s]
+  Checkpoint saved: checkpoints_phase6\checkpoint_ep8000.pt
+
+--- Episode 8050 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.936 err=0.1043 prog=0.0735 reward=142482.59 [LEARNING, exploring]  pos=(54,49)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.85
+  Agent 1: conf=0.963 err=0.0185 prog=0.0135 reward=148397.11 [LEARNING, exploring]  pos=(72,67)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.85
+  Agent 2: conf=0.987 err=0.0090 prog=0.0026 reward=144528.31 [LEARNING, settled]  pos=(43,66)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 285 teach events, 87788 tests, accuracy=0.75 (recent=0.86)
+  [21194s elapsed, 0.4 ep/s]
+
+--- Episode 8100 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.849 err=0.1848 prog=0.0863 reward=143475.91 [LEARNING, exploring]  pos=(71,76)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.70
+  Agent 1: conf=0.926 err=0.0957 prog=0.0536 reward=149058.72 [LEARNING, exploring]  pos=(16,69)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.85
+  Agent 2: conf=0.958 err=0.0468 prog=0.0274 reward=145370.04 [LEARNING, exploring]  pos=(9,17)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 288 teach events, 88370 tests, accuracy=0.75 (recent=0.80)
+  [21326s elapsed, 0.4 ep/s]
+
+--- Episode 8150 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.939 err=0.0594 prog=0.0222 reward=144538.92 [LEARNING, exploring]  pos=(83,51)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.90
+  Agent 1: conf=0.914 err=0.0991 prog=0.0611 reward=149848.97 [LEARNING, settled]  pos=(23,53)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.40
+  Agent 2: conf=0.894 err=0.0896 prog=0.0470 reward=146267.77 [LEARNING, exploring]  pos=(97,9)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 288 teach events, 88913 tests, accuracy=0.75 (recent=0.74)
+  [21458s elapsed, 0.4 ep/s]
+
+--- Episode 8200 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.944 err=0.0471 prog=0.0248 reward=145567.07 [LEARNING, exploring]  pos=(5,70)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.95
+  Agent 1: conf=0.942 err=0.0800 prog=0.0533 reward=150714.58 [LEARNING, exploring]  pos=(14,63)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.95
+  Agent 2: conf=0.962 err=0.0150 prog=0.0040 reward=147150.10 [LEARNING, exploring]  pos=(11,86)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 291 teach events, 89447 tests, accuracy=0.75 (recent=0.96)
+  [21590s elapsed, 0.4 ep/s]
+
+--- Episode 8250 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.941 err=0.0703 prog=0.0481 reward=146448.45 [LEARNING, exploring]  pos=(54,59)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.95
+  Agent 1: conf=0.922 err=0.1034 prog=0.0332 reward=151559.19 [LEARNING, exploring]  pos=(27,66)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.95
+  Agent 2: conf=0.965 err=0.0346 prog=0.0122 reward=148088.92 [LEARNING, settled]  pos=(8,11)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 291 teach events, 90001 tests, accuracy=0.75 (recent=0.94)
+  [21732s elapsed, 0.4 ep/s]
+
+--- Episode 8300 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.935 err=0.0481 prog=0.0228 reward=147128.30 [LEARNING, exploring]  pos=(31,61)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.80
+  Agent 1: conf=0.947 err=0.0353 prog=0.0161 reward=152358.73 [LEARNING, exploring]  pos=(26,32)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.65
+  Agent 2: conf=0.987 err=0.0064 prog=0.0020 reward=148646.22 [LEARNING, exploring]  pos=(39,38)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 294 teach events, 90604 tests, accuracy=0.75 (recent=0.82)
+  [21866s elapsed, 0.4 ep/s]
+
+--- Episode 8350 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.972 err=0.0296 prog=0.0151 reward=147917.23 [LEARNING, exploring]  pos=(55,50)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.75
+  Agent 1: conf=0.977 err=0.0165 prog=0.0066 reward=153009.25 [LEARNING, exploring]  pos=(81,81)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.90
+  Agent 2: conf=0.902 err=0.1235 prog=0.0686 reward=149345.46 [LEARNING, exploring]  pos=(51,80)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.70
+  Language: 294 teach events, 91172 tests, accuracy=0.75 (recent=0.84)
+  [22006s elapsed, 0.4 ep/s]
+
+--- Episode 8400 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.974 err=0.0155 prog=0.0037 reward=148711.76 [LEARNING, exploring]  pos=(36,50)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.75
+  Agent 1: conf=0.914 err=0.0918 prog=0.0406 reward=153609.44 [LEARNING, exploring]  pos=(41,47)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.85
+  Agent 2: conf=0.963 err=0.0448 prog=0.0295 reward=150088.05 [LEARNING, exploring]  pos=(43,25)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.80
+  Language: 297 teach events, 91687 tests, accuracy=0.75 (recent=0.86)
+  [22140s elapsed, 0.4 ep/s]
+
+--- Episode 8450 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.911 err=0.0835 prog=0.0373 reward=149421.54 [LEARNING, exploring]  pos=(72,71)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.90
+  Agent 1: conf=0.938 err=0.0424 prog=0.0112 reward=154174.76 [LEARNING, exploring]  pos=(1,81)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.85
+  Agent 2: conf=0.990 err=0.0088 prog=0.0033 reward=150662.24 [LEARNING, settled]  pos=(25,50)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 297 teach events, 92168 tests, accuracy=0.75 (recent=0.90)
+  [22274s elapsed, 0.4 ep/s]
+
+--- Episode 8500 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.956 err=0.0292 prog=0.0165 reward=150074.26 [LEARNING, settled]  pos=(35,28)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.65
+  Agent 1: conf=0.963 err=0.0287 prog=0.0111 reward=154777.90 [LEARNING, exploring]  pos=(1,60)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.95
+  Agent 2: conf=0.956 err=0.0270 prog=0.0006 reward=151206.29 [plateau, exploring]  pos=(3,53)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.75
+  Language: 300 teach events, 92675 tests, accuracy=0.75 (recent=0.80)
+  [22410s elapsed, 0.4 ep/s]
+  Checkpoint saved: checkpoints_phase6\checkpoint_ep8500.pt
+
+--- Episode 8550 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.958 err=0.0086 prog=0.0016 reward=150678.01 [LEARNING, settled]  pos=(10,71)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.85
+  Agent 1: conf=0.965 err=0.0407 prog=0.0188 reward=155239.29 [LEARNING, exploring]  pos=(40,80)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.85
+  Agent 2: conf=0.962 err=0.0315 prog=0.0142 reward=151747.77 [LEARNING, settled]  pos=(14,70)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.80
+  Language: 300 teach events, 93193 tests, accuracy=0.76 (recent=0.82)
+  [22547s elapsed, 0.4 ep/s]
+
+--- Episode 8600 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.923 err=0.0967 prog=0.0320 reward=151200.85 [LEARNING, exploring]  pos=(16,56)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.55
+  Agent 1: conf=0.933 err=0.0973 prog=0.0765 reward=155605.43 [LEARNING, exploring]  pos=(27,68)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.70
+  Agent 2: conf=0.940 err=0.0750 prog=0.0479 reward=152144.56 [LEARNING, exploring]  pos=(23,87)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.80
+  Language: 303 teach events, 93760 tests, accuracy=0.76 (recent=0.66)
+  [22688s elapsed, 0.4 ep/s]
+
+--- Episode 8650 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.913 err=0.0873 prog=0.0439 reward=151676.28 [LEARNING, settled]  pos=(19,70)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.85
+  Agent 1: conf=0.969 err=0.0233 prog=0.0100 reward=156036.05 [LEARNING, settled]  pos=(34,58)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.90
+  Agent 2: conf=0.967 err=0.0338 prog=0.0230 reward=152617.44 [LEARNING, exploring]  pos=(30,52)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 303 teach events, 94399 tests, accuracy=0.76 (recent=0.86)
+  [22825s elapsed, 0.4 ep/s]
+
+--- Episode 8700 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.931 err=0.0419 prog=0.0210 reward=152128.24 [LEARNING, exploring]  pos=(13,41)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.90
+  Agent 1: conf=0.892 err=0.1466 prog=0.0686 reward=156390.21 [LEARNING, exploring]  pos=(52,74)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.80
+  Agent 2: conf=0.945 err=0.0130 prog=0.0202 reward=153110.37 [LEARNING, exploring]  pos=(24,65)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.90
+  Language: 306 teach events, 95039 tests, accuracy=0.76 (recent=0.88)
+  [22962s elapsed, 0.4 ep/s]
+
+--- Episode 8750 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.901 err=0.1099 prog=0.0780 reward=152596.10 [LEARNING, exploring]  pos=(6,52)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.95
+  Agent 1: conf=0.991 err=0.0065 prog=0.0050 reward=156721.13 [LEARNING, settled]  pos=(43,69)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.75
+  Agent 2: conf=0.990 err=0.0061 prog=0.0027 reward=153581.89 [LEARNING, settled]  pos=(29,58)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.85
+  Language: 306 teach events, 95657 tests, accuracy=0.76 (recent=0.84)
+  [23097s elapsed, 0.4 ep/s]
+
+--- Episode 8800 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.997 err=0.0021 prog=0.0009 reward=153009.54 [plateau, settled]  pos=(5,59)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.80
+  Agent 1: conf=0.978 err=0.0084 prog=0.0055 reward=157022.00 [LEARNING, settled]  pos=(35,71)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=1.00
+  Agent 2: conf=0.972 err=0.0264 prog=0.0040 reward=154015.38 [LEARNING, exploring]  pos=(34,49)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.75
+  Language: 309 teach events, 96260 tests, accuracy=0.76 (recent=0.86)
+  [23236s elapsed, 0.4 ep/s]
+
+--- Episode 8850 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.943 err=0.0554 prog=0.0549 reward=153366.25 [LEARNING, settled]  pos=(7,52)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=1.00
+  Agent 1: conf=0.907 err=0.0603 prog=0.0235 reward=157339.67 [LEARNING, exploring]  pos=(29,89)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.85
+  Agent 2: conf=0.940 err=0.0675 prog=0.0363 reward=154402.06 [LEARNING, settled]  pos=(14,36)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 309 teach events, 96849 tests, accuracy=0.76 (recent=0.94)
+  [23389s elapsed, 0.4 ep/s]
+
+--- Episode 8900 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.991 err=0.0027 prog=0.0013 reward=153662.00 [LEARNING, settled]  pos=(86,48)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.95
+  Agent 1: conf=0.973 err=0.0260 prog=0.0152 reward=157672.24 [LEARNING, settled]  pos=(36,64)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=1.00
+  Agent 2: conf=0.994 err=0.0041 prog=0.0014 reward=154824.53 [LEARNING, exploring]  pos=(33,52)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.80
+  Language: 312 teach events, 97507 tests, accuracy=0.76 (recent=0.96)
+  [23531s elapsed, 0.4 ep/s]
+
+--- Episode 8950 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.992 err=0.0040 prog=0.0018 reward=154018.57 [LEARNING, exploring]  pos=(31,49)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.90
+  Agent 1: conf=0.980 err=0.0081 prog=0.0034 reward=158119.66 [LEARNING, exploring]  pos=(29,73)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.90
+  Agent 2: conf=0.966 err=0.0161 prog=0.0092 reward=155445.35 [LEARNING, exploring]  pos=(29,71)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.85
+  Language: 312 teach events, 98189 tests, accuracy=0.76 (recent=0.90)
+  [23675s elapsed, 0.4 ep/s]
+
+--- Episode 9000 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.976 err=0.0075 prog=0.0035 reward=154612.47 [LEARNING, exploring]  pos=(41,39)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.90
+  Agent 1: conf=0.942 err=0.0704 prog=0.0391 reward=158592.24 [LEARNING, exploring]  pos=(41,87)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.75
+  Agent 2: conf=0.928 err=0.0814 prog=0.0423 reward=156146.94 [LEARNING, exploring]  pos=(18,10)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.55
+  Language: 315 teach events, 98787 tests, accuracy=0.76 (recent=0.70)
+  [23821s elapsed, 0.4 ep/s]
+  Checkpoint saved: checkpoints_phase6\checkpoint_ep9000.pt
+
+--- Episode 9050 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.958 err=0.0274 prog=0.0096 reward=155112.20 [LEARNING, exploring]  pos=(94,69)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.95
+  Agent 1: conf=0.953 err=0.0206 prog=0.0085 reward=159057.01 [LEARNING, exploring]  pos=(87,12)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.95
+  Agent 2: conf=0.984 err=0.0178 prog=0.0085 reward=156851.89 [LEARNING, exploring]  pos=(52,77)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.75
+  Language: 315 teach events, 99427 tests, accuracy=0.76 (recent=0.88)
+  [23972s elapsed, 0.4 ep/s]
+
+--- Episode 9100 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.984 err=0.0069 prog=0.0029 reward=155773.49 [LEARNING, settled]  pos=(55,38)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.75
+  Agent 1: conf=0.989 err=0.0140 prog=0.0100 reward=159498.11 [LEARNING, exploring]  pos=(51,78)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.95
+  Agent 2: conf=0.908 err=0.1028 prog=0.0576 reward=157589.34 [LEARNING, exploring]  pos=(73,76)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 318 teach events, 100040 tests, accuracy=0.76 (recent=0.88)
+  [24120s elapsed, 0.4 ep/s]
+
+--- Episode 9150 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.993 err=0.0056 prog=0.0026 reward=156449.34 [LEARNING, exploring]  pos=(5,50)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.75
+  Agent 1: conf=0.949 err=0.0837 prog=0.0560 reward=159957.15 [LEARNING, exploring]  pos=(50,92)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.80
+  Agent 2: conf=0.924 err=0.0821 prog=0.0516 reward=158339.74 [LEARNING, exploring]  pos=(16,40)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.85
+  Language: 318 teach events, 100672 tests, accuracy=0.76 (recent=0.82)
+  [24268s elapsed, 0.4 ep/s]
+
+--- Episode 9200 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.954 err=0.0577 prog=0.0328 reward=157005.00 [LEARNING, settled]  pos=(26,45)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.70
+  Agent 1: conf=0.969 err=0.0159 prog=0.0007 reward=160441.44 [plateau, exploring]  pos=(47,76)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=1.00
+  Agent 2: conf=0.891 err=0.1677 prog=0.0920 reward=159018.44 [LEARNING, exploring]  pos=(10,49)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 321 teach events, 101325 tests, accuracy=0.76 (recent=0.88)
+  [24415s elapsed, 0.4 ep/s]
+
+--- Episode 9250 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.988 err=0.0074 prog=0.0036 reward=157664.10 [LEARNING, settled]  pos=(31,42)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.70
+  Agent 1: conf=0.982 err=0.0056 prog=0.0020 reward=160840.99 [LEARNING, exploring]  pos=(41,82)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.95
+  Agent 2: conf=0.983 err=0.0251 prog=0.0102 reward=159462.34 [LEARNING, exploring]  pos=(42,30)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 321 teach events, 101986 tests, accuracy=0.76 (recent=0.86)
+  [24561s elapsed, 0.4 ep/s]
+
+--- Episode 9300 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.943 err=0.0438 prog=0.0226 reward=158404.35 [LEARNING, exploring]  pos=(2,62)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=1.00
+  Agent 1: conf=0.973 err=0.0435 prog=0.0272 reward=161343.01 [LEARNING, settled]  pos=(52,80)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.80
+  Agent 2: conf=0.901 err=0.0942 prog=0.0538 reward=160211.02 [LEARNING, exploring]  pos=(15,21)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.90
+  Language: 324 teach events, 102609 tests, accuracy=0.76 (recent=0.92)
+  [24710s elapsed, 0.4 ep/s]
+
+--- Episode 9350 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.924 err=0.0907 prog=0.0317 reward=159163.47 [LEARNING, exploring]  pos=(42,33)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.80
+  Agent 1: conf=0.847 err=0.2383 prog=0.1164 reward=161883.98 [LEARNING, exploring]  pos=(77,63)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.85
+  Agent 2: conf=0.931 err=0.0689 prog=0.0402 reward=161076.43 [LEARNING, exploring]  pos=(32,89)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.90
+  Language: 324 teach events, 103191 tests, accuracy=0.76 (recent=0.84)
+  [24856s elapsed, 0.4 ep/s]
+
+--- Episode 9400 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.966 err=0.0096 prog=0.0272 reward=159925.96 [LEARNING, exploring]  pos=(28,31)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.85
+  Agent 1: conf=0.959 err=0.0145 prog=0.0048 reward=162587.28 [LEARNING, exploring]  pos=(80,84)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.80
+  Agent 2: conf=0.888 err=0.1202 prog=0.0258 reward=161931.11 [LEARNING, settled]  pos=(25,91)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.95
+  Language: 327 teach events, 103770 tests, accuracy=0.76 (recent=0.88)
+  [25010s elapsed, 0.4 ep/s]
+
+--- Episode 9450 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.935 err=0.0591 prog=0.0245 reward=160663.85 [LEARNING, exploring]  pos=(1,38)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=1.00
+  Agent 1: conf=0.977 err=0.0096 prog=0.0014 reward=163300.48 [LEARNING, exploring]  pos=(26,79)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.90
+  Agent 2: conf=0.913 err=0.0785 prog=0.0361 reward=162806.98 [LEARNING, exploring]  pos=(3,10)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 327 teach events, 104326 tests, accuracy=0.76 (recent=0.96)
+  [25190s elapsed, 0.4 ep/s]
+
+--- Episode 9500 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.953 err=0.0384 prog=0.0208 reward=161186.84 [LEARNING, settled]  pos=(3,31)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.80
+  Agent 1: conf=0.933 err=0.0541 prog=0.0243 reward=163932.76 [LEARNING, exploring]  pos=(40,84)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.95
+  Agent 2: conf=0.979 err=0.0094 prog=0.0042 reward=163616.81 [LEARNING, exploring]  pos=(57,78)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 330 teach events, 104956 tests, accuracy=0.76 (recent=0.92)
+  [25380s elapsed, 0.4 ep/s]
+  Checkpoint saved: checkpoints_phase6\checkpoint_ep9500.pt
+
+--- Episode 9550 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.980 err=0.0087 prog=0.0030 reward=161840.72 [LEARNING, exploring]  pos=(0,63)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.80
+  Agent 1: conf=0.927 err=0.1202 prog=0.0710 reward=164515.26 [LEARNING, exploring]  pos=(100,71)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.95
+  Agent 2: conf=0.912 err=0.0911 prog=0.0448 reward=164425.88 [LEARNING, exploring]  pos=(12,62)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=0.65
+  Language: 330 teach events, 105618 tests, accuracy=0.76 (recent=0.84)
+  [25569s elapsed, 0.4 ep/s]
+
+--- Episode 9600 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.915 err=0.1011 prog=0.0794 reward=162448.95 [LEARNING, exploring]  pos=(98,60)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.55
+  Agent 1: conf=0.945 err=0.0799 prog=0.0446 reward=165093.91 [LEARNING, exploring]  pos=(1,55)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=0.60
+  Agent 2: conf=0.996 err=0.0022 prog=0.0007 reward=165058.86 [plateau, exploring]  pos=(20,77)
+         vocab(10): ['apple', 'flower', 'ball', 'rock', 'dog', 'water', 'fire', 'cat', 'banana', 'book']  naming_acc=1.00
+  Language: 333 teach events, 106260 tests, accuracy=0.76 (recent=0.68)
+  [25762s elapsed, 0.4 ep/s]
+
+--- Episode 9650 | Stage 3 | Temp 0.600 ---
+  Agent 0: conf=0.926 err=0.1052 prog=0.0848 reward=163087.56 [LEARNING, exploring]  pos=(65,24)
+         vocab(10): ['apple', 'rock', 'ball', 'flower', 'water', 'cat', 'banana', 'fire', 'dog', 'book']  naming_acc=0.90
+  Agent 1: conf=0.920 err=0.0756 prog=0.0548 reward=165676.76 [LEARNING, exploring]  pos=(65,66)
+         vocab(10): ['apple', 'ball', 'rock', 'flower', 'water', 'dog', 'cat', 'fire', 'banana', 'book']  naming_acc=1.00
+  Agent 2: conf=0.973 err=0.0266 prog=0.0116 reward=165530.24 [LEARNING, settled]  pos=(41,29)

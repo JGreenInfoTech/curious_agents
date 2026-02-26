@@ -4,7 +4,7 @@
 
 ## What This Is
 
-Small neural agents (~86K params each) that explore a structured knowledge environment driven purely by intrinsic curiosity. There is no punishment, no negative reward signal. Prediction error is neutral information — the agent is drawn toward interesting things (learning progress), not fleeing from bad things.
+Small neural agents (~123K params each) that explore a structured knowledge environment driven purely by intrinsic curiosity. There is no punishment, no negative reward signal. Prediction error is neutral information — the agent is drawn toward interesting things (learning progress), not fleeing from bad things.
 
 This is part of a larger research program studying emergent cognition, communication, and meta-awareness in small agent systems.
 
@@ -15,7 +15,8 @@ This is part of a larger research program studying emergent cognition, communica
 - Phase 3.5 (property vocabulary): ✅ Complete — 5 property words (dangerous/edible/animate/warm/bright), 20-action policy, 154D perception, property discrimination head
 - Phase 4 (spatial memory + communication scaffolding): ✅ Complete — SpatialMemory (154D perception with decay), asymmetric starts, directed discovery, referral reward, joint curiosity bonus
 - Phase 5 (disambiguation pressure): ✅ Complete — property-varying object instances + property-consequential rewards (danger penalty, food bonus)
-- Phase 6 (GRU recurrent architecture + food events): 🔄 Active — GRU hidden state (64D h_t) replaces single-step encoder state; food event bonus (+0.5/step for 20-step windows); event coordination tracking
+- Phase 6 (GRU recurrent architecture + food events): ✅ Complete (baseline) — GRU hidden state (64D h_t) replaces single-step encoder state; food event bonus (+0.5/step for 20-step windows); event coordination tracking; Phase 6 run to ep10000 establishes pre-Stage-4 baseline
+- Stage 4 (reference game grammar pressure): 🔄 Active — 35% of episodes are reference games requiring Scout→Runner coordination; 164D perception with goal class token; fresh training run from ep0 (logs_stage4/)
 
 ## Architecture
 
@@ -27,8 +28,9 @@ This is part of a larger research program studying emergent cognition, communica
 - Agents perceive structured properties, not pixels
 
 ### Agent (`agents/curious_agent.py`)
-- **Perception encoder**: 154D flat perception → 64D internal state (NormedLinear + GELU + Tanh)
-  - 129D environment perception + 10D object utterance slots + 5D property utterance slots + 10D spatial memory
+- **Perception encoder**: 164D flat perception → 64D internal state (NormedLinear + GELU + Tanh)
+  - 129D environment perception + 10D object utterance slots + 5D property utterance slots + 10D spatial memory + 10D goal class token
+- **Goal class token**: 10D one-hot vector appended to perception. Non-zero only for the Runner agent during reference game episodes, encoding the target object class. Zero for all agents in normal episodes and for Scout/free agents in reference games. (Stage 4)
 - **GRU hidden state**: 64D h_t persists across steps within an episode; reset to zeros at episode start. Encoder output + h_{t-1} → h_t via GRUCell. Hidden states are detached during collection; BPTT runs through full trajectory during policy update (Phase 6).
 - **Forward model**: Predicts next internal state from (state, movement-action). Self-supervised. Core of curiosity. Utterance actions map to "stay" for forward model purposes.
 - **Policy**: REINFORCE with value baseline. Selects from **20 actions**: move N/S/E/W, stay, + 10 object-word emissions + 5 property-word emissions
@@ -47,9 +49,11 @@ This is part of a larger research program studying emergent cognition, communica
 
 ### Training (`training/trainer.py`)
 - Multi-agent coordination with helping radius
-- Curriculum progression (Stage 1→2→3)
+- Curriculum progression (Stage 1→2→3→4)
 - Temperature-annealed exploration
 - Checkpointing and metrics logging
+- **Reference game episodes** (Stage 4): `run_reference_game_episode()` — 35-step episodes where Scout (within perception range of target) communicates to Runner (outside perception range, given goal class token). Three-point geometry with toroidal rejection sampling ensures distance constraints. Terminal reward applied to Scout and Runner experience buffers at episode end.
+- **`_place_ref_game_agents()`**: Scout placed 10u from target (within perception_radius=15); Runner placed 12u from Scout in the opposite direction (22u from target, outside perception range). Seeded `np.random.RandomState(episode * 53)` for reproducibility.
 
 ### Visualization (`analysis/visualizer.py`)
 - 6-panel matplotlib dashboard (2×3 grid):
@@ -60,8 +64,8 @@ This is part of a larger research program studying emergent cognition, communica
 
 ### Analysis (`analyze_run.py`)
 - Tabular summary from JSON log files across all episodes
-- Three sections: `core` (error, progress, confidence, reward), `lang` (vocab, naming accuracy, losses), `comm` (utterance rates, referral/joint rewards, spatial memory, property vocab)
-- CLI flags: `--log-dir`, `--ep-min`, `--every N`, `--section [all|core|lang|comm]`
+- Four sections: `core` (error, progress, confidence, reward), `lang` (vocab, naming accuracy, losses), `comm` (utterance rates, referral/joint rewards, spatial memory, property vocab), `refgame` (reference game success/failure/timeout rates, property usage, grammar signal)
+- CLI flags: `--log-dir`, `--ep-min`, `--every N`, `--section [all|core|lang|comm|refgame]`
 
 ## Quick Start
 
@@ -82,6 +86,10 @@ python run.py                              # Default: 3 agents, 5000 episodes (l
 python run.py --episodes 1000              # Quick run
 python run.py --agents 5 --visualize       # 5 agents with dashboard snapshots
 python run.py --resume checkpoints_phase6/checkpoint_ep500.pt  # Resume from Phase 6 checkpoint
+
+# Stage 4 (reference game, 164D perception) — fresh run required:
+python run.py --episodes 10000 --log-dir logs_stage4 --checkpoint-dir checkpoints_stage4
+python run.py --resume checkpoints_stage4/checkpoint_ep5000.pt --log-dir logs_stage4 --checkpoint-dir checkpoints_stage4
 ```
 
 ### CLI Options
@@ -94,8 +102,8 @@ python run.py --resume checkpoints_phase6/checkpoint_ep500.pt  # Resume from Pha
 --visualize       Enable periodic dashboard PNG saves
 --viz-freq N      Dashboard save frequency (default: every 200 episodes)
 --test            Quick 50-episode smoke test
---log-dir DIR     Log output directory (default: logs_phase6)
---checkpoint-dir  Checkpoint directory (default: checkpoints_phase6)
+--log-dir DIR     Log output directory (default: logs_stage4)
+--checkpoint-dir  Checkpoint directory (default: checkpoints_stage4)
 ```
 
 ## Reviewing Training Runs
@@ -109,8 +117,10 @@ python analyze_run.py                        # Full summary + all metrics
 python analyze_run.py --section lang         # Language/Phase 2 metrics only
 python analyze_run.py --section core         # Curiosity/reward metrics only
 python analyze_run.py --section comm         # Communication/memory/property metrics (Phase 3+)
+python analyze_run.py --section refgame      # Reference game metrics (Stage 4: suc%, wrng%, tout%, prop%, cprop%)
 python analyze_run.py --every 100            # Every 100th episode
 python analyze_run.py --ep-min 500           # Skip warmup, start from ep 500
+python analyze_run.py --log-dir logs_stage4 --section refgame --ep-min 5000  # Stage 4 ref game analysis
 ```
 
 ### After training — visual
@@ -146,16 +156,21 @@ viz.plot_from_checkpoint('checkpoints/checkpoint_ep1000.pt', metrics_dir='logs')
 18. **Event coordination rate** — `arr` column in `--section comm`. Shows how many distinct agents reached the event object during its active window. Starts near 1 (only the agent that stumbled on it). Should approach 3 as utterances reliably guide peers to the event location before it closes.
 19. **Property utterances preceding peer arrivals** — In episodes with a food event, watch for agents emitting a food-related property word (edible) shortly before a second agent arrives at the event object. Early sign that property communication is providing directional value beyond object words alone.
 20. **`disc_loss` stabilizing after GRU convergence** — The GRU changes the internal representation space; discrimination loss may spike briefly as the encoder adjusts to temporal context. Should re-stabilize once GRU hidden states develop consistent structure.
+21. **`suc%` rising in `--section refgame`** — Reference game success rate (correct variant reached). Starts low (~40% in ep5000 window) as agents learn to communicate. Target: 70%+ by ep8000. (`--section refgame`, `--log-dir logs_stage4`, `--ep-min 5000`)
+22. **`cprop%` rising alongside `suc%`** — Fraction of reference games where Scout emitted the *correct* property word (e.g., "dangerous" for poisonous apple). Key diagnostic: if `suc%` rises but `cprop%` is flat, Runner is succeeding by other means (investigate). If both rise together, grammar is driving success.
+23. **`wrng%` falling** — Wrong-variant rate (Runner reached the wrong apple/cat). Starts near 0 (Runner usually times out rather than guessing), peaks as Runner begins navigating aggressively, then falls as Scout communication becomes reliable. A `wrng%` peak is a healthy sign that Runner is actively using Scout's utterances.
+24. **`avg_dist` falling** — Average Runner minimum distance to target across reference game episodes. Should fall from ~20+ early (Runner barely moves toward target) toward <10 as Scout communication becomes actionable.
+25. **Ambiguous game rate stable at ~17%** — `amb%` column shows fraction of reference games with two objects sharing the same class (apple/apple_2, cat/cat_2). Should stay near 17% (2 of 12 objects are variants). If it diverges, check target selection logic.
 
 ## Reward Architecture (Critical Design Choice)
 
 ```
-reward = max(0, prev_error - curr_error)  +  helping_bonus  +  exploration_bonus  +  naming_bonus  +  prop_naming  +  comm_bonus  +  prop_comm  +  referral_bonus  +  joint_bonus  +  food_bonus  +  danger_penalty
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^     ^^^^^^^^^^^^      ^^^^^^^^^^^^^^^^^     ^^^^^^^^^^^^     ^^^^^^^^^^     ^^^^^^^^^^     ^^^^^^^^^     ^^^^^^^^^^^^^     ^^^^^^^^^^     ^^^^^^^^^^     ^^^^^^^^^^^^^^
-         Curiosity: learning progress         Others learn      Anti-stagnation       Correct obj      Correct prop   Obj utterance  Prop utterance Agent's word      Two agents     +0.05/step     -0.2/step
-         (ONLY positive)                      near you          (tiny constant)       name nearby      word nearby    matches peer   matches peer   led partner to    exploring       within r=8     within r=8
-                                                                                                                       disc. head     prop. head     novel discovery   together        of edible      of dangerous
-                                                                                                                       (Phase 3)      (Phase 3.5)    (Phase 4)         (Phase 4)       objects        objects
+reward = max(0, prev_error - curr_error)  +  helping_bonus  +  exploration_bonus  +  naming_bonus  +  prop_naming  +  comm_bonus  +  prop_comm  +  referral_bonus  +  joint_bonus  +  food_bonus  +  danger_penalty  +  ref_game_terminal
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^     ^^^^^^^^^^^^      ^^^^^^^^^^^^^^^^^     ^^^^^^^^^^^^     ^^^^^^^^^^     ^^^^^^^^^^     ^^^^^^^^^     ^^^^^^^^^^^^^     ^^^^^^^^^^     ^^^^^^^^^^     ^^^^^^^^^^^^^^     ^^^^^^^^^^^^^^^^^
+         Curiosity: learning progress         Others learn      Anti-stagnation       Correct obj      Correct prop   Obj utterance  Prop utterance Agent's word      Two agents     +0.05/step     -0.2/step          +2.0 correct variant
+         (ONLY positive)                      near you          (tiny constant)       name nearby      word nearby    matches peer   matches peer   led partner to    exploring       within r=8     within r=8         -1.0 wrong variant
+                                                                                                                       disc. head     prop. head     novel discovery   together        of edible      of dangerous       0.0 timeout
+                                                                                                                       (Phase 3)      (Phase 3.5)    (Phase 4)         (Phase 4)       objects        objects            (Stage 4, Scout+Runner)
                                                                                                                                                                                         (Phase 5)      (Phase 5)
 ```
 
@@ -164,6 +179,8 @@ reward = max(0, prev_error - curr_error)  +  helping_bonus  +  exploration_bonus
 **Food bonus** (Phase 5): `+0.05` per step while within radius 8 of an edible object (apple, banana, water). Mild positive signal for proximity to food sources.
 
 **Food event bonus** (Phase 6): `+0.5` per step (replaces the baseline `+0.05`) while within radius 8 of the event object during the active 20-step event window. Fires in 30% of episodes. Creates temporal coordination pressure: agents that communicate the event location to peers unlock higher reward density for both.
+
+**Reference game terminal reward** (Stage 4): Applied to both Scout and Runner at end of a reference game episode. `+2.0` if Runner reaches within radius 8.0 of the correct variant, `-1.0` if Runner reaches the wrong variant first, `0.0` on timeout. The `-1.0` penalty makes under-determined single-word utterances ("apple" when both apple and apple_2 exist) actively harmful — Scout must combine object + property words for Runner to distinguish variants.
 
 **No other negative signals.** Confusion remains neutral information, not suffering.
 
@@ -197,8 +214,10 @@ curious_agents/
 │   ├── __init__.py
 │   └── visualizer.py         # Matplotlib dashboard
 ├── assets/                   # (Future: images, concept graphs)
-├── logs_phase6/              # Training metrics (JSON)
-└── checkpoints_phase6/       # Saved agent states (PyTorch)
+├── logs_phase6/              # Phase 6 baseline training metrics (JSON)
+├── checkpoints_phase6/       # Phase 6 baseline agent states (PyTorch)
+├── logs_stage4/              # Stage 4 training metrics (JSON)
+└── checkpoints_stage4/       # Stage 4 agent states (PyTorch)
 ```
 
 ## Verified Results (Phase 1 Smoke Test)
@@ -208,7 +227,7 @@ curious_agents/
 ### Key Findings
 
 **Architecture works as designed:**
-- 85,774 parameters per agent — well within GTX 1080 budget
+- 123,244 parameters per agent (164D perception, Stage 4 architecture) — well within GTX 1080 budget
 - ~4.7 episodes/sec throughput on CPU
 - All components functional end-to-end: perception → prediction → curiosity → exploration → helping
 
@@ -251,11 +270,12 @@ curious_agents/
 | 1: Curiosity & Exploration | ✅ Complete | Forward model, REINFORCE policy, confidence tracking |
 | 2: Language Grounding | ✅ Complete | Ostensive teaching; circular-buffer vocabulary; naming loss + discrimination head shape encoder |
 | 3: Multi-Agent Communication | ✅ Complete | Utterance actions (15-action space); word perception slots; communicative reward |
-| 3.5: Property Vocabulary | ✅ Active | 5 property words; 20-action policy; 154D perception; property discrimination head; property comm reward |
+| 3.5: Property Vocabulary | ✅ Complete | 5 property words; 20-action policy; 154D perception; property discrimination head; property comm reward |
 | 4: Spatial Memory + Communication Scaffolding | ✅ Complete | SpatialMemory; perception_radius 30→15; asymmetric starts; referral reward (+0.4); joint curiosity bonus (+0.15) |
 | 5: Disambiguation Pressure | ✅ Complete | Property-varying instances (poisonous apple, feral cat); danger penalty (−0.2/step near dangerous objects); food bonus (+0.05/step near edible objects) |
-| 6: GRU Recurrent Architecture + Food Events | 🔄 Active | GRU hidden state (64D h_t) for temporal context across steps; food event bonus (+0.5/step during 20-step event window, 30% of episodes); event coordination tracking (arrivals metric) |
-| 7: Grammar / Compositionality | 🔮 Planned | 2-word utterances; referential games; disambiguation tasks |
+| 6: GRU Recurrent Architecture + Food Events | ✅ Complete (baseline) | GRU hidden state (64D h_t) for temporal context across steps; food event bonus (+0.5/step during 20-step event window, 30% of episodes); event coordination tracking (arrivals metric) |
+| Stage 4: Reference Game Grammar Pressure | 🔄 Active | 35% of ep5000+ episodes are reference games (Scout→Runner coordination); 164D perception (+10D goal class token); terminal reward (+2.0/−1.0/0); `_place_ref_game_agents()` with toroidal rejection sampling; fresh training run (logs_stage4/) |
+| 7: Grammar / Compositionality | 🔮 Planned | Confirmed multi-word utterances (noun+property); analyze emergent compositional structure |
 | 7: Meta-Cognition | 🔮 Planned | Hierarchical self-modeling, awareness of awareness |
 | 8: Conversation | 🔮 Planned | Human-agent dialogue grounded in shared perception |
 
@@ -290,6 +310,10 @@ Designed for modest hardware:
 | Communicative reward | `+0.5` when utterance class matches nearby agent's discrimination prediction (raised from 0.2) | Approach-only shared-understanding signal. Raised from 0.2: at low temperature the policy becomes near-greedy and 0.2 was insufficient to compete with movement rewards. 0.5 gives utterances enough expected value to remain in the policy's action distribution. |
 | Entropy regularization | `entropy_coeff=0.05` subtracted from policy loss | Penalizes overconfident action distributions. Without this, REINFORCE concentrates logits on movement (~+1.5) and drives utterance logits to ~−1.0 — a gap of ~1.4 that survives even at temperature 0.6. Entropy bonus directly counteracts logit concentration, keeping utterance actions statistically reachable. Raised from 0.02 after observing gap narrowing too slowly (~0.2 units per 2000 eps). |
 | Utterance bias init | −0.2 for all utterance actions | Discourages random word emissions during early exploration. Agents move first, talk later as reward signal for utterances becomes meaningful. |
+| Goal class token | 10D one-hot appended to Runner's perception (zeros elsewhere) | Gives Runner the target class without revealing which variant. Runner knows it's looking for "apple" but not whether it's the normal or poisonous one — that information asymmetry is the forcing function for grammar. |
+| Ref game geometry | Three-point layout with toroidal rejection sampling | Scout 10u from target (within perception_radius=15, can see target); Runner 12u from Scout in opposite direction (22u from target, blind to it, within communication range of Scout). Rejection sampling loop (50 attempts) ensures `toroidal_distance(runner, target) > perception_radius` — naive `% world_size` wrapping can produce shortcuts that violate the distance constraint. |
+| Ref game terminal reward | +2.0 correct / −1.0 wrong variant / 0.0 timeout | Applied to Scout and Runner experience buffers at episode end. The −1.0 penalty makes under-determined single-word utterances actively harmful on ambiguous targets — creates direct gradient pressure for noun+property combinations. |
+| Ref game episode length | 35 steps vs 100 normal | Short window prevents Runner from succeeding by random search (~22u to cover in 35 steps requires directional navigation). Ensures Scout communication is load-bearing. |
 
 ## Theoretical Foundations
 

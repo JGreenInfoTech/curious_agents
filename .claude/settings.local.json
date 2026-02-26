@@ -36,7 +36,16 @@
       "Bash(cd /c/Users/Johnathan/ClaudeResearch/curious_agents && ls -la checkpoints/checkpoint_ep*.pt | sort -k6,7 | tail -10 2>&1)",
       "Bash(cd /c/Users/Johnathan/ClaudeResearch/curious_agents && ls -la logs/ | sort -k6,7 | tail -20 2>&1)",
       "Bash(cd /c/Users/Johnathan/ClaudeResearch/curious_agents && ls -la logs/ | sort -k6,7 | tail -15 2>&1)",
-      "Bash(cd:*)"
+      "Bash(cd:*)",
+      "Bash(ps aux:*)",
+      "Bash(python3:*)",
+      "Bash(cd /c/Users/Johnathan/ClaudeResearch/curious_agents && git add training/trainer.py && git commit --amend --no-edit 2>&1)",
+      "Bash(cat:*)",
+      "Bash(grep python:*)",
+      "Bash(wmic process where \"ProcessId='35040' or ProcessId='14652' or ProcessId='10884'\" get ProcessId,CreationDate 2>&1 && wmic process where \"ProcessId='36648' or ProcessId='30764'\" get ProcessId,CreationDate 2>&1)",
+      "Bash(taskkill /PID 35040 /F 2>&1 && taskkill /PID 14652 /F 2>&1 && taskkill /PID 30764 /F 2>&1)",
+      "Bash(cmd //c \"taskkill /PID 35040 /F\" 2>&1 && cmd //c \"taskkill /PID 14652 /F\" 2>&1 && cmd //c \"taskkill /PID 30764 /F\" 2>&1)",
+      "Bash(tasklist 2>/dev/null | grep python3.13.exe && echo \"---\" && ls -la /c/Users/Johnathan/ClaudeResearch/curious_agents/logs_stage4/ 2>&1 && ls -la /c/Users/Johnathan/ClaudeResearch/curious_agents/checkpoints_stage4/ 2>&1)"
     ]
   }
 }

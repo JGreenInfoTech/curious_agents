@@ -1,0 +1,108 @@
+[
+  {
+    "episode": 0,
+    "stage": 1,
+    "temperature": 1.998,
+    "agents": {
+      "0": {
+        "position": [
+          2.1359604866808013,
+          66.0879529090692
+        ],
+        "confidence": 0.9600946870270868,
+        "avg_error": 0.050408865744248035,
+        "avg_progress": 0.006571129895746708,
+        "total_steps": 100,
+        "vocab_size": 0,
+        "is_learning": 1,
+        "is_exploring": true,
+        "total_reward": 8.168780902202721,
+        "avg_naming_loss": 0.0,
+        "avg_discrimination_loss": 0.0,
+        "referral_reward": 0.0,
+        "joint_reward": 0.15,
+        "property_comm_reward": 0.3,
+        "property_approach_reward": 0.1,
+        "utterance_count": 79,
+        "utterance_rate": 0.79,
+        "memory_entries": 3,
+        "memory_avg_salience": 0.009044899046421051,
+        "property_utterance_count": 25,
+        "property_utterance_rate": 0.25,
+        "property_vocab_size": 2,
+        "words_known": [],
+        "naming_accuracy": 0.0
+      },
+      "1": {
+        "position": [
+          25.417588070115993,
+          74.54909171392173
+        ],
+        "confidence": 0.9632134052428233,
+        "avg_error": 0.033770989277400076,
+        "avg_progress": 0.0051989084342494605,
+        "total_steps": 100,
+        "vocab_size": 1,
+        "is_learning": 1,
+        "is_exploring": true,
+        "total_reward": 8.32183329241257,
+        "avg_naming_loss": 0.0026654417160898447,
+        "avg_discrimination_loss": 2.2824807167053223,
+        "referral_reward": 0.4,
+        "joint_reward": 0.15,
+        "property_comm_reward": 2.1,
+        "property_approach_reward": 0.7500000000000001,
+        "utterance_count": 73,
+        "utterance_rate": 0.73,
+        "memory_entries": 5,
+        "memory_avg_salience": 0.00876617655158043,
+        "property_utterance_count": 23,
+        "property_utterance_rate": 0.23,
+        "property_vocab_size": 1,
+        "words_known": [
+          "apple"
+        ],
+        "naming_accuracy": 0.0
+      },
+      "2": {
+        "position": [
+          25.34382628841267,
+          44.29349867879258
+        ],
+        "confidence": 0.9744393684624384,
+        "avg_error": 0.02445833175443113,
+        "avg_progress": 0.0022960629779845477,
+        "total_steps": 100,
+        "vocab_size": 1,
+        "is_learning": 1,
+        "is_exploring": true,
+        "total_reward": 8.062457146864578,
+        "avg_naming_loss": 0.01349656782778246,
+        "avg_discrimination_loss": 2.150216443198068,
+        "referral_reward": 6.000000000000001,
+        "joint_reward": 0.0,
+        "property_comm_reward": 1.2,
+        "property_approach_reward": 1.4500000000000015,
+        "utterance_count": 74,
+        "utterance_rate": 0.74,
+        "memory_entries": 6,
+        "memory_avg_salience": 0.01378848860040307,
+        "property_utterance_count": 26,
+        "property_utterance_rate": 0.26,
+        "property_vocab_size": 5,
+        "words_known": [
+          "apple"
+        ],
+        "naming_accuracy": 0.8571428571428571
+      }
+    },
+    "event_active": false,
+    "event_arrivals": 0,
+    "language": {
+      "total_teaching_events": 10,
+      "total_naming_tests": 7,
+      "naming_accuracy": 0.8571428571428571,
+      "recent_accuracy": 0.8571428571428571
+    }
+  }
+]
