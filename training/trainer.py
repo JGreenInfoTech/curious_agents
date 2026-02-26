@@ -428,6 +428,144 @@ class Trainer:
             agent.visit_counts.clear()
             agent.position_history = [tuple(agent.position.copy())]
 
+
+    def run_reference_game_episode(self, episode: int) -> None:
+        """
+        35-step reference game episode.
+
+        Scout is placed near the target object (sees it).
+        Runner has a goal class token and must navigate to the correct variant.
+        Terminal reward fires at episode end: +2.0 correct, -1.0 wrong variant, 0 timeout.
+        """
+        # --- Role assignment ---
+        aid_list = [a.config.agent_id for a in self.agents]
+        scout_id, runner_id = random.sample(aid_list, 2)
+
+        # --- Target selection ---
+        target_key = random.choice(list(self.env.objects.keys()))
+        target_obj = self.env.objects[target_key]
+
+        # Derive base name (strip numeric suffix for variants like apple_2, cat_2)
+        parts = target_key.split("_")
+        base_name = parts[0] if (len(parts) > 1 and parts[-1].isdigit()) else target_key
+        target_class_idx = WORD_CLASS_MAP.get(base_name, -1)
+
+        # Ambiguous: another object shares the same base name
+        same_class_keys = [
+            k for k in self.env.objects
+            if k != target_key
+            and (k.split("_")[0] if (len(k.split("_")) > 1
+                 and k.split("_")[-1].isdigit()) else k) == base_name
+        ]
+        target_is_ambiguous = len(same_class_keys) > 0
+
+        # Determine the correct property word for disambiguation (for observability only)
+        correct_property_idx = None
+        if target_is_ambiguous and same_class_keys:
+            canonical_obj = self.env.objects[same_class_keys[0]]
+            for prop_word, prop_dim in PROPERTY_DIM_MAP.items():
+                if prop_word not in ALL_PROPERTY_CLASSES:
+                    continue
+                prop_idx = ALL_PROPERTY_CLASSES.index(prop_word)
+                if (target_obj.properties[prop_dim] > 0.5
+                        and canonical_obj.properties[prop_dim] <= 0.5):
+                    correct_property_idx = prop_idx
+                    break
+
+        # --- Place agents ---
+        self._place_ref_game_agents(scout_id, runner_id, target_obj, episode)
+
+        # --- Set goal class vec for runner (zeros for all others) ---
+        for aid in aid_list:
+            self._goal_class_vecs[aid] = np.zeros(N_OBJECT_CLASSES, dtype=np.float32)
+        if 0 <= target_class_idx < N_OBJECT_CLASSES:
+            self._goal_class_vecs[runner_id][target_class_idx] = 1.0
+
+        # --- Initialize tracking state ---
+        self._ref_game_state = {
+            "active": True,
+            "scout_id": scout_id,
+            "runner_id": runner_id,
+            "target_key": target_key,
+            "target_class": base_name,
+            "target_is_ambiguous": target_is_ambiguous,
+            "outcome": "timeout",
+            "runner_min_distance": float("inf"),
+            "scout_words_emitted": [],
+            "scout_used_property": False,
+            "scout_used_correct_property": False,
+        }
+
+        # --- Run steps ---
+        runner_agent = next(a for a in self.agents if a.config.agent_id == runner_id)
+        for _ in range(self.config.ref_game_steps):
+            self.run_step()
+            dist = self.env.toroidal_distance(
+                tuple(runner_agent.position), target_obj.position
+            )
+            if dist < self._ref_game_state["runner_min_distance"]:
+                self._ref_game_state["runner_min_distance"] = dist
+
+        # --- Collect scout utterances from utterance_log ---
+        scout_obj_words = []
+        scout_prop_words = []
+        for entry in self.utterance_log:
+            if entry["agent_id"] != scout_id:
+                continue
+            if entry.get("type") == "object":
+                idx = entry.get("class_idx")
+                if idx is not None and 0 <= idx < N_OBJECT_CLASSES:
+                    scout_obj_words.append(ALL_OBJECT_CLASSES[idx])
+            elif entry.get("type") == "property":
+                idx = entry.get("property_idx")
+                if idx is not None and 0 <= idx < N_PROPERTY_CLASSES:
+                    scout_prop_words.append(ALL_PROPERTY_CLASSES[idx])
+
+        self._ref_game_state["scout_words_emitted"] = scout_obj_words + scout_prop_words
+        self._ref_game_state["scout_used_property"] = len(scout_prop_words) > 0
+        self._ref_game_state["scout_used_correct_property"] = (
+            correct_property_idx is not None
+            and ALL_PROPERTY_CLASSES[correct_property_idx] in scout_prop_words
+        )
+
+        # --- Determine outcome based on runner's final position ---
+        dist_correct = self.env.toroidal_distance(
+            tuple(runner_agent.position), target_obj.position
+        )
+        dist_wrong = float("inf")
+        for wrong_key in same_class_keys:
+            if wrong_key in self.env.objects:
+                d = self.env.toroidal_distance(
+                    tuple(runner_agent.position),
+                    self.env.objects[wrong_key].position
+                )
+                dist_wrong = min(dist_wrong, d)
+
+        if dist_correct <= self.config.ref_game_radius:
+            outcome = "correct"
+            terminal_reward = self.config.ref_game_success_reward
+        elif dist_wrong <= self.config.ref_game_radius:
+            outcome = "wrong_variant"
+            terminal_reward = self.config.ref_game_wrong_penalty
+        else:
+            outcome = "timeout"
+            terminal_reward = 0.0
+
+        self._ref_game_state["outcome"] = outcome
+
+        # --- Apply terminal reward to scout and runner's last experience entry ---
+        if terminal_reward != 0.0:
+            scout_agent = next(a for a in self.agents if a.config.agent_id == scout_id)
+            for target_agent in (runner_agent, scout_agent):
+                if target_agent.experience_buffer:
+                    target_agent.experience_buffer[-1]['reward'] += terminal_reward
+                target_agent.total_reward += terminal_reward
+
+        # --- Policy update ---
+        if episode % self.config.policy_update_freq == 0:
+            for agent in self.agents:
+                agent.update_policy(steps_per_episode=self.config.ref_game_steps)
+
     def run_step(self):
         """Execute one simulation step for all agents."""
         # Store pre-step prediction errors for helping reward
@@ -725,6 +863,13 @@ class Trainer:
         """Run one full episode."""
         self.setup_curriculum(episode)
 
+        # Reset per-episode Stage 4 state (zeros goal vecs, clear ref game tracking)
+        self._goal_class_vecs = {
+            a.config.agent_id: np.zeros(N_OBJECT_CLASSES, dtype=np.float32)
+            for a in self.agents
+        }
+        self._ref_game_state = {'active': False}
+
         # Space agents apart for information asymmetry, then possibly nudge one
         # toward an object its partner hasn't seen (directed discovery).
         self._reset_agent_positions(episode)
@@ -772,6 +917,20 @@ class Trainer:
         for agent in self.agents:
             agent.current_episode = episode
         
+        # Stage 4: 35% of episodes are reference game episodes
+        if (self.current_stage >= 4
+                and random.random() < self.config.ref_game_prob):
+            self.run_reference_game_episode(episode)
+            # Shared cleanup: vocab refresh + temperature decay
+            if (episode > 0
+                    and episode % self.teaching_config.refresh_interval_episodes == 0):
+                self.teacher.refresh_vocabularies(self.agents, self.env, episode)
+            self.temperature = max(
+                self.config.temperature_end,
+                self.temperature * self.config.temperature_decay
+            )
+            return
+
         for step in range(self.config.steps_per_episode):
             self.run_step()
         
