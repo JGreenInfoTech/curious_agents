@@ -296,6 +296,9 @@ class CuriousAgent(nn.Module):
         # Experience buffer for learning
         # Phase 6: stores (perception_np, action, reward) tuples for full trajectory replay.
         # Ordered list — one entry per step within the episode.
+        # Buffer must hold at least one full episode (100 steps) so update_policy()
+        # can replay the complete trajectory. 256 gives room for the current episode
+        # plus some history; the replay window is capped at steps_per_episode (100).
         self.experience_buffer: List[Dict] = []
         self.max_buffer_size = 256
 
@@ -777,9 +780,16 @@ class CuriousAgent(nn.Module):
 
         target = torch.tensor(target_vec, dtype=torch.float32).unsqueeze(0)  # (1, 5)
 
-        # Detach so property losses don't backprop through the encoder/GRU.
-        # The encoder/GRU may have already had its graph freed by train_language_losses
-        # in the same step; detaching avoids "backward through freed graph" errors.
+        # Intentionally detach h_t before passing it to the property head.
+        # Property losses train only the property_discrimination_head parameters —
+        # they do NOT backpropagate through encoder or GRU. This is a deliberate
+        # design choice: the encoder/GRU are already shaped by the naming and
+        # discrimination losses (train_language_losses); adding a third gradient
+        # signal through the same shared params in the same step risks "backward
+        # through freed graph" errors when train_language_losses has already
+        # released its computation graph, and risks conflicting updates to the
+        # shared representation. Detaching keeps the property head as a clean
+        # read-only consumer of the current h_t.
         state = self.internal_state.detach()
         pred = self.property_discrimination_head(state)  # (1, 5)
         loss = torch.nn.functional.binary_cross_entropy(pred, target) * self.config.property_loss_weight
@@ -844,31 +854,33 @@ class CuriousAgent(nn.Module):
         if len(self.experience_buffer) > self.max_buffer_size:
             self.experience_buffer.pop(0)
 
-    def update_policy(self, batch_size: int = 32):
+    def update_policy(self, steps_per_episode: int = 100):
         """
         REINFORCE policy gradient update with sequential GRU trajectory replay.
 
-        Phase 6: Instead of sampling random experiences and recomputing logits
-        from a detached state, we re-run the stored episode trajectory sequentially
-        through encoder → GRU. This gives each h_t fresh gradients that flow
-        properly through the GRU and encoder.
+        Phase 6: Re-runs the full episode trajectory (all 100 steps) sequentially
+        through encoder → GRU with fresh gradients. This is proper BPTT over the
+        episode — every step's h_t is computed from the replayed trajectory rather
+        than from a stored detached snapshot.
 
-        We use a contiguous window of up to `batch_size` steps from the buffer
-        (most recent experiences first) to keep the replay sequential and bounded.
+        The replay window is the most recent `steps_per_episode` experiences, which
+        corresponds exactly to the episode that just ended (update_policy is called
+        once per episode from run_episode). h starts at zeros — the same starting
+        condition as collection — so the replay is consistent.
 
         Uses value baseline to reduce variance. Only positive rewards, so
         gradients push toward actions that led to learning or helping.
         """
-        if len(self.experience_buffer) < batch_size:
+        if len(self.experience_buffer) < steps_per_episode:
             return 0.0
 
-        # Take the most recent `batch_size` experiences as a sequential window.
-        # They are stored in chronological order, so slice from the end.
-        window = self.experience_buffer[-batch_size:]
+        # Take the most recent full episode of experiences as a sequential window.
+        # experience_buffer is chronologically ordered; the last steps_per_episode
+        # entries are exactly the episode that just completed.
+        window = self.experience_buffer[-steps_per_episode:]
 
-        # Re-run the trajectory through encoder + GRU with fresh gradients.
-        # h starts as zeros (we don't have the exact episode-start hidden state
-        # saved, but the GRU can re-derive useful context from the trajectory).
+        # Re-run the full episode trajectory through encoder + GRU with fresh gradients.
+        # h_0 = zeros, matching the collection-time reset at episode start.
         h = torch.zeros(1, self.config.internal_state_dim)
 
         policy_losses = []
@@ -906,7 +918,7 @@ class CuriousAgent(nn.Module):
             torch.stack(policy_losses).sum()
             + 0.5 * torch.stack(value_losses).sum()
             + torch.stack(entropy_losses).sum()
-        ) / batch_size
+        ) / steps_per_episode
 
         self.policy_optimizer.zero_grad()
         total_loss.backward()

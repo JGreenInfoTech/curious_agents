@@ -415,14 +415,18 @@ class Trainer:
 
         # --- Phase 4: All agents perceive new state and compute prediction error ---
         # Include THIS step's utterances so agents observe simultaneous communication.
-        # Phase 6: pass hidden state in (detached). This second perceive() call within
-        # the same step advances the hidden state with the post-action perception.
+        # Phase 6: this second perceive() call within a step is for computing the
+        # prediction error only — it reads the GRU output (h_t) but does NOT carry
+        # that hidden state forward to the next step. Only the pre-action hidden state
+        # transition (Phase 1 above) advances self.hidden_states[aid], keeping
+        # collection consistent with update_policy() replay (one GRU step per timestep).
         for agent in self.agents:
             aid = agent.config.agent_id
             new_perception = self._build_perception(agent, step_utterances)
-            h_prev = self.hidden_states[aid].detach()
-            h_t = agent.perceive(new_perception, hidden_state=h_prev)
-            self.hidden_states[aid] = h_t.detach()
+            # Pass the hidden state already stored for this agent (the post-Phase-1 value).
+            # Do NOT reassign self.hidden_states[aid] from this result — the next step's
+            # Phase 1 perceive() will pick up from the Phase-1 h_t already stored above.
+            agent.perceive(new_perception, hidden_state=self.hidden_states[aid].detach())
             agent.compute_prediction_error(actions[aid])
 
         # --- Phase 4.5: Update spatial memory ---
@@ -645,10 +649,11 @@ class Trainer:
         for step in range(self.config.steps_per_episode):
             self.run_step()
         
-        # Update policies (less frequent than forward model)
+        # Update policies (less frequent than forward model).
+        # Pass steps_per_episode so update_policy() replays the full episode trajectory.
         if episode % self.config.policy_update_freq == 0:
             for agent in self.agents:
-                agent.update_policy()
+                agent.update_policy(steps_per_episode=self.config.steps_per_episode)
         
         # Refresh vocabularies periodically (encoder weights evolve)
         if (episode > 0 
