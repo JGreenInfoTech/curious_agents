@@ -121,8 +121,8 @@ def print_comm(entries: List[Dict], aids: List[str]):
         f'{"A"+a+":utt%":>7} {"putt":>5} {"ref_r":>5} {"prop_r":>6} {"prop_app":>8} {"jnt_r":>5} {"mem":>3} {"pvoc":>4}' for a in aids
     )
     print(f'\n{"=== COMM METRICS (utterances / referral / spatial memory)":<60}')
-    print(f'{"EP":>6} {"St":>2}  {agent_hdrs}')
-    print('-' * (12 + n * 54))
+    print(f'{"EP":>6} {"St":>2}  {agent_hdrs}  {"evt":>3} {"arr":>3}')
+    print('-' * (12 + n * 54 + 8))
 
     for e in entries:
         ep    = e['episode']
@@ -139,7 +139,9 @@ def print_comm(entries: List[Dict], aids: List[str]):
             mem      = d.get('memory_entries', 0)
             pvoc     = d.get('property_vocab_size', 0)
             cols.append(f'{utt_rate:>7.3f} {putt:>5.3f} {ref_r:>5.2f} {prop_r:>6.2f} {prop_app:>8.2f} {jnt_r:>5.2f} {mem:>3d} {pvoc:>4d}')
-        print(f'{ep:>6} {stage:>2}  {"  ".join(cols)}')
+        evt = 1 if e.get('event_active', False) else 0
+        arr = e.get('event_arrivals', 0)
+        print(f'{ep:>6} {stage:>2}  {"  ".join(cols)}  {evt:>3d} {arr:>3d}')
 
 
 def print_summary(entries: List[Dict], aids: List[str]):
@@ -172,6 +174,14 @@ def print_summary(entries: List[Dict], aids: List[str]):
         print(f'    Prop vocab:   {pv1} words')
         app_r = d1.get('property_approach_reward', 0.0)
         print(f'    Prop approach: {app_r:.2f}')
+
+    # Event summary
+    n_events = sum(1 for e in entries if e.get('event_active', False))
+    total_arrivals = sum(e.get('event_arrivals', 0) for e in entries)
+    avg_arrivals = total_arrivals / n_events if n_events > 0 else 0.0
+    print(f'\n  Food Events:')
+    print(f'    Episodes with event: {n_events} / {len(entries)}')
+    print(f'    Avg arrivals per event: {avg_arrivals:.2f}')
 
 
 def main():
